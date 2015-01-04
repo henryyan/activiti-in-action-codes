@@ -5,6 +5,8 @@ Activiti官方唯一推荐中文书籍——《Activiti实战》示例源码
 
 Activiti项目负责人Tijs Rademakers高度认可并推荐，根据Activiti新版本系统、深度讲解了BPMN2.0规范，以及Activiti功能、用法、技巧、实践和源代码分析。
 
+> 如果发现代码有问题请到 http://www.kafeitu.me/activiti-in-action.html 页面给我留言或者发邮件到 yanhonglei@gmail.com，多谢支持。
+
 <img src="http://www.kafeitu.me/images/activiti-in-action.jpg" width="510" />
 
 # 编辑推荐
