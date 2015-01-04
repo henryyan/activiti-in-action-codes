@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.kafeitu.me/activiti">
+  <process id="purchase-error-event-subprocess" name="办公用品采购--事件子流程(异常)" isExecutable="true">
+    <startEvent id="startevent1" name="startevent1" activiti:initiator="applyUserId">
+      <extensionElements>
+        <activiti:formProperty id="dueDate" name="到货期限" type="date" datePattern="yyyy-MM-dd" required="true"></activiti:formProperty>
+        <activiti:formProperty id="listing" name="物品清单" type="bigtext" required="true"></activiti:formProperty>
+        <activiti:formProperty id="amountMoney" name="总金额" type="double" required="true"></activiti:formProperty>
+      </extensionElements>
+    </startEvent>
+    <userTask id="deptLeaderAudit" name="领导审批" activiti:candidateGroups="deptLeader">
+      <extensionElements>
+        <activiti:formProperty id="applyUser" name="申请人" type="string" variable="applyUserId" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="dueDate" name="到货期限" type="date" datePattern="yyyy-MM-dd" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="listing" name="物品清单" type="bigtext" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="amountMoney" name="总金额" type="double" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="deptLeaderApproved" name="是否同意" type="enum">
+          <activiti:value id="true" name="同意"></activiti:value>
+          <activiti:value id="false" name="驳回"></activiti:value>
+        </activiti:formProperty>
+      </extensionElements>
+    </userTask>
+    <exclusiveGateway id="exclusivegateway1" name="Exclusive Gateway"></exclusiveGateway>
+    <sequenceFlow id="flow2" sourceRef="deptLeaderAudit" targetRef="exclusivegateway1"></sequenceFlow>
+    <userTask id="contactSupplier" name="联系供货方" activiti:candidateGroups="supportCrew">
+      <extensionElements>
+        <activiti:formProperty id="applyUser" name="申请人" type="string" variable="applyUserId" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="dueDate" name="到货期限" type="date" datePattern="yyyy-MM-dd" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="listing" name="物品清单" type="bigtext" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="amountMoney" name="总金额" type="double" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="supplier" name="供货方" type="string" required="true"></activiti:formProperty>
+        <activiti:formProperty id="bankName" name="开户行" type="string" required="true"></activiti:formProperty>
+        <activiti:formProperty id="bankAccount" name="银行账号" type="string" required="true"></activiti:formProperty>
+        <activiti:formProperty id="planDate" name="预计交货日期" type="date" datePattern="yyyy-MM-dd" required="true"></activiti:formProperty>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="flow3" sourceRef="exclusivegateway1" targetRef="contactSupplier">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${deptLeaderApproved == 'true'}]]></conditionExpression>
+    </sequenceFlow>
+    <subProcess id="subprocessPay" name="付费子流程">
+      <startEvent id="startevent2" name="Start"></startEvent>
+      <exclusiveGateway id="exclusivegateway2" name="Exclusive Gateway"></exclusiveGateway>
+      <sequenceFlow id="flow5" sourceRef="treasurerAudit" targetRef="exclusivegateway-treasurerAudit"></sequenceFlow>
+      <userTask id="generalManagerAudit" name="总经理审批" activiti:candidateGroups="generalManager">
+        <extensionElements>
+          <activiti:formProperty id="applyUser" name="申请人" type="string" variable="applyUserId" writable="false"></activiti:formProperty>
+          <activiti:formProperty id="usage" name="用途" type="bigtext" expression="${usage}" writable="false"></activiti:formProperty>
+          <activiti:formProperty id="amountMoney" name="总金额" type="double" writable="false"></activiti:formProperty>
+          <activiti:formProperty id="generalManagerApproved" name="是否同意" type="enum">
+            <activiti:value id="true" name="同意"></activiti:value>
+            <activiti:value id="false" name="驳回"></activiti:value>
+          </activiti:formProperty>
+        </extensionElements>
+      </userTask>
+      <sequenceFlow id="flow6" name="金额 &gt;= 1万元" sourceRef="exclusivegateway2" targetRef="generalManagerAudit">
+        <conditionExpression xsi:type="tFormalExpression"><![CDATA[${amountMoney >= 10000}]]></conditionExpression>
+      </sequenceFlow>
+      <exclusiveGateway id="exclusivegateway-generalManagerAudit" name="Exclusive Gateway"></exclusiveGateway>
+      <sequenceFlow id="flow7" sourceRef="generalManagerAudit" targetRef="exclusivegateway-generalManagerAudit"></sequenceFlow>
+      <userTask id="pay" name="出纳付款" activiti:candidateGroups="cashier">
+        <extensionElements>
+          <activiti:formProperty id="applyUser" name="申请人" type="string" variable="applyUserId" writable="false"></activiti:formProperty>
+          <activiti:formProperty id="usage" name="用途" type="bigtext" expression="${usage}" writable="false"></activiti:formProperty>
+          <activiti:formProperty id="supplier" name="受款方" type="string" writable="false"></activiti:formProperty>
+          <activiti:formProperty id="bankName" name="开户行" type="string" writable="false"></activiti:formProperty>
+          <activiti:formProperty id="bankAccount" name="银行账号" type="string" writable="false"></activiti:formProperty>
+        </extensionElements>
+      </userTask>
+      <sequenceFlow id="flow8" sourceRef="exclusivegateway-generalManagerAudit" targetRef="pay">
+        <conditionExpression xsi:type="tFormalExpression"><![CDATA[${generalManagerApproved == 'true'}]]></conditionExpression>
+      </sequenceFlow>
+      <endEvent id="endevent1" name="End"></endEvent>
+      <sequenceFlow id="flow9" sourceRef="pay" targetRef="endevent1"></sequenceFlow>
+      <sequenceFlow id="flow-generalManagerAudit" name="总经理不同意" sourceRef="exclusivegateway-generalManagerAudit" targetRef="errorendevent1">
+        <extensionElements>
+          <activiti:executionListener event="take" class="me.kafeitu.activiti.chapter10.listeners.HandleErrorInfoForPaymentListener"></activiti:executionListener>
+        </extensionElements>
+        <conditionExpression xsi:type="tFormalExpression"><![CDATA[${generalManagerApproved == 'false'}]]></conditionExpression>
+      </sequenceFlow>
+      <endEvent id="errorendevent1" name="TerminateEndEvent">
+        <errorEventDefinition errorRef="PAYMENT_REJECT"></errorEventDefinition>
+      </endEvent>
+      <sequenceFlow id="flow18" name="金额 &lt; 1万" sourceRef="exclusivegateway2" targetRef="pay">
+        <conditionExpression xsi:type="tFormalExpression"><![CDATA[${amountMoney < 10000}]]></conditionExpression>
+      </sequenceFlow>
+      <userTask id="treasurerAudit" name="财务审批" activiti:candidateGroups="treasurer">
+        <extensionElements>
+          <activiti:formProperty id="applyUser" name="申请人" type="string" variable="applyUserId" writable="false"></activiti:formProperty>
+          <activiti:formProperty id="usage" name="用途" type="bigtext" expression="${usage}" writable="false"></activiti:formProperty>
+          <activiti:formProperty id="amountMoney" name="总金额" type="double" writable="false"></activiti:formProperty>
+          <activiti:formProperty id="treasurerApproved" name="是否同意" type="enum">
+            <activiti:value id="true" name="同意"></activiti:value>
+            <activiti:value id="false" name="驳回"></activiti:value>
+          </activiti:formProperty>
+        </extensionElements>
+      </userTask>
+      <sequenceFlow id="flow25" sourceRef="startevent2" targetRef="treasurerAudit"></sequenceFlow>
+      <exclusiveGateway id="exclusivegateway-treasurerAudit" name="Exclusive Gateway"></exclusiveGateway>
+      <sequenceFlow id="flow26" sourceRef="exclusivegateway-treasurerAudit" targetRef="exclusivegateway2">
+        <conditionExpression xsi:type="tFormalExpression"><![CDATA[${treasurerApproved == 'true'}]]></conditionExpression>
+      </sequenceFlow>
+      <sequenceFlow id="flow-treasurerAudit" name="财务不同意" sourceRef="exclusivegateway-treasurerAudit" targetRef="errorendevent2">
+        <extensionElements>
+          <activiti:executionListener event="take" class="me.kafeitu.activiti.chapter10.listeners.HandleErrorInfoForPaymentListener"></activiti:executionListener>
+        </extensionElements>
+        <conditionExpression xsi:type="tFormalExpression"><![CDATA[${treasurerApproved == 'false'}]]></conditionExpression>
+      </sequenceFlow>
+      <endEvent id="errorendevent2" name="End">
+        <errorEventDefinition errorRef="PAYMENT_REJECT"></errorEventDefinition>
+      </endEvent>
+    </subProcess>
+    <sequenceFlow id="flow20" sourceRef="startevent1" targetRef="deptLeaderAudit"></sequenceFlow>
+    <sequenceFlow id="flow22" name="进入付费子流程" sourceRef="contactSupplier" targetRef="subprocessPay">
+      <extensionElements>
+        <activiti:executionListener event="take" expression="${execution.setVariable('usage', listing)}"></activiti:executionListener>
+      </extensionElements>
+    </sequenceFlow>
+    <userTask id="confirmReceipt" name="收货确认" activiti:assignee="${applyUserId}">
+      <extensionElements>
+        <activiti:formProperty id="applyUser" name="申请人" type="string" variable="applyUserId" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="dueDate" name="到货期限" type="date" datePattern="yyyy-MM-dd" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="listing" name="物品清单" type="bigtext" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="amountMoney" name="总金额" type="double" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="supplier" name="供货方" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="bankName" name="开户行" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="bankAccount" name="银行账号" type="string" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="planDate" name="预计交货日期" type="date" datePattern="yyyy-MM-dd" writable="false"></activiti:formProperty>
+      </extensionElements>
+    </userTask>
+    <endEvent id="endevent3" name="End"></endEvent>
+    <sequenceFlow id="flow23" sourceRef="confirmReceipt" targetRef="endevent3"></sequenceFlow>
+    <sequenceFlow id="flow24" sourceRef="subprocessPay" targetRef="confirmReceipt"></sequenceFlow>
+    <subProcess id="catchErrorForPayment" name="捕获付费子流程异常" triggeredByEvent="true">
+      <startEvent id="errorstartevent1" name="Error start">
+        <errorEventDefinition errorRef="PAYMENT_REJECT"></errorEventDefinition>
+      </startEvent>
+      <serviceTask id="recordErrorInfo" name="记录异常信息" activiti:expression="${execution.setVariable('ERROR_INFO', message)}"></serviceTask>
+      <endEvent id="endevent6" name="End"></endEvent>
+      <sequenceFlow id="flow29" sourceRef="recordErrorInfo" targetRef="endevent6"></sequenceFlow>
+      <sequenceFlow id="flow34" sourceRef="errorstartevent1" targetRef="recordErrorInfo"></sequenceFlow>
+    </subProcess>
+    <endEvent id="endevent5" name="End"></endEvent>
+    <userTask id="modifyApply" name="调整申请">
+      <extensionElements>
+        <activiti:formProperty id="dueDate" name="到货期限" type="date" expression="${dueDate}" datePattern="yyyy-MM-dd" required="true"></activiti:formProperty>
+        <activiti:formProperty id="listing" name="物品清单" type="bigtext" expression="${listing}" required="true"></activiti:formProperty>
+        <activiti:formProperty id="amountMoney" name="总金额" type="double" expression="${amountMoney}" required="true"></activiti:formProperty>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="flow30" sourceRef="exclusivegateway1" targetRef="modifyApply">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${deptLeaderApproved == 'false'}]]></conditionExpression>
+    </sequenceFlow>
+    <exclusiveGateway id="exclusivegateway6" name="Exclusive Gateway"></exclusiveGateway>
+    <sequenceFlow id="flow31" sourceRef="modifyApply" targetRef="exclusivegateway6"></sequenceFlow>
+    <sequenceFlow id="flow32" name="调整后重新申请" sourceRef="exclusivegateway6" targetRef="deptLeaderAudit">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${reApply == 'true'}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="flow33" sourceRef="exclusivegateway6" targetRef="endevent5">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${reApply == 'false'}]]></conditionExpression>
+    </sequenceFlow>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_purchase-error-event-subprocess">
+    <bpmndi:BPMNPlane bpmnElement="purchase-error-event-subprocess" id="BPMNPlane_purchase-error-event-subprocess">
+      <bpmndi:BPMNShape bpmnElement="startevent1" id="BPMNShape_startevent1">
+        <omgdc:Bounds height="35.0" width="35.0" x="15.0" y="40.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="exclusivegateway1" id="BPMNShape_exclusivegateway1">
+        <omgdc:Bounds height="40.0" width="40.0" x="239.0" y="37.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="startevent2" id="BPMNShape_startevent2">
+        <omgdc:Bounds height="35.0" width="35.0" x="30.0" y="250.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="exclusivegateway2" id="BPMNShape_exclusivegateway2">
+        <omgdc:Bounds height="40.0" width="40.0" x="301.0" y="247.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="endevent1" id="BPMNShape_endevent1">
+        <omgdc:Bounds height="35.0" width="35.0" x="200.0" y="333.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="errorendevent1" id="BPMNShape_errorendevent1">
+        <omgdc:Bounds height="35.0" width="35.0" x="535.0" y="333.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="endevent3" id="BPMNShape_endevent3">
+        <omgdc:Bounds height="35.0" width="35.0" x="675.0" y="350.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="errorendevent2" id="BPMNShape_errorendevent2">
+        <omgdc:Bounds height="35.0" width="35.0" x="116.0" y="323.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="deptLeaderAudit" id="BPMNShape_deptLeaderAudit">
+        <omgdc:Bounds height="55.0" width="105.0" x="88.0" y="30.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="confirmReceipt" id="BPMNShape_confirmReceipt">
+        <omgdc:Bounds height="55.0" width="105.0" x="640.0" y="269.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="generalManagerAudit" id="BPMNShape_generalManagerAudit">
+        <omgdc:Bounds height="55.0" width="105.0" x="431.0" y="240.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="pay" id="BPMNShape_pay">
+        <omgdc:Bounds height="55.0" width="105.0" x="269.0" y="323.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="treasurerAudit" id="BPMNShape_treasurerAudit">
+        <omgdc:Bounds height="55.0" width="105.0" x="81.0" y="240.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="contactSupplier" id="BPMNShape_contactSupplier">
+        <omgdc:Bounds height="55.0" width="105.0" x="441.0" y="30.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="subprocessPay" id="BPMNShape_subprocessPay">
+        <omgdc:Bounds height="194.0" width="570.0" x="20.0" y="200.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="endevent5" id="BPMNShape_endevent5">
+        <omgdc:Bounds height="35.0" width="35.0" x="44.0" y="118.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="errorstartevent1" id="BPMNShape_errorstartevent1">
+        <omgdc:Bounds height="35.0" width="35.0" x="40.0" y="457.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="endevent6" id="BPMNShape_endevent6">
+        <omgdc:Bounds height="35.0" width="35.0" x="280.0" y="457.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="recordErrorInfo" id="BPMNShape_recordErrorInfo">
+        <omgdc:Bounds height="55.0" width="105.0" x="120.0" y="447.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="modifyApply" id="BPMNShape_modifyApply">
+        <omgdc:Bounds height="55.0" width="105.0" x="207.0" y="108.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="exclusivegateway6" id="BPMNShape_exclusivegateway6">
+        <omgdc:Bounds height="40.0" width="40.0" x="120.0" y="115.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="catchErrorForPayment" id="BPMNShape_catchErrorForPayment">
+        <omgdc:Bounds height="121.0" width="332.0" x="20.0" y="420.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="exclusivegateway-generalManagerAudit" id="BPMNShape_exclusivegateway-generalManagerAudit">
+        <omgdc:Bounds height="40.0" width="40.0" x="463.0" y="330.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="exclusivegateway-treasurerAudit" id="BPMNShape_exclusivegateway-treasurerAudit">
+        <omgdc:Bounds height="40.0" width="40.0" x="217.0" y="247.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="flow2" id="BPMNEdge_flow2">
+        <omgdi:waypoint x="193.0" y="57.0"></omgdi:waypoint>
+        <omgdi:waypoint x="239.0" y="57.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow3" id="BPMNEdge_flow3">
+        <omgdi:waypoint x="279.0" y="57.0"></omgdi:waypoint>
+        <omgdi:waypoint x="441.0" y="57.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow5" id="BPMNEdge_flow5">
+        <omgdi:waypoint x="186.0" y="267.0"></omgdi:waypoint>
+        <omgdi:waypoint x="217.0" y="267.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow6" id="BPMNEdge_flow6">
+        <omgdi:waypoint x="341.0" y="267.0"></omgdi:waypoint>
+        <omgdi:waypoint x="431.0" y="267.0"></omgdi:waypoint>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="12.0" width="100.0" x="-35.0" y="-17.0"></omgdc:Bounds>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow7" id="BPMNEdge_flow7">
+        <omgdi:waypoint x="483.0" y="295.0"></omgdi:waypoint>
+        <omgdi:waypoint x="483.0" y="330.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow8" id="BPMNEdge_flow8">
+        <omgdi:waypoint x="463.0" y="350.0"></omgdi:waypoint>
+        <omgdi:waypoint x="374.0" y="350.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow9" id="BPMNEdge_flow9">
+        <omgdi:waypoint x="269.0" y="350.0"></omgdi:waypoint>
+        <omgdi:waypoint x="235.0" y="350.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow18" id="BPMNEdge_flow18">
+        <omgdi:waypoint x="321.0" y="287.0"></omgdi:waypoint>
+        <omgdi:waypoint x="321.0" y="323.0"></omgdi:waypoint>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="12.0" width="100.0" x="7.0" y="-11.0"></omgdc:Bounds>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow20" id="BPMNEdge_flow20">
+        <omgdi:waypoint x="50.0" y="57.0"></omgdi:waypoint>
+        <omgdi:waypoint x="88.0" y="57.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow22" id="BPMNEdge_flow22">
+        <omgdi:waypoint x="493.0" y="85.0"></omgdi:waypoint>
+        <omgdi:waypoint x="493.0" y="183.0"></omgdi:waypoint>
+        <omgdi:waypoint x="305.0" y="200.0"></omgdi:waypoint>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="11.0" width="100.0" x="6.0" y="20.0"></omgdc:Bounds>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow23" id="BPMNEdge_flow23">
+        <omgdi:waypoint x="692.0" y="324.0"></omgdi:waypoint>
+        <omgdi:waypoint x="692.0" y="350.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow24" id="BPMNEdge_flow24">
+        <omgdi:waypoint x="590.0" y="297.0"></omgdi:waypoint>
+        <omgdi:waypoint x="640.0" y="296.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow25" id="BPMNEdge_flow25">
+        <omgdi:waypoint x="65.0" y="267.0"></omgdi:waypoint>
+        <omgdi:waypoint x="81.0" y="267.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow26" id="BPMNEdge_flow26">
+        <omgdi:waypoint x="257.0" y="267.0"></omgdi:waypoint>
+        <omgdi:waypoint x="301.0" y="267.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow29" id="BPMNEdge_flow29">
+        <omgdi:waypoint x="225.0" y="474.0"></omgdi:waypoint>
+        <omgdi:waypoint x="280.0" y="474.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow30" id="BPMNEdge_flow30">
+        <omgdi:waypoint x="259.0" y="77.0"></omgdi:waypoint>
+        <omgdi:waypoint x="259.0" y="108.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow31" id="BPMNEdge_flow31">
+        <omgdi:waypoint x="207.0" y="135.0"></omgdi:waypoint>
+        <omgdi:waypoint x="160.0" y="135.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow32" id="BPMNEdge_flow32">
+        <omgdi:waypoint x="140.0" y="115.0"></omgdi:waypoint>
+        <omgdi:waypoint x="140.0" y="85.0"></omgdi:waypoint>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="11.0" width="100.0" x="-49.0" y="-2.0"></omgdc:Bounds>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow33" id="BPMNEdge_flow33">
+        <omgdi:waypoint x="120.0" y="135.0"></omgdi:waypoint>
+        <omgdi:waypoint x="79.0" y="135.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow34" id="BPMNEdge_flow34">
+        <omgdi:waypoint x="75.0" y="474.0"></omgdi:waypoint>
+        <omgdi:waypoint x="120.0" y="474.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow-generalManagerAudit" id="BPMNEdge_flow-generalManagerAudit">
+        <omgdi:waypoint x="503.0" y="350.0"></omgdi:waypoint>
+        <omgdi:waypoint x="535.0" y="350.0"></omgdi:waypoint>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="11.0" width="100.0" x="-16.0" y="-27.0"></omgdc:Bounds>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow-treasurerAudit" id="BPMNEdge_flow-treasurerAudit">
+        <omgdi:waypoint x="237.0" y="287.0"></omgdi:waypoint>
+        <omgdi:waypoint x="216.0" y="320.0"></omgdi:waypoint>
+        <omgdi:waypoint x="151.0" y="340.0"></omgdi:waypoint>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="11.0" width="100.0" x="-51.0" y="-11.0"></omgdc:Bounds>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

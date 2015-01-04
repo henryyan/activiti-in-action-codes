@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+    <title>Layout</title>
+    <link rel="stylesheet"
+          th:href="@{/css/bootstrap.min.css}"
+          href="../../css/bootstrap.min.css"/>
+</head>
+<body>
+<div class="container">
+    <div class="navbar">
+        <div class="navbar-inner">
+            <a class="brand"
+               href="https://github.com/ultraq/thymeleaf-layout-dialect">《Activiti实战》</a>
+            <ul class="nav">
+                <li>
+                    <a href="/activiti/engine/info" target="_blank">引擎信息</a>
+                </li>
+                <li>
+                    <a href="/activiti/processes">流程定义</a>
+                </li>
+                <li>
+                    <a href="/activiti/tasks">任务列表</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <h1 layout:fragment="header">Layout</h1>
+    <div layout:fragment="content">
+        Fake content
+    </div>
+</div>
+</body>
+</html>

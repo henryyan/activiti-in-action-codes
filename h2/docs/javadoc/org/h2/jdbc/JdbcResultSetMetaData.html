@@ -1,0 +1,384 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head><meta http-equiv="Content-Type" content="text/html;charset=utf-8" /><title>
+ResultSetMetaData
+</title><link rel="stylesheet" type="text/css" href="../../../stylesheet.css" />
+<script type="text/javascript" src="../../../animate.js"></script>
+</head><body onload="openLink();">
+<table class="content"><tr class="content"><td class="content"><div class="contentDiv">
+<h1>ResultSetMetaData</h1>
+Represents the meta data for a ResultSet.<br /><br />
+<table class="block"><tr onclick="return allDetails()"><th colspan="2">Methods</th></tr>
+<tr id="__0" onclick="return on(0)">
+<td class="return">String</td><td class="method">
+<a id="getCatalogName_int" href="#getCatalogName_int">getCatalogName</a>(int column)
+<div class="methodText">Returns the catalog name.</div>
+</td></tr>
+<tr onclick="return off(0)" class="detail" id="_0">
+<td class="return">String</td><td>
+<a id="getCatalogName_int" href="#getCatalogName_int">getCatalogName</a>(int column) throws SQLException
+<div class="methodText">Returns the catalog name.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">column - the column index (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the catalog name</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or invalid</div>
+</td></tr>
+<tr id="__1" onclick="return on(1)">
+<td class="return">String</td><td class="method">
+<a id="getColumnClassName_int" href="#getColumnClassName_int">getColumnClassName</a>(int column)
+<div class="methodText">Gets the Java class name of the object that will be returned
+ if ResultSet.getObject is called.</div>
+</td></tr>
+<tr onclick="return off(1)" class="detail" id="_1">
+<td class="return">String</td><td>
+<a id="getColumnClassName_int" href="#getColumnClassName_int">getColumnClassName</a>(int column) throws SQLException
+<div class="methodText">Gets the Java class name of the object that will be returned
+ if ResultSet.getObject is called.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">column - the column index (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the Java class name</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or invalid</div>
+</td></tr>
+<tr id="__2" onclick="return on(2)">
+<td class="return">int</td><td class="method">
+<a id="getColumnCount" href="#getColumnCount">getColumnCount</a>()
+<div class="methodText">Returns the number of columns.</div>
+</td></tr>
+<tr onclick="return off(2)" class="detail" id="_2">
+<td class="return">int</td><td>
+<a id="getColumnCount" href="#getColumnCount">getColumnCount</a>() throws SQLException
+<div class="methodText">Returns the number of columns.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the number of columns</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or invalid</div>
+</td></tr>
+<tr id="__3" onclick="return on(3)">
+<td class="return">int</td><td class="method">
+<a id="getColumnDisplaySize_int" href="#getColumnDisplaySize_int">getColumnDisplaySize</a>(int column)
+<div class="methodText">Gets the maximum display size for this column.</div>
+</td></tr>
+<tr onclick="return off(3)" class="detail" id="_3">
+<td class="return">int</td><td>
+<a id="getColumnDisplaySize_int" href="#getColumnDisplaySize_int">getColumnDisplaySize</a>(int column) throws SQLException
+<div class="methodText">Gets the maximum display size for this column.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">column - the column index (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the display size</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or invalid</div>
+</td></tr>
+<tr id="__4" onclick="return on(4)">
+<td class="return">String</td><td class="method">
+<a id="getColumnLabel_int" href="#getColumnLabel_int">getColumnLabel</a>(int column)
+<div class="methodText">Returns the column label.</div>
+</td></tr>
+<tr onclick="return off(4)" class="detail" id="_4">
+<td class="return">String</td><td>
+<a id="getColumnLabel_int" href="#getColumnLabel_int">getColumnLabel</a>(int column) throws SQLException
+<div class="methodText">Returns the column label.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">column - the column index (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the column label</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or invalid</div>
+</td></tr>
+<tr id="__5" onclick="return on(5)">
+<td class="return">String</td><td class="method">
+<a id="getColumnName_int" href="#getColumnName_int">getColumnName</a>(int column)
+<div class="methodText">Returns the column name.</div>
+</td></tr>
+<tr onclick="return off(5)" class="detail" id="_5">
+<td class="return">String</td><td>
+<a id="getColumnName_int" href="#getColumnName_int">getColumnName</a>(int column) throws SQLException
+<div class="methodText">Returns the column name.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">column - the column index (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the column name</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or invalid</div>
+</td></tr>
+<tr id="__6" onclick="return on(6)">
+<td class="return">int</td><td class="method">
+<a id="getColumnType_int" href="#getColumnType_int">getColumnType</a>(int column)
+<div class="methodText">Returns the data type of a column.</div>
+</td></tr>
+<tr onclick="return off(6)" class="detail" id="_6">
+<td class="return">int</td><td>
+<a id="getColumnType_int" href="#getColumnType_int">getColumnType</a>(int column) throws SQLException
+<div class="methodText">Returns the data type of a column.
+ See also java.sql.Type.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">column - the column index (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the data type</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or invalid</div>
+</td></tr>
+<tr id="__7" onclick="return on(7)">
+<td class="return">String</td><td class="method">
+<a id="getColumnTypeName_int" href="#getColumnTypeName_int">getColumnTypeName</a>(int column)
+<div class="methodText">Returns the data type name of a column.</div>
+</td></tr>
+<tr onclick="return off(7)" class="detail" id="_7">
+<td class="return">String</td><td>
+<a id="getColumnTypeName_int" href="#getColumnTypeName_int">getColumnTypeName</a>(int column) throws SQLException
+<div class="methodText">Returns the data type name of a column.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">column - the column index (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the data type name</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or invalid</div>
+</td></tr>
+<tr id="__8" onclick="return on(8)">
+<td class="return">int</td><td class="method">
+<a id="getPrecision_int" href="#getPrecision_int">getPrecision</a>(int column)
+<div class="methodText">Gets the precision for this column.</div>
+</td></tr>
+<tr onclick="return off(8)" class="detail" id="_8">
+<td class="return">int</td><td>
+<a id="getPrecision_int" href="#getPrecision_int">getPrecision</a>(int column) throws SQLException
+<div class="methodText">Gets the precision for this column.
+ This method always returns 0.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">column - the column index (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the precision</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or invalid</div>
+</td></tr>
+<tr id="__9" onclick="return on(9)">
+<td class="return">int</td><td class="method">
+<a id="getScale_int" href="#getScale_int">getScale</a>(int column)
+<div class="methodText">Gets the scale for this column.</div>
+</td></tr>
+<tr onclick="return off(9)" class="detail" id="_9">
+<td class="return">int</td><td>
+<a id="getScale_int" href="#getScale_int">getScale</a>(int column) throws SQLException
+<div class="methodText">Gets the scale for this column.
+ This method always returns 0.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">column - the column index (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the scale</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or invalid</div>
+</td></tr>
+<tr id="__10" onclick="return on(10)">
+<td class="return">String</td><td class="method">
+<a id="getSchemaName_int" href="#getSchemaName_int">getSchemaName</a>(int column)
+<div class="methodText">Returns the schema name.</div>
+</td></tr>
+<tr onclick="return off(10)" class="detail" id="_10">
+<td class="return">String</td><td>
+<a id="getSchemaName_int" href="#getSchemaName_int">getSchemaName</a>(int column) throws SQLException
+<div class="methodText">Returns the schema name.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">column - the column index (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the schema name, or "" (an empty string) if not applicable</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or invalid</div>
+</td></tr>
+<tr id="__11" onclick="return on(11)">
+<td class="return">String</td><td class="method">
+<a id="getTableName_int" href="#getTableName_int">getTableName</a>(int column)
+<div class="methodText">Returns the table name.</div>
+</td></tr>
+<tr onclick="return off(11)" class="detail" id="_11">
+<td class="return">String</td><td>
+<a id="getTableName_int" href="#getTableName_int">getTableName</a>(int column) throws SQLException
+<div class="methodText">Returns the table name.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">column - the column index (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the table name</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or invalid</div>
+</td></tr>
+<tr id="__12" onclick="return on(12)">
+<td class="return">boolean</td><td class="method">
+<a id="isAutoIncrement_int" href="#isAutoIncrement_int">isAutoIncrement</a>(int column)
+<div class="methodText">Checks if this an autoincrement column.</div>
+</td></tr>
+<tr onclick="return off(12)" class="detail" id="_12">
+<td class="return">boolean</td><td>
+<a id="isAutoIncrement_int" href="#isAutoIncrement_int">isAutoIncrement</a>(int column) throws SQLException
+<div class="methodText">Checks if this an autoincrement column.
+ It always returns false.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">column - the column index (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">false</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or invalid</div>
+</td></tr>
+<tr id="__13" onclick="return on(13)">
+<td class="return">boolean</td><td class="method">
+<a id="isCaseSensitive_int" href="#isCaseSensitive_int">isCaseSensitive</a>(int column)
+<div class="methodText">Checks if this column is case sensitive.</div>
+</td></tr>
+<tr onclick="return off(13)" class="detail" id="_13">
+<td class="return">boolean</td><td>
+<a id="isCaseSensitive_int" href="#isCaseSensitive_int">isCaseSensitive</a>(int column) throws SQLException
+<div class="methodText">Checks if this column is case sensitive.
+ It always returns true.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">column - the column index (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">true</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or invalid</div>
+</td></tr>
+<tr id="__14" onclick="return on(14)">
+<td class="return">boolean</td><td class="method">
+<a id="isCurrency_int" href="#isCurrency_int">isCurrency</a>(int column)
+<div class="methodText">Checks if this is a currency column.</div>
+</td></tr>
+<tr onclick="return off(14)" class="detail" id="_14">
+<td class="return">boolean</td><td>
+<a id="isCurrency_int" href="#isCurrency_int">isCurrency</a>(int column) throws SQLException
+<div class="methodText">Checks if this is a currency column.
+ It always returns false.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">column - the column index (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">false</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or invalid</div>
+</td></tr>
+<tr id="__15" onclick="return on(15)">
+<td class="return">boolean</td><td class="method">
+<a id="isDefinitelyWritable_int" href="#isDefinitelyWritable_int">isDefinitelyWritable</a>(int column)
+<div class="methodText">Checks whether a write on this column will definitely succeed.</div>
+</td></tr>
+<tr onclick="return off(15)" class="detail" id="_15">
+<td class="return">boolean</td><td>
+<a id="isDefinitelyWritable_int" href="#isDefinitelyWritable_int">isDefinitelyWritable</a>(int column) throws SQLException
+<div class="methodText">Checks whether a write on this column will definitely succeed.
+ It always returns false.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">column - the column index (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">false</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or invalid</div>
+</td></tr>
+<tr id="__16" onclick="return on(16)">
+<td class="return">int</td><td class="method">
+<a id="isNullable_int" href="#isNullable_int">isNullable</a>(int column)
+<div class="methodText">Checks if this is nullable column.</div>
+</td></tr>
+<tr onclick="return off(16)" class="detail" id="_16">
+<td class="return">int</td><td>
+<a id="isNullable_int" href="#isNullable_int">isNullable</a>(int column) throws SQLException
+<div class="methodText">Checks if this is nullable column. Returns
+ ResultSetMetaData.columnNullableUnknown if this is not a column of a
+ table. Otherwise, it returns ResultSetMetaData.columnNoNulls if the
+ column is not nullable, and ResultSetMetaData.columnNullable if it is
+ nullable.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">column - the column index (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">ResultSetMetaData.column*</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or invalid</div>
+</td></tr>
+<tr id="__17" onclick="return on(17)">
+<td class="return">boolean</td><td class="method">
+<a id="isReadOnly_int" href="#isReadOnly_int">isReadOnly</a>(int column)
+<div class="methodText">Checks if this column is read only.</div>
+</td></tr>
+<tr onclick="return off(17)" class="detail" id="_17">
+<td class="return">boolean</td><td>
+<a id="isReadOnly_int" href="#isReadOnly_int">isReadOnly</a>(int column) throws SQLException
+<div class="methodText">Checks if this column is read only.
+ It always returns false.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">column - the column index (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">false</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or invalid</div>
+</td></tr>
+<tr id="__18" onclick="return on(18)">
+<td class="return">boolean</td><td class="method">
+<a id="isSearchable_int" href="#isSearchable_int">isSearchable</a>(int column)
+<div class="methodText">Checks if this column is searchable.</div>
+</td></tr>
+<tr onclick="return off(18)" class="detail" id="_18">
+<td class="return">boolean</td><td>
+<a id="isSearchable_int" href="#isSearchable_int">isSearchable</a>(int column) throws SQLException
+<div class="methodText">Checks if this column is searchable.
+ It always returns true.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">column - the column index (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">true</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or invalid</div>
+</td></tr>
+<tr id="__19" onclick="return on(19)">
+<td class="return">boolean</td><td class="method">
+<a id="isSigned_int" href="#isSigned_int">isSigned</a>(int column)
+<div class="methodText">Checks if this column is signed.</div>
+</td></tr>
+<tr onclick="return off(19)" class="detail" id="_19">
+<td class="return">boolean</td><td>
+<a id="isSigned_int" href="#isSigned_int">isSigned</a>(int column) throws SQLException
+<div class="methodText">Checks if this column is signed.
+ It always returns true.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">column - the column index (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">true</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or invalid</div>
+</td></tr>
+<tr id="__20" onclick="return on(20)">
+<td class="return">boolean</td><td class="method">
+<a id="isWrapperFor_Class" href="#isWrapperFor_Class">isWrapperFor</a>(Class iface)
+<div class="methodText">[Not supported] Checks if unwrap can return an object of this class.</div>
+</td></tr>
+<tr onclick="return off(20)" class="detail" id="_20">
+<td class="return">boolean</td><td>
+<a id="isWrapperFor_Class" href="#isWrapperFor_Class">isWrapperFor</a>(Class iface) throws SQLException
+<div class="methodText">[Not supported] Checks if unwrap can return an object of this class.</div>
+</td></tr>
+<tr id="__21" onclick="return on(21)">
+<td class="return">boolean</td><td class="method">
+<a id="isWritable_int" href="#isWritable_int">isWritable</a>(int column)
+<div class="methodText">Checks whether it is possible for a write on this column to succeed.</div>
+</td></tr>
+<tr onclick="return off(21)" class="detail" id="_21">
+<td class="return">boolean</td><td>
+<a id="isWritable_int" href="#isWritable_int">isWritable</a>(int column) throws SQLException
+<div class="methodText">Checks whether it is possible for a write on this column to succeed.
+ It always returns true.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">column - the column index (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">true</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or invalid</div>
+</td></tr>
+<tr id="__22" onclick="return on(22)">
+<td class="return">T</td><td class="method">
+<a id="unwrap_Class" href="#unwrap_Class">unwrap</a>(Class iface)
+<div class="methodText">[Not supported] Return an object of this class if possible.</div>
+</td></tr>
+<tr onclick="return off(22)" class="detail" id="_22">
+<td class="return">T</td><td>
+<a id="unwrap_Class" href="#unwrap_Class">unwrap</a>(Class iface) throws SQLException
+<div class="methodText">[Not supported] Return an object of this class if possible.</div>
+</td></tr>
+</table>
+</div></td></tr></table></body></html>

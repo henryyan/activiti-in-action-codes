@@ -1,0 +1,292 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head><meta http-equiv="Content-Type" content="text/html;charset=utf-8" /><title>
+Server
+</title><link rel="stylesheet" type="text/css" href="../../../stylesheet.css" />
+<script type="text/javascript" src="../../../animate.js"></script>
+</head><body onload="openLink();">
+<table class="content"><tr class="content"><td class="content"><div class="contentDiv">
+<h1>Server</h1>
+Starts the H2 Console (web-) server, TCP, and PG server.<br /><br />
+<table class="block"><tr onclick="return allDetails()"><th colspan="2">Methods</th></tr>
+<tr id="__0" onclick="return on(0)">
+<td class="return">static Server</td><td class="method">
+<a id="createPgServer_String..." href="#createPgServer_String...">createPgServer</a>(String... args)
+<div class="methodText">Create a new PG server, but does not start it yet.</div>
+</td></tr>
+<tr onclick="return off(0)" class="detail" id="_0">
+<td class="return">static Server</td><td>
+<a id="createPgServer_String..." href="#createPgServer_String...">createPgServer</a>(String... args) throws SQLException
+<div class="methodText">Create a new PG server, but does not start it yet.
+ Example:
+ <pre>
+ Server server =
+     Server.createPgServer("-pgAllowOthers").start();</pre></div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">args - the argument list</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the server</div>
+</td></tr>
+<tr id="__1" onclick="return on(1)">
+<td class="return">static Server</td><td class="method">
+<a id="createTcpServer_String..." href="#createTcpServer_String...">createTcpServer</a>(String... args)
+<div class="methodText">Create a new TCP server, but does not start it yet.</div>
+</td></tr>
+<tr onclick="return off(1)" class="detail" id="_1">
+<td class="return">static Server</td><td>
+<a id="createTcpServer_String..." href="#createTcpServer_String...">createTcpServer</a>(String... args) throws SQLException
+<div class="methodText">Create a new TCP server, but does not start it yet. Example:
+
+ <pre>
+ Server server = Server.createTcpServer(
+     new String[] { "-tcpPort", "9123", "-tcpAllowOthers" }).start();</pre></div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">args - the argument list</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the server</div>
+</td></tr>
+<tr id="__2" onclick="return on(2)">
+<td class="return">static Server</td><td class="method">
+<a id="createWebServer_String..." href="#createWebServer_String...">createWebServer</a>(String... args)
+<div class="methodText">Create a new web server, but does not start it yet.</div>
+</td></tr>
+<tr onclick="return off(2)" class="detail" id="_2">
+<td class="return">static Server</td><td>
+<a id="createWebServer_String..." href="#createWebServer_String...">createWebServer</a>(String... args) throws SQLException
+<div class="methodText">Create a new web server, but does not start it yet. Example:
+
+ <pre>
+ Server server = Server.createWebServer(
+     new String[] { "-trace" }).start();</pre></div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">args - the argument list</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the server</div>
+</td></tr>
+<tr id="__3" onclick="return on(3)">
+<td class="return">static void</td><td class="method">
+<a id="main_String..." href="#main_String...">main</a>(String... args)
+<div class="methodText">When running without options, -tcp, -web, -browser and -pg are started.</div>
+</td></tr>
+<tr onclick="return off(3)" class="detail" id="_3">
+<td class="return">static void</td><td>
+<a id="main_String..." href="#main_String...">main</a>(String... args) throws SQLException
+<div class="methodText">When running without options, -tcp, -web, -browser and -pg are started.
+ <br />
+ Options are case sensitive. Supported options are:
+ <table>
+ <tr><td>[-help] or [-?]</td>
+ <td>Print the list of options</td></tr>
+ <tr><td>[-web]</td>
+ <td>Start the web server with the H2 Console</td></tr>
+ <tr><td>[-webAllowOthers]</td>
+ <td>Allow other computers to connect - see below</td></tr>
+ <tr><td>[-webDaemon]</td>
+ <td>Use a daemon thread</td></tr>
+ <tr><td>[-webPort &lt;port&gt;]</td>
+ <td>The port (default: 8082)</td></tr>
+ <tr><td>[-webSSL]</td>
+ <td>Use encrypted (HTTPS) connections</td></tr>
+ <tr><td>[-browser]</td>
+ <td>Start a browser connecting to the web server</td></tr>
+ <tr><td>[-tcp]</td>
+ <td>Start the TCP server</td></tr>
+ <tr><td>[-tcpAllowOthers]</td>
+ <td>Allow other computers to connect - see below</td></tr>
+ <tr><td>[-tcpDaemon]</td>
+ <td>Use a daemon thread</td></tr>
+ <tr><td>[-tcpPort &lt;port&gt;]</td>
+ <td>The port (default: 9092)</td></tr>
+ <tr><td>[-tcpSSL]</td>
+ <td>Use encrypted (SSL) connections</td></tr>
+ <tr><td>[-tcpPassword &lt;pwd&gt;]</td>
+ <td>The password for shutting down a TCP server</td></tr>
+ <tr><td>[-tcpShutdown "&lt;url&gt;"]</td>
+ <td>Stop the TCP server; example: tcp://localhost</td></tr>
+ <tr><td>[-tcpShutdownForce]</td>
+ <td>Do not wait until all connections are closed</td></tr>
+ <tr><td>[-pg]</td>
+ <td>Start the PG server</td></tr>
+ <tr><td>[-pgAllowOthers]</td>
+ <td>Allow other computers to connect - see below</td></tr>
+ <tr><td>[-pgDaemon]</td>
+ <td>Use a daemon thread</td></tr>
+ <tr><td>[-pgPort &lt;port&gt;]</td>
+ <td>The port (default: 5435)</td></tr>
+ <tr><td>[-properties "&lt;dir&gt;"]</td>
+ <td>Server properties (default: ~, disable: null)</td></tr>
+ <tr><td>[-baseDir &lt;dir&gt;]</td>
+ <td>The base directory for H2 databases (all servers)</td></tr>
+ <tr><td>[-ifExists]</td>
+ <td>Only existing databases may be opened (all servers)</td></tr>
+ <tr><td>[-trace]</td>
+ <td>Print additional trace information (all servers)</td></tr>
+ </table>
+ The options -xAllowOthers are potentially risky.
+ <br />
+ For details, see Advanced Topics / Protection against Remote Access.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">args - the command line arguments</div>
+</td></tr>
+<tr id="__4" onclick="return on(4)">
+<td class="return">static void</td><td class="method">
+<a id="openBrowser_String" href="#openBrowser_String">openBrowser</a>(String url)
+<div class="methodText">Open a new browser tab or window with the given URL.</div>
+</td></tr>
+<tr onclick="return off(4)" class="detail" id="_4">
+<td class="return">static void</td><td>
+<a id="openBrowser_String" href="#openBrowser_String">openBrowser</a>(String url) throws Exception
+<div class="methodText">Open a new browser tab or window with the given URL.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">url - the URL to open</div>
+</td></tr>
+<tr id="__5" onclick="return on(5)">
+<td class="return">static void</td><td class="method">
+<a id="shutdownTcpServer_String_String_boolean_boolean" href="#shutdownTcpServer_String_String_boolean_boolean">shutdownTcpServer</a>(String url, String password, boolean force, boolean all)
+<div class="methodText">Shutdown one or all TCP server.</div>
+</td></tr>
+<tr onclick="return off(5)" class="detail" id="_5">
+<td class="return">static void</td><td>
+<a id="shutdownTcpServer_String_String_boolean_boolean" href="#shutdownTcpServer_String_String_boolean_boolean">shutdownTcpServer</a>(String url, String password, boolean force, boolean all) throws SQLException
+<div class="methodText">Shutdown one or all TCP server. If force is set to false, the server will not
+ allow new connections, but not kill existing connections, instead it will
+ stop if the last connection is closed. If force is set to true, existing
+ connections are killed. After calling the method with force=false, it is
+ not possible to call it again with force=true because new connections are
+ not allowed. Example:
+
+ <pre>
+ Server.shutdownTcpServer(
+     &quot;tcp://localhost:9094&quot;, password, true, false);</pre></div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">url - example: tcp://localhost:9094</div>
+<div class="item">password - the password to use ("" for no password)</div>
+<div class="item">force - the shutdown (don't wait)</div>
+<div class="item">all - whether all TCP servers that are running in the JVM
+                  should be stopped</div>
+</td></tr>
+<tr id="__6" onclick="return on(6)">
+<td class="return">static void</td><td class="method">
+<a id="startWebServer_Connection" href="#startWebServer_Connection">startWebServer</a>(Connection conn)
+<div class="methodText">Start a web server and a browser that uses the given connection.</div>
+</td></tr>
+<tr onclick="return off(6)" class="detail" id="_6">
+<td class="return">static void</td><td>
+<a id="startWebServer_Connection" href="#startWebServer_Connection">startWebServer</a>(Connection conn) throws SQLException
+<div class="methodText">Start a web server and a browser that uses the given connection. The
+ current transaction is preserved. This is specially useful to manually
+ inspect the database when debugging. This method return as soon as the
+ user has disconnected.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">conn - the database connection (the database must be open)</div>
+</td></tr>
+<tr id="__7" onclick="return on(7)">
+<td class="return"></td><td class="method">
+<a id="Server_Service_String..." href="#Server_Service_String...">Server</a>(Service service, String... args)
+<div class="methodText">Create a new server for the given service.</div>
+</td></tr>
+<tr onclick="return off(7)" class="detail" id="_7">
+<td class="return"></td><td>
+<a id="Server_Service_String..." href="#Server_Service_String...">Server</a>(Service service, String... args) throws SQLException
+<div class="methodText">Create a new server for the given service.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">service - the service</div>
+<div class="item">args - the command line arguments</div>
+</td></tr>
+<tr id="__8" onclick="return on(8)">
+<td class="return">int</td><td class="method">
+<a id="getPort" href="#getPort">getPort</a>()
+<div class="methodText">Gets the port this server is listening on.</div>
+</td></tr>
+<tr onclick="return off(8)" class="detail" id="_8">
+<td class="return">int</td><td>
+<a id="getPort" href="#getPort">getPort</a>()
+<div class="methodText">Gets the port this server is listening on.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the port</div>
+</td></tr>
+<tr id="__9" onclick="return on(9)">
+<td class="return">Service</td><td class="method">
+<a id="getService" href="#getService">getService</a>()
+<div class="methodText">Get the service attached to this server.</div>
+</td></tr>
+<tr onclick="return off(9)" class="detail" id="_9">
+<td class="return">Service</td><td>
+<a id="getService" href="#getService">getService</a>()
+<div class="methodText">Get the service attached to this server.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the service</div>
+</td></tr>
+<tr id="__10" onclick="return on(10)">
+<td class="return">String</td><td class="method">
+<a id="getStatus" href="#getStatus">getStatus</a>()
+<div class="methodText">Get the status of this server.</div>
+</td></tr>
+<tr onclick="return off(10)" class="detail" id="_10">
+<td class="return">String</td><td>
+<a id="getStatus" href="#getStatus">getStatus</a>()
+<div class="methodText">Get the status of this server.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the status</div>
+</td></tr>
+<tr id="__11" onclick="return on(11)">
+<td class="return">String</td><td class="method">
+<a id="getURL" href="#getURL">getURL</a>()
+<div class="methodText">Gets the URL of this server.</div>
+</td></tr>
+<tr onclick="return off(11)" class="detail" id="_11">
+<td class="return">String</td><td>
+<a id="getURL" href="#getURL">getURL</a>()
+<div class="methodText">Gets the URL of this server.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the url</div>
+</td></tr>
+<tr id="__12" onclick="return on(12)">
+<td class="return">boolean</td><td class="method">
+<a id="isRunning_boolean" href="#isRunning_boolean">isRunning</a>(boolean traceError)
+<div class="methodText">Checks if the server is running.</div>
+</td></tr>
+<tr onclick="return off(12)" class="detail" id="_12">
+<td class="return">boolean</td><td>
+<a id="isRunning_boolean" href="#isRunning_boolean">isRunning</a>(boolean traceError)
+<div class="methodText">Checks if the server is running.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">traceError - if errors should be written</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">if the server is running</div>
+</td></tr>
+<tr id="__13" onclick="return on(13)">
+<td class="return">void</td><td class="method">
+<a id="runTool_String..." href="#runTool_String...">runTool</a>(String... args)
+</td></tr>
+<tr onclick="return off(13)" class="detail" id="_13">
+<td class="return">void</td><td>
+<a id="runTool_String..." href="#runTool_String...">runTool</a>(String... args) throws SQLException
+<div class="methodText"></div>
+</td></tr>
+<tr id="__14" onclick="return on(14)">
+<td class="return">Server</td><td class="method">
+<a id="start" href="#start">start</a>()
+<div class="methodText">Tries to start the server.</div>
+</td></tr>
+<tr onclick="return off(14)" class="detail" id="_14">
+<td class="return">Server</td><td>
+<a id="start" href="#start">start</a>() throws SQLException
+<div class="methodText">Tries to start the server.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the server if successful</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the server could not be started</div>
+</td></tr>
+<tr id="__15" onclick="return on(15)">
+<td class="return">void</td><td class="method">
+<a id="stop" href="#stop">stop</a>()
+<div class="methodText">Stops the server.</div>
+</td></tr>
+<tr onclick="return off(15)" class="detail" id="_15">
+<td class="return">void</td><td>
+<a id="stop" href="#stop">stop</a>()
+<div class="methodText">Stops the server.</div>
+</td></tr>
+</table>
+</div></td></tr></table></body></html>

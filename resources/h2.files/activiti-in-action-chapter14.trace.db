@@ -1,0 +1,9 @@
+04-08 19:59:01 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "LEAVE" not found; SQL statement:
+insert into leave (id, apply_time, end_time, leave_type, process_instance_id, reality_end_time, reality_start_time, reason, start_time, user_id) values (null, ?, ?, ?, ?, ?, ?, ?, ?, ?) [42102-167]
+04-08 19:59:01 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "LEAVE" not found; SQL statement:
+insert into leave (id, apply_time, end_time, leave_type, process_instance_id, reality_end_time, reality_start_time, reason, start_time, user_id) values (null, ?, ?, ?, ?, ?, ?, ?, ?, ?) [42102-167]
+06-21 23:32:53 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "ACT_HI_TASKINST[*] "; expected "ALTER, ANALYZE, {"; SQL statement:
+act_hi_taskinst [42001-133]

@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head><meta http-equiv="Content-Type" content="text/html;charset=utf-8" /><title>
+Array
+</title><link rel="stylesheet" type="text/css" href="../../../stylesheet.css" />
+<script type="text/javascript" src="../../../animate.js"></script>
+</head><body onload="openLink();">
+<table class="content"><tr class="content"><td class="content"><div class="contentDiv">
+<h1>Array</h1>
+Represents an ARRAY value.<br /><br />
+<table class="block"><tr onclick="return allDetails()"><th colspan="2">Methods</th></tr>
+<tr id="__0" onclick="return on(0)">
+<td class="return">void</td><td class="method">
+<a id="free" href="#free">free</a>()
+<div class="methodText">Release all resources of this object.</div>
+</td></tr>
+<tr onclick="return off(0)" class="detail" id="_0">
+<td class="return">void</td><td>
+<a id="free" href="#free">free</a>()
+<div class="methodText">Release all resources of this object.</div>
+</td></tr>
+<tr id="__1" onclick="return on(1)">
+<td class="return">Object</td><td class="method">
+<a id="getArray" href="#getArray">getArray</a>()
+<div class="methodText">Returns the value as a Java array.</div>
+</td></tr>
+<tr onclick="return off(1)" class="detail" id="_1">
+<td class="return">Object</td><td>
+<a id="getArray" href="#getArray">getArray</a>() throws SQLException
+<div class="methodText">Returns the value as a Java array.
+ This method always returns an Object[].</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the Object array</div>
+</td></tr>
+<tr id="__2" onclick="return on(2)">
+<td class="return">Object</td><td class="method">
+<a id="getArray_Map" href="#getArray_Map">getArray</a>(Map map)
+<div class="methodText">Returns the value as a Java array.</div>
+</td></tr>
+<tr onclick="return off(2)" class="detail" id="_2">
+<td class="return">Object</td><td>
+<a id="getArray_Map" href="#getArray_Map">getArray</a>(Map map) throws SQLException
+<div class="methodText">Returns the value as a Java array.
+ This method always returns an Object[].</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">map - is ignored. Only empty or null maps are supported</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the Object array</div>
+</td></tr>
+<tr id="__3" onclick="return on(3)">
+<td class="return">Object</td><td class="method">
+<a id="getArray_long_int" href="#getArray_long_int">getArray</a>(long index, int count)
+<div class="methodText">Returns the value as a Java array.</div>
+</td></tr>
+<tr onclick="return off(3)" class="detail" id="_3">
+<td class="return">Object</td><td>
+<a id="getArray_long_int" href="#getArray_long_int">getArray</a>(long index, int count) throws SQLException
+<div class="methodText">Returns the value as a Java array. A subset of the array is returned,
+ starting from the index (1 meaning the first element) and up to the given
+ object count. This method always returns an Object[].</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">index - the start index of the subset (starting with 1)</div>
+<div class="item">count - the maximum number of values</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the Object array</div>
+</td></tr>
+<tr id="__4" onclick="return on(4)">
+<td class="return">Object</td><td class="method">
+<a id="getArray_long_int_Map" href="#getArray_long_int_Map">getArray</a>(long index, int count, Map map)
+<div class="methodText">Returns the value as a Java array.</div>
+</td></tr>
+<tr onclick="return off(4)" class="detail" id="_4">
+<td class="return">Object</td><td>
+<a id="getArray_long_int_Map" href="#getArray_long_int_Map">getArray</a>(long index, int count, Map map) throws SQLException
+<div class="methodText">Returns the value as a Java array. A subset of the array is returned,
+ starting from the index (1 meaning the first element) and up to the given
+ object count. This method always returns an Object[].</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">index - the start index of the subset (starting with 1)</div>
+<div class="item">count - the maximum number of values</div>
+<div class="item">map - is ignored. Only empty or null maps are supported</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the Object array</div>
+</td></tr>
+<tr id="__5" onclick="return on(5)">
+<td class="return">int</td><td class="method">
+<a id="getBaseType" href="#getBaseType">getBaseType</a>()
+<div class="methodText">Returns the base type of the array.</div>
+</td></tr>
+<tr onclick="return off(5)" class="detail" id="_5">
+<td class="return">int</td><td>
+<a id="getBaseType" href="#getBaseType">getBaseType</a>() throws SQLException
+<div class="methodText">Returns the base type of the array. This database does support mixed type
+ arrays and therefore there is no base type.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">Types.NULL</div>
+</td></tr>
+<tr id="__6" onclick="return on(6)">
+<td class="return">String</td><td class="method">
+<a id="getBaseTypeName" href="#getBaseTypeName">getBaseTypeName</a>()
+<div class="methodText">Returns the base type name of the array.</div>
+</td></tr>
+<tr onclick="return off(6)" class="detail" id="_6">
+<td class="return">String</td><td>
+<a id="getBaseTypeName" href="#getBaseTypeName">getBaseTypeName</a>() throws SQLException
+<div class="methodText">Returns the base type name of the array. This database does support mixed
+ type arrays and therefore there is no base type.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">"NULL"</div>
+</td></tr>
+<tr id="__7" onclick="return on(7)">
+<td class="return">ResultSet</td><td class="method">
+<a id="getResultSet" href="#getResultSet">getResultSet</a>()
+<div class="methodText">Returns the value as a result set.</div>
+</td></tr>
+<tr onclick="return off(7)" class="detail" id="_7">
+<td class="return">ResultSet</td><td>
+<a id="getResultSet" href="#getResultSet">getResultSet</a>() throws SQLException
+<div class="methodText">Returns the value as a result set.
+ The first column contains the index
+ (starting with 1) and the second column the value.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the result set</div>
+</td></tr>
+<tr id="__8" onclick="return on(8)">
+<td class="return">ResultSet</td><td class="method">
+<a id="getResultSet_Map" href="#getResultSet_Map">getResultSet</a>(Map map)
+<div class="methodText">Returns the value as a result set.</div>
+</td></tr>
+<tr onclick="return off(8)" class="detail" id="_8">
+<td class="return">ResultSet</td><td>
+<a id="getResultSet_Map" href="#getResultSet_Map">getResultSet</a>(Map map) throws SQLException
+<div class="methodText">Returns the value as a result set. The first column contains the index
+ (starting with 1) and the second column the value.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">map - is ignored. Only empty or null maps are supported</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the result set</div>
+</td></tr>
+<tr id="__9" onclick="return on(9)">
+<td class="return">ResultSet</td><td class="method">
+<a id="getResultSet_long_int" href="#getResultSet_long_int">getResultSet</a>(long index, int count)
+<div class="methodText">Returns the value as a result set.</div>
+</td></tr>
+<tr onclick="return off(9)" class="detail" id="_9">
+<td class="return">ResultSet</td><td>
+<a id="getResultSet_long_int" href="#getResultSet_long_int">getResultSet</a>(long index, int count) throws SQLException
+<div class="methodText">Returns the value as a result set. The first column contains the index
+ (starting with 1) and the second column the value. A subset of the array
+ is returned, starting from the index (1 meaning the first element) and
+ up to the given object count.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">index - the start index of the subset (starting with 1)</div>
+<div class="item">count - the maximum number of values</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the result set</div>
+</td></tr>
+<tr id="__10" onclick="return on(10)">
+<td class="return">ResultSet</td><td class="method">
+<a id="getResultSet_long_int_Map" href="#getResultSet_long_int_Map">getResultSet</a>(long index, int count, Map map)
+<div class="methodText">Returns the value as a result set.</div>
+</td></tr>
+<tr onclick="return off(10)" class="detail" id="_10">
+<td class="return">ResultSet</td><td>
+<a id="getResultSet_long_int_Map" href="#getResultSet_long_int_Map">getResultSet</a>(long index, int count, Map map) throws SQLException
+<div class="methodText">Returns the value as a result set.
+ The first column contains the index
+ (starting with 1) and the second column the value.
+ A subset of the array is returned, starting from the index
+ (1 meaning the first element) and up to the given object count.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">index - the start index of the subset (starting with 1)</div>
+<div class="item">count - the maximum number of values</div>
+<div class="item">map - is ignored. Only empty or null maps are supported</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the result set</div>
+</td></tr>
+</table>
+</div></td></tr></table></body></html>

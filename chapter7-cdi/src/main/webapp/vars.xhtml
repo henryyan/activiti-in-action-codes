@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                template="/WEB-INF/templates/template.xhtml">
+    <ui:define name="content">
+        <h2>流程变量列表</h2>
+        <h:dataTable value="#{vars}" var="var" cellpadding="10" border="1">
+            <h:column>
+                <f:facet name="header">名称</f:facet>
+                #{var.name}
+            </h:column>
+            <h:column>
+                <f:facet name="header">流程实例ID</f:facet>
+                #{var.processInstanceId}
+            </h:column>
+            <h:column>
+                <f:facet name="header">任务ID</f:facet>
+                #{var.taskId}
+            </h:column>
+            <h:column>
+                <f:facet name="header">类型</f:facet>
+                #{var.variableType.typeName}
+            </h:column>
+            <h:column>
+                <f:facet name="header">值</f:facet>
+                #{var.value}
+            </h:column>
+        </h:dataTable>
+    </ui:define>
+</ui:composition>

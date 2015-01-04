@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head><meta http-equiv="Content-Type" content="text/html;charset=utf-8" /><title>
+ParameterMetaData
+</title><link rel="stylesheet" type="text/css" href="../../../stylesheet.css" />
+<script type="text/javascript" src="../../../animate.js"></script>
+</head><body onload="openLink();">
+<table class="content"><tr class="content"><td class="content"><div class="contentDiv">
+<h1>ParameterMetaData</h1>
+Information about the parameters of a prepared statement.<br /><br />
+<table class="block"><tr onclick="return allDetails()"><th colspan="2">Methods</th></tr>
+<tr id="__0" onclick="return on(0)">
+<td class="return">String</td><td class="method">
+<a id="getParameterClassName_int" href="#getParameterClassName_int">getParameterClassName</a>(int param)
+<div class="methodText">Returns the Java class name of the parameter.</div>
+</td></tr>
+<tr onclick="return off(0)" class="detail" id="_0">
+<td class="return">String</td><td>
+<a id="getParameterClassName_int" href="#getParameterClassName_int">getParameterClassName</a>(int param) throws SQLException
+<div class="methodText">Returns the Java class name of the parameter.
+ "java.lang.String" is returned if the type is not known.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">param - the column index (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the Java class name</div>
+</td></tr>
+<tr id="__1" onclick="return on(1)">
+<td class="return">int</td><td class="method">
+<a id="getParameterCount" href="#getParameterCount">getParameterCount</a>()
+<div class="methodText">Returns the number of parameters.</div>
+</td></tr>
+<tr onclick="return off(1)" class="detail" id="_1">
+<td class="return">int</td><td>
+<a id="getParameterCount" href="#getParameterCount">getParameterCount</a>() throws SQLException
+<div class="methodText">Returns the number of parameters.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the number</div>
+</td></tr>
+<tr id="__2" onclick="return on(2)">
+<td class="return">int</td><td class="method">
+<a id="getParameterMode_int" href="#getParameterMode_int">getParameterMode</a>(int param)
+<div class="methodText">Returns the parameter mode.</div>
+</td></tr>
+<tr onclick="return off(2)" class="detail" id="_2">
+<td class="return">int</td><td>
+<a id="getParameterMode_int" href="#getParameterMode_int">getParameterMode</a>(int param) throws SQLException
+<div class="methodText">Returns the parameter mode.
+ Always returns parameterModeIn.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">param - the column index (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">parameterModeIn</div>
+</td></tr>
+<tr id="__3" onclick="return on(3)">
+<td class="return">int</td><td class="method">
+<a id="getParameterType_int" href="#getParameterType_int">getParameterType</a>(int param)
+<div class="methodText">Returns the parameter type.</div>
+</td></tr>
+<tr onclick="return off(3)" class="detail" id="_3">
+<td class="return">int</td><td>
+<a id="getParameterType_int" href="#getParameterType_int">getParameterType</a>(int param) throws SQLException
+<div class="methodText">Returns the parameter type.
+ java.sql.Types.VARCHAR is returned if the data type is not known.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">param - the column index (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the data type</div>
+</td></tr>
+<tr id="__4" onclick="return on(4)">
+<td class="return">String</td><td class="method">
+<a id="getParameterTypeName_int" href="#getParameterTypeName_int">getParameterTypeName</a>(int param)
+<div class="methodText">Returns the parameter type name.</div>
+</td></tr>
+<tr onclick="return off(4)" class="detail" id="_4">
+<td class="return">String</td><td>
+<a id="getParameterTypeName_int" href="#getParameterTypeName_int">getParameterTypeName</a>(int param) throws SQLException
+<div class="methodText">Returns the parameter type name.
+ "VARCHAR" is returned if the type is not known.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">param - the column index (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the type name</div>
+</td></tr>
+<tr id="__5" onclick="return on(5)">
+<td class="return">int</td><td class="method">
+<a id="getPrecision_int" href="#getPrecision_int">getPrecision</a>(int param)
+<div class="methodText">Returns the parameter precision.</div>
+</td></tr>
+<tr onclick="return off(5)" class="detail" id="_5">
+<td class="return">int</td><td>
+<a id="getPrecision_int" href="#getPrecision_int">getPrecision</a>(int param) throws SQLException
+<div class="methodText">Returns the parameter precision.
+ The value 0 is returned if the precision is not known.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">param - the column index (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the precision</div>
+</td></tr>
+<tr id="__6" onclick="return on(6)">
+<td class="return">int</td><td class="method">
+<a id="getScale_int" href="#getScale_int">getScale</a>(int param)
+<div class="methodText">Returns the parameter scale.</div>
+</td></tr>
+<tr onclick="return off(6)" class="detail" id="_6">
+<td class="return">int</td><td>
+<a id="getScale_int" href="#getScale_int">getScale</a>(int param) throws SQLException
+<div class="methodText">Returns the parameter scale.
+ The value 0 is returned if the scale is not known.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">param - the column index (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the scale</div>
+</td></tr>
+<tr id="__7" onclick="return on(7)">
+<td class="return">int</td><td class="method">
+<a id="isNullable_int" href="#isNullable_int">isNullable</a>(int param)
+<div class="methodText">Checks if this is nullable parameter.</div>
+</td></tr>
+<tr onclick="return off(7)" class="detail" id="_7">
+<td class="return">int</td><td>
+<a id="isNullable_int" href="#isNullable_int">isNullable</a>(int param) throws SQLException
+<div class="methodText">Checks if this is nullable parameter.
+ Returns ResultSetMetaData.columnNullableUnknown..</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">param - the column index (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">ResultSetMetaData.columnNullableUnknown</div>
+</td></tr>
+<tr id="__8" onclick="return on(8)">
+<td class="return">boolean</td><td class="method">
+<a id="isSigned_int" href="#isSigned_int">isSigned</a>(int param)
+<div class="methodText">Checks if this parameter is signed.</div>
+</td></tr>
+<tr onclick="return off(8)" class="detail" id="_8">
+<td class="return">boolean</td><td>
+<a id="isSigned_int" href="#isSigned_int">isSigned</a>(int param) throws SQLException
+<div class="methodText">Checks if this parameter is signed.
+ It always returns true.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">param - the column index (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">true</div>
+</td></tr>
+<tr id="__9" onclick="return on(9)">
+<td class="return">boolean</td><td class="method">
+<a id="isWrapperFor_Class" href="#isWrapperFor_Class">isWrapperFor</a>(Class iface)
+<div class="methodText">[Not supported] Checks if unwrap can return an object of this class.</div>
+</td></tr>
+<tr onclick="return off(9)" class="detail" id="_9">
+<td class="return">boolean</td><td>
+<a id="isWrapperFor_Class" href="#isWrapperFor_Class">isWrapperFor</a>(Class iface) throws SQLException
+<div class="methodText">[Not supported] Checks if unwrap can return an object of this class.</div>
+</td></tr>
+<tr id="__10" onclick="return on(10)">
+<td class="return">T</td><td class="method">
+<a id="unwrap_Class" href="#unwrap_Class">unwrap</a>(Class iface)
+<div class="methodText">[Not supported] Return an object of this class if possible.</div>
+</td></tr>
+<tr onclick="return off(10)" class="detail" id="_10">
+<td class="return">T</td><td>
+<a id="unwrap_Class" href="#unwrap_Class">unwrap</a>(Class iface) throws SQLException
+<div class="methodText">[Not supported] Return an object of this class if possible.</div>
+</td></tr>
+</table>
+</div></td></tr></table></body></html>

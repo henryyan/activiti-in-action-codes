@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.kafeitu.me/activiti-in-action">
+  <process id="SayHelloToLeaveForActivitiExplorer" name="SayHelloToLeaveForActivitiExplorer">
+    <documentation>为了让读者熟悉Activiti Explorer专门设计</documentation>
+    <startEvent id="startevent1" name="Start">
+      <extensionElements>
+        <activiti:formProperty id="applyUser" name="Apply User" variable="applyUser" required="true"></activiti:formProperty>
+        <activiti:formProperty id="days" name="days" variable="days" required="true"></activiti:formProperty>
+      </extensionElements>
+    </startEvent>
+    <userTask id="usertask1" name="领导审批" activiti:candidateGroups="management">
+      <extensionElements>
+        <activiti:formProperty id="applyUser" name="Apply User" readable="true" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="days" name="days" readable="true" writable="false"></activiti:formProperty>
+        <activiti:formProperty id="approved" name="Approval" type="enum" variable="approved" required="true">
+          <activiti:value id="true" name="同意"></activiti:value>
+          <activiti:value id="false" name="不同意"></activiti:value>
+        </activiti:formProperty>
+      </extensionElements>
+    </userTask>
+    <endEvent id="endevent1" name="End"></endEvent>
+    <sequenceFlow id="flow1" name="" sourceRef="startevent1" targetRef="usertask1"></sequenceFlow>
+    <sequenceFlow id="flow2" name="" sourceRef="usertask1" targetRef="endevent1"></sequenceFlow>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_SayHelloToLeaveForActivitiExplorer">
+    <bpmndi:BPMNPlane bpmnElement="SayHelloToLeaveForActivitiExplorer" id="BPMNPlane_SayHelloToLeaveForActivitiExplorer">
+      <bpmndi:BPMNShape bpmnElement="startevent1" id="BPMNShape_startevent1">
+        <omgdc:Bounds height="35" width="35" x="30" y="42"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="usertask1" id="BPMNShape_usertask1">
+        <omgdc:Bounds height="55" width="105" x="110" y="32"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="endevent1" id="BPMNShape_endevent1">
+        <omgdc:Bounds height="35" width="35" x="290" y="42"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="flow1" id="BPMNEdge_flow1">
+        <omgdi:waypoint x="65" y="59"></omgdi:waypoint>
+        <omgdi:waypoint x="110" y="59"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow2" id="BPMNEdge_flow2">
+        <omgdi:waypoint x="215" y="59"></omgdi:waypoint>
+        <omgdi:waypoint x="290" y="59"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head><meta http-equiv="Content-Type" content="text/html;charset=utf-8" /><title>
+DatabaseEventListener
+</title><link rel="stylesheet" type="text/css" href="../../../stylesheet.css" />
+<script type="text/javascript" src="../../../animate.js"></script>
+</head><body onload="openLink();">
+<table class="content"><tr class="content"><td class="content"><div class="contentDiv">
+<h1>DatabaseEventListener</h1>
+A class that implements this interface can get notified about exceptions
+ and other events. A database event listener can be registered when
+ connecting to a database. Example database URL:
+ jdbc:h2:test;DATABASE_EVENT_LISTENER='com.acme.DbListener'<br /><br />
+<table class="block"><tr onclick="return allDetails()"><th colspan="2">Methods</th></tr>
+<tr id="__0" onclick="return on(0)">
+<td class="return">void</td><td class="method">
+<a id="closingDatabase" href="#closingDatabase">closingDatabase</a>()
+<div class="methodText">This method is called before the database is closed normally.</div>
+</td></tr>
+<tr onclick="return off(0)" class="detail" id="_0">
+<td class="return">void</td><td>
+<a id="closingDatabase" href="#closingDatabase">closingDatabase</a>()
+<div class="methodText">This method is called before the database is closed normally. It is save
+ to connect to the database and execute statements at this point, however
+ the connection must be closed before the method returns.</div>
+</td></tr>
+<tr id="__1" onclick="return on(1)">
+<td class="return">void</td><td class="method">
+<a id="exceptionThrown_SQLException_String" href="#exceptionThrown_SQLException_String">exceptionThrown</a>(SQLException e, String sql)
+<div class="methodText">This method is called if an exception occurred.</div>
+</td></tr>
+<tr onclick="return off(1)" class="detail" id="_1">
+<td class="return">void</td><td>
+<a id="exceptionThrown_SQLException_String" href="#exceptionThrown_SQLException_String">exceptionThrown</a>(SQLException e, String sql)
+<div class="methodText">This method is called if an exception occurred.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">e - the exception</div>
+<div class="item">sql - the SQL statement</div>
+</td></tr>
+<tr id="__2" onclick="return on(2)">
+<td class="return">void</td><td class="method">
+<a id="init_String" href="#init_String">init</a>(String url)
+<div class="methodText">This method is called just after creating the object.</div>
+</td></tr>
+<tr onclick="return off(2)" class="detail" id="_2">
+<td class="return">void</td><td>
+<a id="init_String" href="#init_String">init</a>(String url)
+<div class="methodText">This method is called just after creating the object.
+ This is done when opening the database if the listener is specified
+ in the database URL, but may be later if the listener is set at
+ runtime with the SET SQL statement.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">url - - the database URL</div>
+</td></tr>
+<tr id="__3" onclick="return on(3)">
+<td class="return">void</td><td class="method">
+<a id="opened" href="#opened">opened</a>()
+<div class="methodText">This method is called after the database has been opened.</div>
+</td></tr>
+<tr onclick="return off(3)" class="detail" id="_3">
+<td class="return">void</td><td>
+<a id="opened" href="#opened">opened</a>()
+<div class="methodText">This method is called after the database has been opened.
+ It is save to connect to the database and execute statements at this point.</div>
+</td></tr>
+<tr id="__4" onclick="return on(4)">
+<td class="return">void</td><td class="method">
+<a id="setProgress_int_String_int_int" href="#setProgress_int_String_int_int">setProgress</a>(int state, String name, int x, int max)
+<div class="methodText">This method is called for long running events, such as recovering,
+ scanning a file or building an index.</div>
+</td></tr>
+<tr onclick="return off(4)" class="detail" id="_4">
+<td class="return">void</td><td>
+<a id="setProgress_int_String_int_int" href="#setProgress_int_String_int_int">setProgress</a>(int state, String name, int x, int max)
+<div class="methodText">This method is called for long running events, such as recovering,
+ scanning a file or building an index.
+ <p>
+ More states might be added in future versions, therefore implementations
+ should silently ignore states that they don't understand.
+ </p></div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">state - the state</div>
+<div class="item">name - the object name</div>
+<div class="item">x - the current position</div>
+<div class="item">max - the highest possible value (might be 0)</div>
+</td></tr>
+</table>
+</div></td></tr></table></body></html>

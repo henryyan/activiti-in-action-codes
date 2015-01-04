@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head><meta http-equiv="Content-Type" content="text/html;charset=utf-8" /><title>
+AggregateFunction
+</title><link rel="stylesheet" type="text/css" href="../../../stylesheet.css" />
+<script type="text/javascript" src="../../../animate.js"></script>
+</head><body onload="openLink();">
+<table class="content"><tr class="content"><td class="content"><div class="contentDiv">
+<h1>AggregateFunction</h1>
+A user-defined aggregate function needs to implement this interface.
+ The class must be public and must have a public non-argument constructor.<br /><br />
+<table class="block"><tr onclick="return allDetails()"><th colspan="2">Methods</th></tr>
+<tr id="__0" onclick="return on(0)">
+<td class="return">void</td><td class="method">
+<a id="add_Object" href="#add_Object">add</a>(Object value)
+<div class="methodText">This method is called once for each row.</div>
+</td></tr>
+<tr onclick="return off(0)" class="detail" id="_0">
+<td class="return">void</td><td>
+<a id="add_Object" href="#add_Object">add</a>(Object value) throws SQLException
+<div class="methodText">This method is called once for each row.
+ If the aggregate function is called with multiple parameters,
+ those are passed as array.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">value - the value(s) for this row</div>
+</td></tr>
+<tr id="__1" onclick="return on(1)">
+<td class="return">Object</td><td class="method">
+<a id="getResult" href="#getResult">getResult</a>()
+<div class="methodText">This method returns the computed aggregate value.</div>
+</td></tr>
+<tr onclick="return off(1)" class="detail" id="_1">
+<td class="return">Object</td><td>
+<a id="getResult" href="#getResult">getResult</a>() throws SQLException
+<div class="methodText">This method returns the computed aggregate value.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the aggregated value</div>
+</td></tr>
+<tr id="__2" onclick="return on(2)">
+<td class="return">int</td><td class="method">
+<a id="getType_int-" href="#getType_int-">getType</a>(int[] inputTypes)
+<div class="methodText">This method must return the SQL type of the method, given the SQL type of
+ the input data.</div>
+</td></tr>
+<tr onclick="return off(2)" class="detail" id="_2">
+<td class="return">int</td><td>
+<a id="getType_int-" href="#getType_int-">getType</a>(int[] inputTypes) throws SQLException
+<div class="methodText">This method must return the SQL type of the method, given the SQL type of
+ the input data. The method should check here if the number of parameters
+ passed is correct, and if not it should throw an exception.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">inputTypes - the SQL type of the parameters</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the SQL type of the result</div>
+</td></tr>
+<tr id="__3" onclick="return on(3)">
+<td class="return">void</td><td class="method">
+<a id="init_Connection" href="#init_Connection">init</a>(Connection conn)
+<div class="methodText">This method is called when the aggregate function is used.</div>
+</td></tr>
+<tr onclick="return off(3)" class="detail" id="_3">
+<td class="return">void</td><td>
+<a id="init_Connection" href="#init_Connection">init</a>(Connection conn) throws SQLException
+<div class="methodText">This method is called when the aggregate function is used.
+ A new object is created for each invocation.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">conn - a connection to the database</div>
+</td></tr>
+</table>
+</div></td></tr></table></body></html>

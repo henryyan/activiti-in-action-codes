@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+    <title>《Activiti实战》第7章-CDI示例</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <h:outputStylesheet library="css" name="style.css"  />
+</h:head>
+<h:body>
+    <h:panelGroup id="page" layout="block"  style="width:100%">
+        <h:panelGroup id="header" layout="block">
+            <h2>《Activiti实战》第7章-CDI示例</h2>
+            <hr />
+        </h:panelGroup>
+        <h:panelGroup id="container" layout="block">
+            <table width="80%">
+                <tbody>
+                    <tr>
+                        <td width="200" style="text-align:center;border-right: 1px solid coral;vertical-align:top">
+                            <h2>菜单列表</h2>
+                            <ul>
+                                <li><a href="#{request.contextPath}/processList.xhtml">流程定义</a></li>
+                                <li><a href="#{request.contextPath}/taskList.xhtml">待办任务</a></li>
+                                <li><a href="#{request.contextPath}/vars.xhtml">变量列表</a></li>
+                            </ul>
+                        </td>
+                        <td style="padding-left: 5px;">
+                            <h:messages />
+                            <ui:insert name="content"></ui:insert>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </h:panelGroup>
+    </h:panelGroup>
+</h:body>
+</html>

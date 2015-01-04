@@ -1,0 +1,187 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head><meta http-equiv="Content-Type" content="text/html;charset=utf-8" /><title>
+Blob
+</title><link rel="stylesheet" type="text/css" href="../../../stylesheet.css" />
+<script type="text/javascript" src="../../../animate.js"></script>
+</head><body onload="openLink();">
+<table class="content"><tr class="content"><td class="content"><div class="contentDiv">
+<h1>Blob</h1>
+Represents a BLOB value.<br /><br />
+<table class="block"><tr onclick="return allDetails()"><th colspan="2">Methods</th></tr>
+<tr id="__0" onclick="return on(0)">
+<td class="return">void</td><td class="method">
+<a id="free" href="#free">free</a>()
+<div class="methodText">Release all resources of this object.</div>
+</td></tr>
+<tr onclick="return off(0)" class="detail" id="_0">
+<td class="return">void</td><td>
+<a id="free" href="#free">free</a>()
+<div class="methodText">Release all resources of this object.</div>
+</td></tr>
+<tr id="__1" onclick="return on(1)">
+<td class="return">InputStream</td><td class="method">
+<a id="getBinaryStream" href="#getBinaryStream">getBinaryStream</a>()
+<div class="methodText">Returns the input stream.</div>
+</td></tr>
+<tr onclick="return off(1)" class="detail" id="_1">
+<td class="return">InputStream</td><td>
+<a id="getBinaryStream" href="#getBinaryStream">getBinaryStream</a>() throws SQLException
+<div class="methodText">Returns the input stream.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the input stream</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException</div>
+</td></tr>
+<tr id="__2" onclick="return on(2)">
+<td class="return">InputStream</td><td class="method">
+<a id="getBinaryStream_long_long" href="#getBinaryStream_long_long">getBinaryStream</a>(long pos, long length)
+<div class="methodText">[Not supported] Returns the input stream, starting from an offset.</div>
+</td></tr>
+<tr onclick="return off(2)" class="detail" id="_2">
+<td class="return">InputStream</td><td>
+<a id="getBinaryStream_long_long" href="#getBinaryStream_long_long">getBinaryStream</a>(long pos, long length) throws SQLException
+<div class="methodText">[Not supported] Returns the input stream, starting from an offset.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">pos - where to start reading</div>
+<div class="item">length - the number of bytes that will be read</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the input stream to read</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException</div>
+</td></tr>
+<tr id="__3" onclick="return on(3)">
+<td class="return">byte[]</td><td class="method">
+<a id="getBytes_long_int" href="#getBytes_long_int">getBytes</a>(long pos, int length)
+<div class="methodText">Returns some bytes of the object.</div>
+</td></tr>
+<tr onclick="return off(3)" class="detail" id="_3">
+<td class="return">byte[]</td><td>
+<a id="getBytes_long_int" href="#getBytes_long_int">getBytes</a>(long pos, int length) throws SQLException
+<div class="methodText">Returns some bytes of the object.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">pos - the index, the first byte is at position 1</div>
+<div class="item">length - the number of bytes</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the bytes, at most length bytes</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException</div>
+</td></tr>
+<tr id="__4" onclick="return on(4)">
+<td class="return">long</td><td class="method">
+<a id="length" href="#length">length</a>()
+<div class="methodText">Returns the length.</div>
+</td></tr>
+<tr onclick="return off(4)" class="detail" id="_4">
+<td class="return">long</td><td>
+<a id="length" href="#length">length</a>() throws SQLException
+<div class="methodText">Returns the length.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the length</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException</div>
+</td></tr>
+<tr id="__5" onclick="return on(5)">
+<td class="return">long</td><td class="method">
+<a id="position_byte-_long" href="#position_byte-_long">position</a>(byte[] pattern, long start)
+<div class="methodText">[Not supported] Searches a pattern and return the position.</div>
+</td></tr>
+<tr onclick="return off(5)" class="detail" id="_5">
+<td class="return">long</td><td>
+<a id="position_byte-_long" href="#position_byte-_long">position</a>(byte[] pattern, long start) throws SQLException
+<div class="methodText">[Not supported] Searches a pattern and return the position.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">pattern - the pattern to search</div>
+<div class="item">start - the index, the first byte is at position 1</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the position (first byte is at position 1), or -1 for not found</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException</div>
+</td></tr>
+<tr id="__6" onclick="return on(6)">
+<td class="return">long</td><td class="method">
+<a id="position_Blob_long" href="#position_Blob_long">position</a>(Blob blobPattern, long start)
+<div class="methodText">[Not supported] Searches a pattern and return the position.</div>
+</td></tr>
+<tr onclick="return off(6)" class="detail" id="_6">
+<td class="return">long</td><td>
+<a id="position_Blob_long" href="#position_Blob_long">position</a>(Blob blobPattern, long start) throws SQLException
+<div class="methodText">[Not supported] Searches a pattern and return the position.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">blobPattern - the pattern to search</div>
+<div class="item">start - the index, the first byte is at position 1</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the position (first byte is at position 1), or -1 for not found</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException</div>
+</td></tr>
+<tr id="__7" onclick="return on(7)">
+<td class="return">OutputStream</td><td class="method">
+<a id="setBinaryStream_long" href="#setBinaryStream_long">setBinaryStream</a>(long pos)
+<div class="methodText">Get a writer to update the Blob.</div>
+</td></tr>
+<tr onclick="return off(7)" class="detail" id="_7">
+<td class="return">OutputStream</td><td>
+<a id="setBinaryStream_long" href="#setBinaryStream_long">setBinaryStream</a>(long pos) throws SQLException
+<div class="methodText">Get a writer to update the Blob. This is only supported for new, empty
+ Blob objects that were created with Connection.createBlob(). The Blob is
+ created in a separate thread, and the object is only updated when
+ OutputStream.close() is called. The position must be 1, meaning the whole
+ Blob data is set.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">pos - where to start writing (the first byte is at position 1)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">an output stream</div>
+</td></tr>
+<tr id="__8" onclick="return on(8)">
+<td class="return">int</td><td class="method">
+<a id="setBytes_long_byte-" href="#setBytes_long_byte-">setBytes</a>(long pos, byte[] bytes)
+<div class="methodText">Fills the Blob.</div>
+</td></tr>
+<tr onclick="return off(8)" class="detail" id="_8">
+<td class="return">int</td><td>
+<a id="setBytes_long_byte-" href="#setBytes_long_byte-">setBytes</a>(long pos, byte[] bytes) throws SQLException
+<div class="methodText">Fills the Blob. This is only supported for new, empty Blob objects that
+ were created with Connection.createBlob(). The position
+ must be 1, meaning the whole Blob data is set.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">pos - where to start writing (the first byte is at position 1)</div>
+<div class="item">bytes - the bytes to set</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the length of the added data</div>
+</td></tr>
+<tr id="__9" onclick="return on(9)">
+<td class="return">int</td><td class="method">
+<a id="setBytes_long_byte-_int_int" href="#setBytes_long_byte-_int_int">setBytes</a>(long pos, byte[] bytes, int offset, int len)
+<div class="methodText">[Not supported] Sets some bytes of the object.</div>
+</td></tr>
+<tr onclick="return off(9)" class="detail" id="_9">
+<td class="return">int</td><td>
+<a id="setBytes_long_byte-_int_int" href="#setBytes_long_byte-_int_int">setBytes</a>(long pos, byte[] bytes, int offset, int len) throws SQLException
+<div class="methodText">[Not supported] Sets some bytes of the object.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">pos - the write position</div>
+<div class="item">bytes - the bytes to set</div>
+<div class="item">offset - the bytes offset</div>
+<div class="item">len - the number of bytes to write</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">how many bytes have been written</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException</div>
+</td></tr>
+<tr id="__10" onclick="return on(10)">
+<td class="return">void</td><td class="method">
+<a id="truncate_long" href="#truncate_long">truncate</a>(long len)
+<div class="methodText">[Not supported] Truncates the object.</div>
+</td></tr>
+<tr onclick="return off(10)" class="detail" id="_10">
+<td class="return">void</td><td>
+<a id="truncate_long" href="#truncate_long">truncate</a>(long len) throws SQLException
+<div class="methodText">[Not supported] Truncates the object.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">len - the new length</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException</div>
+</td></tr>
+</table>
+</div></td></tr></table></body></html>

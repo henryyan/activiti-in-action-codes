@@ -1,0 +1,17 @@
+package me.kafeitu.activiti.chapter15;
+
+import java.util.Map;
+import me.kafeitu.activiti.chapter15.drools.Leave
+import jodd.datetime.JDateTime;
+import org.activiti.engine.impl.persistence.entity.ExecutionEntity;
+
+rule "检查是否需要总经理审批"
+    when
+        inputVars: Map();
+    then
+        Leave $leave = (Leave)inputVars.get("leave");
+        JDateTime joddStartDate = new JDateTime($leave.getStartTime());
+        JDateTime joddEndDate = new JDateTime($leave.getEndTime());
+        int result = joddStartDate.daysBetween(joddEndDate);
+        $leave.setGeneralManagerAudit(result > 3);
+end

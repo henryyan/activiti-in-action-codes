@@ -1,0 +1,348 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head><meta http-equiv="Content-Type" content="text/html;charset=utf-8" /><title>
+FullText
+</title><link rel="stylesheet" type="text/css" href="../../../stylesheet.css" />
+<script type="text/javascript" src="../../../animate.js"></script>
+</head><body onload="openLink();">
+<table class="content"><tr class="content"><td class="content"><div class="contentDiv">
+<h1>FullText</h1>
+This class implements the native full text search.
+ Most methods can be called using SQL statements as well.<br /><br />
+<table class="block"><tr onclick="return allDetails()"><th colspan="2">Methods</th></tr>
+<tr id="__0" onclick="return on(0)">
+<td class="return">static void</td><td class="method">
+<a id="addWords_FullTextSettings_HashSet_Reader" href="#addWords_FullTextSettings_HashSet_Reader">addWords</a>(FullTextSettings setting, HashSet set, Reader reader)
+<div class="methodText">Add all words in the given text to the hash set.</div>
+</td></tr>
+<tr onclick="return off(0)" class="detail" id="_0">
+<td class="return">static void</td><td>
+<a id="addWords_FullTextSettings_HashSet_Reader" href="#addWords_FullTextSettings_HashSet_Reader">addWords</a>(FullTextSettings setting, HashSet set, Reader reader)
+<div class="methodText">Add all words in the given text to the hash set.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">setting - the fulltext settings</div>
+<div class="item">set - the hash set</div>
+<div class="item">reader - the reader</div>
+</td></tr>
+<tr id="__1" onclick="return on(1)">
+<td class="return">static void</td><td class="method">
+<a id="addWords_FullTextSettings_HashSet_String" href="#addWords_FullTextSettings_HashSet_String">addWords</a>(FullTextSettings setting, HashSet set, String text)
+<div class="methodText">Add all words in the given text to the hash set.</div>
+</td></tr>
+<tr onclick="return off(1)" class="detail" id="_1">
+<td class="return">static void</td><td>
+<a id="addWords_FullTextSettings_HashSet_String" href="#addWords_FullTextSettings_HashSet_String">addWords</a>(FullTextSettings setting, HashSet set, String text)
+<div class="methodText">Add all words in the given text to the hash set.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">setting - the fulltext settings</div>
+<div class="item">set - the hash set</div>
+<div class="item">text - the text</div>
+</td></tr>
+<tr id="__2" onclick="return on(2)">
+<td class="return">static void</td><td class="method">
+<a id="createIndex_Connection_String_String_String" href="#createIndex_Connection_String_String_String">createIndex</a>(Connection conn, String schema, String table, String columnList)
+<div class="methodText">Create a new full text index for a table and column list.</div>
+</td></tr>
+<tr onclick="return off(2)" class="detail" id="_2">
+<td class="return">static void</td><td>
+<a id="createIndex_Connection_String_String_String" href="#createIndex_Connection_String_String_String">createIndex</a>(Connection conn, String schema, String table, String columnList) throws SQLException
+<div class="methodText">Create a new full text index for a table and column list. Each table may
+ only have one index at any time.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">conn - the connection</div>
+<div class="item">schema - the schema name of the table (case sensitive)</div>
+<div class="item">table - the table name (case sensitive)</div>
+<div class="item">columnList - the column list (null for all columns)</div>
+</td></tr>
+<tr id="__3" onclick="return on(3)">
+<td class="return">static SimpleResultSet</td><td class="method">
+<a id="createResultSet_boolean" href="#createResultSet_boolean">createResultSet</a>(boolean data)
+<div class="methodText">Create an empty search result and initialize the columns.</div>
+</td></tr>
+<tr onclick="return off(3)" class="detail" id="_3">
+<td class="return">static SimpleResultSet</td><td>
+<a id="createResultSet_boolean" href="#createResultSet_boolean">createResultSet</a>(boolean data)
+<div class="methodText">Create an empty search result and initialize the columns.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">data - true if the result set should contain the primary key data as
+            an array.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the empty result set</div>
+</td></tr>
+<tr id="__4" onclick="return on(4)">
+<td class="return">static void</td><td class="method">
+<a id="createTrigger_Connection_String_String" href="#createTrigger_Connection_String_String">createTrigger</a>(Connection conn, String schema, String table)
+<div class="methodText">Create the trigger.</div>
+</td></tr>
+<tr onclick="return off(4)" class="detail" id="_4">
+<td class="return">static void</td><td>
+<a id="createTrigger_Connection_String_String" href="#createTrigger_Connection_String_String">createTrigger</a>(Connection conn, String schema, String table) throws SQLException
+<div class="methodText">Create the trigger.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">conn - the database connection</div>
+<div class="item">schema - the schema name</div>
+<div class="item">table - the table name</div>
+</td></tr>
+<tr id="__5" onclick="return on(5)">
+<td class="return">static void</td><td class="method">
+<a id="dropAll_Connection" href="#dropAll_Connection">dropAll</a>(Connection conn)
+<div class="methodText">Drops all full text indexes from the database.</div>
+</td></tr>
+<tr onclick="return off(5)" class="detail" id="_5">
+<td class="return">static void</td><td>
+<a id="dropAll_Connection" href="#dropAll_Connection">dropAll</a>(Connection conn) throws SQLException
+<div class="methodText">Drops all full text indexes from the database.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">conn - the connection</div>
+</td></tr>
+<tr id="__6" onclick="return on(6)">
+<td class="return">static void</td><td class="method">
+<a id="dropIndex_Connection_String_String" href="#dropIndex_Connection_String_String">dropIndex</a>(Connection conn, String schema, String table)
+<div class="methodText">Drop an existing full text index for a table.</div>
+</td></tr>
+<tr onclick="return off(6)" class="detail" id="_6">
+<td class="return">static void</td><td>
+<a id="dropIndex_Connection_String_String" href="#dropIndex_Connection_String_String">dropIndex</a>(Connection conn, String schema, String table) throws SQLException
+<div class="methodText">Drop an existing full text index for a table. This method returns
+ silently if no index for this table exists.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">conn - the connection</div>
+<div class="item">schema - the schema name of the table (case sensitive)</div>
+<div class="item">table - the table name (case sensitive)</div>
+</td></tr>
+<tr id="__7" onclick="return on(7)">
+<td class="return">static boolean</td><td class="method">
+<a id="hasChanged_Object-_Object-_int-" href="#hasChanged_Object-_Object-_int-">hasChanged</a>(Object[] oldRow, Object[] newRow, int[] indexColumns)
+<div class="methodText">Check if a the indexed columns of a row probably have changed.</div>
+</td></tr>
+<tr onclick="return off(7)" class="detail" id="_7">
+<td class="return">static boolean</td><td>
+<a id="hasChanged_Object-_Object-_int-" href="#hasChanged_Object-_Object-_int-">hasChanged</a>(Object[] oldRow, Object[] newRow, int[] indexColumns)
+<div class="methodText">Check if a the indexed columns of a row probably have changed. It may
+ return true even if the change was minimal (for example from 0.0 to
+ 0.00).</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">oldRow - the old row</div>
+<div class="item">newRow - the new row</div>
+<div class="item">indexColumns - the indexed columns</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">true if the indexed columns don't match</div>
+</td></tr>
+<tr id="__8" onclick="return on(8)">
+<td class="return">static void</td><td class="method">
+<a id="indexExistingRows_Connection_String_String" href="#indexExistingRows_Connection_String_String">indexExistingRows</a>(Connection conn, String schema, String table)
+<div class="methodText">Add the existing data to the index.</div>
+</td></tr>
+<tr onclick="return off(8)" class="detail" id="_8">
+<td class="return">static void</td><td>
+<a id="indexExistingRows_Connection_String_String" href="#indexExistingRows_Connection_String_String">indexExistingRows</a>(Connection conn, String schema, String table) throws SQLException
+<div class="methodText">Add the existing data to the index.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">conn - the database connection</div>
+<div class="item">schema - the schema name</div>
+<div class="item">table - the table name</div>
+</td></tr>
+<tr id="__9" onclick="return on(9)">
+<td class="return">static void</td><td class="method">
+<a id="init_Connection" href="#init_Connection">init</a>(Connection conn)
+<div class="methodText">Initializes full text search functionality for this database.</div>
+</td></tr>
+<tr onclick="return off(9)" class="detail" id="_9">
+<td class="return">static void</td><td>
+<a id="init_Connection" href="#init_Connection">init</a>(Connection conn) throws SQLException
+<div class="methodText">Initializes full text search functionality for this database. This adds
+ the following Java functions to the database:
+ <ul>
+ <li>FT_CREATE_INDEX(schemaNameString, tableNameString,
+ columnListString)</li>
+ <li>FT_SEARCH(queryString, limitInt, offsetInt): result set</li>
+ <li>FT_REINDEX()</li>
+ <li>FT_DROP_ALL()</li>
+ </ul>
+ It also adds a schema FT to the database where bookkeeping information
+ is stored. This function may be called from a Java application, or by
+ using the SQL statements:
+
+ <pre>
+ CREATE ALIAS IF NOT EXISTS FT_INIT FOR
+      &quot;org.h2.fulltext.FullText.init&quot;;
+ CALL FT_INIT();</pre></div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">conn - the connection</div>
+</td></tr>
+<tr id="__10" onclick="return on(10)">
+<td class="return">static Object[][]</td><td class="method">
+<a id="parseKey_Connection_String" href="#parseKey_Connection_String">parseKey</a>(Connection conn, String key)
+<div class="methodText">Parse a primary key condition into the primary key columns.</div>
+</td></tr>
+<tr onclick="return off(10)" class="detail" id="_10">
+<td class="return">static Object[][]</td><td>
+<a id="parseKey_Connection_String" href="#parseKey_Connection_String">parseKey</a>(Connection conn, String key)
+<div class="methodText">Parse a primary key condition into the primary key columns.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">conn - the database connection</div>
+<div class="item">key - the primary key condition as a string</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">an array containing the column name list and the data list</div>
+</td></tr>
+<tr id="__11" onclick="return on(11)">
+<td class="return">static void</td><td class="method">
+<a id="reindex_Connection" href="#reindex_Connection">reindex</a>(Connection conn)
+<div class="methodText">Re-creates the full text index for this database.</div>
+</td></tr>
+<tr onclick="return off(11)" class="detail" id="_11">
+<td class="return">static void</td><td>
+<a id="reindex_Connection" href="#reindex_Connection">reindex</a>(Connection conn) throws SQLException
+<div class="methodText">Re-creates the full text index for this database. Calling this method is
+ usually not needed, as the index is kept up-to-date automatically.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">conn - the connection</div>
+</td></tr>
+<tr id="__12" onclick="return on(12)">
+<td class="return">static void</td><td class="method">
+<a id="removeAllTriggers_Connection_String" href="#removeAllTriggers_Connection_String">removeAllTriggers</a>(Connection conn, String prefix)
+<div class="methodText">Remove all triggers that start with the given prefix.</div>
+</td></tr>
+<tr onclick="return off(12)" class="detail" id="_12">
+<td class="return">static void</td><td>
+<a id="removeAllTriggers_Connection_String" href="#removeAllTriggers_Connection_String">removeAllTriggers</a>(Connection conn, String prefix) throws SQLException
+<div class="methodText">Remove all triggers that start with the given prefix.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">conn - the database connection</div>
+<div class="item">prefix - the prefix</div>
+</td></tr>
+<tr id="__13" onclick="return on(13)">
+<td class="return">static ResultSet</td><td class="method">
+<a id="search_Connection_String_int_int" href="#search_Connection_String_int_int">search</a>(Connection conn, String text, int limit, int offset)
+<div class="methodText">Searches from the full text index for this database.</div>
+</td></tr>
+<tr onclick="return off(13)" class="detail" id="_13">
+<td class="return">static ResultSet</td><td>
+<a id="search_Connection_String_int_int" href="#search_Connection_String_int_int">search</a>(Connection conn, String text, int limit, int offset) throws SQLException
+<div class="methodText">Searches from the full text index for this database.
+ The returned result set has the following column:
+ <ul><li>QUERY (varchar): the query to use to get the data.
+ The query does not include 'SELECT * FROM '. Example:
+ PUBLIC.TEST WHERE ID = 1
+ </li><li>SCORE (float) the relevance score. This value is always 1.0
+ for the native fulltext search.
+ </li></ul></div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">conn - the connection</div>
+<div class="item">text - the search query</div>
+<div class="item">limit - the maximum number of rows or 0 for no limit</div>
+<div class="item">offset - the offset or 0 for no offset</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the result set</div>
+</td></tr>
+<tr id="__14" onclick="return on(14)">
+<td class="return">static ResultSet</td><td class="method">
+<a id="search_Connection_String_int_int_boolean" href="#search_Connection_String_int_int_boolean">search</a>(Connection conn, String text, int limit, int offset, boolean data)
+<div class="methodText">Do the search.</div>
+</td></tr>
+<tr onclick="return off(14)" class="detail" id="_14">
+<td class="return">static ResultSet</td><td>
+<a id="search_Connection_String_int_int_boolean" href="#search_Connection_String_int_int_boolean">search</a>(Connection conn, String text, int limit, int offset, boolean data) throws SQLException
+<div class="methodText">Do the search.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">conn - the database connection</div>
+<div class="item">text - the query</div>
+<div class="item">limit - the limit</div>
+<div class="item">offset - the offset</div>
+<div class="item">data - whether the raw data should be returned</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the result set</div>
+</td></tr>
+<tr id="__15" onclick="return on(15)">
+<td class="return">static ResultSet</td><td class="method">
+<a id="searchData_Connection_String_int_int" href="#searchData_Connection_String_int_int">searchData</a>(Connection conn, String text, int limit, int offset)
+<div class="methodText">Searches from the full text index for this database.</div>
+</td></tr>
+<tr onclick="return off(15)" class="detail" id="_15">
+<td class="return">static ResultSet</td><td>
+<a id="searchData_Connection_String_int_int" href="#searchData_Connection_String_int_int">searchData</a>(Connection conn, String text, int limit, int offset) throws SQLException
+<div class="methodText">Searches from the full text index for this database. The result contains
+ the primary key data as an array. The returned result set has the
+ following columns:
+ <ul>
+ <li>SCHEMA (varchar): the schema name. Example: PUBLIC </li>
+ <li>TABLE (varchar): the table name. Example: TEST </li>
+ <li>COLUMNS (array of varchar): comma separated list of quoted column
+ names. The column names are quoted if necessary. Example: (ID) </li>
+ <li>KEYS (array of values): comma separated list of values. Example: (1)
+ </li>
+ <li>SCORE (float) the relevance score. This value is always 1.0
+ for the native fulltext search.
+ </li>
+ </ul></div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">conn - the connection</div>
+<div class="item">text - the search query</div>
+<div class="item">limit - the maximum number of rows or 0 for no limit</div>
+<div class="item">offset - the offset or 0 for no offset</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the result set</div>
+</td></tr>
+<tr id="__16" onclick="return on(16)">
+<td class="return">static void</td><td class="method">
+<a id="setColumns_int-_ArrayList_ArrayList" href="#setColumns_int-_ArrayList_ArrayList">setColumns</a>(int[] index, ArrayList keys, ArrayList columns)
+<div class="methodText">Set the column indices of a set of keys.</div>
+</td></tr>
+<tr onclick="return off(16)" class="detail" id="_16">
+<td class="return">static void</td><td>
+<a id="setColumns_int-_ArrayList_ArrayList" href="#setColumns_int-_ArrayList_ArrayList">setColumns</a>(int[] index, ArrayList keys, ArrayList columns) throws SQLException
+<div class="methodText">Set the column indices of a set of keys.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">index - the column indices (will be modified)</div>
+<div class="item">keys - the key list</div>
+<div class="item">columns - the column list</div>
+</td></tr>
+<tr id="__17" onclick="return on(17)">
+<td class="return">static void</td><td class="method">
+<a id="setIgnoreList_Connection_String" href="#setIgnoreList_Connection_String">setIgnoreList</a>(Connection conn, String commaSeparatedList)
+<div class="methodText">Change the ignore list.</div>
+</td></tr>
+<tr onclick="return off(17)" class="detail" id="_17">
+<td class="return">static void</td><td>
+<a id="setIgnoreList_Connection_String" href="#setIgnoreList_Connection_String">setIgnoreList</a>(Connection conn, String commaSeparatedList) throws SQLException
+<div class="methodText">Change the ignore list. The ignore list is a comma separated list of
+ common words that must not be indexed. The default ignore list is empty.
+ If indexes already exist at the time this list is changed, reindex must
+ be called.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">conn - the connection</div>
+<div class="item">commaSeparatedList - the list</div>
+</td></tr>
+<tr id="__18" onclick="return on(18)">
+<td class="return">static void</td><td class="method">
+<a id="setWhitespaceChars_Connection_String" href="#setWhitespaceChars_Connection_String">setWhitespaceChars</a>(Connection conn, String whitespaceChars)
+<div class="methodText">Change the whitespace characters.</div>
+</td></tr>
+<tr onclick="return off(18)" class="detail" id="_18">
+<td class="return">static void</td><td>
+<a id="setWhitespaceChars_Connection_String" href="#setWhitespaceChars_Connection_String">setWhitespaceChars</a>(Connection conn, String whitespaceChars) throws SQLException
+<div class="methodText">Change the whitespace characters. The whitespace characters are used to
+ separate words. If indexes already exist at the time this list is
+ changed, reindex must be called.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">conn - the connection</div>
+<div class="item">whitespaceChars - the list of characters</div>
+</td></tr>
+<tr id="__19" onclick="return on(19)">
+<td class="return">static SQLException</td><td class="method">
+<a id="throwException_String" href="#throwException_String">throwException</a>(String message)
+<div class="methodText">Throw a SQLException with the given message.</div>
+</td></tr>
+<tr onclick="return off(19)" class="detail" id="_19">
+<td class="return">static SQLException</td><td>
+<a id="throwException_String" href="#throwException_String">throwException</a>(String message) throws SQLException
+<div class="methodText">Throw a SQLException with the given message.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">message - the message</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">never returns normally</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - the exception</div>
+</td></tr>
+</table>
+</div></td></tr></table></body></html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head><meta http-equiv="Content-Type" content="text/html;charset=utf-8" /><title>
+Trigger
+</title><link rel="stylesheet" type="text/css" href="../../../stylesheet.css" />
+<script type="text/javascript" src="../../../animate.js"></script>
+</head><body onload="openLink();">
+<table class="content"><tr class="content"><td class="content"><div class="contentDiv">
+<h1>Trigger</h1>
+A class that implements this interface can be used as a trigger.<br /><br />
+<table class="block"><tr onclick="return allDetails()"><th colspan="2">Methods</th></tr>
+<tr id="__0" onclick="return on(0)">
+<td class="return">void</td><td class="method">
+<a id="close" href="#close">close</a>()
+<div class="methodText">This method is called when the database is closed.</div>
+</td></tr>
+<tr onclick="return off(0)" class="detail" id="_0">
+<td class="return">void</td><td>
+<a id="close" href="#close">close</a>() throws SQLException
+<div class="methodText">This method is called when the database is closed.
+ If the method throws an exception, it will be logged, but
+ closing the database will continue.</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException</div>
+</td></tr>
+<tr id="__1" onclick="return on(1)">
+<td class="return">void</td><td class="method">
+<a id="fire_Connection_Object-_Object-" href="#fire_Connection_Object-_Object-">fire</a>(Connection conn, Object[] oldRow, Object[] newRow)
+<div class="methodText">This method is called for each triggered action.</div>
+</td></tr>
+<tr onclick="return off(1)" class="detail" id="_1">
+<td class="return">void</td><td>
+<a id="fire_Connection_Object-_Object-" href="#fire_Connection_Object-_Object-">fire</a>(Connection conn, Object[] oldRow, Object[] newRow) throws SQLException
+<div class="methodText">This method is called for each triggered action. The method is called
+ immediately when the operation occurred (before it is committed). A
+ transaction rollback will also rollback the operations that were done
+ within the trigger, if the operations occurred within the same database.
+ If the trigger changes state outside the database, a rollback trigger
+ should be used.
+ <p>
+ The row arrays contain all columns of the table, in the same order
+ as defined in the table.
+ </p></div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">conn - a connection to the database</div>
+<div class="item">oldRow - the old row, or null if no old row is available (for
+            INSERT)</div>
+<div class="item">newRow - the new row, or null if no new row is available (for
+            DELETE)</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the operation must be undone</div>
+</td></tr>
+<tr id="__2" onclick="return on(2)">
+<td class="return">void</td><td class="method">
+<a id="init_Connection_String_String_String_boolean_int" href="#init_Connection_String_String_String_boolean_int">init</a>(Connection conn, String schemaName, String triggerName, String tableName, boolean before, int type)
+<div class="methodText">This method is called by the database engine once when initializing the
+ trigger.</div>
+</td></tr>
+<tr onclick="return off(2)" class="detail" id="_2">
+<td class="return">void</td><td>
+<a id="init_Connection_String_String_String_boolean_int" href="#init_Connection_String_String_String_boolean_int">init</a>(Connection conn, String schemaName, String triggerName, String tableName, boolean before, int type) throws SQLException
+<div class="methodText">This method is called by the database engine once when initializing the
+ trigger. It is called when the trigger is created, as well as when the
+ database is opened. The type of operation is a bit field with the
+ appropriate flags set. As an example, if the trigger is of type INSERT
+ and UPDATE, then the parameter type is set to (INSERT | UPDATE).</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">conn - a connection to the database (a system connection)</div>
+<div class="item">schemaName - the name of the schema</div>
+<div class="item">triggerName - the name of the trigger used in the CREATE TRIGGER
+            statement</div>
+<div class="item">tableName - the name of the table</div>
+<div class="item">before - whether the fire method is called before or after the
+            operation is performed</div>
+<div class="item">type - the operation type: INSERT, UPDATE, DELETE, SELECT, or a
+            combination (this parameter is a bit field)</div>
+</td></tr>
+<tr id="__3" onclick="return on(3)">
+<td class="return">void</td><td class="method">
+<a id="remove" href="#remove">remove</a>()
+<div class="methodText">This method is called when the trigger is dropped.</div>
+</td></tr>
+<tr onclick="return off(3)" class="detail" id="_3">
+<td class="return">void</td><td>
+<a id="remove" href="#remove">remove</a>() throws SQLException
+<div class="methodText">This method is called when the trigger is dropped.</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException</div>
+</td></tr>
+</table>
+<br /><table><tr><th colspan="2">Fields</th></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c4">DELETE</a> = 4
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c1">INSERT</a> = 1
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c8">SELECT</a> = 8
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c2">UPDATE</a> = 2
+</td></tr>
+</table>
+<h4 id="c1"><span class="methodName">INSERT
+ = 1
+</span></h4>
+<div class="item">The trigger is called for INSERT statements.</div>
+<hr />
+<h4 id="c2"><span class="methodName">UPDATE
+ = 2
+</span></h4>
+<div class="item">The trigger is called for UPDATE statements.</div>
+<hr />
+<h4 id="c4"><span class="methodName">DELETE
+ = 4
+</span></h4>
+<div class="item">The trigger is called for DELETE statements.</div>
+<hr />
+<h4 id="c8"><span class="methodName">SELECT
+ = 8
+</span></h4>
+<div class="item">The trigger is called for SELECT statements.</div>
+<hr />
+</div></td></tr></table></body></html>

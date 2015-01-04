@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC"
+	xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath"
+	targetNamespace="me.kafeitu.activiti.chapter15" xmlns:tns="me.kafeitu.activiti.chapter15" xmlns:leave="http://webservice.kafeitu.me/">
+
+	<import importType="http://schemas.xmlsoap.org/wsdl/" location="http://localhost:9999/leave?wsdl" namespace="http://webservice.kafeitu.me/" />
+
+	<process id="webservice" name="Webservice Task" isExecutable="true">
+		<startEvent id="startevent1" name="Start"></startEvent>
+		<serviceTask id="servicetask1" name="Web Service任务" implementation="##WebService" operationRef="tns:auditOperation">
+            <ioSpecification>
+                <dataInput itemSubjectRef="tns:generalManagerAuditRequestItem" id="dataInput"/>
+                <dataOutput itemSubjectRef="tns:generalManagerAuditResponseItem" id="dataOutput"/>
+                <inputSet>
+                    <dataInputRefs>dataInput</dataInputRefs>
+                </inputSet>
+                <outputSet>
+                    <dataOutputRefs>dataOutput</dataOutputRefs>
+                </outputSet>
+            </ioSpecification>
+            <!-- 属性名称必须映射，否则报异常 https://gist.github.com/5994803 -->
+            <dataInputAssociation>
+                <sourceRef>startDate</sourceRef>
+                <targetRef>startDate</targetRef>
+            </dataInputAssociation>
+            <dataInputAssociation>
+                <sourceRef>endDate</sourceRef>
+                <targetRef>endDate</targetRef>
+            </dataInputAssociation>
+            <dataOutputAssociation>
+                <sourceRef>needed</sourceRef>
+                <targetRef>webserviceResponse</targetRef>
+            </dataOutputAssociation>
+		</serviceTask>
+		<sequenceFlow id="flow1" sourceRef="startevent1" targetRef="servicetask1"></sequenceFlow>
+		<receiveTask id="receivetask1" name="Receive Task"></receiveTask>
+		<sequenceFlow id="flow2" sourceRef="servicetask1" targetRef="receivetask1"></sequenceFlow>
+		<endEvent id="endevent1" name="End"></endEvent>
+		<sequenceFlow id="flow3" sourceRef="receivetask1" targetRef="endevent1"></sequenceFlow>
+	</process>
+
+	<!-- Interface: implementationRef = QName of WSDL Port Type -->
+	<interface name="Leave Audit Interface" implementationRef="leave:LeaveWebservice"> <!-- NEEDED FOR THE PORT -->
+		<!-- Operation: implementationRef = QName of WSDL Operation -->
+		<operation id="auditOperation" name="General Manager Audit Operation" implementationRef="leave:generalManagerAudit"> <!-- NEEDED FOR THE OPERATION NAME -->
+			<inMessageRef>tns:generalManagerAuditRequestMessage</inMessageRef>
+			<outMessageRef>tns:generalManagerAuditResponseMessage</outMessageRef>
+		</operation>
+	</interface>
+
+	<message id="generalManagerAuditRequestMessage" itemRef="tns:generalManagerAuditRequestItem" />
+	<message id="generalManagerAuditResponseMessage" itemRef="tns:generalManagerAuditResponseItem" />
+
+    <itemDefinition id="needed" structureRef="boolean"/>
+    <itemDefinition id="webserviceResponse" structureRef="boolean"/>
+    <itemDefinition id="startDate" structureRef="string"/>
+    <itemDefinition id="endDate" structureRef="string"/>
+
+	<itemDefinition id="generalManagerAuditRequestItem" structureRef="leave:generalManagerAudit" /><!-- QName of input element --> <!-- NEEDED FOR THE ARGUMENTS -->
+	<itemDefinition id="generalManagerAuditResponseItem" structureRef="leave:generalManagerAuditResponse" /><!-- QName of output element -->
+
+	<bpmndi:BPMNDiagram id="BPMNDiagram_webservice">
+		<bpmndi:BPMNPlane bpmnElement="webservice" id="BPMNPlane_webservice">
+			<bpmndi:BPMNShape bpmnElement="startevent1" id="BPMNShape_startevent1">
+				<omgdc:Bounds height="35.0" width="35.0" x="30.0" y="60.0"></omgdc:Bounds>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape bpmnElement="servicetask1" id="BPMNShape_servicetask1">
+				<omgdc:Bounds height="55.0" width="105.0" x="120.0" y="50.0"></omgdc:Bounds>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape bpmnElement="receivetask1" id="BPMNShape_receivetask1">
+				<omgdc:Bounds height="55.0" width="105.0" x="280.0" y="50.0"></omgdc:Bounds>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape bpmnElement="endevent1" id="BPMNShape_endevent1">
+				<omgdc:Bounds height="35.0" width="35.0" x="440.0" y="60.0"></omgdc:Bounds>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNEdge bpmnElement="flow1" id="BPMNEdge_flow1">
+				<omgdi:waypoint x="65.0" y="77.0"></omgdi:waypoint>
+				<omgdi:waypoint x="120.0" y="77.0"></omgdi:waypoint>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge bpmnElement="flow2" id="BPMNEdge_flow2">
+				<omgdi:waypoint x="225.0" y="77.0"></omgdi:waypoint>
+				<omgdi:waypoint x="280.0" y="77.0"></omgdi:waypoint>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge bpmnElement="flow3" id="BPMNEdge_flow3">
+				<omgdi:waypoint x="385.0" y="77.0"></omgdi:waypoint>
+				<omgdi:waypoint x="440.0" y="77.0"></omgdi:waypoint>
+			</bpmndi:BPMNEdge>
+		</bpmndi:BPMNPlane>
+	</bpmndi:BPMNDiagram>
+</definitions>

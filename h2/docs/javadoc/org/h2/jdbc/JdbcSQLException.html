@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head><meta http-equiv="Content-Type" content="text/html;charset=utf-8" /><title>
+SQLException
+</title><link rel="stylesheet" type="text/css" href="../../../stylesheet.css" />
+<script type="text/javascript" src="../../../animate.js"></script>
+</head><body onload="openLink();">
+<table class="content"><tr class="content"><td class="content"><div class="contentDiv">
+<h1>SQLException</h1>
+Represents a database exception.<br /><br />
+<table class="block"><tr onclick="return allDetails()"><th colspan="2">Methods</th></tr>
+<tr id="__0" onclick="return on(0)">
+<td class="return"></td><td class="method">
+<a id="JdbcSQLException_String_String_String_int_Throwable_String" href="#JdbcSQLException_String_String_String_int_Throwable_String">JdbcSQLException</a>(String message, String sql, String state, int errorCode, Throwable cause, String stackTrace)
+<div class="methodText">Creates a SQLException.</div>
+</td></tr>
+<tr onclick="return off(0)" class="detail" id="_0">
+<td class="return"></td><td>
+<a id="JdbcSQLException_String_String_String_int_Throwable_String" href="#JdbcSQLException_String_String_String_int_Throwable_String">JdbcSQLException</a>(String message, String sql, String state, int errorCode, Throwable cause, String stackTrace)
+<div class="methodText">Creates a SQLException.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">message - the reason</div>
+<div class="item">sql - the SQL statement</div>
+<div class="item">state - the SQL state</div>
+<div class="item">errorCode - the error code</div>
+<div class="item">cause - the exception that was the reason for this exception</div>
+<div class="item">stackTrace - the stack trace</div>
+</td></tr>
+<tr id="__1" onclick="return on(1)">
+<td class="return">String</td><td class="method">
+<a id="getMessage" href="#getMessage">getMessage</a>()
+<div class="methodText">Get the detail error message.</div>
+</td></tr>
+<tr onclick="return off(1)" class="detail" id="_1">
+<td class="return">String</td><td>
+<a id="getMessage" href="#getMessage">getMessage</a>()
+<div class="methodText">Get the detail error message.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the message</div>
+</td></tr>
+<tr id="__2" onclick="return on(2)">
+<td class="return">String</td><td class="method">
+<a id="getSQL" href="#getSQL">getSQL</a>()
+<div class="methodText">Returns the SQL statement.</div>
+</td></tr>
+<tr onclick="return off(2)" class="detail" id="_2">
+<td class="return">String</td><td>
+<a id="getSQL" href="#getSQL">getSQL</a>()
+<div class="methodText">Returns the SQL statement.
+ SQL statements that contain '--hide--' are not listed.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the SQL statement</div>
+</td></tr>
+<tr id="__3" onclick="return on(3)">
+<td class="return">void</td><td class="method">
+<a id="printStackTrace" href="#printStackTrace">printStackTrace</a>()
+<div class="methodText">Prints the stack trace to the standard error stream.</div>
+</td></tr>
+<tr onclick="return off(3)" class="detail" id="_3">
+<td class="return">void</td><td>
+<a id="printStackTrace" href="#printStackTrace">printStackTrace</a>()
+<div class="methodText">Prints the stack trace to the standard error stream.</div>
+</td></tr>
+<tr id="__4" onclick="return on(4)">
+<td class="return">void</td><td class="method">
+<a id="printStackTrace_PrintWriter" href="#printStackTrace_PrintWriter">printStackTrace</a>(PrintWriter s)
+<div class="methodText">Prints the stack trace to the specified print writer.</div>
+</td></tr>
+<tr onclick="return off(4)" class="detail" id="_4">
+<td class="return">void</td><td>
+<a id="printStackTrace_PrintWriter" href="#printStackTrace_PrintWriter">printStackTrace</a>(PrintWriter s)
+<div class="methodText">Prints the stack trace to the specified print writer.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">s - the print writer</div>
+</td></tr>
+<tr id="__5" onclick="return on(5)">
+<td class="return">void</td><td class="method">
+<a id="printStackTrace_PrintStream" href="#printStackTrace_PrintStream">printStackTrace</a>(PrintStream s)
+<div class="methodText">Prints the stack trace to the specified print stream.</div>
+</td></tr>
+<tr onclick="return off(5)" class="detail" id="_5">
+<td class="return">void</td><td>
+<a id="printStackTrace_PrintStream" href="#printStackTrace_PrintStream">printStackTrace</a>(PrintStream s)
+<div class="methodText">Prints the stack trace to the specified print stream.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">s - the print stream</div>
+</td></tr>
+<tr id="__6" onclick="return on(6)">
+<td class="return">String</td><td class="method">
+<a id="toString" href="#toString">toString</a>()
+<div class="methodText">Returns the class name, the message, and in the server mode, the stack
+ trace of the server</div>
+</td></tr>
+<tr onclick="return off(6)" class="detail" id="_6">
+<td class="return">String</td><td>
+<a id="toString" href="#toString">toString</a>()
+<div class="methodText">Returns the class name, the message, and in the server mode, the stack
+ trace of the server</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the string representation</div>
+</td></tr>
+</table>
+<br /><table><tr><th colspan="2">Fields</th></tr>
+<tr><td class="return">static String</td><td class="method">
+<a href="#HIDE_SQL">HIDE_SQL</a> = "--hide--"
+</td></tr>
+</table>
+<h4 id="HIDE_SQL"><span class="methodName">HIDE_SQL
+ = "--hide--"
+</span></h4>
+<div class="item">If the SQL statement contains this text, then it is never added to the
+ SQL exception. Hiding the SQL statement may be important if it contains a
+ passwords, such as a CREATE LINKED TABLE statement.</div>
+<hr />
+</div></td></tr></table></body></html>

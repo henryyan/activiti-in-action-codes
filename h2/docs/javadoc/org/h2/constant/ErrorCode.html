@@ -1,0 +1,2169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head><meta http-equiv="Content-Type" content="text/html;charset=utf-8" /><title>
+ErrorCode
+</title><link rel="stylesheet" type="text/css" href="../../../stylesheet.css" />
+<script type="text/javascript" src="../../../animate.js"></script>
+</head><body onload="openLink();">
+<table class="content"><tr class="content"><td class="content"><div class="contentDiv">
+<h1>ErrorCode</h1>
+This class defines the error codes used for SQL exceptions.
+ Error messages are formatted as follows:
+ <pre>
+ { error message (possibly translated; may include quoted data) }
+ { error message in English if different }
+ { SQL statement if applicable }
+ { [ error code - build number ] }</pre>
+ Example:
+ <pre>
+ Syntax error in SQL statement "SELECT * FORM[*] TEST ";
+ SQL statement: select * form test [42000-125]</pre>
+ The [*] marks the position of the syntax error
+ (FORM instead of FROM in this case).
+ The error code is 42000, and the build number is 125,
+ meaning version 1.2.125.<br /><br />
+<br /><table><tr><th colspan="2">Fields</th></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90134">ACCESS_DENIED_TO_CLASS_1</a> = 90134
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90040">ADMIN_RIGHTS_REQUIRED</a> = 90040
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90132">AGGREGATE_NOT_FOUND_1</a> = 90132
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90059">AMBIGUOUS_COLUMN_NAME_1</a> = 90059
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90133">CANNOT_CHANGE_SETTING_WHEN_OPEN_1</a> = 90133
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90107">CANNOT_DROP_2</a> = 90107
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90019">CANNOT_DROP_CURRENT_USER</a> = 90019
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90084">CANNOT_DROP_LAST_COLUMN</a> = 90084
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90118">CANNOT_DROP_TABLE_1</a> = 90118
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90123">CANNOT_MIX_INDEXED_AND_UNINDEXED_PARAMS</a> = 90123
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90106">CANNOT_TRUNCATE_1</a> = 90106
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90137">CAN_ONLY_ASSIGN_TO_VARIABLE_1</a> = 90137
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c23513">CHECK_CONSTRAINT_VIOLATED_1</a> = 23513
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90086">CLASS_NOT_FOUND_1</a> = 90086
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90093">CLUSTER_ERROR_DATABASE_RUNS_ALONE</a> = 90093
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90094">CLUSTER_ERROR_DATABASE_RUNS_CLUSTERED_1</a> = 90094
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90089">COLLATION_CHANGE_WITH_DATA_TABLE_1</a> = 90089
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90081">COLUMN_CONTAINS_NULL_VALUES_1</a> = 90081
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c21002">COLUMN_COUNT_DOES_NOT_MATCH</a> = 21002
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90075">COLUMN_IS_PART_OF_INDEX_1</a> = 90075
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90083">COLUMN_IS_REFERENCED_1</a> = 90083
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90023">COLUMN_MUST_NOT_BE_NULLABLE_1</a> = 90023
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c42122">COLUMN_NOT_FOUND_1</a> = 42122
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90058">COMMIT_ROLLBACK_NOT_ALLOWED</a> = 90058
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90104">COMPRESSION_ERROR</a> = 90104
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90131">CONCURRENT_UPDATE_1</a> = 90131
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90067">CONNECTION_BROKEN_1</a> = 90067
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90114">CONSTANT_ALREADY_EXISTS_1</a> = 90114
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90115">CONSTANT_NOT_FOUND_1</a> = 90115
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90045">CONSTRAINT_ALREADY_EXISTS_1</a> = 90045
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90057">CONSTRAINT_NOT_FOUND_1</a> = 90057
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90020">DATABASE_ALREADY_OPEN_1</a> = 90020
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90121">DATABASE_CALLED_AT_SHUTDOWN</a> = 90121
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90098">DATABASE_IS_CLOSED</a> = 90098
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90135">DATABASE_IS_IN_EXCLUSIVE_MODE</a> = 90135
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90126">DATABASE_IS_NOT_PERSISTENT</a> = 90126
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90097">DATABASE_IS_READ_ONLY</a> = 90097
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90013">DATABASE_NOT_FOUND_1</a> = 90013
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c22018">DATA_CONVERSION_ERROR_1</a> = 22018
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c40001">DEADLOCK_1</a> = 40001
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90027">DESERIALIZATION_FAILED_1</a> = 90027
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c22012">DIVISION_BY_ZERO_1</a> = 22012
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90047">DRIVER_VERSION_ERROR_2</a> = 90047
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c42121">DUPLICATE_COLUMN_NAME_1</a> = 42121
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c23505">DUPLICATE_KEY_1</a> = 23505
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90066">DUPLICATE_PROPERTY_1</a> = 90066
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90111">ERROR_ACCESSING_LINKED_TABLE_2</a> = 90111
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90043">ERROR_CREATING_TRIGGER_OBJECT_3</a> = 90043
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90044">ERROR_EXECUTING_TRIGGER_3</a> = 90044
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c8000">ERROR_OPENING_DATABASE_1</a> = 8000
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90099">ERROR_SETTING_DATABASE_EVENT_LISTENER_2</a> = 90099
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90105">EXCEPTION_IN_FUNCTION_1</a> = 90105
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90061">EXCEPTION_OPENING_PORT_2</a> = 90061
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c50100">FEATURE_NOT_SUPPORTED_1</a> = 50100
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90030">FILE_CORRUPTED_1</a> = 90030
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90062">FILE_CREATION_FAILED_1</a> = 90062
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90025">FILE_DELETE_FAILED_1</a> = 90025
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90049">FILE_ENCRYPTION_ERROR_1</a> = 90049
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90124">FILE_NOT_FOUND_1</a> = 90124
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90024">FILE_RENAME_FAILED_2</a> = 90024
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90048">FILE_VERSION_ERROR_1</a> = 90048
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90076">FUNCTION_ALIAS_ALREADY_EXISTS_1</a> = 90076
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90077">FUNCTION_ALIAS_NOT_FOUND_1</a> = 90077
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90000">FUNCTION_MUST_RETURN_RESULT_SET_1</a> = 90000
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90022">FUNCTION_NOT_FOUND_1</a> = 90022
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c50000">GENERAL_ERROR_1</a> = 50000
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90003">HEX_STRING_ODD_1</a> = 90003
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90004">HEX_STRING_WRONG_1</a> = 90004
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c42111">INDEX_ALREADY_EXISTS_1</a> = 42111
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90085">INDEX_BELONGS_TO_CONSTRAINT_1</a> = 90085
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c42112">INDEX_NOT_FOUND_1</a> = 42112
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90125">INVALID_CLASS_2</a> = 90125
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90138">INVALID_DATABASE_NAME_1</a> = 90138
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c22007">INVALID_DATETIME_CONSTANT_2</a> = 22007
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c7001">INVALID_PARAMETER_COUNT_2</a> = 7001
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90054">INVALID_USE_OF_AGGREGATE_FUNCTION_1</a> = 90054
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90008">INVALID_VALUE_2</a> = 90008
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90028">IO_EXCEPTION_1</a> = 90028
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90031">IO_EXCEPTION_2</a> = 90031
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c22025">LIKE_ESCAPE_ERROR_1</a> = 22025
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90116">LITERALS_ARE_NOT_ALLOWED</a> = 90116
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c50200">LOCK_TIMEOUT_1</a> = 50200
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90073">METHODS_MUST_HAVE_DIFFERENT_PARAMETER_COUNTS_2</a> = 90073
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90130">METHOD_NOT_ALLOWED_FOR_PREPARED_STATEMENT</a> = 90130
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90001">METHOD_NOT_ALLOWED_FOR_QUERY</a> = 90001
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90087">METHOD_NOT_FOUND_1</a> = 90087
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90002">METHOD_ONLY_ALLOWED_FOR_QUERY</a> = 90002
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90016">MUST_GROUP_BY_COLUMN_1</a> = 90016
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90096">NOT_ENOUGH_RIGHTS_FOR_1</a> = 90096
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90029">NOT_ON_UPDATABLE_ROW</a> = 90029
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c2000">NO_DATA_AVAILABLE</a> = 2000
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c23507">NO_DEFAULT_SET_1</a> = 23507
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90100">NO_DISK_SPACE_AVAILABLE</a> = 90100
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c23502">NULL_NOT_ALLOWED</a> = 23502
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c22003">NUMERIC_VALUE_OUT_OF_RANGE_1</a> = 22003
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90007">OBJECT_CLOSED</a> = 90007
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90068">ORDER_BY_NOT_IN_RESULT</a> = 90068
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90108">OUT_OF_MEMORY</a> = 90108
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90012">PARAMETER_NOT_SET_1</a> = 90012
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90014">PARSE_ERROR_1</a> = 90014
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90139">PUBLIC_STATIC_JAVA_METHOD_NOT_FOUND_1</a> = 90139
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c23503">REFERENTIAL_INTEGRITY_VIOLATED_CHILD_EXISTS_1</a> = 23503
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c23506">REFERENTIAL_INTEGRITY_VIOLATED_PARENT_MISSING_1</a> = 23506
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90117">REMOTE_CONNECTION_NOT_ALLOWED</a> = 90117
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90128">RESULT_SET_NOT_SCROLLABLE</a> = 90128
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90127">RESULT_SET_NOT_UPDATABLE</a> = 90127
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90140">RESULT_SET_READONLY</a> = 90140
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90072">ROLES_AND_RIGHT_CANNOT_BE_MIXED</a> = 90072
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90069">ROLE_ALREADY_EXISTS_1</a> = 90069
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90074">ROLE_ALREADY_GRANTED_1</a> = 90074
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90091">ROLE_CAN_NOT_BE_DROPPED_1</a> = 90091
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90070">ROLE_NOT_FOUND_1</a> = 90070
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90112">ROW_NOT_FOUND_WHEN_DELETING_1</a> = 90112
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90063">SAVEPOINT_IS_INVALID_1</a> = 90063
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90065">SAVEPOINT_IS_NAMED</a> = 90065
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90064">SAVEPOINT_IS_UNNAMED</a> = 90064
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90053">SCALAR_SUBQUERY_CONTAINS_MORE_THAN_ONE_ROW</a> = 90053
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90078">SCHEMA_ALREADY_EXISTS_1</a> = 90078
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90090">SCHEMA_CAN_NOT_BE_DROPPED_1</a> = 90090
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90080">SCHEMA_NAME_MUST_MATCH</a> = 90080
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90079">SCHEMA_NOT_FOUND_1</a> = 90079
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90017">SECOND_PRIMARY_KEY</a> = 90017
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90035">SEQUENCE_ALREADY_EXISTS_1</a> = 90035
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90082">SEQUENCE_BELONGS_TO_A_TABLE_1</a> = 90082
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90036">SEQUENCE_NOT_FOUND_1</a> = 90036
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90026">SERIALIZATION_FAILED_1</a> = 90026
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c57014">STATEMENT_WAS_CANCELED</a> = 57014
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90095">STRING_FORMAT_ERROR_1</a> = 90095
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90052">SUBQUERY_IS_NOT_SINGLE_COLUMN</a> = 90052
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90015">SUM_OR_AVG_ON_WRONG_DATATYPE_1</a> = 90015
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c42000">SYNTAX_ERROR_1</a> = 42000
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c42001">SYNTAX_ERROR_2</a> = 42001
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c42101">TABLE_OR_VIEW_ALREADY_EXISTS_1</a> = 42101
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c42102">TABLE_OR_VIEW_NOT_FOUND_1</a> = 42102
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90018">TRACE_CONNECTION_NOT_CLOSED</a> = 90018
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90034">TRACE_FILE_ERROR_2</a> = 90034
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90129">TRANSACTION_NOT_FOUND_1</a> = 90129
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90041">TRIGGER_ALREADY_EXISTS_1</a> = 90041
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90042">TRIGGER_NOT_FOUND_1</a> = 90042
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c50004">UNKNOWN_DATA_TYPE_1</a> = 50004
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90088">UNKNOWN_MODE_1</a> = 90088
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90055">UNSUPPORTED_CIPHER</a> = 90055
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90103">UNSUPPORTED_COMPRESSION_ALGORITHM_1</a> = 90103
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90102">UNSUPPORTED_COMPRESSION_OPTIONS_1</a> = 90102
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90092">UNSUPPORTED_JAVA_VERSION</a> = 90092
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90060">UNSUPPORTED_LOCK_METHOD_1</a> = 90060
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90136">UNSUPPORTED_OUTER_JOIN_CONDITION_1</a> = 90136
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90113">UNSUPPORTED_SETTING_1</a> = 90113
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90046">URL_FORMAT_ERROR_2</a> = 90046
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90033">USER_ALREADY_EXISTS_1</a> = 90033
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90119">USER_DATA_TYPE_ALREADY_EXISTS_1</a> = 90119
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90120">USER_DATA_TYPE_NOT_FOUND_1</a> = 90120
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90032">USER_NOT_FOUND_1</a> = 90032
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90071">USER_OR_ROLE_NOT_FOUND_1</a> = 90071
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c22001">VALUE_TOO_LONG_2</a> = 22001
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90038">VIEW_ALREADY_EXISTS_1</a> = 90038
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90109">VIEW_IS_INVALID_2</a> = 90109
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90037">VIEW_NOT_FOUND_1</a> = 90037
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90050">WRONG_PASSWORD_FORMAT</a> = 90050
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c28000">WRONG_USER_OR_PASSWORD</a> = 28000
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#c90101">WRONG_XID_FORMAT_1</a> = 90101
+</td></tr>
+</table>
+<h4 id="c2000"><span class="methodName">NO_DATA_AVAILABLE
+ = 2000
+</span></h4>
+<div class="item">The error with code <code>2000</code> is thrown when
+ the result set is positioned before the first or after the last row, or
+ not on a valid row for the given operation.
+ Example of wrong usage:
+ <pre>
+ ResultSet rs = stat.executeQuery("SELECT * FROM DUAL");
+ rs.getString(1);</pre>
+ Correct:
+ <pre>
+ ResultSet rs = stat.executeQuery("SELECT * FROM DUAL");
+ rs.next();
+ rs.getString(1);</pre></div>
+<hr />
+<h4 id="c21002"><span class="methodName">COLUMN_COUNT_DOES_NOT_MATCH
+ = 21002
+</span></h4>
+<div class="item">The error with code <code>21002</code> is thrown when the number of
+ columns does not match. Possible reasons are: for an INSERT or MERGE
+ statement, the column count does not match the table or the column list
+ specified. For a SELECT UNION statement, both queries return a different
+ number of columns. For a constraint, the number of referenced and
+ referencing columns does not match. Example:
+ <pre>
+ CREATE TABLE TEST(ID INT, NAME VARCHAR);
+ INSERT INTO TEST VALUES('Hello');</pre></div>
+<hr />
+<h4 id="c22001"><span class="methodName">VALUE_TOO_LONG_2
+ = 22001
+</span></h4>
+<div class="item">The error with code <code>22001</code> is thrown when
+ trying to insert a value that is too long for the column.
+ Example:
+ <pre>
+ CREATE TABLE TEST(ID INT, NAME VARCHAR(2));
+ INSERT INTO TEST VALUES(1, 'Hello');</pre></div>
+<hr />
+<h4 id="c22003"><span class="methodName">NUMERIC_VALUE_OUT_OF_RANGE_1
+ = 22003
+</span></h4>
+<div class="item">The error with code <code>22003</code> is thrown when a value is out of
+ range when converting to another data type. Example:
+ <pre>
+ CALL CAST(1000000 AS TINYINT);
+ SELECT CAST(124.34 AS DECIMAL(2, 2));</pre></div>
+<hr />
+<h4 id="c22007"><span class="methodName">INVALID_DATETIME_CONSTANT_2
+ = 22007
+</span></h4>
+<div class="item">The error with code <code>22007</code> is thrown when
+ a text can not be converted to a date, time, or timestamp constant.
+ Examples:
+ <pre>
+ CALL DATE '2007-January-01';
+ CALL TIME '14:61:00';
+ CALL TIMESTAMP '2001-02-30 12:00:00';</pre></div>
+<hr />
+<h4 id="c22012"><span class="methodName">DIVISION_BY_ZERO_1
+ = 22012
+</span></h4>
+<div class="item">The error with code <code>22012</code> is thrown when trying to divide
+ a value by zero. Example:
+ <pre>
+ CALL 1/0;</pre></div>
+<hr />
+<h4 id="c22018"><span class="methodName">DATA_CONVERSION_ERROR_1
+ = 22018
+</span></h4>
+<div class="item">The error with code <code>22018</code> is thrown when
+ trying to convert a value to a data type where the conversion is undefined,
+ or when an error occurred trying to convert.
+ Example:
+ <pre>
+ CALL CAST(DATE '2001-01-01' AS BOOLEAN);
+ CALL CAST('CHF 99.95' AS INT);</pre></div>
+<hr />
+<h4 id="c22025"><span class="methodName">LIKE_ESCAPE_ERROR_1
+ = 22025
+</span></h4>
+<div class="item">The error with code <code>22025</code> is thrown when using an invalid
+ escape character sequence for LIKE or REGEXP. The default escape
+ character is '\'. The escape character is required when searching for
+ the characters '%', '_' and the escape character itself. That means if
+ you want to search for the text '10%', you need to use LIKE '10\%'. If
+ you want to search for 'C:\temp' you need to use 'C:\\temp'. The escape
+ character can be changed using the ESCAPE clause as in LIKE '10+%' ESCAPE
+ '+'. Example of wrong usage:
+ <pre>
+ CALL 'C:\temp' LIKE 'C:\temp';
+ CALL '1+1' LIKE '1+1' ESCAPE '+';</pre>
+ Correct:
+ <pre>
+ CALL 'C:\temp' LIKE 'C:\\temp';
+ CALL '1+1' LIKE '1++1' ESCAPE '+';</pre></div>
+<hr />
+<h4 id="c23502"><span class="methodName">NULL_NOT_ALLOWED
+ = 23502
+</span></h4>
+<div class="item">The error with code <code>23502</code> is thrown when
+ trying to insert NULL into a column that does not allow NULL.
+ Example:
+ <pre>
+ CREATE TABLE TEST(ID INT, NAME VARCHAR NOT NULL);
+ INSERT INTO TEST(ID) VALUES(1);</pre></div>
+<hr />
+<h4 id="c23503"><span class="methodName">REFERENTIAL_INTEGRITY_VIOLATED_CHILD_EXISTS_1
+ = 23503
+</span></h4>
+<div class="item">The error with code <code>23503</code> is thrown when trying to delete
+ or update a row when this would violate a referential constraint, because
+ there is a child row that would become an orphan. Example:
+ <pre>
+ CREATE TABLE TEST(ID INT PRIMARY KEY, PARENT INT);
+ INSERT INTO TEST VALUES(1, 1), (2, 1);
+ ALTER TABLE TEST ADD CONSTRAINT TEST_ID_PARENT
+       FOREIGN KEY(PARENT) REFERENCES TEST(ID) ON DELETE RESTRICT;
+ DELETE FROM TEST WHERE ID = 1;</pre></div>
+<hr />
+<h4 id="c23505"><span class="methodName">DUPLICATE_KEY_1
+ = 23505
+</span></h4>
+<div class="item">The error with code <code>23505</code> is thrown when trying to insert
+ a row that would violate a unique index or primary key. Example:
+ <pre>
+ CREATE TABLE TEST(ID INT PRIMARY KEY);
+ INSERT INTO TEST VALUES(1);
+ INSERT INTO TEST VALUES(1);</pre></div>
+<hr />
+<h4 id="c23506"><span class="methodName">REFERENTIAL_INTEGRITY_VIOLATED_PARENT_MISSING_1
+ = 23506
+</span></h4>
+<div class="item">The error with code <code>23506</code> is thrown when trying to insert
+ or update a row that would violate a referential constraint, because the
+ referenced row does not exist. Example:
+ <pre>
+ CREATE TABLE PARENT(ID INT PRIMARY KEY);
+ CREATE TABLE CHILD(P_ID INT REFERENCES PARENT(ID));
+ INSERT INTO CHILD VALUES(1);</pre></div>
+<hr />
+<h4 id="c23507"><span class="methodName">NO_DEFAULT_SET_1
+ = 23507
+</span></h4>
+<div class="item">The error with code <code>23507</code> is thrown when
+ updating or deleting from a table with a foreign key constraint
+ that should set the default value, but there is no default value defined.
+ Example:
+ <pre>
+ CREATE TABLE TEST(ID INT PRIMARY KEY, PARENT INT);
+ INSERT INTO TEST VALUES(1, 1), (2, 1);
+ ALTER TABLE TEST ADD CONSTRAINT TEST_ID_PARENT
+   FOREIGN KEY(PARENT) REFERENCES TEST(ID) ON DELETE SET DEFAULT;
+ DELETE FROM TEST WHERE ID = 1;</pre></div>
+<hr />
+<h4 id="c23513"><span class="methodName">CHECK_CONSTRAINT_VIOLATED_1
+ = 23513
+</span></h4>
+<div class="item">The error with code <code>23513</code> is thrown when a check
+ constraint is violated. Example:
+ <pre>
+ CREATE TABLE TEST(ID INT CHECK ID&gt;0);
+ INSERT INTO TEST VALUES(0);</pre></div>
+<hr />
+<h4 id="c28000"><span class="methodName">WRONG_USER_OR_PASSWORD
+ = 28000
+</span></h4>
+<div class="item">The error with code <code>28000</code> is thrown when
+ there is no such user registered in the database, when
+ the user password does not match, or when the database encryption password
+ does not match (if database encryption is used).</div>
+<hr />
+<h4 id="c40001"><span class="methodName">DEADLOCK_1
+ = 40001
+</span></h4>
+<div class="item">The error with code <code>40001</code> is thrown when the database
+ engine has detected a deadlock. The transaction of this session has been
+ rolled back to solve the problem. A deadlock occurs when a session tries
+ to lock a table another session has locked, while the other session wants
+ to lock a table the first session has locked. As an example, session 1
+ has locked table A, while session 2 has locked table B. If session 1 now
+ tries to lock table B and session 2 tries to lock table A, a deadlock has
+ occurred. Deadlocks that involve more than two sessions are also possible.
+ To solve deadlock problems, an application should lock tables always in
+ the same order, such as always lock table A before locking table B. For
+ details, see <a href="http://en.wikipedia.org/wiki/Deadlock">Wikipedia
+ Deadlock</a>.</div>
+<hr />
+<h4 id="c42000"><span class="methodName">SYNTAX_ERROR_1
+ = 42000
+</span></h4>
+<div class="item">The error with code <code>42000</code> is thrown when
+ trying to execute an invalid SQL statement.
+ Example:
+ <pre>
+ CREATE ALIAS REMAINDER FOR "IEEEremainder";</pre></div>
+<hr />
+<h4 id="c42001"><span class="methodName">SYNTAX_ERROR_2
+ = 42001
+</span></h4>
+<div class="item">The error with code <code>42001</code> is thrown when
+ trying to execute an invalid SQL statement.
+ Example:
+ <pre>
+ CREATE TABLE TEST(ID INT);
+ INSERT INTO TEST(1);</pre></div>
+<hr />
+<h4 id="c42101"><span class="methodName">TABLE_OR_VIEW_ALREADY_EXISTS_1
+ = 42101
+</span></h4>
+<div class="item">The error with code <code>42101</code> is thrown when
+ trying to create a table or view if an object with this name already exists.
+ Example:
+ <pre>
+ CREATE TABLE TEST(ID INT);
+ CREATE TABLE TEST(ID INT PRIMARY KEY);</pre></div>
+<hr />
+<h4 id="c42102"><span class="methodName">TABLE_OR_VIEW_NOT_FOUND_1
+ = 42102
+</span></h4>
+<div class="item">The error with code <code>42102</code> is thrown when
+ trying to query, modify or drop a table or view that does not exists
+ in this schema and database. A common cause is that the wrong
+ database was opened.
+ Example:
+ <pre>
+ SELECT * FROM ABC;</pre></div>
+<hr />
+<h4 id="c42111"><span class="methodName">INDEX_ALREADY_EXISTS_1
+ = 42111
+</span></h4>
+<div class="item">The error with code <code>42111</code> is thrown when
+ trying to create an index if an index with the same name already exists.
+ Example:
+ <pre>
+ CREATE TABLE TEST(ID INT, NAME VARCHAR);
+ CREATE INDEX IDX_ID ON TEST(ID);
+ CREATE TABLE ADDRESS(ID INT);
+ CREATE INDEX IDX_ID ON ADDRESS(ID);</pre></div>
+<hr />
+<h4 id="c42112"><span class="methodName">INDEX_NOT_FOUND_1
+ = 42112
+</span></h4>
+<div class="item">The error with code <code>42112</code> is thrown when
+ trying to drop or reference an index that does not exist.
+ Example:
+ <pre>
+ DROP INDEX ABC;</pre></div>
+<hr />
+<h4 id="c42121"><span class="methodName">DUPLICATE_COLUMN_NAME_1
+ = 42121
+</span></h4>
+<div class="item">The error with code <code>42121</code> is thrown when trying to create
+ a table or insert into a table and use the same column name twice.
+ Example:
+ <pre>
+ CREATE TABLE TEST(ID INT, ID INT);</pre></div>
+<hr />
+<h4 id="c42122"><span class="methodName">COLUMN_NOT_FOUND_1
+ = 42122
+</span></h4>
+<div class="item">The error with code <code>42122</code> is thrown when
+ referencing an non-existing column.
+ Example:
+ <pre>
+ CREATE TABLE TEST(ID INT);
+ SELECT NAME FROM TEST;</pre></div>
+<hr />
+<h4 id="c50000"><span class="methodName">GENERAL_ERROR_1
+ = 50000
+</span></h4>
+<div class="item">The error with code <code>50000</code> is thrown when
+ something unexpected occurs, for example an internal stack
+ overflow. For details about the problem, see the cause of the
+ exception in the stack trace.</div>
+<hr />
+<h4 id="c50004"><span class="methodName">UNKNOWN_DATA_TYPE_1
+ = 50004
+</span></h4>
+<div class="item">The error with code <code>50004</code> is thrown when
+ creating a table with an unsupported data type, or
+ when the data type is unknown because parameters are used.
+ Example:
+ <pre>
+ CREATE TABLE TEST(ID VERYSMALLINT);</pre></div>
+<hr />
+<h4 id="c50100"><span class="methodName">FEATURE_NOT_SUPPORTED_1
+ = 50100
+</span></h4>
+<div class="item">The error with code <code>50100</code> is thrown when calling an
+ unsupported JDBC method or database feature. See the stack trace for
+ details.</div>
+<hr />
+<h4 id="c50200"><span class="methodName">LOCK_TIMEOUT_1
+ = 50200
+</span></h4>
+<div class="item">The error with code <code>50200</code> is thrown when
+ another connection locked an object longer than the lock timeout
+ set for this connection, or when a deadlock occurred.
+ Example:
+ <pre>
+ CREATE TABLE TEST(ID INT);
+ -- connection 1:
+ SET AUTOCOMMIT FALSE;
+ INSERT INTO TEST VALUES(1);
+ -- connection 2:
+ SET AUTOCOMMIT FALSE;
+ INSERT INTO TEST VALUES(1);</pre></div>
+<hr />
+<h4 id="c57014"><span class="methodName">STATEMENT_WAS_CANCELED
+ = 57014
+</span></h4>
+<div class="item">The error with code <code>57014</code> is thrown when
+ a statement was canceled using Statement.cancel() or
+ when the query timeout has been reached.
+ Examples:
+ <pre>
+ stat.setQueryTimeout(1);
+ stat.cancel();</pre></div>
+<hr />
+<h4 id="c7001"><span class="methodName">INVALID_PARAMETER_COUNT_2
+ = 7001
+</span></h4>
+<div class="item">The error with code <code>7001</code> is thrown when
+ trying to call a function with the wrong number of parameters.
+ Example:
+ <pre>
+ CALL ABS(1, 2)</pre></div>
+<hr />
+<h4 id="c8000"><span class="methodName">ERROR_OPENING_DATABASE_1
+ = 8000
+</span></h4>
+<div class="item">The error with code <code>8000</code> is thrown when
+ there was a problem trying to create a database lock.
+ See the message and cause for details.</div>
+<hr />
+<h4 id="c90000"><span class="methodName">FUNCTION_MUST_RETURN_RESULT_SET_1
+ = 90000
+</span></h4>
+<div class="item">The error with code <code>90000</code> is thrown when
+ a function that does not return a result set was used in the FROM clause.
+ Example:
+ <pre>
+ SELECT * FROM SIN(1);</pre></div>
+<hr />
+<h4 id="c90001"><span class="methodName">METHOD_NOT_ALLOWED_FOR_QUERY
+ = 90001
+</span></h4>
+<div class="item">The error with code <code>90001</code> is thrown when
+ Statement.executeUpdate() was called for a SELECT statement.
+ This is not allowed according to the JDBC specs.</div>
+<hr />
+<h4 id="c90002"><span class="methodName">METHOD_ONLY_ALLOWED_FOR_QUERY
+ = 90002
+</span></h4>
+<div class="item">The error with code <code>90002</code> is thrown when
+ Statement.executeQuery() was called for a statement that does
+ not return a result set (for example, an UPDATE statement).
+ This is not allowed according to the JDBC specs.</div>
+<hr />
+<h4 id="c90003"><span class="methodName">HEX_STRING_ODD_1
+ = 90003
+</span></h4>
+<div class="item">The error with code <code>90003</code> is thrown when
+ trying to convert a String to a binary value. Two hex digits
+ per byte are required. Example of wrong usage:
+ <pre>
+ CALL X'00023';
+ Hexadecimal string with odd number of characters: 00023</pre>
+ Correct:
+ <pre>
+ CALL X'000023';</pre></div>
+<hr />
+<h4 id="c90004"><span class="methodName">HEX_STRING_WRONG_1
+ = 90004
+</span></h4>
+<div class="item">The error with code <code>90004</code> is thrown when
+ trying to convert a text to binary, but the expression contains
+ a non-hexadecimal character.
+ Example:
+ <pre>
+ CALL X'ABCDEFGH';
+ CALL CAST('ABCDEFGH' AS BINARY);</pre>
+ Conversion from text to binary is supported, but the text must
+ represent the hexadecimal encoded bytes.</div>
+<hr />
+<h4 id="c90007"><span class="methodName">OBJECT_CLOSED
+ = 90007
+</span></h4>
+<div class="item">The error with code <code>90007</code> is thrown when
+ trying to call a JDBC method on an object that has been closed.</div>
+<hr />
+<h4 id="c90008"><span class="methodName">INVALID_VALUE_2
+ = 90008
+</span></h4>
+<div class="item">The error with code <code>90008</code> is thrown when
+ trying to use a value that is not valid for the given operation.
+ Example:
+ <pre>
+ CREATE SEQUENCE TEST INCREMENT 0;</pre></div>
+<hr />
+<h4 id="c90012"><span class="methodName">PARAMETER_NOT_SET_1
+ = 90012
+</span></h4>
+<div class="item">The error with code <code>90012</code> is thrown when
+ trying to execute a statement with an parameter.
+ Example:
+ <pre>
+ CALL SIN(?);</pre></div>
+<hr />
+<h4 id="c90013"><span class="methodName">DATABASE_NOT_FOUND_1
+ = 90013
+</span></h4>
+<div class="item">The error with code <code>90013</code> is thrown when
+ trying to open a database that does not exist using the flag IFEXISTS=TRUE,
+ or when trying to access a database object with a catalog name that does
+ not match the database name.
+ Example:
+ <pre>
+ CREATE TABLE TEST(ID INT);
+ SELECT XYZ.PUBLIC.TEST.ID FROM TEST;</pre></div>
+<hr />
+<h4 id="c90014"><span class="methodName">PARSE_ERROR_1
+ = 90014
+</span></h4>
+<div class="item">The error with code <code>90014</code> is thrown when
+ trying to parse a date with an unsupported format string, or
+ when the date can not be parsed.
+ Example:
+ <pre>
+ CALL PARSEDATETIME('2001 January', 'yyyy mm');</pre></div>
+<hr />
+<h4 id="c90015"><span class="methodName">SUM_OR_AVG_ON_WRONG_DATATYPE_1
+ = 90015
+</span></h4>
+<div class="item">The error with code <code>90015</code> is thrown when
+ using an aggregate function with a data type that is not supported.
+ Example:
+ <pre>
+ SELECT SUM('Hello') FROM DUAL;</pre></div>
+<hr />
+<h4 id="c90016"><span class="methodName">MUST_GROUP_BY_COLUMN_1
+ = 90016
+</span></h4>
+<div class="item">The error with code <code>90016</code> is thrown when
+ a column was used in the expression list or the order by clause
+ of a group or aggregate query, and that column is not in the GROUP BY clause.
+ Example of wrong usage:
+ <pre>
+ CREATE TABLE TEST(ID INT, NAME VARCHAR);
+ INSERT INTO TEST VALUES(1, 'Hello'), (2, 'World');
+ SELECT ID, MAX(NAME) FROM TEST;
+ Column ID must be in the GROUP BY list.</pre>
+ Correct:
+ <pre>
+ SELECT ID, MAX(NAME) FROM TEST GROUP BY ID;</pre></div>
+<hr />
+<h4 id="c90017"><span class="methodName">SECOND_PRIMARY_KEY
+ = 90017
+</span></h4>
+<div class="item">The error with code <code>90017</code> is thrown when
+ trying to define a second primary key constraint for this table.
+ Example:
+ <pre>
+ CREATE TABLE TEST(ID INT PRIMARY KEY, NAME VARCHAR);
+ ALTER TABLE TEST ADD CONSTRAINT PK PRIMARY KEY(NAME);</pre></div>
+<hr />
+<h4 id="c90018"><span class="methodName">TRACE_CONNECTION_NOT_CLOSED
+ = 90018
+</span></h4>
+<div class="item">The error with code <code>90018</code> is thrown when
+ the connection was opened, but never closed. In the finalizer of the
+ connection, this forgotten close was detected and the connection was
+ closed automatically, but relying on the finalizer is not good practice
+ as it is not guaranteed and behavior is virtual machine dependent. The
+ application should close the connection. This exception only appears in
+ the .trace.db file. Example of wrong usage:
+ <pre>
+ Connection conn;
+ conn = DriverManager.getConnection(&quot;jdbc:h2:&tilde;/test&quot;);
+ conn = null;
+ The connection was not closed by the application and is
+ garbage collected</pre>
+ Correct:
+ <pre>
+ conn.close();</pre></div>
+<hr />
+<h4 id="c90019"><span class="methodName">CANNOT_DROP_CURRENT_USER
+ = 90019
+</span></h4>
+<div class="item">The error with code <code>90019</code> is thrown when
+ trying to drop the current user, if there are no other admin users.
+ Example:
+ <pre>
+ DROP USER SA;</pre></div>
+<hr />
+<h4 id="c90020"><span class="methodName">DATABASE_ALREADY_OPEN_1
+ = 90020
+</span></h4>
+<div class="item">The error with code <code>90020</code> is thrown when trying to open a
+ database in embedded mode if this database is already in use in another
+ process (or in a different class loader). Multiple connections to the
+ same database are supported in the following cases:
+ <ul><li>In embedded mode (URL of the form jdbc:h2:~/test) if all
+ connections are opened within the same process and class loader.
+ </li><li>In server and cluster mode (URL of the form
+ jdbc:h2:tcp://localhost/test) using remote connections.
+ </li></ul>
+ The mixed mode is also supported. This mode requires to start a server
+ in the same process where the database is open in embedded mode.</div>
+<hr />
+<h4 id="c90022"><span class="methodName">FUNCTION_NOT_FOUND_1
+ = 90022
+</span></h4>
+<div class="item">The error with code <code>90022</code> is thrown when
+ trying to call a unknown function.
+ Example:
+ <pre>
+ CALL SPECIAL_SIN(10);</pre></div>
+<hr />
+<h4 id="c90023"><span class="methodName">COLUMN_MUST_NOT_BE_NULLABLE_1
+ = 90023
+</span></h4>
+<div class="item">The error with code <code>90023</code> is thrown when
+ trying to set a primary key on a nullable column.
+ Example:
+ <pre>
+ CREATE TABLE TEST(ID INT, NAME VARCHAR);
+ ALTER TABLE TEST ADD CONSTRAINT PK PRIMARY KEY(ID);</pre></div>
+<hr />
+<h4 id="c90024"><span class="methodName">FILE_RENAME_FAILED_2
+ = 90024
+</span></h4>
+<div class="item">The error with code <code>90024</code> is thrown when
+ a file could not be renamed.</div>
+<hr />
+<h4 id="c90025"><span class="methodName">FILE_DELETE_FAILED_1
+ = 90025
+</span></h4>
+<div class="item">The error with code <code>90025</code> is thrown when
+ a file could not be deleted, because it is still in use
+ (only in Windows), or because an error occurred when deleting.</div>
+<hr />
+<h4 id="c90026"><span class="methodName">SERIALIZATION_FAILED_1
+ = 90026
+</span></h4>
+<div class="item">The error with code <code>90026</code> is thrown when
+ an object could not be serialized.</div>
+<hr />
+<h4 id="c90027"><span class="methodName">DESERIALIZATION_FAILED_1
+ = 90027
+</span></h4>
+<div class="item">The error with code <code>90027</code> is thrown when
+ an object could not be de-serialized.</div>
+<hr />
+<h4 id="c90028"><span class="methodName">IO_EXCEPTION_1
+ = 90028
+</span></h4>
+<div class="item">The error with code <code>90028</code> is thrown when
+ an input / output error occurred. For more information, see the root
+ cause of the exception.</div>
+<hr />
+<h4 id="c90029"><span class="methodName">NOT_ON_UPDATABLE_ROW
+ = 90029
+</span></h4>
+<div class="item">The error with code <code>90029</code> is thrown when
+ calling ResultSet.deleteRow(), insertRow(), or updateRow()
+ when the current row is not updatable.
+ Example:
+ <pre>
+ ResultSet rs = stat.executeQuery("SELECT * FROM TEST");
+ rs.next();
+ rs.insertRow();</pre></div>
+<hr />
+<h4 id="c90030"><span class="methodName">FILE_CORRUPTED_1
+ = 90030
+</span></h4>
+<div class="item">The error with code <code>90030</code> is thrown when
+ the database engine has detected a checksum mismatch in the data
+ or index. To solve this problem, restore a backup or use the
+ Recovery tool (org.h2.tools.Recover).</div>
+<hr />
+<h4 id="c90031"><span class="methodName">IO_EXCEPTION_2
+ = 90031
+</span></h4>
+<div class="item">The error with code <code>90031</code> is thrown when
+ an input / output error occurred. For more information, see the root
+ cause of the exception.</div>
+<hr />
+<h4 id="c90032"><span class="methodName">USER_NOT_FOUND_1
+ = 90032
+</span></h4>
+<div class="item">The error with code <code>90032</code> is thrown when
+ trying to drop or alter a user that does not exist.
+ Example:
+ <pre>
+ DROP USER TEST_USER;</pre></div>
+<hr />
+<h4 id="c90033"><span class="methodName">USER_ALREADY_EXISTS_1
+ = 90033
+</span></h4>
+<div class="item">The error with code <code>90033</code> is thrown when
+ trying to create a user or role if a user with this name already exists.
+ Example:
+ <pre>
+ CREATE USER TEST_USER;
+ CREATE USER TEST_USER;</pre></div>
+<hr />
+<h4 id="c90034"><span class="methodName">TRACE_FILE_ERROR_2
+ = 90034
+</span></h4>
+<div class="item">The error with code <code>90034</code> is thrown when
+ writing to the trace file failed, for example because the there
+ is an I/O exception. This message is printed to System.out,
+ but only once.</div>
+<hr />
+<h4 id="c90035"><span class="methodName">SEQUENCE_ALREADY_EXISTS_1
+ = 90035
+</span></h4>
+<div class="item">The error with code <code>90035</code> is thrown when
+ trying to create a sequence if a sequence with this name already
+ exists.
+ Example:
+ <pre>
+ CREATE SEQUENCE TEST_SEQ;
+ CREATE SEQUENCE TEST_SEQ;</pre></div>
+<hr />
+<h4 id="c90036"><span class="methodName">SEQUENCE_NOT_FOUND_1
+ = 90036
+</span></h4>
+<div class="item">The error with code <code>90036</code> is thrown when
+ trying to access a sequence that does not exist.
+ Example:
+ <pre>
+ SELECT NEXT VALUE FOR SEQUENCE XYZ;</pre></div>
+<hr />
+<h4 id="c90037"><span class="methodName">VIEW_NOT_FOUND_1
+ = 90037
+</span></h4>
+<div class="item">The error with code <code>90037</code> is thrown when
+ trying to drop or alter a view that does not exist.
+ Example:
+ <pre>
+ DROP VIEW XYZ;</pre></div>
+<hr />
+<h4 id="c90038"><span class="methodName">VIEW_ALREADY_EXISTS_1
+ = 90038
+</span></h4>
+<div class="item">The error with code <code>90038</code> is thrown when
+ trying to create a view if a view with this name already
+ exists.
+ Example:
+ <pre>
+ CREATE VIEW DUMMY AS SELECT * FROM DUAL;
+ CREATE VIEW DUMMY AS SELECT * FROM DUAL;</pre></div>
+<hr />
+<h4 id="c90040"><span class="methodName">ADMIN_RIGHTS_REQUIRED
+ = 90040
+</span></h4>
+<div class="item">The error with code <code>90040</code> is thrown when
+ a user that is not administrator tries to execute a statement
+ that requires admin privileges.</div>
+<hr />
+<h4 id="c90041"><span class="methodName">TRIGGER_ALREADY_EXISTS_1
+ = 90041
+</span></h4>
+<div class="item">The error with code <code>90041</code> is thrown when
+ trying to create a trigger and there is already a trigger with that name.
+ <pre>
+ CREATE TABLE TEST(ID INT);
+ CREATE TRIGGER TRIGGER_A AFTER INSERT ON TEST
+      CALL "org.h2.samples.TriggerSample$MyTrigger";
+ CREATE TRIGGER TRIGGER_A AFTER INSERT ON TEST
+      CALL "org.h2.samples.TriggerSample$MyTrigger";</pre></div>
+<hr />
+<h4 id="c90042"><span class="methodName">TRIGGER_NOT_FOUND_1
+ = 90042
+</span></h4>
+<div class="item">The error with code <code>90042</code> is thrown when
+ trying to drop a trigger that does not exist.
+ Example:
+ <pre>
+ DROP TRIGGER TRIGGER_XYZ;</pre></div>
+<hr />
+<h4 id="c90043"><span class="methodName">ERROR_CREATING_TRIGGER_OBJECT_3
+ = 90043
+</span></h4>
+<div class="item">The error with code <code>90043</code> is thrown when
+ there is an error initializing the trigger, for example because the
+ class does not implement the Trigger interface.
+ See the root cause for details.
+ Example:
+ <pre>
+ CREATE TABLE TEST(ID INT);
+ CREATE TRIGGER TRIGGER_A AFTER INSERT ON TEST
+      CALL "java.lang.String";</pre></div>
+<hr />
+<h4 id="c90044"><span class="methodName">ERROR_EXECUTING_TRIGGER_3
+ = 90044
+</span></h4>
+<div class="item">The error with code <code>90044</code> is thrown when
+ an exception or error occurred while calling the triggers fire method.
+ See the root cause for details.</div>
+<hr />
+<h4 id="c90045"><span class="methodName">CONSTRAINT_ALREADY_EXISTS_1
+ = 90045
+</span></h4>
+<div class="item">The error with code <code>90045</code> is thrown when
+ trying to create a constraint  if an object with this name already exists.
+ Example:
+ <pre>
+ CREATE TABLE TEST(ID INT NOT NULL);
+ ALTER TABLE TEST ADD CONSTRAINT PK PRIMARY KEY(ID);
+ ALTER TABLE TEST ADD CONSTRAINT PK PRIMARY KEY(ID);</pre></div>
+<hr />
+<h4 id="c90046"><span class="methodName">URL_FORMAT_ERROR_2
+ = 90046
+</span></h4>
+<div class="item">The error with code <code>90046</code> is thrown when
+ trying to open a connection to a database using an unsupported URL format.
+ Please see the documentation on the supported URL format and examples.
+ Example:
+ <pre>
+ jdbc:h2:;;</pre></div>
+<hr />
+<h4 id="c90047"><span class="methodName">DRIVER_VERSION_ERROR_2
+ = 90047
+</span></h4>
+<div class="item">The error with code <code>90047</code> is thrown when
+ trying to connect to a TCP server with an incompatible client.</div>
+<hr />
+<h4 id="c90048"><span class="methodName">FILE_VERSION_ERROR_1
+ = 90048
+</span></h4>
+<div class="item">The error with code <code>90048</code> is thrown when
+ the file header of a database files (*.db) does not match the
+ expected version, or if it is corrupted.</div>
+<hr />
+<h4 id="c90049"><span class="methodName">FILE_ENCRYPTION_ERROR_1
+ = 90049
+</span></h4>
+<div class="item">The error with code <code>90049</code> is thrown when
+ trying to open an encrypted database with the wrong file encryption
+ password or algorithm.</div>
+<hr />
+<h4 id="c90050"><span class="methodName">WRONG_PASSWORD_FORMAT
+ = 90050
+</span></h4>
+<div class="item">The error with code <code>90050</code> is thrown when trying to open an
+ encrypted database, but not separating the file password from the user
+ password. The file password is specified in the password field, before
+ the user password. A single space needs to be added between the file
+ password and the user password; the file password itself may not contain
+ spaces. File passwords (as well as user passwords) are case sensitive.
+ Example of wrong usage:
+ <pre>
+ String url = &quot;jdbc:h2:&tilde;/test;CIPHER=AES&quot;;
+ String passwords = &quot;filePasswordUserPassword&quot;;
+ DriverManager.getConnection(url, &quot;sa&quot;, pwds);</pre>
+ Correct:
+ <pre>
+ String url = &quot;jdbc:h2:&tilde;/test;CIPHER=AES&quot;;
+ String passwords = &quot;filePassword userPassword&quot;;
+ DriverManager.getConnection(url, &quot;sa&quot;, pwds);</pre></div>
+<hr />
+<h4 id="c90052"><span class="methodName">SUBQUERY_IS_NOT_SINGLE_COLUMN
+ = 90052
+</span></h4>
+<div class="item">The error with code <code>90052</code> is thrown when
+ a subquery that is used as a value contains more than one column.
+ Example of wrong usage:
+ <pre>
+ CREATE TABLE TEST(ID INT);
+ INSERT INTO TEST VALUES(1), (2);
+ SELECT * FROM TEST WHERE ID IN (SELECT 1, 2 FROM DUAL);</pre>
+ Correct:
+ <pre>
+ CREATE TABLE TEST(ID INT);
+ INSERT INTO TEST VALUES(1), (2);
+ SELECT * FROM TEST WHERE ID IN (1, 2);</pre></div>
+<hr />
+<h4 id="c90053"><span class="methodName">SCALAR_SUBQUERY_CONTAINS_MORE_THAN_ONE_ROW
+ = 90053
+</span></h4>
+<div class="item">The error with code <code>90053</code> is thrown when
+ a subquery that is used as a value contains more than one row.
+ Example:
+ <pre>
+ CREATE TABLE TEST(ID INT, NAME VARCHAR);
+ INSERT INTO TEST VALUES(1, 'Hello'), (1, 'World');
+ SELECT X, (SELECT NAME FROM TEST WHERE ID=X) FROM DUAL;</pre></div>
+<hr />
+<h4 id="c90054"><span class="methodName">INVALID_USE_OF_AGGREGATE_FUNCTION_1
+ = 90054
+</span></h4>
+<div class="item">The error with code <code>90054</code> is thrown when
+ an aggregate function is used where it is not allowed.
+ Example:
+ <pre>
+ CREATE TABLE TEST(ID INT);
+ INSERT INTO TEST VALUES(1), (2);
+ SELECT MAX(ID) FROM TEST WHERE ID = MAX(ID) GROUP BY ID;</pre></div>
+<hr />
+<h4 id="c90055"><span class="methodName">UNSUPPORTED_CIPHER
+ = 90055
+</span></h4>
+<div class="item">The error with code <code>90055</code> is thrown when
+ trying to open a database with an unsupported cipher algorithm.
+ Supported are AES and XTEA.
+ Example:
+ <pre>
+ jdbc:h2:~/test;CIPHER=DES</pre></div>
+<hr />
+<h4 id="c90057"><span class="methodName">CONSTRAINT_NOT_FOUND_1
+ = 90057
+</span></h4>
+<div class="item">The error with code <code>90057</code> is thrown when
+ trying to drop a constraint that does not exist.
+ Example:
+ <pre>
+ CREATE TABLE TEST(ID INT);
+ ALTER TABLE TEST DROP CONSTRAINT CID;</pre></div>
+<hr />
+<h4 id="c90058"><span class="methodName">COMMIT_ROLLBACK_NOT_ALLOWED
+ = 90058
+</span></h4>
+<div class="item">The error with code <code>90058</code> is thrown when trying to call
+ commit or rollback inside a trigger, or when trying to call a method
+ inside a trigger that implicitly commits the current transaction, if an
+ object is locked. This is not because it would release the lock too
+ early.</div>
+<hr />
+<h4 id="c90059"><span class="methodName">AMBIGUOUS_COLUMN_NAME_1
+ = 90059
+</span></h4>
+<div class="item">The error with code <code>90059</code> is thrown when
+ a query contains a column that could belong to multiple tables.
+ Example:
+ <pre>
+ CREATE TABLE PARENT(ID INT, NAME VARCHAR);
+ CREATE TABLE CHILD(PID INT, NAME VARCHAR);
+ SELECT ID, NAME FROM PARENT P, CHILD C WHERE P.ID = C.PID;</pre></div>
+<hr />
+<h4 id="c90060"><span class="methodName">UNSUPPORTED_LOCK_METHOD_1
+ = 90060
+</span></h4>
+<div class="item">The error with code <code>90060</code> is thrown when
+ trying to use a file locking mechanism that is not supported.
+ Currently only FILE (the default) and SOCKET are supported
+ Example:
+ <pre>
+ jdbc:h2:~/test;FILE_LOCK=LDAP</pre></div>
+<hr />
+<h4 id="c90061"><span class="methodName">EXCEPTION_OPENING_PORT_2
+ = 90061
+</span></h4>
+<div class="item">The error with code <code>90061</code> is thrown when
+ trying to start a server if a server is already running at the same port.
+ It could also be a firewall problem. To find out if another server is
+ already running, run the following command on Windows:
+ <pre>
+ netstat -ano</pre>
+ The column PID is the process id as listed in the Task Manager.
+ For Linux, use:
+ <pre>
+ netstat -npl</pre></div>
+<hr />
+<h4 id="c90062"><span class="methodName">FILE_CREATION_FAILED_1
+ = 90062
+</span></h4>
+<div class="item">The error with code <code>90062</code> is thrown when
+ a directory or file could not be created. This can occur when
+ trying to create a directory if a file with the same name already
+ exists, or vice versa.</div>
+<hr />
+<h4 id="c90063"><span class="methodName">SAVEPOINT_IS_INVALID_1
+ = 90063
+</span></h4>
+<div class="item">The error with code <code>90063</code> is thrown when
+ trying to rollback to a savepoint that is not defined.
+ Example:
+ <pre>
+ ROLLBACK TO SAVEPOINT S_UNKNOWN;</pre></div>
+<hr />
+<h4 id="c90064"><span class="methodName">SAVEPOINT_IS_UNNAMED
+ = 90064
+</span></h4>
+<div class="item">The error with code <code>90064</code> is thrown when
+ Savepoint.getSavepointName() is called on an unnamed savepoint.
+ Example:
+ <pre>
+ Savepoint sp = conn.setSavepoint();
+ sp.getSavepointName();</pre></div>
+<hr />
+<h4 id="c90065"><span class="methodName">SAVEPOINT_IS_NAMED
+ = 90065
+</span></h4>
+<div class="item">The error with code <code>90065</code> is thrown when
+ Savepoint.getSavepointId() is called on a named savepoint.
+ Example:
+ <pre>
+ Savepoint sp = conn.setSavepoint("Joe");
+ sp.getSavepointId();</pre></div>
+<hr />
+<h4 id="c90066"><span class="methodName">DUPLICATE_PROPERTY_1
+ = 90066
+</span></h4>
+<div class="item">The error with code <code>90066</code> is thrown when
+ the same property appears twice in the database URL or in
+ the connection properties.
+ Example:
+ <pre>
+ jdbc:h2:~/test;LOCK_TIMEOUT=0;LOCK_TIMEOUT=1</pre></div>
+<hr />
+<h4 id="c90067"><span class="methodName">CONNECTION_BROKEN_1
+ = 90067
+</span></h4>
+<div class="item">The error with code <code>90067</code> is thrown when the client could
+ not connect to the database, or if the connection was lost. Possible
+ reasons are: the database server is not running at the given port, the
+ connection was closed due to a shutdown, or the server was stopped. Other
+ possible causes are: the server is not an H2 server, or the network
+ connection is broken.</div>
+<hr />
+<h4 id="c90068"><span class="methodName">ORDER_BY_NOT_IN_RESULT
+ = 90068
+</span></h4>
+<div class="item">The error with code <code>90068</code> is thrown when the given
+ expression that is used in the ORDER BY is not in the result list. This
+ is required for distinct queries, otherwise the result would be
+ ambiguous.
+ Example of wrong usage:
+ <pre>
+ CREATE TABLE TEST(ID INT, NAME VARCHAR);
+ INSERT INTO TEST VALUES(2, 'Hello'), (1, 'Hello');
+ SELECT DISTINCT NAME FROM TEST ORDER BY ID;
+ Order by expression ID must be in the result list in this case</pre>
+ Correct:
+ <pre>
+ SELECT DISTINCT ID, NAME FROM TEST ORDER BY ID;</pre></div>
+<hr />
+<h4 id="c90069"><span class="methodName">ROLE_ALREADY_EXISTS_1
+ = 90069
+</span></h4>
+<div class="item">The error with code <code>90069</code> is thrown when
+ trying to create a role if an object with this name already exists.
+ Example:
+ <pre>
+ CREATE ROLE TEST_ROLE;
+ CREATE ROLE TEST_ROLE;</pre></div>
+<hr />
+<h4 id="c90070"><span class="methodName">ROLE_NOT_FOUND_1
+ = 90070
+</span></h4>
+<div class="item">The error with code <code>90070</code> is thrown when
+ trying to drop or grant a role that does not exists.
+ Example:
+ <pre>
+ DROP ROLE TEST_ROLE_2;</pre></div>
+<hr />
+<h4 id="c90071"><span class="methodName">USER_OR_ROLE_NOT_FOUND_1
+ = 90071
+</span></h4>
+<div class="item">The error with code <code>90071</code> is thrown when
+ trying to grant or revoke if no role or user with that name exists.
+ Example:
+ <pre>
+ GRANT SELECT ON TEST TO UNKNOWN;</pre></div>
+<hr />
+<h4 id="c90072"><span class="methodName">ROLES_AND_RIGHT_CANNOT_BE_MIXED
+ = 90072
+</span></h4>
+<div class="item">The error with code <code>90072</code> is thrown when
+ trying to grant or revoke if no role or user with that name exists.
+ Example:
+ <pre>
+ GRANT SELECT, TEST_ROLE ON TEST TO SA;</pre></div>
+<hr />
+<h4 id="c90073"><span class="methodName">METHODS_MUST_HAVE_DIFFERENT_PARAMETER_COUNTS_2
+ = 90073
+</span></h4>
+<div class="item">The error with code <code>90073</code> is thrown when trying to create
+ an alias for a Java method, if two methods exists in this class that have
+ this name and the same number of parameters.
+ Example of wrong usage:
+ <pre>
+ CREATE ALIAS GET_LONG FOR
+      "java.lang.Long.getLong";</pre>
+ Correct:
+ <pre>
+ CREATE ALIAS GET_LONG FOR
+      "java.lang.Long.getLong(java.lang.String, java.lang.Long)";</pre></div>
+<hr />
+<h4 id="c90074"><span class="methodName">ROLE_ALREADY_GRANTED_1
+ = 90074
+</span></h4>
+<div class="item">The error with code <code>90074</code> is thrown when
+ trying to grant a role that has already been granted.
+ Example:
+ <pre>
+ CREATE ROLE TEST_A;
+ CREATE ROLE TEST_B;
+ GRANT TEST_A TO TEST_B;
+ GRANT TEST_B TO TEST_A;</pre></div>
+<hr />
+<h4 id="c90075"><span class="methodName">COLUMN_IS_PART_OF_INDEX_1
+ = 90075
+</span></h4>
+<div class="item">The error with code <code>90075</code> is thrown when
+ trying to alter a table and allow null for a column that is part of a
+ primary key or hash index.
+ Example:
+ <pre>
+ CREATE TABLE TEST(ID INT PRIMARY KEY);
+ ALTER TABLE TEST ALTER COLUMN ID NULL;</pre></div>
+<hr />
+<h4 id="c90076"><span class="methodName">FUNCTION_ALIAS_ALREADY_EXISTS_1
+ = 90076
+</span></h4>
+<div class="item">The error with code <code>90076</code> is thrown when
+ trying to create a function alias for a system function or for a function
+ that is already defined.
+ Example:
+ <pre>
+ CREATE ALIAS SQRT FOR "java.lang.Math.sqrt"</pre></div>
+<hr />
+<h4 id="c90077"><span class="methodName">FUNCTION_ALIAS_NOT_FOUND_1
+ = 90077
+</span></h4>
+<div class="item">The error with code <code>90077</code> is thrown when
+ trying to drop a system function or a function alias that does not exist.
+ Example:
+ <pre>
+ DROP ALIAS SQRT;</pre></div>
+<hr />
+<h4 id="c90078"><span class="methodName">SCHEMA_ALREADY_EXISTS_1
+ = 90078
+</span></h4>
+<div class="item">The error with code <code>90078</code> is thrown when
+ trying to create a schema if an object with this name already exists.
+ Example:
+ <pre>
+ CREATE SCHEMA TEST_SCHEMA;
+ CREATE SCHEMA TEST_SCHEMA;</pre></div>
+<hr />
+<h4 id="c90079"><span class="methodName">SCHEMA_NOT_FOUND_1
+ = 90079
+</span></h4>
+<div class="item">The error with code <code>90079</code> is thrown when
+ trying to drop a schema that does not exist.
+ Example:
+ <pre>
+ DROP SCHEMA UNKNOWN;</pre></div>
+<hr />
+<h4 id="c90080"><span class="methodName">SCHEMA_NAME_MUST_MATCH
+ = 90080
+</span></h4>
+<div class="item">The error with code <code>90080</code> is thrown when
+ trying to rename a object to a different schema, or when trying to
+ create a related object in another schema.
+ For CREATE LINKED TABLE, it is thrown when multiple tables with that
+ name exist in different schemas.
+ Example:
+ <pre>
+ CREATE SCHEMA TEST_SCHEMA;
+ CREATE TABLE TEST(ID INT);
+ CREATE INDEX TEST_ID ON TEST(ID);
+ ALTER INDEX TEST_ID RENAME TO TEST_SCHEMA.IDX_TEST_ID;</pre></div>
+<hr />
+<h4 id="c90081"><span class="methodName">COLUMN_CONTAINS_NULL_VALUES_1
+ = 90081
+</span></h4>
+<div class="item">The error with code <code>90081</code> is thrown when
+ trying to alter a column to not allow NULL, if there
+ is already data in the table where this column is NULL.
+ Example:
+ <pre>
+ CREATE TABLE TEST(ID INT);
+ INSERT INTO TEST VALUES(NULL);
+ ALTER TABLE TEST ALTER COLUMN ID VARCHAR NOT NULL;</pre></div>
+<hr />
+<h4 id="c90082"><span class="methodName">SEQUENCE_BELONGS_TO_A_TABLE_1
+ = 90082
+</span></h4>
+<div class="item">The error with code <code>90082</code> is thrown when
+ trying to drop a system generated sequence.</div>
+<hr />
+<h4 id="c90083"><span class="methodName">COLUMN_IS_REFERENCED_1
+ = 90083
+</span></h4>
+<div class="item">The error with code <code>90083</code> is thrown when
+ trying to drop a column that is part of a constraint.
+ Example:
+ <pre>
+ CREATE TABLE TEST(ID INT, PID INT REFERENCES(ID));
+ ALTER TABLE TEST DROP COLUMN PID;</pre></div>
+<hr />
+<h4 id="c90084"><span class="methodName">CANNOT_DROP_LAST_COLUMN
+ = 90084
+</span></h4>
+<div class="item">The error with code <code>90084</code> is thrown when
+ trying to drop the last column of a table.
+ Example:
+ <pre>
+ CREATE TABLE TEST(ID INT);
+ ALTER TABLE TEST DROP COLUMN ID;</pre></div>
+<hr />
+<h4 id="c90085"><span class="methodName">INDEX_BELONGS_TO_CONSTRAINT_1
+ = 90085
+</span></h4>
+<div class="item">The error with code <code>90085</code> is thrown when
+ trying to manually drop an index that was generated by the system
+ because of a unique or referential constraint. To find out what
+ constraint causes the problem, run:
+ <pre>
+ SELECT * FROM INFORMATION_SCHEMA.CONSTRAINTS
+ WHERE UNIQUE_INDEX_NAME = '&lt;index name&gt;';</pre>
+ Example of wrong usage:
+ <pre>
+ CREATE TABLE TEST(ID INT, CONSTRAINT UID UNIQUE(ID));
+ DROP INDEX UID_INDEX_0;
+ Index UID_INDEX_0 belongs to a constraint</pre>
+ Correct:
+ <pre>
+ ALTER TABLE TEST DROP CONSTRAINT UID;</pre></div>
+<hr />
+<h4 id="c90086"><span class="methodName">CLASS_NOT_FOUND_1
+ = 90086
+</span></h4>
+<div class="item">The error with code <code>90086</code> is thrown when
+ a class can not be loaded because it is not in the classpath
+ or because a related class is not in the classpath.
+ Example:
+ <pre>
+ CREATE ALIAS TEST FOR "java.lang.invalid.Math.sqrt";</pre></div>
+<hr />
+<h4 id="c90087"><span class="methodName">METHOD_NOT_FOUND_1
+ = 90087
+</span></h4>
+<div class="item">The error with code <code>90087</code> is thrown when
+ the specified method was not found in the class.
+ Example:
+ <pre>
+ CREATE ALIAS TO_BINARY FOR "java.lang.Long.toBinaryString(long)";
+ CALL TO_BINARY(10, 2);</pre></div>
+<hr />
+<h4 id="c90088"><span class="methodName">UNKNOWN_MODE_1
+ = 90088
+</span></h4>
+<div class="item">The error with code <code>90088</code> is thrown when
+ trying to switch to an unknown mode.
+ Example:
+ <pre>
+ SET MODE UNKNOWN;</pre></div>
+<hr />
+<h4 id="c90089"><span class="methodName">COLLATION_CHANGE_WITH_DATA_TABLE_1
+ = 90089
+</span></h4>
+<div class="item">The error with code <code>90089</code> is thrown when
+ trying to change the collation while there was already data in
+ the database. The collation of the database must be set when the
+ database is empty.
+ Example of wrong usage:
+ <pre>
+ CREATE TABLE TEST(NAME VARCHAR PRIMARY KEY);
+ INSERT INTO TEST VALUES('Hello', 'World');
+ SET COLLATION DE;
+ Collation cannot be changed because there is a data table: PUBLIC.TEST</pre>
+ Correct:
+ <pre>
+ SET COLLATION DE;
+ CREATE TABLE TEST(NAME VARCHAR PRIMARY KEY);
+ INSERT INTO TEST VALUES('Hello', 'World');</pre></div>
+<hr />
+<h4 id="c90090"><span class="methodName">SCHEMA_CAN_NOT_BE_DROPPED_1
+ = 90090
+</span></h4>
+<div class="item">The error with code <code>90090</code> is thrown when
+ trying to drop a schema that may not be dropped (the schema PUBLIC
+ and the schema INFORMATION_SCHEMA).
+ Example:
+ <pre>
+ DROP SCHEMA PUBLIC;</pre></div>
+<hr />
+<h4 id="c90091"><span class="methodName">ROLE_CAN_NOT_BE_DROPPED_1
+ = 90091
+</span></h4>
+<div class="item">The error with code <code>90091</code> is thrown when
+ trying to drop the role PUBLIC.
+ Example:
+ <pre>
+ DROP ROLE PUBLIC;</pre></div>
+<hr />
+<h4 id="c90092"><span class="methodName">UNSUPPORTED_JAVA_VERSION
+ = 90092
+</span></h4>
+<div class="item">The error with code <code>90092</code> is thrown when
+ the source code is not compiled for the Java platform used.
+ At runtime, the existence of the class java.sql.Savepoint is checked.
+ To run this database in JDK 1.3, it is first required to switch the
+ source code to JDK 1.3 using ant switchSourceJdk13.</div>
+<hr />
+<h4 id="c90093"><span class="methodName">CLUSTER_ERROR_DATABASE_RUNS_ALONE
+ = 90093
+</span></h4>
+<div class="item">The error with code <code>90093</code> is thrown when
+ trying to connect to a clustered database that runs in standalone
+ mode. This can happen if clustering is not enabled on the database,
+ or if one of the clients disabled clustering because it can not see
+ the other cluster node.</div>
+<hr />
+<h4 id="c90094"><span class="methodName">CLUSTER_ERROR_DATABASE_RUNS_CLUSTERED_1
+ = 90094
+</span></h4>
+<div class="item">The error with code <code>90094</code> is thrown when
+ trying to connect to a clustered database that runs together with a
+ different cluster node setting than what is used when trying to connect.</div>
+<hr />
+<h4 id="c90095"><span class="methodName">STRING_FORMAT_ERROR_1
+ = 90095
+</span></h4>
+<div class="item">The error with code <code>90095</code> is thrown when
+ calling the method STRINGDECODE with an invalid escape sequence.
+ Only Java style escape sequences and Java properties file escape
+ sequences are supported.
+ Example:
+ <pre>
+ CALL STRINGDECODE('\i');</pre></div>
+<hr />
+<h4 id="c90096"><span class="methodName">NOT_ENOUGH_RIGHTS_FOR_1
+ = 90096
+</span></h4>
+<div class="item">The error with code <code>90096</code> is thrown when
+ trying to perform an operation with a non-admin user if the
+ user does not have enough rights.</div>
+<hr />
+<h4 id="c90097"><span class="methodName">DATABASE_IS_READ_ONLY
+ = 90097
+</span></h4>
+<div class="item">The error with code <code>90097</code> is thrown when
+ trying to delete or update a database if it is open in read-only mode.
+ Example:
+ <pre>
+ jdbc:h2:~/test;ACCESS_MODE_DATA=R
+ CREATE TABLE TEST(ID INT);</pre></div>
+<hr />
+<h4 id="c90098"><span class="methodName">DATABASE_IS_CLOSED
+ = 90098
+</span></h4>
+<div class="item">The error with code <code>90098</code> is thrown when the database has
+ been closed, for example because the system ran out of memory or because
+ the self-destruction counter has reached zero. This counter is only used
+ for recovery testing, and not set in normal operation.</div>
+<hr />
+<h4 id="c90099"><span class="methodName">ERROR_SETTING_DATABASE_EVENT_LISTENER_2
+ = 90099
+</span></h4>
+<div class="item">The error with code <code>90099</code> is thrown when an error occurred
+ trying to initialize the database event listener. Example:
+ <pre>
+ jdbc:h2:&tilde;/test;DATABASE_EVENT_LISTENER='java.lang.String'</pre></div>
+<hr />
+<h4 id="c90100"><span class="methodName">NO_DISK_SPACE_AVAILABLE
+ = 90100
+</span></h4>
+<div class="item">The error with code <code>90100</code> is thrown when
+ there is no more space available on the device where the database
+ files are stored.</div>
+<hr />
+<h4 id="c90101"><span class="methodName">WRONG_XID_FORMAT_1
+ = 90101
+</span></h4>
+<div class="item">The error with code <code>90101</code> is thrown when
+ the XA API detected unsupported transaction names. This can happen
+ when mixing application generated transaction names and transaction names
+ generated by this databases XAConnection API.</div>
+<hr />
+<h4 id="c90102"><span class="methodName">UNSUPPORTED_COMPRESSION_OPTIONS_1
+ = 90102
+</span></h4>
+<div class="item">The error with code <code>90102</code> is thrown when
+ trying to use unsupported options for the given compression algorithm.
+ Example of wrong usage:
+ <pre>
+ CALL COMPRESS(STRINGTOUTF8(SPACE(100)), 'DEFLATE l 10');</pre>
+ Correct:
+ <pre>
+ CALL COMPRESS(STRINGTOUTF8(SPACE(100)), 'DEFLATE l 9');</pre></div>
+<hr />
+<h4 id="c90103"><span class="methodName">UNSUPPORTED_COMPRESSION_ALGORITHM_1
+ = 90103
+</span></h4>
+<div class="item">The error with code <code>90103</code> is thrown when
+ trying to use an unsupported compression algorithm.
+ Example:
+ <pre>
+ CALL COMPRESS(STRINGTOUTF8(SPACE(100)), 'BZIP');</pre></div>
+<hr />
+<h4 id="c90104"><span class="methodName">COMPRESSION_ERROR
+ = 90104
+</span></h4>
+<div class="item">The error with code <code>90104</code> is thrown when
+ the data can not be de-compressed.
+ Example:
+ <pre>
+ CALL EXPAND(X'00FF');</pre></div>
+<hr />
+<h4 id="c90105"><span class="methodName">EXCEPTION_IN_FUNCTION_1
+ = 90105
+</span></h4>
+<div class="item">The error with code <code>90105</code> is thrown when
+ an exception occurred in a user-defined method.
+ Example:
+ <pre>
+ CREATE ALIAS SYS_PROP FOR "java.lang.System.getProperty";
+ CALL SYS_PROP(NULL);</pre></div>
+<hr />
+<h4 id="c90106"><span class="methodName">CANNOT_TRUNCATE_1
+ = 90106
+</span></h4>
+<div class="item">The error with code <code>90106</code> is thrown when
+ trying to truncate a table that can not be truncated.
+ Tables with referential integrity constraints can not be truncated.
+ Also, system tables and view can not be truncated.
+ Example:
+ <pre>
+ TRUNCATE TABLE INFORMATION_SCHEMA.SETTINGS;</pre></div>
+<hr />
+<h4 id="c90107"><span class="methodName">CANNOT_DROP_2
+ = 90107
+</span></h4>
+<div class="item">The error with code <code>90107</code> is thrown when
+ trying to drop an object because another object would become invalid.
+ Example:
+ <pre>
+ CREATE TABLE COUNT(X INT);
+ CREATE TABLE ITEMS(ID INT DEFAULT SELECT MAX(X)+1 FROM COUNT);
+ DROP TABLE COUNT;</pre></div>
+<hr />
+<h4 id="c90108"><span class="methodName">OUT_OF_MEMORY
+ = 90108
+</span></h4>
+<div class="item">The error with code <code>90108</code> is thrown when not enough heap
+ memory was available. A possible solutions is to increase the memory size
+ using <code>java -Xmx128m ...</code>. Another solution is to reduce
+ the cache size.</div>
+<hr />
+<h4 id="c90109"><span class="methodName">VIEW_IS_INVALID_2
+ = 90109
+</span></h4>
+<div class="item">The error with code <code>90109</code> is thrown when
+ trying to run a query against an invalid view.
+ Example:
+ <pre>
+ CREATE FORCE VIEW TEST_VIEW AS SELECT * FROM TEST;
+ SELECT * FROM TEST_VIEW;</pre></div>
+<hr />
+<h4 id="c90111"><span class="methodName">ERROR_ACCESSING_LINKED_TABLE_2
+ = 90111
+</span></h4>
+<div class="item">The error with code <code>90111</code> is thrown when
+ an exception occurred while accessing a linked table.</div>
+<hr />
+<h4 id="c90112"><span class="methodName">ROW_NOT_FOUND_WHEN_DELETING_1
+ = 90112
+</span></h4>
+<div class="item">The error with code <code>90112</code> is thrown when a row was deleted
+ twice while locking was disabled. This is an intern exception that should
+ never be thrown to the application, because such deleted should be
+ detected and the resulting exception ignored inside the database engine.
+ <pre>
+ Row not found when trying to delete from index UID_INDEX_0</pre></div>
+<hr />
+<h4 id="c90113"><span class="methodName">UNSUPPORTED_SETTING_1
+ = 90113
+</span></h4>
+<div class="item">The error with code <code>90113</code> is thrown when
+ the database URL contains unsupported settings.
+ Example:
+ <pre>
+ jdbc:h2:~/test;UNKNOWN=TRUE</pre></div>
+<hr />
+<h4 id="c90114"><span class="methodName">CONSTANT_ALREADY_EXISTS_1
+ = 90114
+</span></h4>
+<div class="item">The error with code <code>90114</code> is thrown when
+ trying to create a constant if a constant with this name already exists.
+ Example:
+ <pre>
+ CREATE CONSTANT TEST VALUE 1;
+ CREATE CONSTANT TEST VALUE 1;</pre></div>
+<hr />
+<h4 id="c90115"><span class="methodName">CONSTANT_NOT_FOUND_1
+ = 90115
+</span></h4>
+<div class="item">The error with code <code>90115</code> is thrown when
+ trying to drop a constant that does not exists.
+ Example:
+ <pre>
+ DROP CONSTANT UNKNOWN;</pre></div>
+<hr />
+<h4 id="c90116"><span class="methodName">LITERALS_ARE_NOT_ALLOWED
+ = 90116
+</span></h4>
+<div class="item">The error with code <code>90116</code> is thrown when
+ trying use a literal in a SQL statement if literals are disabled.
+ If literals are disabled, use PreparedStatement and parameters instead
+ of literals in the SQL statement.
+ Example:
+ <pre>
+ SET ALLOW_LITERALS NONE;
+ CALL 1+1;</pre></div>
+<hr />
+<h4 id="c90117"><span class="methodName">REMOTE_CONNECTION_NOT_ALLOWED
+ = 90117
+</span></h4>
+<div class="item">The error with code <code>90117</code> is thrown when
+ trying to connect to a TCP server from another machine, if remote
+ connections are not allowed. To allow remote connections,
+ start the TCP server using the option -tcpAllowOthers as in:
+ <pre>
+ java org.h2.tools.Server -tcp -tcpAllowOthers</pre>
+ Or, when starting the server from an application, use:
+ <pre>
+ Server server = Server.createTcpServer("-tcpAllowOthers");
+ server.start();</pre></div>
+<hr />
+<h4 id="c90118"><span class="methodName">CANNOT_DROP_TABLE_1
+ = 90118
+</span></h4>
+<div class="item">The error with code <code>90118</code> is thrown when
+ trying to drop a table can not be dropped.
+ Example:
+ <pre>
+ DROP TABLE INFORMATION_SCHEMA.SETTINGS;</pre></div>
+<hr />
+<h4 id="c90119"><span class="methodName">USER_DATA_TYPE_ALREADY_EXISTS_1
+ = 90119
+</span></h4>
+<div class="item">The error with code <code>90119</code> is thrown when
+ trying to create a domain if an object with this name already exists,
+ or when trying to overload a built-in data type.
+ Example:
+ <pre>
+ CREATE DOMAIN INTEGER AS VARCHAR;
+ CREATE DOMAIN EMAIL AS VARCHAR CHECK LOCATE('@', VALUE) > 0;
+ CREATE DOMAIN EMAIL AS VARCHAR CHECK LOCATE('@', VALUE) > 0;</pre></div>
+<hr />
+<h4 id="c90120"><span class="methodName">USER_DATA_TYPE_NOT_FOUND_1
+ = 90120
+</span></h4>
+<div class="item">The error with code <code>90120</code> is thrown when
+ trying to drop a domain that doesn't exist.
+ Example:
+ <pre>
+ DROP DOMAIN UNKNOWN;</pre></div>
+<hr />
+<h4 id="c90121"><span class="methodName">DATABASE_CALLED_AT_SHUTDOWN
+ = 90121
+</span></h4>
+<div class="item">The error with code <code>90121</code> is thrown when
+ a database operation is started while the virtual machine exits
+ (for example in a shutdown hook), or when the session is closed.</div>
+<hr />
+<h4 id="c90123"><span class="methodName">CANNOT_MIX_INDEXED_AND_UNINDEXED_PARAMS
+ = 90123
+</span></h4>
+<div class="item">The error with code <code>90123</code> is thrown when
+ trying mix regular parameters and indexed parameters in the same statement.
+ Example:
+ <pre>
+ SELECT ?, ?1 FROM DUAL;</pre></div>
+<hr />
+<h4 id="c90124"><span class="methodName">FILE_NOT_FOUND_1
+ = 90124
+</span></h4>
+<div class="item">The error with code <code>90124</code> is thrown when
+ trying to access a file that doesn't exist. This can occur when trying to
+ read a lob if the lob file has been deleted by another application.</div>
+<hr />
+<h4 id="c90125"><span class="methodName">INVALID_CLASS_2
+ = 90125
+</span></h4>
+<div class="item">The error with code <code>90125</code> is thrown when
+ PreparedStatement.setBigDecimal is called
+ with object that extends the class BigDecimal, and the system property
+ h2.allowBigDecimalExtensions is not set. Using extensions of BigDecimal is
+ dangerous because the database relies on the behavior of BigDecimal.
+ Example of wrong usage:
+ <pre>
+ BigDecimal bd = new MyDecimal("$10.3");
+ prep.setBigDecimal(1, bd);
+ Invalid class, expected java.math.BigDecimal but got MyDecimal</pre>
+ Correct:
+ <pre>
+ BigDecimal bd = new BigDecimal("10.3");
+ prep.setBigDecimal(1, bd);</pre></div>
+<hr />
+<h4 id="c90126"><span class="methodName">DATABASE_IS_NOT_PERSISTENT
+ = 90126
+</span></h4>
+<div class="item">The error with code <code>90126</code> is thrown when
+ trying to call the BACKUP statement for an in-memory database.
+ Example:
+ <pre>
+ jdbc:h2:mem:
+ BACKUP TO 'test.zip';</pre></div>
+<hr />
+<h4 id="c90127"><span class="methodName">RESULT_SET_NOT_UPDATABLE
+ = 90127
+</span></h4>
+<div class="item">The error with code <code>90127</code> is thrown when
+ trying to update or delete a row in a result set if the result set is
+ not updatable. Result sets are only updatable if the statement was
+ created with updatable concurrency, and if the result set contains
+ all columns of the primary key or of a unique index of a table.</div>
+<hr />
+<h4 id="c90128"><span class="methodName">RESULT_SET_NOT_SCROLLABLE
+ = 90128
+</span></h4>
+<div class="item">The error with code <code>90128</code> is thrown when
+ trying to call a method of the ResultSet that is only supported
+ for scrollable result sets, and the result set is not scrollable.
+ Example:
+ <pre>
+ rs.first();</pre></div>
+<hr />
+<h4 id="c90129"><span class="methodName">TRANSACTION_NOT_FOUND_1
+ = 90129
+</span></h4>
+<div class="item">The error with code <code>90129</code> is thrown when
+ trying to commit a transaction that doesn't exist.
+ Example:
+ <pre>
+ PREPARE COMMIT ABC;
+ COMMIT TRANSACTION TEST;</pre></div>
+<hr />
+<h4 id="c90130"><span class="methodName">METHOD_NOT_ALLOWED_FOR_PREPARED_STATEMENT
+ = 90130
+</span></h4>
+<div class="item">The error with code <code>90130</code> is thrown when
+ an execute method of PreparedStatement was called with a SQL statement.
+ This is not allowed according to the JDBC specification. Instead, use
+ an execute method of Statement.
+ Example of wrong usage:
+ <pre>
+ PreparedStatement prep = conn.prepareStatement("SELECT * FROM TEST");
+ prep.execute("DELETE FROM TEST");</pre>
+ Correct:
+ <pre>
+ Statement stat = conn.createStatement();
+ stat.execute("DELETE FROM TEST");</pre></div>
+<hr />
+<h4 id="c90131"><span class="methodName">CONCURRENT_UPDATE_1
+ = 90131
+</span></h4>
+<div class="item">The error with code <code>90131</code> is thrown when using multi version
+ concurrency control, and trying to update the same row from within two
+ connections at the same time, or trying to insert two rows with the same
+ key from two connections. Example:
+ <pre>
+ jdbc:h2:~/test;MVCC=TRUE
+ Session 1:
+ CREATE TABLE TEST(ID INT);
+ INSERT INTO TEST VALUES(1);
+ SET AUTOCOMMIT FALSE;
+ UPDATE TEST SET ID = 2;
+ Session 2:
+ SET AUTOCOMMIT FALSE;
+ UPDATE TEST SET ID = 3;</pre></div>
+<hr />
+<h4 id="c90132"><span class="methodName">AGGREGATE_NOT_FOUND_1
+ = 90132
+</span></h4>
+<div class="item">The error with code <code>90132</code> is thrown when
+ trying to drop a user-defined aggregate function that doesn't exist.
+ Example:
+ <pre>
+ DROP AGGREGATE UNKNOWN;</pre></div>
+<hr />
+<h4 id="c90133"><span class="methodName">CANNOT_CHANGE_SETTING_WHEN_OPEN_1
+ = 90133
+</span></h4>
+<div class="item">The error with code <code>90133</code> is thrown when
+ trying to change a specific database property while the database is already
+ open. The MVCC property needs to be set in the first connection
+ (in the connection opening the database) and can not be changed later on.</div>
+<hr />
+<h4 id="c90134"><span class="methodName">ACCESS_DENIED_TO_CLASS_1
+ = 90134
+</span></h4>
+<div class="item">The error with code <code>90134</code> is thrown when
+ trying to load a Java class that is not part of the allowed classes.
+ By default, all classes are allowed, but this can be changed using the system
+ property h2.allowedClasses.</div>
+<hr />
+<h4 id="c90135"><span class="methodName">DATABASE_IS_IN_EXCLUSIVE_MODE
+ = 90135
+</span></h4>
+<div class="item">The error with code <code>90135</code> is thrown when
+ trying to open a connection to a database that is currently open
+ in exclusive mode. The exclusive mode is set using:
+ <pre>
+ SET EXCLUSIVE TRUE;</pre></div>
+<hr />
+<h4 id="c90136"><span class="methodName">UNSUPPORTED_OUTER_JOIN_CONDITION_1
+ = 90136
+</span></h4>
+<div class="item">The error with code <code>90136</code> is thrown when
+ executing a query that used an unsupported outer join condition.
+ Example:
+ <pre>
+ SELECT * FROM DUAL A LEFT JOIN DUAL B ON B.X=(SELECT MAX(X) FROM DUAL);</pre></div>
+<hr />
+<h4 id="c90137"><span class="methodName">CAN_ONLY_ASSIGN_TO_VARIABLE_1
+ = 90137
+</span></h4>
+<div class="item">The error with code <code>90137</code> is thrown when
+ trying to assign a value to something that is not a variable.
+ <pre>
+ SELECT AMOUNT, SET(@V, IFNULL(@V, 0)+AMOUNT) FROM TEST;</pre></div>
+<hr />
+<h4 id="c90138"><span class="methodName">INVALID_DATABASE_NAME_1
+ = 90138
+</span></h4>
+<div class="item">The error with code <code>90138</code> is thrown when
+
+ trying to open a persistent database using an incorrect database name.
+ The name of a persistent database contains the path and file name prefix
+ where the data is stored. The file name part of a database name must be
+ at least two characters.
+
+ Example of wrong usage:
+ <pre>
+ DriverManager.getConnection("jdbc:h2:~/t");
+ DriverManager.getConnection("jdbc:h2:~/test/");</pre>
+ Correct:
+ <pre>
+ DriverManager.getConnection("jdbc:h2:~/te");
+ DriverManager.getConnection("jdbc:h2:~/test/te");</pre></div>
+<hr />
+<h4 id="c90139"><span class="methodName">PUBLIC_STATIC_JAVA_METHOD_NOT_FOUND_1
+ = 90139
+</span></h4>
+<div class="item">The error with code <code>90139</code> is thrown when
+ the specified public static Java method was not found in the class.
+ Example:
+ <pre>
+ CREATE ALIAS TEST FOR "java.lang.Math.test";</pre></div>
+<hr />
+<h4 id="c90140"><span class="methodName">RESULT_SET_READONLY
+ = 90140
+</span></h4>
+<div class="item">The error with code <code>90140</code> is thrown when trying to update or
+ delete a row in a result set if the statement was not created with
+ updatable concurrency. Result sets are only updatable if the statement
+ was created with updatable concurrency, and if the result set contains
+ all columns of the primary key or of a unique index of a table.</div>
+<hr />
+</div></td></tr></table></body></html>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                template="/WEB-INF/templates/template.xhtml">
+    <ui:define name="content">
+        <f:metadata>
+            <!-- bind the key of the process to be started -->
+            <f:viewParam id="processDefinitionKey" name="processDefinitionKey" />
+        </f:metadata>
+
+        <h1>请假申请</h1>
+        <h:form>
+            <table>
+                <tr>
+                    <td>申请人:</td>
+                    <td>
+                        <h:inputText value="#{systemUser.userId}" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>请假开始时间:</td>
+                    <td><h:inputText value="#{leave.startTime}" /></td>
+                </tr>
+                <tr>
+                    <td>请假结束:</td>
+                    <td><h:inputText value="#{leave.endTime}" /></td>
+                </tr>
+                <tr>
+                    <td>请假理由:</td>
+                    <td><h:inputText value="#{leave.reason}" /></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <!-- 也可以使用 <td><h:commandButton value="申请" action="#{businessProcess.startProcessByKey(processDefinitionKey)}" /></td> -->
+                    <td><h:commandButton value="申请" action="#{activitiCdiAction.startLeaveProcess('102')}" /></td>
+                </tr>
+            </table>
+        </h:form>
+    </ui:define>
+
+</ui:composition>

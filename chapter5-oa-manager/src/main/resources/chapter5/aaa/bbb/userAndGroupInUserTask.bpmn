@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.kafeitu.me/activiti-in-action">
+  <process id="userAndGroupInUserTask" name="userAndGroupInUserTask">
+    <startEvent id="startevent1" name="Start"></startEvent>
+    <userTask id="studyUserAndGroupInUserTask" name="学习用户与组在用户任务的应用" activiti:candidateGroups="deptLeader"></userTask>
+    <endEvent id="endevent1" name="End"></endEvent>
+    <sequenceFlow id="flow1" name="" sourceRef="startevent1" targetRef="studyUserAndGroupInUserTask"></sequenceFlow>
+    <sequenceFlow id="flow2" name="" sourceRef="studyUserAndGroupInUserTask" targetRef="endevent1"></sequenceFlow>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_userAndGroupInUserTask">
+    <bpmndi:BPMNPlane bpmnElement="userAndGroupInUserTask" id="BPMNPlane_userAndGroupInUserTask">
+      <bpmndi:BPMNShape bpmnElement="startevent1" id="BPMNShape_startevent1">
+        <omgdc:Bounds height="35" width="35" x="10" y="90"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="studyUserAndGroupInUserTask" id="BPMNShape_studyUserAndGroupInUserTask">
+        <omgdc:Bounds height="55" width="105" x="90" y="80"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="endevent1" id="BPMNShape_endevent1">
+        <omgdc:Bounds height="35" width="35" x="250" y="90"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="flow1" id="BPMNEdge_flow1">
+        <omgdi:waypoint x="45" y="107"></omgdi:waypoint>
+        <omgdi:waypoint x="90" y="107"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow2" id="BPMNEdge_flow2">
+        <omgdi:waypoint x="195" y="107"></omgdi:waypoint>
+        <omgdi:waypoint x="250" y="107"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

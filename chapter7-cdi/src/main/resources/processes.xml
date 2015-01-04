@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- 自动部署的流程文件 -->
+<processes>
+    <process resource="diagrams/leave.bpmn" />
+</processes>

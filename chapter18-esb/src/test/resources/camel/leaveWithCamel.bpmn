@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.kafeitu.me/activiti">
+  <process id="leaveWithCamel" name="请假流程-Camel" isExecutable="true">
+    <documentation>学习在Activiti中调用Camel服务</documentation>
+    <startEvent id="startevent1" name="Start"></startEvent>
+    <serviceTask id="invokeCamel" name="调用Camel服务" activiti:type="camel"></serviceTask>
+    <sequenceFlow id="flow1" sourceRef="startevent1" targetRef="invokeCamel"></sequenceFlow>
+    <userTask id="deptLeaderAudit" name="部门经理审批"></userTask>
+    <sequenceFlow id="flow2" name="请假天数大于3天" sourceRef="invokeCamel" targetRef="deptLeaderAudit">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${deptLeaderAudit}]]></conditionExpression>
+    </sequenceFlow>
+    <userTask id="directlyLeaderAudit" name="直接领导审批"></userTask>
+    <sequenceFlow id="flow3" name="请假天数小于3天" sourceRef="invokeCamel" targetRef="directlyLeaderAudit">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${!deptLeaderAudit}]]></conditionExpression>
+    </sequenceFlow>
+    <endEvent id="endevent1" name="End"></endEvent>
+    <sequenceFlow id="flow4" sourceRef="usertask3" targetRef="endevent1"></sequenceFlow>
+    <userTask id="usertask3" name="销假"></userTask>
+    <sequenceFlow id="flow6" sourceRef="deptLeaderAudit" targetRef="usertask3"></sequenceFlow>
+    <sequenceFlow id="flow7" sourceRef="directlyLeaderAudit" targetRef="usertask3"></sequenceFlow>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_leaveWithCamel">
+    <bpmndi:BPMNPlane bpmnElement="leaveWithCamel" id="BPMNPlane_leaveWithCamel">
+      <bpmndi:BPMNShape bpmnElement="startevent1" id="BPMNShape_startevent1">
+        <omgdc:Bounds height="35.0" width="35.0" x="60.0" y="120.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="invokeCamel" id="BPMNShape_invokeCamel">
+        <omgdc:Bounds height="55.0" width="105.0" x="140.0" y="110.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="deptLeaderAudit" id="BPMNShape_deptLeaderAudit">
+        <omgdc:Bounds height="55.0" width="105.0" x="310.0" y="46.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="directlyLeaderAudit" id="BPMNShape_directlyLeaderAudit">
+        <omgdc:Bounds height="55.0" width="105.0" x="310.0" y="175.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="endevent1" id="BPMNShape_endevent1">
+        <omgdc:Bounds height="35.0" width="35.0" x="590.0" y="120.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="usertask3" id="BPMNShape_usertask3">
+        <omgdc:Bounds height="55.0" width="105.0" x="450.0" y="110.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="flow1" id="BPMNEdge_flow1">
+        <omgdi:waypoint x="95.0" y="137.0"></omgdi:waypoint>
+        <omgdi:waypoint x="140.0" y="137.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow2" id="BPMNEdge_flow2">
+        <omgdi:waypoint x="192.0" y="110.0"></omgdi:waypoint>
+        <omgdi:waypoint x="192.0" y="73.0"></omgdi:waypoint>
+        <omgdi:waypoint x="310.0" y="73.0"></omgdi:waypoint>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="12.0" width="100.0" x="201.0" y="57.0"></omgdc:Bounds>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow3" id="BPMNEdge_flow3">
+        <omgdi:waypoint x="192.0" y="165.0"></omgdi:waypoint>
+        <omgdi:waypoint x="192.0" y="202.0"></omgdi:waypoint>
+        <omgdi:waypoint x="310.0" y="202.0"></omgdi:waypoint>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="12.0" width="100.0" x="201.0" y="179.0"></omgdc:Bounds>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow4" id="BPMNEdge_flow4">
+        <omgdi:waypoint x="555.0" y="137.0"></omgdi:waypoint>
+        <omgdi:waypoint x="590.0" y="137.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow6" id="BPMNEdge_flow6">
+        <omgdi:waypoint x="415.0" y="73.0"></omgdi:waypoint>
+        <omgdi:waypoint x="502.0" y="73.0"></omgdi:waypoint>
+        <omgdi:waypoint x="502.0" y="110.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow7" id="BPMNEdge_flow7">
+        <omgdi:waypoint x="415.0" y="202.0"></omgdi:waypoint>
+        <omgdi:waypoint x="509.0" y="202.0"></omgdi:waypoint>
+        <omgdi:waypoint x="502.0" y="165.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

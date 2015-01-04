@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head><meta http-equiv="Content-Type" content="text/html;charset=utf-8" /><title>
+Backup
+</title><link rel="stylesheet" type="text/css" href="../../../stylesheet.css" />
+<script type="text/javascript" src="../../../animate.js"></script>
+</head><body onload="openLink();">
+<table class="content"><tr class="content"><td class="content"><div class="contentDiv">
+<h1>Backup</h1>
+Creates a backup of a database.
+ <br />
+ This tool copies all database files. The database must be closed before using
+ this tool. To create a backup while the database is in use, run the BACKUP
+ SQL statement. In an emergency, for example if the application is not
+ responding, creating a backup using the Backup tool is possible by using the
+ quiet mode. However, if the database is changed while the backup is running
+ in quiet mode, the backup could be corrupt.<br /><br />
+<table class="block"><tr onclick="return allDetails()"><th colspan="2">Methods</th></tr>
+<tr id="__0" onclick="return on(0)">
+<td class="return">static void</td><td class="method">
+<a id="execute_String_String_String_boolean" href="#execute_String_String_String_boolean">execute</a>(String zipFileName, String directory, String db, boolean quiet)
+<div class="methodText">Backs up database files.</div>
+</td></tr>
+<tr onclick="return off(0)" class="detail" id="_0">
+<td class="return">static void</td><td>
+<a id="execute_String_String_String_boolean" href="#execute_String_String_String_boolean">execute</a>(String zipFileName, String directory, String db, boolean quiet) throws SQLException
+<div class="methodText">Backs up database files.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">zipFileName - the name of the target backup file (including path)</div>
+<div class="item">directory - the source directory name</div>
+<div class="item">db - the source database name (null if there is only one database, and
+          and empty string to backup all files in this directory)</div>
+<div class="item">quiet - don't print progress information</div>
+</td></tr>
+<tr id="__1" onclick="return on(1)">
+<td class="return">static void</td><td class="method">
+<a id="main_String..." href="#main_String...">main</a>(String... args)
+<div class="methodText">Options are case sensitive.</div>
+</td></tr>
+<tr onclick="return off(1)" class="detail" id="_1">
+<td class="return">static void</td><td>
+<a id="main_String..." href="#main_String...">main</a>(String... args) throws SQLException
+<div class="methodText">Options are case sensitive. Supported options are:
+ <table>
+ <tr><td>[-help] or [-?]</td>
+ <td>Print the list of options</td></tr>
+ <tr><td>[-file &lt;filename&gt;]</td>
+ <td>The target file name (default: backup.zip)</td></tr>
+ <tr><td>[-dir &lt;dir&gt;]</td>
+ <td>The source directory (default: .)</td></tr>
+ <tr><td>[-db &lt;database&gt;]</td>
+ <td>Source database; not required if there is only one</td></tr>
+ <tr><td>[-quiet]</td>
+ <td>Do not print progress information</td></tr>
+ </table></div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">args - the command line arguments</div>
+</td></tr>
+<tr id="__2" onclick="return on(2)">
+<td class="return">void</td><td class="method">
+<a id="runTool_String..." href="#runTool_String...">runTool</a>(String... args)
+</td></tr>
+<tr onclick="return off(2)" class="detail" id="_2">
+<td class="return">void</td><td>
+<a id="runTool_String..." href="#runTool_String...">runTool</a>(String... args) throws SQLException
+<div class="methodText"></div>
+</td></tr>
+</table>
+</div></td></tr></table></body></html>

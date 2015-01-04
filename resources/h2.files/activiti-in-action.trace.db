@@ -1,0 +1,69 @@
+12-20 00:40:31 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "LEAVE" not found; SQL statement:
+insert into leave (id, apply_time, end_time, leave_type, process_instance_id, reality_end_time, reality_start_time, reason, start_time, user_id) values (null, ?, ?, ?, ?, ?, ?, ?, ?, ?) [42102-167]
+12-20 00:40:31 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "LEAVE" not found; SQL statement:
+insert into leave (id, apply_time, end_time, leave_type, process_instance_id, reality_end_time, reality_start_time, reason, start_time, user_id) values (null, ?, ?, ?, ?, ?, ?, ?, ?, ?) [42102-167]
+12-20 22:03:56 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "LEAVE" not found; SQL statement:
+insert into leave (id, apply_time, end_time, leave_type, process_instance_id, reality_end_time, reality_start_time, reason, start_time, user_id) values (null, ?, ?, ?, ?, ?, ?, ?, ?, ?) [42102-167]
+12-20 22:03:56 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "LEAVE" not found; SQL statement:
+insert into leave (id, apply_time, end_time, leave_type, process_instance_id, reality_end_time, reality_start_time, reason, start_time, user_id) values (null, ?, ?, ?, ?, ?, ?, ?, ?, ?) [42102-167]
+12-21 00:04:37 jdbc[38]: null
+org.h2.message.DbException: The connection was not closed by the application and is garbage collected [90018-170]
+	at org.h2.message.DbException.get(DbException.java:169)
+	at org.h2.message.DbException.get(DbException.java:146)
+	at org.h2.message.DbException.get(DbException.java:135)
+	at org.h2.jdbc.JdbcConnection.closeOld(JdbcConnection.java:175)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:120)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:93)
+	at org.h2.Driver.connect(Driver.java:72)
+	at org.h2.server.web.WebServer.getConnection(WebServer.java:645)
+	at org.h2.server.web.WebApp.login(WebApp.java:899)
+	at org.h2.server.web.WebApp.process(WebApp.java:205)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:164)
+	at org.h2.server.web.WebThread.process(WebThread.java:137)
+	at org.h2.server.web.WebThread.run(WebThread.java:93)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: org.h2.jdbc.JdbcSQLException: The connection was not closed by the application and is garbage collected [90018-170]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:329)
+	... 14 more
+12-31 21:49:06 jdbc[89]: null
+org.h2.message.DbException: The connection was not closed by the application and is garbage collected [90018-170]
+	at org.h2.message.DbException.get(DbException.java:169)
+	at org.h2.message.DbException.get(DbException.java:146)
+	at org.h2.message.DbException.get(DbException.java:135)
+	at org.h2.jdbc.JdbcConnection.closeOld(JdbcConnection.java:175)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:120)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:93)
+	at org.h2.Driver.connect(Driver.java:72)
+	at org.h2.server.web.WebServer.getConnection(WebServer.java:645)
+	at org.h2.server.web.WebApp.login(WebApp.java:899)
+	at org.h2.server.web.WebApp.process(WebApp.java:205)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:164)
+	at org.h2.server.web.WebThread.process(WebThread.java:137)
+	at org.h2.server.web.WebThread.run(WebThread.java:93)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: org.h2.jdbc.JdbcSQLException: The connection was not closed by the application and is garbage collected [90018-170]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:329)
+	... 14 more
+12-31 21:49:06 jdbc[89]: null
+org.h2.message.DbException: The connection was not closed by the application and is garbage collected [90018-170]
+	at org.h2.message.DbException.get(DbException.java:169)
+	at org.h2.message.DbException.get(DbException.java:146)
+	at org.h2.message.DbException.get(DbException.java:135)
+	at org.h2.jdbc.JdbcConnection.closeOld(JdbcConnection.java:175)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:120)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:93)
+	at org.h2.Driver.connect(Driver.java:72)
+	at org.h2.server.web.WebServer.getConnection(WebServer.java:645)
+	at org.h2.server.web.WebApp.login(WebApp.java:899)
+	at org.h2.server.web.WebApp.process(WebApp.java:205)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:164)
+	at org.h2.server.web.WebThread.process(WebThread.java:137)
+	at org.h2.server.web.WebThread.run(WebThread.java:93)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: org.h2.jdbc.JdbcSQLException: The connection was not closed by the application and is garbage collected [90018-170]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:329)
+	... 14 more

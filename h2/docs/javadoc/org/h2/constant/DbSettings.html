@@ -1,0 +1,420 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head><meta http-equiv="Content-Type" content="text/html;charset=utf-8" /><title>
+DbSettings
+</title><link rel="stylesheet" type="text/css" href="../../../stylesheet.css" />
+<script type="text/javascript" src="../../../animate.js"></script>
+</head><body onload="openLink();">
+<table class="content"><tr class="content"><td class="content"><div class="contentDiv">
+<h1>DbSettings</h1>
+This class contains various database-level settings. To override the
+ documented default value for a database, append the setting in the database
+ URL: "jdbc:h2:test;ALIAS_COLUMN_NAME=TRUE" when opening the first connection
+ to the database. The settings can not be changed once the database is open.
+ <p>
+ Some settings are a last resort and temporary solution to work around a
+ problem in the application or database engine. Also, there are system
+ properties to enable features that are not yet fully tested or that are not
+ backward compatible.
+ </p><br /><br />
+<br /><table><tr><th colspan="2">Fields</th></tr>
+<tr><td class="return">static boolean</td><td class="method">
+<a href="#ALIAS_COLUMN_NAME">aliasColumnName</a>
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#ANALYZE_AUTO">analyzeAuto</a>
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#ANALYZE_SAMPLE">analyzeSample</a>
+</td></tr>
+<tr><td class="return">static boolean</td><td class="method">
+<a href="#DATABASE_TO_UPPER">databaseToUpper</a>
+</td></tr>
+<tr><td class="return">static boolean</td><td class="method">
+<a href="#DB_CLOSE_ON_EXIT">dbCloseOnExit</a>
+</td></tr>
+<tr><td class="return">static boolean</td><td class="method">
+<a href="#DEFAULT_CONNECTION">defaultConnection</a>
+</td></tr>
+<tr><td class="return">static String</td><td class="method">
+<a href="#DEFAULT_ESCAPE">defaultEscape</a>
+</td></tr>
+<tr><td class="return">static boolean</td><td class="method">
+<a href="#DEFRAG_ALWAYS">defragAlways</a>
+</td></tr>
+<tr><td class="return">static boolean</td><td class="method">
+<a href="#DROP_RESTRICT">dropRestrict</a>
+</td></tr>
+<tr><td class="return">static boolean</td><td class="method">
+<a href="#EARLY_FILTER">earlyFilter</a>
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#ESTIMATED_FUNCTION_TABLE_ROWS">estimatedFunctionTableRows</a>
+</td></tr>
+<tr><td class="return">static boolean</td><td class="method">
+<a href="#FUNCTIONS_IN_SCHEMA">functionsInSchema</a>
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#LARGE_RESULT_BUFFER_SIZE">largeResultBufferSize</a>
+</td></tr>
+<tr><td class="return">static boolean</td><td class="method">
+<a href="#LARGE_TRANSACTIONS">largeTransactions</a>
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#MAX_COMPACT_COUNT">maxCompactCount</a>
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#MAX_COMPACT_TIME">maxCompactTime</a>
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#MAX_MEMORY_ROWS_DISTINCT">maxMemoryRowsDistinct</a>
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#MAX_QUERY_TIMEOUT">maxQueryTimeout</a>
+</td></tr>
+<tr><td class="return">static boolean</td><td class="method">
+<a href="#NESTED_JOINS">nestedJoins</a>
+</td></tr>
+<tr><td class="return">static boolean</td><td class="method">
+<a href="#OPTIMIZE_DISTINCT">optimizeDistinct</a>
+</td></tr>
+<tr><td class="return">static boolean</td><td class="method">
+<a href="#OPTIMIZE_EVALUATABLE_SUBQUERIES">optimizeEvaluatableSubqueries</a>
+</td></tr>
+<tr><td class="return">static boolean</td><td class="method">
+<a href="#OPTIMIZE_IN_LIST">optimizeInList</a>
+</td></tr>
+<tr><td class="return">static boolean</td><td class="method">
+<a href="#OPTIMIZE_IN_SELECT">optimizeInSelect</a>
+</td></tr>
+<tr><td class="return">static boolean</td><td class="method">
+<a href="#OPTIMIZE_INSERT_FROM_SELECT">optimizeInsertFromSelect</a>
+</td></tr>
+<tr><td class="return">static boolean</td><td class="method">
+<a href="#OPTIMIZE_IS_NULL">optimizeIsNull</a>
+</td></tr>
+<tr><td class="return">static boolean</td><td class="method">
+<a href="#OPTIMIZE_OR">optimizeOr</a>
+</td></tr>
+<tr><td class="return">static boolean</td><td class="method">
+<a href="#OPTIMIZE_TWO_EQUALS">optimizeTwoEquals</a>
+</td></tr>
+<tr><td class="return">static boolean</td><td class="method">
+<a href="#OPTIMIZE_UPDATE">optimizeUpdate</a>
+</td></tr>
+<tr><td class="return">static boolean</td><td class="method">
+<a href="#PAGE_STORE_INTERNAL_COUNT">pageStoreInternalCount</a>
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#PAGE_STORE_MAX_GROWTH">pageStoreMaxGrowth</a>
+</td></tr>
+<tr><td class="return">static boolean</td><td class="method">
+<a href="#PAGE_STORE_TRIM">pageStoreTrim</a>
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#QUERY_CACHE_SIZE">queryCacheSize</a>
+</td></tr>
+<tr><td class="return">static boolean</td><td class="method">
+<a href="#RECOMPILE_ALWAYS">recompileAlways</a>
+</td></tr>
+<tr><td class="return">static int</td><td class="method">
+<a href="#RECONNECT_CHECK_DELAY">reconnectCheckDelay</a>
+</td></tr>
+<tr><td class="return">static boolean</td><td class="method">
+<a href="#ROWID">rowId</a>
+</td></tr>
+<tr><td class="return">static boolean</td><td class="method">
+<a href="#SELECT_FOR_UPDATE_MVCC">selectForUpdateMvcc</a>
+</td></tr>
+<tr><td class="return">static boolean</td><td class="method">
+<a href="#SHARE_LINKED_CONNECTIONS">shareLinkedConnections</a>
+</td></tr>
+</table>
+<h4 id="ALIAS_COLUMN_NAME"><span class="methodName">aliasColumnName
+
+</span></h4>
+<div class="item">Database setting <code>ALIAS_COLUMN_NAME</code> (default: false).<br />
+ When enabled, aliased columns (as in SELECT ID AS I FROM TEST) return the
+ alias (I in this case) in ResultSetMetaData.getColumnName() and 'null' in
+ getTableName(). If disabled, the real column name (ID in this case) and
+ table name is returned.
+ <br />
+ This setting only affects the default and the MySQL mode. When using
+ any other mode, this feature is enabled for compatibility, even if this
+ database setting is not enabled explicitly.</div>
+<hr />
+<h4 id="ANALYZE_AUTO"><span class="methodName">analyzeAuto
+
+</span></h4>
+<div class="item">Database setting <code>ANALYZE_AUTO</code> (default: 2000).<br />
+ After changing this many rows, ANALYZE is automatically run for a table.
+ Automatically running ANALYZE is disabled if set to 0. If set to 1000,
+ then ANALYZE will run against each user table after about 1000 changes to
+ that table. The time between running ANALYZE doubles each time since
+ starting the database. It is not run on local temporary tables, and
+ tables that have a trigger on SELECT.</div>
+<hr />
+<h4 id="ANALYZE_SAMPLE"><span class="methodName">analyzeSample
+
+</span></h4>
+<div class="item">Database setting <code>ANALYZE_SAMPLE</code> (default: 10000).<br />
+ The default sample size when analyzing a table.</div>
+<hr />
+<h4 id="DATABASE_TO_UPPER"><span class="methodName">databaseToUpper
+
+</span></h4>
+<div class="item">Database setting <code>DATABASE_TO_UPPER</code> (default: true).<br />
+ Database short names are converted to uppercase for the DATABASE()
+ function, and in the CATALOG column of all database meta data methods.
+ Setting this to "false" is experimental. When set to false, all
+ identifier names (table names, column names) are case sensitive (except
+ aggregate, built-in functions, data types, and keywords).</div>
+<hr />
+<h4 id="DB_CLOSE_ON_EXIT"><span class="methodName">dbCloseOnExit
+
+</span></h4>
+<div class="item">Database setting <code>DB_CLOSE_ON_EXIT</code> (default: true).<br />
+ Close the database when the virtual machine exits normally, using a
+ shutdown hook.</div>
+<hr />
+<h4 id="DEFAULT_CONNECTION"><span class="methodName">defaultConnection
+
+</span></h4>
+<div class="item">Database setting <code>DEFAULT_CONNECTION</code> (default: false).<br />
+ Whether Java functions can use
+ <code>DriverManager.getConnection("jdbc:default:connection")</code> to
+ get a database connection. This feature is disabled by default for
+ performance reasons. Please note the Oracle JDBC driver will try to
+ resolve this database URL if it is loaded before the H2 driver.</div>
+<hr />
+<h4 id="DEFAULT_ESCAPE"><span class="methodName">defaultEscape
+
+</span></h4>
+<div class="item">Database setting <code>DEFAULT_ESCAPE</code> (default: \).<br />
+ The default escape character for LIKE comparisons. To select no escape
+ character, use an empty string.</div>
+<hr />
+<h4 id="DEFRAG_ALWAYS"><span class="methodName">defragAlways
+
+</span></h4>
+<div class="item">Database setting <code>DEFRAG_ALWAYS</code> (default: false).<br />
+ Each time the database is closed, it is fully defragmented (SHUTDOWN DEFRAG).</div>
+<hr />
+<h4 id="DROP_RESTRICT"><span class="methodName">dropRestrict
+
+</span></h4>
+<div class="item">Database setting <code>DROP_RESTRICT</code> (default: true).<br />
+ Whether the default action for DROP TABLE and DROP VIEW is RESTRICT.</div>
+<hr />
+<h4 id="EARLY_FILTER"><span class="methodName">earlyFilter
+
+</span></h4>
+<div class="item">Database setting <code>EARLY_FILTER</code> (default: false).<br />
+ This setting allows table implementations to apply filter conditions
+ early on.</div>
+<hr />
+<h4 id="ESTIMATED_FUNCTION_TABLE_ROWS"><span class="methodName">estimatedFunctionTableRows
+
+</span></h4>
+<div class="item">Database setting <code>ESTIMATED_FUNCTION_TABLE_ROWS</code> (default:
+ 1000).<br />
+ The estimated number of rows in a function table (for example, CSVREAD or
+ FTL_SEARCH). This value is used by the optimizer.</div>
+<hr />
+<h4 id="FUNCTIONS_IN_SCHEMA"><span class="methodName">functionsInSchema
+
+</span></h4>
+<div class="item">Database setting <code>FUNCTIONS_IN_SCHEMA</code> (default:
+ true).<br />
+ If set, all functions are stored in a schema. Specially, the SCRIPT statement
+ will always include the schema name in the CREATE ALIAS statement.
+ This is not backward compatible with H2 versions 1.2.134 and older.</div>
+<hr />
+<h4 id="LARGE_RESULT_BUFFER_SIZE"><span class="methodName">largeResultBufferSize
+
+</span></h4>
+<div class="item">Database setting <code>LARGE_RESULT_BUFFER_SIZE</code> (default: 4096).<br />
+ Buffer size for large result sets. Set this value to 0 to disable the
+ buffer.</div>
+<hr />
+<h4 id="LARGE_TRANSACTIONS"><span class="methodName">largeTransactions
+
+</span></h4>
+<div class="item">Database setting <code>LARGE_TRANSACTIONS</code> (default: true).<br />
+ Support very large transactions</div>
+<hr />
+<h4 id="MAX_COMPACT_COUNT"><span class="methodName">maxCompactCount
+
+</span></h4>
+<div class="item">Database setting <code>MAX_COMPACT_COUNT</code>
+ (default: Integer.MAX_VALUE).<br />
+ The maximum number of pages to move when closing a database.</div>
+<hr />
+<h4 id="MAX_COMPACT_TIME"><span class="methodName">maxCompactTime
+
+</span></h4>
+<div class="item">Database setting <code>MAX_COMPACT_TIME</code> (default: 200).<br />
+ The maximum time in milliseconds used to compact a database when closing.</div>
+<hr />
+<h4 id="MAX_MEMORY_ROWS_DISTINCT"><span class="methodName">maxMemoryRowsDistinct
+
+</span></h4>
+<div class="item">Database setting <code>MAX_MEMORY_ROWS_DISTINCT</code> (default:
+ 10000).<br />
+ The maximum number of rows kept in-memory for SELECT DISTINCT queries. If
+ more than this number of rows are in a result set, a temporary table is
+ used.</div>
+<hr />
+<h4 id="MAX_QUERY_TIMEOUT"><span class="methodName">maxQueryTimeout
+
+</span></h4>
+<div class="item">Database setting <code>MAX_QUERY_TIMEOUT</code> (default: 0).<br />
+ The maximum timeout of a query in milliseconds. The default is 0, meaning
+ no limit. Please note the actual query timeout may be set to a lower
+ value.</div>
+<hr />
+<h4 id="NESTED_JOINS"><span class="methodName">nestedJoins
+
+</span></h4>
+<div class="item">Database setting <code>NESTED_JOINS</code> (default: true).<br />
+ Whether nested joins should be supported.</div>
+<hr />
+<h4 id="OPTIMIZE_DISTINCT"><span class="methodName">optimizeDistinct
+
+</span></h4>
+<div class="item">Database setting <code>OPTIMIZE_DISTINCT</code> (default: true).<br />
+ Improve the performance of simple DISTINCT queries if an index is
+ available for the given column. The optimization is used if:
+ <ul>
+ <li>The select is a single column query without condition </li>
+ <li>The query contains only one table, and no group by </li>
+ <li>There is only one table involved </li>
+ <li>There is an ascending index on the column </li>
+ <li>The selectivity of the column is below 20 </li>
+ </ul></div>
+<hr />
+<h4 id="OPTIMIZE_EVALUATABLE_SUBQUERIES"><span class="methodName">optimizeEvaluatableSubqueries
+
+</span></h4>
+<div class="item">Database setting <code>OPTIMIZE_EVALUATABLE_SUBQUERIES</code> (default:
+ true).<br />
+ Optimize subqueries that are not dependent on the outer query.</div>
+<hr />
+<h4 id="OPTIMIZE_IN_LIST"><span class="methodName">optimizeInList
+
+</span></h4>
+<div class="item">Database setting <code>OPTIMIZE_IN_LIST</code> (default: true).<br />
+ Optimize IN(...) and IN(SELECT ...) comparisons. This includes
+ optimization for SELECT, DELETE, and UPDATE.</div>
+<hr />
+<h4 id="OPTIMIZE_IN_SELECT"><span class="methodName">optimizeInSelect
+
+</span></h4>
+<div class="item">Database setting <code>OPTIMIZE_IN_SELECT</code> (default: true).<br />
+ Optimize IN(SELECT ...) comparisons. This includes
+ optimization for SELECT, DELETE, and UPDATE.</div>
+<hr />
+<h4 id="OPTIMIZE_INSERT_FROM_SELECT"><span class="methodName">optimizeInsertFromSelect
+
+</span></h4>
+<div class="item">Database setting <code>OPTIMIZE_INSERT_FROM_SELECT</code>
+ (default: true).<br />
+ Insert into table from query directly bypassing temporary disk storage.
+ This also applies to create table as select.</div>
+<hr />
+<h4 id="OPTIMIZE_IS_NULL"><span class="methodName">optimizeIsNull
+
+</span></h4>
+<div class="item">Database setting <code>OPTIMIZE_IS_NULL</code> (default: false).<br />
+ Use an index for condition of the form columnName IS NULL.</div>
+<hr />
+<h4 id="OPTIMIZE_OR"><span class="methodName">optimizeOr
+
+</span></h4>
+<div class="item">Database setting <code>OPTIMIZE_OR</code> (default: true).<br />
+ Convert (C=? OR C=?) to (C IN(?, ?)).</div>
+<hr />
+<h4 id="OPTIMIZE_TWO_EQUALS"><span class="methodName">optimizeTwoEquals
+
+</span></h4>
+<div class="item">Database setting <code>OPTIMIZE_TWO_EQUALS</code> (default: true).<br />
+ Optimize expressions of the form A=B AND B=1. In this case, AND A=1 is
+ added so an index on A can be used.</div>
+<hr />
+<h4 id="OPTIMIZE_UPDATE"><span class="methodName">optimizeUpdate
+
+</span></h4>
+<div class="item">Database setting <code>OPTIMIZE_UPDATE</code> (default: true).<br />
+ Speed up inserts, updates, and deletes by not reading all rows from a
+ page unless necessary.</div>
+<hr />
+<h4 id="PAGE_STORE_INTERNAL_COUNT"><span class="methodName">pageStoreInternalCount
+
+</span></h4>
+<div class="item">Database setting <code>PAGE_STORE_INTERNAL_COUNT</code>
+ (default: false).<br />
+ Update the row counts on a node level.</div>
+<hr />
+<h4 id="PAGE_STORE_MAX_GROWTH"><span class="methodName">pageStoreMaxGrowth
+
+</span></h4>
+<div class="item">Database setting <code>PAGE_STORE_MAX_GROWTH</code>
+ (default: 128 * 1024).<br />
+ The maximum number of pages the file grows at any time.</div>
+<hr />
+<h4 id="PAGE_STORE_TRIM"><span class="methodName">pageStoreTrim
+
+</span></h4>
+<div class="item">Database setting <code>PAGE_STORE_TRIM</code> (default: true).<br />
+ Trim the database size when closing.</div>
+<hr />
+<h4 id="QUERY_CACHE_SIZE"><span class="methodName">queryCacheSize
+
+</span></h4>
+<div class="item">Database setting <code>QUERY_CACHE_SIZE</code> (default: 8).<br />
+ The size of the query cache, in number of cached statements. Each session
+ has it's own cache with the given size. The cache is only used if the SQL
+ statement and all parameters match. Only the last returned result per
+ query is cached. Only SELECT statements are cached (excluding UNION and
+ FOR UPDATE statements). This works for both statements and prepared
+ statement.</div>
+<hr />
+<h4 id="RECOMPILE_ALWAYS"><span class="methodName">recompileAlways
+
+</span></h4>
+<div class="item">Database setting <code>RECOMPILE_ALWAYS</code> (default: false).<br />
+ Always recompile prepared statements.</div>
+<hr />
+<h4 id="RECONNECT_CHECK_DELAY"><span class="methodName">reconnectCheckDelay
+
+</span></h4>
+<div class="item">Database setting <code>RECONNECT_CHECK_DELAY</code> (default: 200).<br />
+ Check the .lock.db file every this many milliseconds to detect that the
+ database was changed. The process writing to the database must first
+ notify a change in the .lock.db file, then wait twice this many
+ milliseconds before updating the database.</div>
+<hr />
+<h4 id="ROWID"><span class="methodName">rowId
+
+</span></h4>
+<div class="item">Database setting <code>ROWID</code> (default: true).<br />
+ If set, each table has a pseudo-column _ROWID_.</div>
+<hr />
+<h4 id="SELECT_FOR_UPDATE_MVCC"><span class="methodName">selectForUpdateMvcc
+
+</span></h4>
+<div class="item">Database setting <code>SELECT_FOR_UPDATE_MVCC</code>
+ (default: true).<br />
+ If set, SELECT .. FOR UPDATE queries lock only the selected rows when
+ using MVCC.</div>
+<hr />
+<h4 id="SHARE_LINKED_CONNECTIONS"><span class="methodName">shareLinkedConnections
+
+</span></h4>
+<div class="item">Database setting <code>SHARE_LINKED_CONNECTIONS</code>
+ (default: true).<br />
+ Linked connections should be shared, that means connections to the same
+ database should be used for all linked tables that connect to the same
+ database.</div>
+<hr />
+</div></td></tr></table></body></html>

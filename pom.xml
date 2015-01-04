@@ -1,0 +1,67 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>me.kafeitu.activiti</groupId>
+	<artifactId>parent</artifactId>
+	<version>1.0</version>
+	<packaging>pom</packaging>
+	<name>Activiti实战 Root</name>
+
+	<!-- 属性配置以及各个依赖的版本 -->
+	<properties>
+		<!-- 各个依赖的版本号 -->
+		<activiti.version>5.16.4</activiti.version>
+        <spring.version>4.0.6.RELEASE</spring.version>
+		<jetty.version>8.1.11.v20130520</jetty.version>
+		<commons-lang3.version>3.1</commons-lang3.version>
+		<commons-io.version>2.4</commons-io.version>
+		<slf4j.version>1.7.2</slf4j.version>
+		<log4j.version>1.2.17</log4j.version>
+		<hibernate.version>4.1.4.Final</hibernate.version>
+        <cxf.version>2.6.14</cxf.version>
+        <drools.version>5.5.0.Final</drools.version>
+        <mule.version>3.4.0</mule.version>
+
+        <!-- 设置编码为UTF-8 -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<!-- Maven仓库定义 -->
+	<repositories>
+        <repository>
+            <id>kafeitu</id>
+            <url>http://maven.kafeitu.me:8081/nexus/content/groups/public</url>
+        </repository>
+        <!-- Activiti的仓库 -->
+		<repository>
+			<id>Activiti</id>
+			<url>https://maven.alfresco.com/nexus/content/repositories/activiti</url>
+		</repository>
+
+		<!-- Codehaus的仓库 -->
+		<repository>
+			<id>Codehaus</id>
+			<url>http://repository.codehaus.org</url>
+		</repository>
+	</repositories>
+
+	<modules>
+		<module>bpmn20-example</module>
+		<module>chapter5-oa-manager</module>
+		<module>chapter6-oa-forms</module>
+		<module>chapter7-spring</module>
+        <module>chapter7-spring-boot</module>
+        <module>chapter7-cdi</module>
+		<module>chapter8-mail</module>
+		<module>chapter9-multi-instance</module>
+		<module>chapter10-subprocess-callactivity</module>
+		<module>chapter12-task-attachment</module>
+		<module>chapter13-query</module>
+		<module>chapter14-management</module>
+        <module>chapter17-jpa</module>
+        <module>chapter18-esb</module>
+        <module>chapter19-identity</module>
+        <module>chapter20-rest</module>
+        <module>chapter21-invade</module>
+    </modules>
+</project>

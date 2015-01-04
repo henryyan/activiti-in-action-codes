@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.kafeitu.me/activiti/leave">
+  <process id="leave" name="请假流程-CDI">
+    <documentation>请假流程演示-CDI</documentation>
+    <startEvent id="startevent1" name="Start" activiti:initiator="applyUserId" activiti:formKey="leave-apply.xhtml"></startEvent>
+    <userTask id="deptLeaderAudit" name="部门领导审批" activiti:assignee="deptLeader" activiti:formKey="form/deptLeaderAudit.xhtml">
+    </userTask>
+    <exclusiveGateway id="exclusivegateway5" name="Exclusive Gateway"></exclusiveGateway>
+    <userTask id="modifyApply" name="调整申请" activiti:assignee="${applyUserId}" activiti:formKey="form/modifyApply.xhtml">
+    </userTask>
+    <userTask id="hrAudit" name="人事审批" activiti:assignee="hr" activiti:formKey="form/hrAudit.xhtml">
+    </userTask>
+    <exclusiveGateway id="exclusivegateway6" name="Exclusive Gateway"></exclusiveGateway>
+    <userTask id="reportBack" name="销假" activiti:assignee="kafeitu" activiti:formKey="form/reportBack.xhtml">
+    </userTask>
+    <endEvent id="endevent1" name="End"></endEvent>
+    <exclusiveGateway id="exclusivegateway7" name="Exclusive Gateway"></exclusiveGateway>
+    <sequenceFlow id="flow2" name="" sourceRef="startevent1" targetRef="deptLeaderAudit"></sequenceFlow>
+    <sequenceFlow id="flow3" name="" sourceRef="deptLeaderAudit" targetRef="exclusivegateway5"></sequenceFlow>
+    <sequenceFlow id="flow4" name="拒绝" sourceRef="exclusivegateway5" targetRef="modifyApply">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${!leave.isDeptLeaderApproved()}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="flow5" name="同意" sourceRef="exclusivegateway5" targetRef="hrAudit">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${leave.isDeptLeaderApproved()}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="flow6" name="" sourceRef="hrAudit" targetRef="exclusivegateway6"></sequenceFlow>
+    <sequenceFlow id="flow7" name="同意" sourceRef="exclusivegateway6" targetRef="reportBack">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${leave.isHrApproved()}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="flow8" name="销假" sourceRef="reportBack" targetRef="endevent1">
+      <extensionElements>
+        <activiti:executionListener event="take" expression="${execution.setVariable('result', 'ok')}"></activiti:executionListener>
+      </extensionElements>
+    </sequenceFlow>
+    <sequenceFlow id="flow9" name="拒绝" sourceRef="exclusivegateway6" targetRef="modifyApply">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${!leave.isHrApproved()}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="flow10" name="重新申请" sourceRef="exclusivegateway7" targetRef="deptLeaderAudit">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${leave.isReapply()}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="flow11" name="" sourceRef="modifyApply" targetRef="exclusivegateway7"></sequenceFlow>
+    <sequenceFlow id="flow12" name="结束流程" sourceRef="exclusivegateway7" targetRef="endevent1">
+      <extensionElements>
+        <activiti:executionListener event="take" expression="${execution.setVariable('result', 'canceled')}"></activiti:executionListener>
+      </extensionElements>
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${leave.isReapply()}]]></conditionExpression>
+    </sequenceFlow>
+    <textAnnotation id="textannotation1" textFormat="text/plain">
+      <text><![CDATA[请求被驳回后员工可以选择继续申请，或者取消本次申请]]></text>
+    </textAnnotation>
+    <association id="association1" sourceRef="modifyApply" targetRef="textannotation1" associationDirection="None"></association>
+  </process>
+</definitions>

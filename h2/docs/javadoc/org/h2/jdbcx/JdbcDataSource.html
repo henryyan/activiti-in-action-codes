@@ -1,0 +1,333 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head><meta http-equiv="Content-Type" content="text/html;charset=utf-8" /><title>
+JdbcDataSource
+</title><link rel="stylesheet" type="text/css" href="../../../stylesheet.css" />
+<script type="text/javascript" src="../../../animate.js"></script>
+</head><body onload="openLink();">
+<table class="content"><tr class="content"><td class="content"><div class="contentDiv">
+<h1>JdbcDataSource</h1>
+A data source for H2 database connections. It is a factory for XAConnection
+ and Connection objects. This class is usually registered in a JNDI naming
+ service. To create a data source object and register it with a JNDI service,
+ use the following code:
+
+ <pre>
+ import org.h2.jdbcx.JdbcDataSource;
+ import javax.naming.Context;
+ import javax.naming.InitialContext;
+ JdbcDataSource ds = new JdbcDataSource();
+ ds.setURL(&quot;jdbc:h2:&tilde;/test&quot;);
+ ds.setUser(&quot;sa&quot;);
+ ds.setPassword(&quot;sa&quot;);
+ Context ctx = new InitialContext();
+ ctx.bind(&quot;jdbc/dsName&quot;, ds);</pre>
+
+ To use a data source that is already registered, use the following code:
+
+ <pre>
+ import java.sql.Connection;
+ import javax.sql.DataSource;
+ import javax.naming.Context;
+ import javax.naming.InitialContext;
+ Context ctx = new InitialContext();
+ DataSource ds = (DataSource) ctx.lookup(&quot;jdbc/dsName&quot;);
+ Connection conn = ds.getConnection();</pre>
+
+ In this example the user name and password are serialized as
+ well; this may be a security problem in some cases.<br /><br />
+<table class="block"><tr onclick="return allDetails()"><th colspan="2">Methods</th></tr>
+<tr id="__0" onclick="return on(0)">
+<td class="return"></td><td class="method">
+<a id="JdbcDataSource" href="#JdbcDataSource">JdbcDataSource</a>()
+<div class="methodText">The public constructor.</div>
+</td></tr>
+<tr onclick="return off(0)" class="detail" id="_0">
+<td class="return"></td><td>
+<a id="JdbcDataSource" href="#JdbcDataSource">JdbcDataSource</a>()
+<div class="methodText">The public constructor.</div>
+</td></tr>
+<tr id="__1" onclick="return on(1)">
+<td class="return">Connection</td><td class="method">
+<a id="getConnection" href="#getConnection">getConnection</a>()
+<div class="methodText">Open a new connection using the current URL, user name and password.</div>
+</td></tr>
+<tr onclick="return off(1)" class="detail" id="_1">
+<td class="return">Connection</td><td>
+<a id="getConnection" href="#getConnection">getConnection</a>() throws SQLException
+<div class="methodText">Open a new connection using the current URL, user name and password.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the connection</div>
+</td></tr>
+<tr id="__2" onclick="return on(2)">
+<td class="return">Connection</td><td class="method">
+<a id="getConnection_String_String" href="#getConnection_String_String">getConnection</a>(String user, String password)
+<div class="methodText">Open a new connection using the current URL and the specified user name
+ and password.</div>
+</td></tr>
+<tr onclick="return off(2)" class="detail" id="_2">
+<td class="return">Connection</td><td>
+<a id="getConnection_String_String" href="#getConnection_String_String">getConnection</a>(String user, String password) throws SQLException
+<div class="methodText">Open a new connection using the current URL and the specified user name
+ and password.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">user - the user name</div>
+<div class="item">password - the password</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the connection</div>
+</td></tr>
+<tr id="__3" onclick="return on(3)">
+<td class="return">String</td><td class="method">
+<a id="getDescription" href="#getDescription">getDescription</a>()
+<div class="methodText">Get the current description.</div>
+</td></tr>
+<tr onclick="return off(3)" class="detail" id="_3">
+<td class="return">String</td><td>
+<a id="getDescription" href="#getDescription">getDescription</a>()
+<div class="methodText">Get the current description.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the description</div>
+</td></tr>
+<tr id="__4" onclick="return on(4)">
+<td class="return">PrintWriter</td><td class="method">
+<a id="getLogWriter" href="#getLogWriter">getLogWriter</a>()
+<div class="methodText">Get the current log writer for this object.</div>
+</td></tr>
+<tr onclick="return off(4)" class="detail" id="_4">
+<td class="return">PrintWriter</td><td>
+<a id="getLogWriter" href="#getLogWriter">getLogWriter</a>()
+<div class="methodText">Get the current log writer for this object.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the log writer</div>
+</td></tr>
+<tr id="__5" onclick="return on(5)">
+<td class="return">int</td><td class="method">
+<a id="getLoginTimeout" href="#getLoginTimeout">getLoginTimeout</a>()
+<div class="methodText">Get the login timeout in seconds, 0 meaning no timeout.</div>
+</td></tr>
+<tr onclick="return off(5)" class="detail" id="_5">
+<td class="return">int</td><td>
+<a id="getLoginTimeout" href="#getLoginTimeout">getLoginTimeout</a>()
+<div class="methodText">Get the login timeout in seconds, 0 meaning no timeout.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the timeout in seconds</div>
+</td></tr>
+<tr id="__6" onclick="return on(6)">
+<td class="return">String</td><td class="method">
+<a id="getPassword" href="#getPassword">getPassword</a>()
+<div class="methodText">Get the current password.</div>
+</td></tr>
+<tr onclick="return off(6)" class="detail" id="_6">
+<td class="return">String</td><td>
+<a id="getPassword" href="#getPassword">getPassword</a>()
+<div class="methodText">Get the current password.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the password</div>
+</td></tr>
+<tr id="__7" onclick="return on(7)">
+<td class="return">PooledConnection</td><td class="method">
+<a id="getPooledConnection" href="#getPooledConnection">getPooledConnection</a>()
+<div class="methodText">Open a new pooled connection using the current URL, user name and password.</div>
+</td></tr>
+<tr onclick="return off(7)" class="detail" id="_7">
+<td class="return">PooledConnection</td><td>
+<a id="getPooledConnection" href="#getPooledConnection">getPooledConnection</a>() throws SQLException
+<div class="methodText">Open a new pooled connection using the current URL, user name and password.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the connection</div>
+</td></tr>
+<tr id="__8" onclick="return on(8)">
+<td class="return">PooledConnection</td><td class="method">
+<a id="getPooledConnection_String_String" href="#getPooledConnection_String_String">getPooledConnection</a>(String user, String password)
+<div class="methodText">Open a new pooled connection using the current URL and the specified user
+ name and password.</div>
+</td></tr>
+<tr onclick="return off(8)" class="detail" id="_8">
+<td class="return">PooledConnection</td><td>
+<a id="getPooledConnection_String_String" href="#getPooledConnection_String_String">getPooledConnection</a>(String user, String password) throws SQLException
+<div class="methodText">Open a new pooled connection using the current URL and the specified user
+ name and password.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">user - the user name</div>
+<div class="item">password - the password</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the connection</div>
+</td></tr>
+<tr id="__9" onclick="return on(9)">
+<td class="return">Reference</td><td class="method">
+<a id="getReference" href="#getReference">getReference</a>()
+<div class="methodText">Get a new reference for this object, using the current settings.</div>
+</td></tr>
+<tr onclick="return off(9)" class="detail" id="_9">
+<td class="return">Reference</td><td>
+<a id="getReference" href="#getReference">getReference</a>()
+<div class="methodText">Get a new reference for this object, using the current settings.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the new reference</div>
+</td></tr>
+<tr id="__10" onclick="return on(10)">
+<td class="return">String</td><td class="method">
+<a id="getURL" href="#getURL">getURL</a>()
+<div class="methodText">Get the current URL.</div>
+</td></tr>
+<tr onclick="return off(10)" class="detail" id="_10">
+<td class="return">String</td><td>
+<a id="getURL" href="#getURL">getURL</a>()
+<div class="methodText">Get the current URL.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the URL</div>
+</td></tr>
+<tr id="__11" onclick="return on(11)">
+<td class="return">String</td><td class="method">
+<a id="getUser" href="#getUser">getUser</a>()
+<div class="methodText">Get the current user name.</div>
+</td></tr>
+<tr onclick="return off(11)" class="detail" id="_11">
+<td class="return">String</td><td>
+<a id="getUser" href="#getUser">getUser</a>()
+<div class="methodText">Get the current user name.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the user name</div>
+</td></tr>
+<tr id="__12" onclick="return on(12)">
+<td class="return">XAConnection</td><td class="method">
+<a id="getXAConnection" href="#getXAConnection">getXAConnection</a>()
+<div class="methodText">Open a new XA connection using the current URL, user name and password.</div>
+</td></tr>
+<tr onclick="return off(12)" class="detail" id="_12">
+<td class="return">XAConnection</td><td>
+<a id="getXAConnection" href="#getXAConnection">getXAConnection</a>() throws SQLException
+<div class="methodText">Open a new XA connection using the current URL, user name and password.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the connection</div>
+</td></tr>
+<tr id="__13" onclick="return on(13)">
+<td class="return">XAConnection</td><td class="method">
+<a id="getXAConnection_String_String" href="#getXAConnection_String_String">getXAConnection</a>(String user, String password)
+<div class="methodText">Open a new XA connection using the current URL and the specified user
+ name and password.</div>
+</td></tr>
+<tr onclick="return off(13)" class="detail" id="_13">
+<td class="return">XAConnection</td><td>
+<a id="getXAConnection_String_String" href="#getXAConnection_String_String">getXAConnection</a>(String user, String password) throws SQLException
+<div class="methodText">Open a new XA connection using the current URL and the specified user
+ name and password.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">user - the user name</div>
+<div class="item">password - the password</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the connection</div>
+</td></tr>
+<tr id="__14" onclick="return on(14)">
+<td class="return">boolean</td><td class="method">
+<a id="isWrapperFor_Class" href="#isWrapperFor_Class">isWrapperFor</a>(Class iface)
+<div class="methodText">[Not supported] Checks if unwrap can return an object of this class.</div>
+</td></tr>
+<tr onclick="return off(14)" class="detail" id="_14">
+<td class="return">boolean</td><td>
+<a id="isWrapperFor_Class" href="#isWrapperFor_Class">isWrapperFor</a>(Class iface) throws SQLException
+<div class="methodText">[Not supported] Checks if unwrap can return an object of this class.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">iface - the class</div>
+</td></tr>
+<tr id="__15" onclick="return on(15)">
+<td class="return">void</td><td class="method">
+<a id="setDescription_String" href="#setDescription_String">setDescription</a>(String description)
+<div class="methodText">Set the description.</div>
+</td></tr>
+<tr onclick="return off(15)" class="detail" id="_15">
+<td class="return">void</td><td>
+<a id="setDescription_String" href="#setDescription_String">setDescription</a>(String description)
+<div class="methodText">Set the description.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">description - the new description</div>
+</td></tr>
+<tr id="__16" onclick="return on(16)">
+<td class="return">void</td><td class="method">
+<a id="setLogWriter_PrintWriter" href="#setLogWriter_PrintWriter">setLogWriter</a>(PrintWriter out)
+<div class="methodText">Set the current log writer for this object.</div>
+</td></tr>
+<tr onclick="return off(16)" class="detail" id="_16">
+<td class="return">void</td><td>
+<a id="setLogWriter_PrintWriter" href="#setLogWriter_PrintWriter">setLogWriter</a>(PrintWriter out)
+<div class="methodText">Set the current log writer for this object.
+ This value is ignored by this database.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">out - the log writer</div>
+</td></tr>
+<tr id="__17" onclick="return on(17)">
+<td class="return">void</td><td class="method">
+<a id="setLoginTimeout_int" href="#setLoginTimeout_int">setLoginTimeout</a>(int timeout)
+<div class="methodText">Set the login timeout in seconds, 0 meaning no timeout.</div>
+</td></tr>
+<tr onclick="return off(17)" class="detail" id="_17">
+<td class="return">void</td><td>
+<a id="setLoginTimeout_int" href="#setLoginTimeout_int">setLoginTimeout</a>(int timeout)
+<div class="methodText">Set the login timeout in seconds, 0 meaning no timeout.
+ The default value is 0.
+ This value is ignored by this database.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">timeout - the timeout in seconds</div>
+</td></tr>
+<tr id="__18" onclick="return on(18)">
+<td class="return">void</td><td class="method">
+<a id="setPassword_String" href="#setPassword_String">setPassword</a>(String password)
+<div class="methodText">Set the current password.</div>
+</td></tr>
+<tr onclick="return off(18)" class="detail" id="_18">
+<td class="return">void</td><td>
+<a id="setPassword_String" href="#setPassword_String">setPassword</a>(String password)
+<div class="methodText">Set the current password.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">password - the new password.</div>
+</td></tr>
+<tr id="__19" onclick="return on(19)">
+<td class="return">void</td><td class="method">
+<a id="setPasswordChars_char-" href="#setPasswordChars_char-">setPasswordChars</a>(char[] password)
+<div class="methodText">Set the current password in the form of a char array.</div>
+</td></tr>
+<tr onclick="return off(19)" class="detail" id="_19">
+<td class="return">void</td><td>
+<a id="setPasswordChars_char-" href="#setPasswordChars_char-">setPasswordChars</a>(char[] password)
+<div class="methodText">Set the current password in the form of a char array.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">password - the new password in the form of a char array.</div>
+</td></tr>
+<tr id="__20" onclick="return on(20)">
+<td class="return">void</td><td class="method">
+<a id="setURL_String" href="#setURL_String">setURL</a>(String url)
+<div class="methodText">Set the current URL.</div>
+</td></tr>
+<tr onclick="return off(20)" class="detail" id="_20">
+<td class="return">void</td><td>
+<a id="setURL_String" href="#setURL_String">setURL</a>(String url)
+<div class="methodText">Set the current URL.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">url - the new URL</div>
+</td></tr>
+<tr id="__21" onclick="return on(21)">
+<td class="return">void</td><td class="method">
+<a id="setUser_String" href="#setUser_String">setUser</a>(String user)
+<div class="methodText">Set the current user name.</div>
+</td></tr>
+<tr onclick="return off(21)" class="detail" id="_21">
+<td class="return">void</td><td>
+<a id="setUser_String" href="#setUser_String">setUser</a>(String user)
+<div class="methodText">Set the current user name.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">user - the new user name</div>
+</td></tr>
+<tr id="__22" onclick="return on(22)">
+<td class="return">T</td><td class="method">
+<a id="unwrap_Class" href="#unwrap_Class">unwrap</a>(Class iface)
+<div class="methodText">[Not supported] Return an object of this class if possible.</div>
+</td></tr>
+<tr onclick="return off(22)" class="detail" id="_22">
+<td class="return">T</td><td>
+<a id="unwrap_Class" href="#unwrap_Class">unwrap</a>(Class iface) throws SQLException
+<div class="methodText">[Not supported] Return an object of this class if possible.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">iface - the class</div>
+</td></tr>
+</table>
+</div></td></tr></table></body></html>

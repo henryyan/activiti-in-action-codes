@@ -1,0 +1,3508 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Copyright 2004-2011 H2 Group. Multiple-Licensed under the H2 License, Version 1.0,
+and under the Eclipse Public License, Version 1.0
+(http://h2database.com/html/license.html).
+Initial Developer: H2 Group
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head><meta http-equiv="Content-Type" content="text/html;charset=utf-8" /><title>
+Functions
+</title><link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<!-- [search] { -->
+<script type="text/javascript" src="navigation.js"></script>
+</head><body onload="highlight()" onscroll="scroll()">
+
+<table class="nav" onmousemove="return mouseMove(event)"><tr class="nav"><td class="nav" valign="top">
+<div id = "searchMenu" style="width: 180px; overflow: hidden;">
+<div class="menu" style="white-space:nowrap;">
+<img src="images/h2-logo-2.png"
+    alt="H2 database logo"
+    onclick="document.location='main.html'"
+    width="136" height="74"/> &nbsp;&nbsp;<span id = "goTop" onclick="window.scrollTo(0,0)" style="color: #fff; position:fixed; font-size: 20px; cursor: pointer;">&#x25b2;</span> </div>
+
+<form action="submit" onsubmit="return goFirst();">
+<table width="100%" class="search">
+    <tr class="search">
+        <td class="search" colspan="2">
+<!-- translate
+<a href="http://translate.google.com/translate?u=http%3A%2F%2Fh2database.com"
+    onclick="javascript:startTranslate();return false;">Translate</a>
+<div id = "translate" style="display:none"><div id = "google_translate_element"></div></div>
+translate -->
+        </td>
+    </tr>
+    <tr class="search">
+        <td class="search" colspan="2">
+        <b><label for="search">Search:</label></b>
+        </td>
+    </tr>
+    <tr class="search">
+        <td class="search" colspan="2">
+            <input id = "search" name="search" type="text" size="16" maxlength="100" onkeyup="listWords(this.value, '')" /><br />
+            <input type="reset" id = "clear" style="display:none;" value="Clear" onclick="listWords('', '');" />
+        </td>
+    </tr>
+    <tr class="search" style="display:none;" >
+        <td class="search" style="width: 1%; vertical-align: middle;">
+            <input id = "highlight" type="checkbox" checked="checked" onclick="highlightCurrent(this.checked, search.value)" />
+        </td>
+        <td class="search" style="width: 99%; padding: 0px; vertical-align: middle;">
+            <label for="highlight">Highlight keyword(s)</label>
+        </td>
+    </tr>
+    <tr class="search">
+        <td class="search" colspan="2">
+            <table id = "result" style="border: 0px;">
+                <tr style="display:none"><td></td></tr>
+            </table>
+        </td>
+    </tr>
+</table>
+</form>
+<div class="menu">
+<b><a href="main.html">Home</a></b><br />
+<a href="download.html">Download</a><br />
+<a href="cheatSheet.html">Cheat Sheet</a><br />
+<br />
+<b>Documentation</b><br />
+<a href="quickstart.html">Quickstart</a><br />
+<a href="installation.html">Installation</a><br />
+<a href="tutorial.html">Tutorial</a><br />
+<a href="features.html">Features</a><br />
+<a href="performance.html">Performance</a><br />
+<a href="advanced.html">Advanced</a><br />
+<br />
+<b>Reference</b><br />
+<a href="grammar.html">SQL Grammar</a><br />
+<a href="functions.html">Functions</a><br />
+<a href="datatypes.html">Data Types</a><br />
+<a href="../javadoc/index.html">Javadoc</a><br />
+<a href="../h2.pdf">PDF (1 MB)</a><br />
+<br />
+<b>Support</b><br />
+<a href="faq.html">FAQ</a><br />
+<a href="sourceError.html">Error Analyzer</a><br />
+<a href="http://groups.google.com/group/h2-database">Google Group (English)</a><br />
+<a href="http://groups.google.co.jp/group/h2-database-jp">Google Group (Japanese)</a><br />
+<a href="http://groups.google.com/group/h2-cn">Google Group (Chinese)</a><br />
+<br />
+<b>Appendix</b><br />
+<a href="history.html">History &amp; Roadmap</a><br />
+<a href="license.html">License</a><br />
+<a href="build.html">Build</a><br />
+<a href="links.html">Links</a><br />
+<a href="jaqu.html">JaQu</a><br />
+<a href="mvstore.html">MVStore</a><br />
+<br />
+
+</div>
+</div>
+</td>
+
+<td class="nav" style="cursor: e-resize;" onmousedown="return mouseDown(event)" onmouseup="return mouseUp(event)">&nbsp;</td>
+<td class="nav"><div class="content">
+
+<!-- } -->
+
+<h1>Functions</h1>
+<h2>Index</h2>
+<h3>Aggregate Functions</h3>
+<!-- syntax-start
+<p class="notranslate">
+
+    <a href="#avg" >AVG</a><br />
+
+    <a href="#bool_and" >BOOL_AND</a><br />
+
+    <a href="#bool_or" >BOOL_OR</a><br />
+
+    <a href="#count" >COUNT</a><br />
+
+    <a href="#group_concat" >GROUP_CONCAT</a><br />
+
+    <a href="#max" >MAX</a><br />
+
+    <a href="#min" >MIN</a><br />
+
+    <a href="#sum" >SUM</a><br />
+
+    <a href="#selectivity" >SELECTIVITY</a><br />
+
+    <a href="#stddev_pop" >STDDEV_POP</a><br />
+
+    <a href="#stddev_samp" >STDDEV_SAMP</a><br />
+
+    <a href="#var_pop" >VAR_POP</a><br />
+
+    <a href="#var_samp" >VAR_SAMP</a><br />
+</p>
+syntax-end -->
+<!-- railroad-start -->
+<table class="notranslate index">
+    <tr>
+        <td class="index">
+            
+                <a href="#avg" >AVG</a><br />
+            
+                <a href="#bool_and" >BOOL_AND</a><br />
+            
+                <a href="#bool_or" >BOOL_OR</a><br />
+            
+                <a href="#count" >COUNT</a><br />
+            
+                <a href="#group_concat" >GROUP_CONCAT</a><br />
+                    </td><td class="index">
+            
+                <a href="#max" >MAX</a><br />
+            
+                <a href="#min" >MIN</a><br />
+            
+                <a href="#sum" >SUM</a><br />
+            
+                <a href="#selectivity" >SELECTIVITY</a><br />
+            
+                <a href="#stddev_pop" >STDDEV_POP</a><br />
+                    </td><td class="index">
+            
+                <a href="#stddev_samp" >STDDEV_SAMP</a><br />
+            
+                <a href="#var_pop" >VAR_POP</a><br />
+            
+                <a href="#var_samp" >VAR_SAMP</a><br />
+                    </td>
+    </tr>
+</table>
+<!-- railroad-end -->
+
+<h3>Numeric Functions</h3>
+<!-- syntax-start
+<p class="notranslate">
+
+    <a href="#abs" >ABS</a><br />
+
+    <a href="#acos" >ACOS</a><br />
+
+    <a href="#asin" >ASIN</a><br />
+
+    <a href="#atan" >ATAN</a><br />
+
+    <a href="#cos" >COS</a><br />
+
+    <a href="#cosh" >COSH</a><br />
+
+    <a href="#cot" >COT</a><br />
+
+    <a href="#sin" >SIN</a><br />
+
+    <a href="#sinh" >SINH</a><br />
+
+    <a href="#tan" >TAN</a><br />
+
+    <a href="#tanh" >TANH</a><br />
+
+    <a href="#atan2" >ATAN2</a><br />
+
+    <a href="#bitand" >BITAND</a><br />
+
+    <a href="#bitor" >BITOR</a><br />
+
+    <a href="#bitxor" >BITXOR</a><br />
+
+    <a href="#mod" >MOD</a><br />
+
+    <a href="#ceiling" >CEILING</a><br />
+
+    <a href="#degrees" >DEGREES</a><br />
+
+    <a href="#exp" >EXP</a><br />
+
+    <a href="#floor" >FLOOR</a><br />
+
+    <a href="#log" >LOG</a><br />
+
+    <a href="#log10" >LOG10</a><br />
+
+    <a href="#radians" >RADIANS</a><br />
+
+    <a href="#sqrt" >SQRT</a><br />
+
+    <a href="#pi" >PI</a><br />
+
+    <a href="#power" >POWER</a><br />
+
+    <a href="#rand" >RAND</a><br />
+
+    <a href="#random_uuid" >RANDOM_UUID</a><br />
+
+    <a href="#round" >ROUND</a><br />
+
+    <a href="#roundmagic" >ROUNDMAGIC</a><br />
+
+    <a href="#secure_rand" >SECURE_RAND</a><br />
+
+    <a href="#sign" >SIGN</a><br />
+
+    <a href="#encrypt" >ENCRYPT</a><br />
+
+    <a href="#decrypt" >DECRYPT</a><br />
+
+    <a href="#hash" >HASH</a><br />
+
+    <a href="#truncate" >TRUNCATE</a><br />
+
+    <a href="#compress" >COMPRESS</a><br />
+
+    <a href="#expand" >EXPAND</a><br />
+
+    <a href="#zero" >ZERO</a><br />
+</p>
+syntax-end -->
+<!-- railroad-start -->
+<table class="notranslate index">
+    <tr>
+        <td class="index">
+            
+                <a href="#abs" >ABS</a><br />
+            
+                <a href="#acos" >ACOS</a><br />
+            
+                <a href="#asin" >ASIN</a><br />
+            
+                <a href="#atan" >ATAN</a><br />
+            
+                <a href="#cos" >COS</a><br />
+            
+                <a href="#cosh" >COSH</a><br />
+            
+                <a href="#cot" >COT</a><br />
+            
+                <a href="#sin" >SIN</a><br />
+            
+                <a href="#sinh" >SINH</a><br />
+            
+                <a href="#tan" >TAN</a><br />
+            
+                <a href="#tanh" >TANH</a><br />
+            
+                <a href="#atan2" >ATAN2</a><br />
+            
+                <a href="#bitand" >BITAND</a><br />
+                    </td><td class="index">
+            
+                <a href="#bitor" >BITOR</a><br />
+            
+                <a href="#bitxor" >BITXOR</a><br />
+            
+                <a href="#mod" >MOD</a><br />
+            
+                <a href="#ceiling" >CEILING</a><br />
+            
+                <a href="#degrees" >DEGREES</a><br />
+            
+                <a href="#exp" >EXP</a><br />
+            
+                <a href="#floor" >FLOOR</a><br />
+            
+                <a href="#log" >LOG</a><br />
+            
+                <a href="#log10" >LOG10</a><br />
+            
+                <a href="#radians" >RADIANS</a><br />
+            
+                <a href="#sqrt" >SQRT</a><br />
+            
+                <a href="#pi" >PI</a><br />
+            
+                <a href="#power" >POWER</a><br />
+                    </td><td class="index">
+            
+                <a href="#rand" >RAND</a><br />
+            
+                <a href="#random_uuid" >RANDOM_UUID</a><br />
+            
+                <a href="#round" >ROUND</a><br />
+            
+                <a href="#roundmagic" >ROUNDMAGIC</a><br />
+            
+                <a href="#secure_rand" >SECURE_RAND</a><br />
+            
+                <a href="#sign" >SIGN</a><br />
+            
+                <a href="#encrypt" >ENCRYPT</a><br />
+            
+                <a href="#decrypt" >DECRYPT</a><br />
+            
+                <a href="#hash" >HASH</a><br />
+            
+                <a href="#truncate" >TRUNCATE</a><br />
+            
+                <a href="#compress" >COMPRESS</a><br />
+            
+                <a href="#expand" >EXPAND</a><br />
+            
+                <a href="#zero" >ZERO</a><br />
+                    </td>
+    </tr>
+</table>
+<!-- railroad-end -->
+
+<h3>String Functions</h3>
+<!-- syntax-start
+<p class="notranslate">
+
+    <a href="#ascii" >ASCII</a><br />
+
+    <a href="#bit_length" >BIT_LENGTH</a><br />
+
+    <a href="#length" >LENGTH</a><br />
+
+    <a href="#octet_length" >OCTET_LENGTH</a><br />
+
+    <a href="#char" >CHAR</a><br />
+
+    <a href="#concat" >CONCAT</a><br />
+
+    <a href="#concat_ws" >CONCAT_WS</a><br />
+
+    <a href="#difference" >DIFFERENCE</a><br />
+
+    <a href="#hextoraw" >HEXTORAW</a><br />
+
+    <a href="#rawtohex" >RAWTOHEX</a><br />
+
+    <a href="#instr" >INSTR</a><br />
+
+    <a href="#insert_function" >INSERT Function</a><br />
+
+    <a href="#lower" >LOWER</a><br />
+
+    <a href="#upper" >UPPER</a><br />
+
+    <a href="#left" >LEFT</a><br />
+
+    <a href="#right" >RIGHT</a><br />
+
+    <a href="#locate" >LOCATE</a><br />
+
+    <a href="#position" >POSITION</a><br />
+
+    <a href="#lpad" >LPAD</a><br />
+
+    <a href="#rpad" >RPAD</a><br />
+
+    <a href="#ltrim" >LTRIM</a><br />
+
+    <a href="#rtrim" >RTRIM</a><br />
+
+    <a href="#trim" >TRIM</a><br />
+
+    <a href="#regexp_replace" >REGEXP_REPLACE</a><br />
+
+    <a href="#repeat" >REPEAT</a><br />
+
+    <a href="#replace" >REPLACE</a><br />
+
+    <a href="#soundex" >SOUNDEX</a><br />
+
+    <a href="#space" >SPACE</a><br />
+
+    <a href="#stringdecode" >STRINGDECODE</a><br />
+
+    <a href="#stringencode" >STRINGENCODE</a><br />
+
+    <a href="#stringtoutf8" >STRINGTOUTF8</a><br />
+
+    <a href="#substring" >SUBSTRING</a><br />
+
+    <a href="#utf8tostring" >UTF8TOSTRING</a><br />
+
+    <a href="#xmlattr" >XMLATTR</a><br />
+
+    <a href="#xmlnode" >XMLNODE</a><br />
+
+    <a href="#xmlcomment" >XMLCOMMENT</a><br />
+
+    <a href="#xmlcdata" >XMLCDATA</a><br />
+
+    <a href="#xmlstartdoc" >XMLSTARTDOC</a><br />
+
+    <a href="#xmltext" >XMLTEXT</a><br />
+</p>
+syntax-end -->
+<!-- railroad-start -->
+<table class="notranslate index">
+    <tr>
+        <td class="index">
+            
+                <a href="#ascii" >ASCII</a><br />
+            
+                <a href="#bit_length" >BIT_LENGTH</a><br />
+            
+                <a href="#length" >LENGTH</a><br />
+            
+                <a href="#octet_length" >OCTET_LENGTH</a><br />
+            
+                <a href="#char" >CHAR</a><br />
+            
+                <a href="#concat" >CONCAT</a><br />
+            
+                <a href="#concat_ws" >CONCAT_WS</a><br />
+            
+                <a href="#difference" >DIFFERENCE</a><br />
+            
+                <a href="#hextoraw" >HEXTORAW</a><br />
+            
+                <a href="#rawtohex" >RAWTOHEX</a><br />
+            
+                <a href="#instr" >INSTR</a><br />
+            
+                <a href="#insert_function" >INSERT Function</a><br />
+            
+                <a href="#lower" >LOWER</a><br />
+                    </td><td class="index">
+            
+                <a href="#upper" >UPPER</a><br />
+            
+                <a href="#left" >LEFT</a><br />
+            
+                <a href="#right" >RIGHT</a><br />
+            
+                <a href="#locate" >LOCATE</a><br />
+            
+                <a href="#position" >POSITION</a><br />
+            
+                <a href="#lpad" >LPAD</a><br />
+            
+                <a href="#rpad" >RPAD</a><br />
+            
+                <a href="#ltrim" >LTRIM</a><br />
+            
+                <a href="#rtrim" >RTRIM</a><br />
+            
+                <a href="#trim" >TRIM</a><br />
+            
+                <a href="#regexp_replace" >REGEXP_REPLACE</a><br />
+            
+                <a href="#repeat" >REPEAT</a><br />
+            
+                <a href="#replace" >REPLACE</a><br />
+                    </td><td class="index">
+            
+                <a href="#soundex" >SOUNDEX</a><br />
+            
+                <a href="#space" >SPACE</a><br />
+            
+                <a href="#stringdecode" >STRINGDECODE</a><br />
+            
+                <a href="#stringencode" >STRINGENCODE</a><br />
+            
+                <a href="#stringtoutf8" >STRINGTOUTF8</a><br />
+            
+                <a href="#substring" >SUBSTRING</a><br />
+            
+                <a href="#utf8tostring" >UTF8TOSTRING</a><br />
+            
+                <a href="#xmlattr" >XMLATTR</a><br />
+            
+                <a href="#xmlnode" >XMLNODE</a><br />
+            
+                <a href="#xmlcomment" >XMLCOMMENT</a><br />
+            
+                <a href="#xmlcdata" >XMLCDATA</a><br />
+            
+                <a href="#xmlstartdoc" >XMLSTARTDOC</a><br />
+            
+                <a href="#xmltext" >XMLTEXT</a><br />
+                    </td>
+    </tr>
+</table>
+<!-- railroad-end -->
+
+<h3>Time and Date Functions</h3>
+<!-- syntax-start
+<p class="notranslate">
+
+    <a href="#current_date" >CURRENT_DATE</a><br />
+
+    <a href="#current_time" >CURRENT_TIME</a><br />
+
+    <a href="#current_timestamp" >CURRENT_TIMESTAMP</a><br />
+
+    <a href="#dateadd" >DATEADD</a><br />
+
+    <a href="#datediff" >DATEDIFF</a><br />
+
+    <a href="#dayname" >DAYNAME</a><br />
+
+    <a href="#day_of_month" >DAY_OF_MONTH</a><br />
+
+    <a href="#day_of_week" >DAY_OF_WEEK</a><br />
+
+    <a href="#day_of_year" >DAY_OF_YEAR</a><br />
+
+    <a href="#extract" >EXTRACT</a><br />
+
+    <a href="#formatdatetime" >FORMATDATETIME</a><br />
+
+    <a href="#hour" >HOUR</a><br />
+
+    <a href="#minute" >MINUTE</a><br />
+
+    <a href="#month" >MONTH</a><br />
+
+    <a href="#monthname" >MONTHNAME</a><br />
+
+    <a href="#parsedatetime" >PARSEDATETIME</a><br />
+
+    <a href="#quarter" >QUARTER</a><br />
+
+    <a href="#second" >SECOND</a><br />
+
+    <a href="#week" >WEEK</a><br />
+
+    <a href="#year" >YEAR</a><br />
+</p>
+syntax-end -->
+<!-- railroad-start -->
+<table class="notranslate index">
+    <tr>
+        <td class="index">
+            
+                <a href="#current_date" >CURRENT_DATE</a><br />
+            
+                <a href="#current_time" >CURRENT_TIME</a><br />
+            
+                <a href="#current_timestamp" >CURRENT_TIMESTAMP</a><br />
+            
+                <a href="#dateadd" >DATEADD</a><br />
+            
+                <a href="#datediff" >DATEDIFF</a><br />
+            
+                <a href="#dayname" >DAYNAME</a><br />
+            
+                <a href="#day_of_month" >DAY_OF_MONTH</a><br />
+                    </td><td class="index">
+            
+                <a href="#day_of_week" >DAY_OF_WEEK</a><br />
+            
+                <a href="#day_of_year" >DAY_OF_YEAR</a><br />
+            
+                <a href="#extract" >EXTRACT</a><br />
+            
+                <a href="#formatdatetime" >FORMATDATETIME</a><br />
+            
+                <a href="#hour" >HOUR</a><br />
+            
+                <a href="#minute" >MINUTE</a><br />
+            
+                <a href="#month" >MONTH</a><br />
+                    </td><td class="index">
+            
+                <a href="#monthname" >MONTHNAME</a><br />
+            
+                <a href="#parsedatetime" >PARSEDATETIME</a><br />
+            
+                <a href="#quarter" >QUARTER</a><br />
+            
+                <a href="#second" >SECOND</a><br />
+            
+                <a href="#week" >WEEK</a><br />
+            
+                <a href="#year" >YEAR</a><br />
+                    </td>
+    </tr>
+</table>
+<!-- railroad-end -->
+
+<h3>System Functions</h3>
+<!-- syntax-start
+<p class="notranslate">
+
+    <a href="#array_get" >ARRAY_GET</a><br />
+
+    <a href="#array_length" >ARRAY_LENGTH</a><br />
+
+    <a href="#array_contains" >ARRAY_CONTAINS</a><br />
+
+    <a href="#autocommit" >AUTOCOMMIT</a><br />
+
+    <a href="#cancel_session" >CANCEL_SESSION</a><br />
+
+    <a href="#casewhen_function" >CASEWHEN Function</a><br />
+
+    <a href="#cast" >CAST</a><br />
+
+    <a href="#coalesce" >COALESCE</a><br />
+
+    <a href="#convert" >CONVERT</a><br />
+
+    <a href="#currval" >CURRVAL</a><br />
+
+    <a href="#csvread" >CSVREAD</a><br />
+
+    <a href="#csvwrite" >CSVWRITE</a><br />
+
+    <a href="#database" >DATABASE</a><br />
+
+    <a href="#database_path" >DATABASE_PATH</a><br />
+
+    <a href="#decode" >DECODE</a><br />
+
+    <a href="#file_read" >FILE_READ</a><br />
+
+    <a href="#greatest" >GREATEST</a><br />
+
+    <a href="#identity" >IDENTITY</a><br />
+
+    <a href="#ifnull" >IFNULL</a><br />
+
+    <a href="#least" >LEAST</a><br />
+
+    <a href="#lock_mode" >LOCK_MODE</a><br />
+
+    <a href="#lock_timeout" >LOCK_TIMEOUT</a><br />
+
+    <a href="#link_schema" >LINK_SCHEMA</a><br />
+
+    <a href="#memory_free" >MEMORY_FREE</a><br />
+
+    <a href="#memory_used" >MEMORY_USED</a><br />
+
+    <a href="#nextval" >NEXTVAL</a><br />
+
+    <a href="#nullif" >NULLIF</a><br />
+
+    <a href="#nvl2" >NVL2</a><br />
+
+    <a href="#readonly" >READONLY</a><br />
+
+    <a href="#rownum" >ROWNUM</a><br />
+
+    <a href="#schema" >SCHEMA</a><br />
+
+    <a href="#scope_identity" >SCOPE_IDENTITY</a><br />
+
+    <a href="#session_id" >SESSION_ID</a><br />
+
+    <a href="#set" >SET</a><br />
+
+    <a href="#table" >TABLE</a><br />
+
+    <a href="#transaction_id" >TRANSACTION_ID</a><br />
+
+    <a href="#truncate_value" >TRUNCATE_VALUE</a><br />
+
+    <a href="#user" >USER</a><br />
+</p>
+syntax-end -->
+<!-- railroad-start -->
+<table class="notranslate index">
+    <tr>
+        <td class="index">
+            
+                <a href="#array_get" >ARRAY_GET</a><br />
+            
+                <a href="#array_length" >ARRAY_LENGTH</a><br />
+            
+                <a href="#array_contains" >ARRAY_CONTAINS</a><br />
+            
+                <a href="#autocommit" >AUTOCOMMIT</a><br />
+            
+                <a href="#cancel_session" >CANCEL_SESSION</a><br />
+            
+                <a href="#casewhen_function" >CASEWHEN Function</a><br />
+            
+                <a href="#cast" >CAST</a><br />
+            
+                <a href="#coalesce" >COALESCE</a><br />
+            
+                <a href="#convert" >CONVERT</a><br />
+            
+                <a href="#currval" >CURRVAL</a><br />
+            
+                <a href="#csvread" >CSVREAD</a><br />
+            
+                <a href="#csvwrite" >CSVWRITE</a><br />
+            
+                <a href="#database" >DATABASE</a><br />
+                    </td><td class="index">
+            
+                <a href="#database_path" >DATABASE_PATH</a><br />
+            
+                <a href="#decode" >DECODE</a><br />
+            
+                <a href="#file_read" >FILE_READ</a><br />
+            
+                <a href="#greatest" >GREATEST</a><br />
+            
+                <a href="#identity" >IDENTITY</a><br />
+            
+                <a href="#ifnull" >IFNULL</a><br />
+            
+                <a href="#least" >LEAST</a><br />
+            
+                <a href="#lock_mode" >LOCK_MODE</a><br />
+            
+                <a href="#lock_timeout" >LOCK_TIMEOUT</a><br />
+            
+                <a href="#link_schema" >LINK_SCHEMA</a><br />
+            
+                <a href="#memory_free" >MEMORY_FREE</a><br />
+            
+                <a href="#memory_used" >MEMORY_USED</a><br />
+            
+                <a href="#nextval" >NEXTVAL</a><br />
+                    </td><td class="index">
+            
+                <a href="#nullif" >NULLIF</a><br />
+            
+                <a href="#nvl2" >NVL2</a><br />
+            
+                <a href="#readonly" >READONLY</a><br />
+            
+                <a href="#rownum" >ROWNUM</a><br />
+            
+                <a href="#schema" >SCHEMA</a><br />
+            
+                <a href="#scope_identity" >SCOPE_IDENTITY</a><br />
+            
+                <a href="#session_id" >SESSION_ID</a><br />
+            
+                <a href="#set" >SET</a><br />
+            
+                <a href="#table" >TABLE</a><br />
+            
+                <a href="#transaction_id" >TRANSACTION_ID</a><br />
+            
+                <a href="#truncate_value" >TRUNCATE_VALUE</a><br />
+            
+                <a href="#user" >USER</a><br />
+                    </td>
+    </tr>
+</table>
+<!-- railroad-end -->
+
+<!-- railroad-start -->
+<h2>Details</h2>
+<p>Click on the header to switch between railroad diagram and BNF.</p>
+<!-- railroad-end -->
+
+
+<h3 id="avg" class="notranslate" onclick="switchBnf(this)">AVG</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+AVG ( [ DISTINCT ] { <a href="grammar.html#numeric">numeric</a> } )
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">AVG (</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">DISTINCT</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c"><a href="grammar.html#numeric">numeric</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+AVG ( [ DISTINCT ] { <a href="grammar.html#numeric">numeric</a> } )
+</pre>
+syntax-end -->
+<p>The average (mean) value. If no rows are selected, the result is <code>NULL</code>. Aggregates are only allowed in select statements. The returned value is of the same data type as the parameter.</p>
+<p>Example:</p>
+<p class="notranslate">AVG(X)</p>
+
+<h3 id="bool_and" class="notranslate" onclick="switchBnf(this)">BOOL_AND</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+BOOL_AND(<a href="grammar.html#boolean">boolean</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">BOOL_AND ( <a href="grammar.html#boolean">boolean</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+BOOL_AND(<a href="grammar.html#boolean">boolean</a>)
+</pre>
+syntax-end -->
+<p>Returns true if all expressions are true. If no rows are selected, the result is <code>NULL</code>. Aggregates are only allowed in select statements.</p>
+<p>Example:</p>
+<p class="notranslate">BOOL_AND(ID&gt;10)</p>
+
+<h3 id="bool_or" class="notranslate" onclick="switchBnf(this)">BOOL_OR</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+BOOL_OR(<a href="grammar.html#boolean">boolean</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">BOOL_OR ( <a href="grammar.html#boolean">boolean</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+BOOL_OR(<a href="grammar.html#boolean">boolean</a>)
+</pre>
+syntax-end -->
+<p>Returns true if any expression is true. If no rows are selected, the result is <code>NULL</code>. Aggregates are only allowed in select statements.</p>
+<p>Example:</p>
+<p class="notranslate">BOOL_OR(NAME LIKE &#39;W%&#39;)</p>
+
+<h3 id="count" class="notranslate" onclick="switchBnf(this)">COUNT</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+COUNT( { * | { [ DISTINCT ] <a href="grammar.html#expression">expression</a> } } )
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">COUNT (</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d"><code class="c">*</code></td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">DISTINCT</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c"><a href="grammar.html#expression">expression</a></code></td></tr></table></td><td class="le"></td></tr></table></td><td class="d"><code class="c">)</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+COUNT( { * | { [ DISTINCT ] <a href="grammar.html#expression">expression</a> } } )
+</pre>
+syntax-end -->
+<p>The count of all row, or of the non-null values. This method returns a long. If no rows are selected, the result is 0. Aggregates are only allowed in select statements.</p>
+<p>Example:</p>
+<p class="notranslate">COUNT(*)</p>
+
+<h3 id="group_concat" class="notranslate" onclick="switchBnf(this)">GROUP_CONCAT</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+GROUP_CONCAT ( [ DISTINCT ] <a href="grammar.html#string">string</a>
+[ ORDER BY { <a href="grammar.html#expression">expression</a> [ ASC | DESC ] } [,...] ]
+[ SEPARATOR <a href="grammar.html#expression">expression</a> ] )
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">GROUP_CONCAT (</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">DISTINCT</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c"><a href="grammar.html#string">string</a></code></td></tr></table><br /><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">ORDER BY <a href="grammar.html#expression">expression</a></code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d"><code class="c">ASC</code></td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">DESC</code></td><td class="le"></td></tr></table></td><td class="le"></td></tr></table></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">, ...</code></td><td class="le"></td></tr></table></td></tr></table></td><td class="le"></td></tr></table><br /><table class="railroad"><tr class="railroad"><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">SEPARATOR <a href="grammar.html#expression">expression</a></code></td></tr></table></td><td class="le"></td></tr></table></td><td class="d"><code class="c">)</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+GROUP_CONCAT ( [ DISTINCT ] <a href="grammar.html#string">string</a>
+[ ORDER BY { <a href="grammar.html#expression">expression</a> [ ASC | DESC ] } [,...] ]
+[ SEPARATOR <a href="grammar.html#expression">expression</a> ] )
+</pre>
+syntax-end -->
+<p>Concatenates strings with a separator. The default separator is a &#39;,&#39; (without space). This method returns a string. If no rows are selected, the result is <code>NULL</code>. Aggregates are only allowed in select statements.</p>
+<p>Example:</p>
+<p class="notranslate">GROUP_CONCAT(NAME ORDER BY ID SEPARATOR &#39;, &#39;)</p>
+
+<h3 id="max" class="notranslate" onclick="switchBnf(this)">MAX</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+MAX(<a href="grammar.html#value">value</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">MAX ( <a href="grammar.html#value">value</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+MAX(<a href="grammar.html#value">value</a>)
+</pre>
+syntax-end -->
+<p>The highest value. If no rows are selected, the result is <code>NULL</code>. Aggregates are only allowed in select statements. The returned value is of the same data type as the parameter.</p>
+<p>Example:</p>
+<p class="notranslate">MAX(NAME)</p>
+
+<h3 id="min" class="notranslate" onclick="switchBnf(this)">MIN</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+MIN(<a href="grammar.html#value">value</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">MIN ( <a href="grammar.html#value">value</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+MIN(<a href="grammar.html#value">value</a>)
+</pre>
+syntax-end -->
+<p>The lowest value. If no rows are selected, the result is <code>NULL</code>. Aggregates are only allowed in select statements. The returned value is of the same data type as the parameter.</p>
+<p>Example:</p>
+<p class="notranslate">MIN(NAME)</p>
+
+<h3 id="sum" class="notranslate" onclick="switchBnf(this)">SUM</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+SUM( [ DISTINCT ] { <a href="grammar.html#numeric">numeric</a> } )
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">SUM (</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">DISTINCT</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c"><a href="grammar.html#numeric">numeric</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+SUM( [ DISTINCT ] { <a href="grammar.html#numeric">numeric</a> } )
+</pre>
+syntax-end -->
+<p>The sum of all values. If no rows are selected, the result is <code>NULL</code>. Aggregates are only allowed in select statements. The returned value is of the same data type as the parameter.</p>
+<p>Example:</p>
+<p class="notranslate">SUM(X)</p>
+
+<h3 id="selectivity" class="notranslate" onclick="switchBnf(this)">SELECTIVITY</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+SELECTIVITY(<a href="grammar.html#value">value</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">SELECTIVITY ( <a href="grammar.html#value">value</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+SELECTIVITY(<a href="grammar.html#value">value</a>)
+</pre>
+syntax-end -->
+<p>Estimates the selectivity (0-100) of a value. The value is defined as (100 * distinctCount / rowCount). The selectivity of 0 rows is 0 (unknown). Up to 10000 values are kept in memory. Aggregates are only allowed in select statements.</p>
+<p>Example:</p>
+<p class="notranslate">SELECT SELECTIVITY(FIRSTNAME), SELECTIVITY(NAME) FROM TEST WHERE ROWNUM()&lt;20000</p>
+
+<h3 id="stddev_pop" class="notranslate" onclick="switchBnf(this)">STDDEV_POP</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+STDDEV_POP( [ DISTINCT ] <a href="grammar.html#numeric">numeric</a> )
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">STDDEV_POP (</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">DISTINCT</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c"><a href="grammar.html#numeric">numeric</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+STDDEV_POP( [ DISTINCT ] <a href="grammar.html#numeric">numeric</a> )
+</pre>
+syntax-end -->
+<p>The population standard deviation. This method returns a double. If no rows are selected, the result is <code>NULL</code>. Aggregates are only allowed in select statements.</p>
+<p>Example:</p>
+<p class="notranslate">STDDEV_POP(X)</p>
+
+<h3 id="stddev_samp" class="notranslate" onclick="switchBnf(this)">STDDEV_SAMP</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+STDDEV_SAMP( [ DISTINCT ] <a href="grammar.html#numeric">numeric</a> )
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">STDDEV_SAMP (</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">DISTINCT</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c"><a href="grammar.html#numeric">numeric</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+STDDEV_SAMP( [ DISTINCT ] <a href="grammar.html#numeric">numeric</a> )
+</pre>
+syntax-end -->
+<p>The sample standard deviation. This method returns a double. If no rows are selected, the result is <code>NULL</code>. Aggregates are only allowed in select statements.</p>
+<p>Example:</p>
+<p class="notranslate">STDDEV(X)</p>
+
+<h3 id="var_pop" class="notranslate" onclick="switchBnf(this)">VAR_POP</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+VAR_POP( [ DISTINCT ] <a href="grammar.html#numeric">numeric</a> )
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">VAR_POP (</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">DISTINCT</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c"><a href="grammar.html#numeric">numeric</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+VAR_POP( [ DISTINCT ] <a href="grammar.html#numeric">numeric</a> )
+</pre>
+syntax-end -->
+<p>The population variance (square of the population standard deviation). This method returns a double. If no rows are selected, the result is <code>NULL</code>. Aggregates are only allowed in select statements.</p>
+<p>Example:</p>
+<p class="notranslate">VAR_POP(X)</p>
+
+<h3 id="var_samp" class="notranslate" onclick="switchBnf(this)">VAR_SAMP</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+VAR_SAMP( [ DISTINCT ] <a href="grammar.html#numeric">numeric</a> )
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">VAR_SAMP (</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">DISTINCT</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c"><a href="grammar.html#numeric">numeric</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+VAR_SAMP( [ DISTINCT ] <a href="grammar.html#numeric">numeric</a> )
+</pre>
+syntax-end -->
+<p>The sample variance (square of the sample standard deviation). This method returns a double. If no rows are selected, the result is <code>NULL</code>. Aggregates are only allowed in select statements.</p>
+<p>Example:</p>
+<p class="notranslate">VAR_SAMP(X)</p>
+
+<h3 id="abs" class="notranslate" onclick="switchBnf(this)">ABS</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+ABS ( { <a href="grammar.html#numeric">numeric</a> } )
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">ABS ( <a href="grammar.html#numeric">numeric</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+ABS ( { <a href="grammar.html#numeric">numeric</a> } )
+</pre>
+syntax-end -->
+<p>See also Java <code>Math.abs</code>. Please note that <code>Math.abs(Integer.MIN_VALUE) == Integer.MIN_VALUE</code> and <code>Math.abs(Long.MIN_VALUE) == Long.MIN_VALUE</code>. The returned value is of the same data type as the parameter.</p>
+<p>Example:</p>
+<p class="notranslate">ABS(ID)</p>
+
+<h3 id="acos" class="notranslate" onclick="switchBnf(this)">ACOS</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+ACOS(<a href="grammar.html#numeric">numeric</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">ACOS ( <a href="grammar.html#numeric">numeric</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+ACOS(<a href="grammar.html#numeric">numeric</a>)
+</pre>
+syntax-end -->
+<p>Calculate the arc cosine. See also Java <code>Math.acos</code>. This method returns a double.</p>
+<p>Example:</p>
+<p class="notranslate">ACOS(D)</p>
+
+<h3 id="asin" class="notranslate" onclick="switchBnf(this)">ASIN</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+ASIN(<a href="grammar.html#numeric">numeric</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">ASIN ( <a href="grammar.html#numeric">numeric</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+ASIN(<a href="grammar.html#numeric">numeric</a>)
+</pre>
+syntax-end -->
+<p>Calculate the arc sine. See also Java <code>Math.asin</code>. This method returns a double.</p>
+<p>Example:</p>
+<p class="notranslate">ASIN(D)</p>
+
+<h3 id="atan" class="notranslate" onclick="switchBnf(this)">ATAN</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+ATAN(<a href="grammar.html#numeric">numeric</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">ATAN ( <a href="grammar.html#numeric">numeric</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+ATAN(<a href="grammar.html#numeric">numeric</a>)
+</pre>
+syntax-end -->
+<p>Calculate the arc tangent. See also Java <code>Math.atan</code>. This method returns a double.</p>
+<p>Example:</p>
+<p class="notranslate">ATAN(D)</p>
+
+<h3 id="cos" class="notranslate" onclick="switchBnf(this)">COS</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+COS(<a href="grammar.html#numeric">numeric</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">COS ( <a href="grammar.html#numeric">numeric</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+COS(<a href="grammar.html#numeric">numeric</a>)
+</pre>
+syntax-end -->
+<p>Calculate the trigonometric cosine. See also Java <code>Math.cos</code>. This method returns a double.</p>
+<p>Example:</p>
+<p class="notranslate">COS(ANGLE)</p>
+
+<h3 id="cosh" class="notranslate" onclick="switchBnf(this)">COSH</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+COSH(<a href="grammar.html#numeric">numeric</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">COSH ( <a href="grammar.html#numeric">numeric</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+COSH(<a href="grammar.html#numeric">numeric</a>)
+</pre>
+syntax-end -->
+<p>Calculate the hyperbolic cosine. See also Java <code>Math.cosh</code>. This method returns a double.</p>
+<p>Example:</p>
+<p class="notranslate">COSH(X)</p>
+
+<h3 id="cot" class="notranslate" onclick="switchBnf(this)">COT</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+COT(<a href="grammar.html#numeric">numeric</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">COT ( <a href="grammar.html#numeric">numeric</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+COT(<a href="grammar.html#numeric">numeric</a>)
+</pre>
+syntax-end -->
+<p>Calculate the trigonometric cotangent (<code>1/TAN(ANGLE)</code>). See also Java <code>Math.*</code> functions. This method returns a double.</p>
+<p>Example:</p>
+<p class="notranslate">COT(ANGLE)</p>
+
+<h3 id="sin" class="notranslate" onclick="switchBnf(this)">SIN</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+SIN(<a href="grammar.html#numeric">numeric</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">SIN ( <a href="grammar.html#numeric">numeric</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+SIN(<a href="grammar.html#numeric">numeric</a>)
+</pre>
+syntax-end -->
+<p>Calculate the trigonometric sine. See also Java <code>Math.sin</code>. This method returns a double.</p>
+<p>Example:</p>
+<p class="notranslate">SIN(ANGLE)</p>
+
+<h3 id="sinh" class="notranslate" onclick="switchBnf(this)">SINH</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+SINH(<a href="grammar.html#numeric">numeric</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">SINH ( <a href="grammar.html#numeric">numeric</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+SINH(<a href="grammar.html#numeric">numeric</a>)
+</pre>
+syntax-end -->
+<p>Calculate the hyperbolic sine. See also Java <code>Math.sinh</code>. This method returns a double.</p>
+<p>Example:</p>
+<p class="notranslate">SINH(ANGLE)</p>
+
+<h3 id="tan" class="notranslate" onclick="switchBnf(this)">TAN</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+TAN(<a href="grammar.html#numeric">numeric</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">TAN ( <a href="grammar.html#numeric">numeric</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+TAN(<a href="grammar.html#numeric">numeric</a>)
+</pre>
+syntax-end -->
+<p>Calculate the trigonometric tangent. See also Java <code>Math.tan</code>. This method returns a double.</p>
+<p>Example:</p>
+<p class="notranslate">TAN(ANGLE)</p>
+
+<h3 id="tanh" class="notranslate" onclick="switchBnf(this)">TANH</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+TANH(<a href="grammar.html#numeric">numeric</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">TANH ( <a href="grammar.html#numeric">numeric</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+TANH(<a href="grammar.html#numeric">numeric</a>)
+</pre>
+syntax-end -->
+<p>Calculate the hyperbolic tangent. See also Java <code>Math.tanh</code>. This method returns a double.</p>
+<p>Example:</p>
+<p class="notranslate">TANH(X)</p>
+
+<h3 id="atan2" class="notranslate" onclick="switchBnf(this)">ATAN2</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+ATAN2(<a href="grammar.html#numeric">numeric</a>, <a href="grammar.html#numeric">numeric</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">ATAN2 ( <a href="grammar.html#numeric">numeric</a> , <a href="grammar.html#numeric">numeric</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+ATAN2(<a href="grammar.html#numeric">numeric</a>, <a href="grammar.html#numeric">numeric</a>)
+</pre>
+syntax-end -->
+<p>Calculate the angle when converting the rectangular coordinates to polar coordinates. See also Java <code>Math.atan2</code>. This method returns a double.</p>
+<p>Example:</p>
+<p class="notranslate">ATAN2(X, Y)</p>
+
+<h3 id="bitand" class="notranslate" onclick="switchBnf(this)">BITAND</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+BITAND(<a href="grammar.html#long">long</a>, <a href="grammar.html#long">long</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">BITAND ( <a href="grammar.html#long">long</a> , <a href="grammar.html#long">long</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+BITAND(<a href="grammar.html#long">long</a>, <a href="grammar.html#long">long</a>)
+</pre>
+syntax-end -->
+<p>The bitwise <code>AND</code> operation. This method returns a long. See also Java operator &amp;.</p>
+<p>Example:</p>
+<p class="notranslate">BITAND(A, B)</p>
+
+<h3 id="bitor" class="notranslate" onclick="switchBnf(this)">BITOR</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+BITOR(<a href="grammar.html#long">long</a>, <a href="grammar.html#long">long</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">BITOR ( <a href="grammar.html#long">long</a> , <a href="grammar.html#long">long</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+BITOR(<a href="grammar.html#long">long</a>, <a href="grammar.html#long">long</a>)
+</pre>
+syntax-end -->
+<p>The bitwise <code>OR</code> operation. This method returns a long. See also Java operator |.</p>
+<p>Example:</p>
+<p class="notranslate">BITOR(A, B)</p>
+
+<h3 id="bitxor" class="notranslate" onclick="switchBnf(this)">BITXOR</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+BITXOR(<a href="grammar.html#long">long</a>, <a href="grammar.html#long">long</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">BITXOR ( <a href="grammar.html#long">long</a> , <a href="grammar.html#long">long</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+BITXOR(<a href="grammar.html#long">long</a>, <a href="grammar.html#long">long</a>)
+</pre>
+syntax-end -->
+<p>The bitwise <code>XOR</code> operation. This method returns a long. See also Java operator ^.</p>
+<p>Example:</p>
+<p class="notranslate">BITXOR(A, B)</p>
+
+<h3 id="mod" class="notranslate" onclick="switchBnf(this)">MOD</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+MOD(<a href="grammar.html#long">long</a>, <a href="grammar.html#long">long</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">MOD ( <a href="grammar.html#long">long</a> , <a href="grammar.html#long">long</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+MOD(<a href="grammar.html#long">long</a>, <a href="grammar.html#long">long</a>)
+</pre>
+syntax-end -->
+<p>The modulo operation. This method returns a long. See also Java operator %.</p>
+<p>Example:</p>
+<p class="notranslate">MOD(A, B)</p>
+
+<h3 id="ceiling" class="notranslate" onclick="switchBnf(this)">CEILING</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+{ CEILING | CEIL } (<a href="grammar.html#numeric">numeric</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d"><code class="c">CEILING</code></td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">CEIL</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">( <a href="grammar.html#numeric">numeric</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+{ CEILING | CEIL } (<a href="grammar.html#numeric">numeric</a>)
+</pre>
+syntax-end -->
+<p>See also Java <code>Math.ceil</code>. This method returns a double.</p>
+<p>Example:</p>
+<p class="notranslate">CEIL(A)</p>
+
+<h3 id="degrees" class="notranslate" onclick="switchBnf(this)">DEGREES</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+DEGREES(<a href="grammar.html#numeric">numeric</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">DEGREES ( <a href="grammar.html#numeric">numeric</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+DEGREES(<a href="grammar.html#numeric">numeric</a>)
+</pre>
+syntax-end -->
+<p>See also Java <code>Math.toDegrees</code>. This method returns a double.</p>
+<p>Example:</p>
+<p class="notranslate">DEGREES(A)</p>
+
+<h3 id="exp" class="notranslate" onclick="switchBnf(this)">EXP</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+EXP(<a href="grammar.html#numeric">numeric</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">EXP ( <a href="grammar.html#numeric">numeric</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+EXP(<a href="grammar.html#numeric">numeric</a>)
+</pre>
+syntax-end -->
+<p>See also Java <code>Math.exp</code>. This method returns a double.</p>
+<p>Example:</p>
+<p class="notranslate">EXP(A)</p>
+
+<h3 id="floor" class="notranslate" onclick="switchBnf(this)">FLOOR</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+FLOOR(<a href="grammar.html#numeric">numeric</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">FLOOR ( <a href="grammar.html#numeric">numeric</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+FLOOR(<a href="grammar.html#numeric">numeric</a>)
+</pre>
+syntax-end -->
+<p>See also Java <code>Math.floor</code>. This method returns a double.</p>
+<p>Example:</p>
+<p class="notranslate">FLOOR(A)</p>
+
+<h3 id="log" class="notranslate" onclick="switchBnf(this)">LOG</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+{ LOG | LN } (<a href="grammar.html#numeric">numeric</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d"><code class="c">LOG</code></td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">LN</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">( <a href="grammar.html#numeric">numeric</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+{ LOG | LN } (<a href="grammar.html#numeric">numeric</a>)
+</pre>
+syntax-end -->
+<p>See also Java <code>Math.log</code>. In the PostgreSQL mode, <code>LOG</code>(x) is base 10. This method returns a double.</p>
+<p>Example:</p>
+<p class="notranslate">LOG(A)</p>
+
+<h3 id="log10" class="notranslate" onclick="switchBnf(this)">LOG10</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+LOG10(<a href="grammar.html#numeric">numeric</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">LOG10 ( <a href="grammar.html#numeric">numeric</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+LOG10(<a href="grammar.html#numeric">numeric</a>)
+</pre>
+syntax-end -->
+<p>See also Java <code>Math.log10</code> (in Java 5). This method returns a double.</p>
+<p>Example:</p>
+<p class="notranslate">LOG10(A)</p>
+
+<h3 id="radians" class="notranslate" onclick="switchBnf(this)">RADIANS</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+RADIANS(<a href="grammar.html#numeric">numeric</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">RADIANS ( <a href="grammar.html#numeric">numeric</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+RADIANS(<a href="grammar.html#numeric">numeric</a>)
+</pre>
+syntax-end -->
+<p>See also Java <code>Math.toRadians</code>. This method returns a double.</p>
+<p>Example:</p>
+<p class="notranslate">RADIANS(A)</p>
+
+<h3 id="sqrt" class="notranslate" onclick="switchBnf(this)">SQRT</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+SQRT(<a href="grammar.html#numeric">numeric</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">SQRT ( <a href="grammar.html#numeric">numeric</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+SQRT(<a href="grammar.html#numeric">numeric</a>)
+</pre>
+syntax-end -->
+<p>See also Java <code>Math.sqrt</code>. This method returns a double.</p>
+<p>Example:</p>
+<p class="notranslate">SQRT(A)</p>
+
+<h3 id="pi" class="notranslate" onclick="switchBnf(this)">PI</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+PI()
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">PI ( )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+PI()
+</pre>
+syntax-end -->
+<p>See also Java <code>Math.PI</code>. This method returns a double.</p>
+<p>Example:</p>
+<p class="notranslate">PI()</p>
+
+<h3 id="power" class="notranslate" onclick="switchBnf(this)">POWER</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+POWER(<a href="grammar.html#numeric">numeric</a>, <a href="grammar.html#numeric">numeric</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">POWER ( <a href="grammar.html#numeric">numeric</a> , <a href="grammar.html#numeric">numeric</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+POWER(<a href="grammar.html#numeric">numeric</a>, <a href="grammar.html#numeric">numeric</a>)
+</pre>
+syntax-end -->
+<p>See also Java <code>Math.pow</code>. This method returns a double.</p>
+<p>Example:</p>
+<p class="notranslate">POWER(A, B)</p>
+
+<h3 id="rand" class="notranslate" onclick="switchBnf(this)">RAND</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+{ RAND | RANDOM } ( [ <a href="grammar.html#int">int</a> ] )
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d"><code class="c">RAND</code></td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">RANDOM</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">(</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c"><a href="grammar.html#int">int</a></code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">)</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+{ RAND | RANDOM } ( [ <a href="grammar.html#int">int</a> ] )
+</pre>
+syntax-end -->
+<p>Calling the function without parameter returns the next a pseudo random number. Calling it with an parameter seeds the session&#39;s random number generator. This method returns a double between 0 (including) and 1 (excluding).</p>
+<p>Example:</p>
+<p class="notranslate">RAND()</p>
+
+<h3 id="random_uuid" class="notranslate" onclick="switchBnf(this)">RANDOM_UUID</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+RANDOM_UUID()
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">RANDOM_UUID ( )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+RANDOM_UUID()
+</pre>
+syntax-end -->
+<p>Returns a new <code>UUID</code> with 122 pseudo random bits.</p><p>Please note that using an index on randomly generated data will result on poor performance once there are millions of rows in a table. The reason is that the cache behavior is very bad with randomly distributed data. This is a problem for any database system.</p>
+<p>Example:</p>
+<p class="notranslate">RANDOM_UUID()</p>
+
+<h3 id="round" class="notranslate" onclick="switchBnf(this)">ROUND</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+ROUND(<a href="grammar.html#numeric">numeric</a> [, <a href="grammar.html#int">digitsInt</a>])
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">ROUND ( <a href="grammar.html#numeric">numeric</a></code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">, <a href="grammar.html#int">digitsInt</a></code></td></tr></table></td><td class="le"></td></tr></table></td><td class="d"><code class="c">)</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+ROUND(<a href="grammar.html#numeric">numeric</a> [, <a href="grammar.html#int">digitsInt</a>])
+</pre>
+syntax-end -->
+<p>Rounds to a number of digits, or to the nearest long if the number of digits if not set. This method returns a double.</p>
+<p>Example:</p>
+<p class="notranslate">ROUND(VALUE, 2)</p>
+
+<h3 id="roundmagic" class="notranslate" onclick="switchBnf(this)">ROUNDMAGIC</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+ROUNDMAGIC(<a href="grammar.html#numeric">numeric</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">ROUNDMAGIC ( <a href="grammar.html#numeric">numeric</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+ROUNDMAGIC(<a href="grammar.html#numeric">numeric</a>)
+</pre>
+syntax-end -->
+<p>This function rounds numbers in a good way, but it is slow. It has a special handling for numbers around 0. Only numbers smaller or equal +/-1000000000000 are supported. The value is converted to a String internally, and then the last last 4 characters are checked. &#39;000x&#39; becomes &#39;0000&#39; and &#39;999x&#39; becomes &#39;999999&#39;, which is rounded automatically. This method returns a double.</p>
+<p>Example:</p>
+<p class="notranslate">ROUNDMAGIC(VALUE/3*3)</p>
+
+<h3 id="secure_rand" class="notranslate" onclick="switchBnf(this)">SECURE_RAND</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+SECURE_RAND(<a href="grammar.html#int">int</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">SECURE_RAND ( <a href="grammar.html#int">int</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+SECURE_RAND(<a href="grammar.html#int">int</a>)
+</pre>
+syntax-end -->
+<p>Generates a number of cryptographically secure random numbers. This method returns bytes.</p>
+<p>Example:</p>
+<p class="notranslate">CALL SECURE_RAND(16)</p>
+
+<h3 id="sign" class="notranslate" onclick="switchBnf(this)">SIGN</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+SIGN ( { <a href="grammar.html#numeric">numeric</a> } )
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">SIGN ( <a href="grammar.html#numeric">numeric</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+SIGN ( { <a href="grammar.html#numeric">numeric</a> } )
+</pre>
+syntax-end -->
+<p>Returns -1 if the value is smaller 0, 0 if zero, and otherwise 1.</p>
+<p>Example:</p>
+<p class="notranslate">SIGN(VALUE)</p>
+
+<h3 id="encrypt" class="notranslate" onclick="switchBnf(this)">ENCRYPT</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+ENCRYPT(<a href="grammar.html#string">algorithmString</a>, <a href="grammar.html#bytes">keyBytes</a>, <a href="grammar.html#bytes">dataBytes</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">ENCRYPT ( <a href="grammar.html#string">algorithmString</a> , <a href="grammar.html#bytes">keyBytes</a> , <a href="grammar.html#bytes">dataBytes</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+ENCRYPT(<a href="grammar.html#string">algorithmString</a>, <a href="grammar.html#bytes">keyBytes</a>, <a href="grammar.html#bytes">dataBytes</a>)
+</pre>
+syntax-end -->
+<p>Encrypts data using a key. Supported algorithms are <code>XTEA</code> and <code>AES</code>. The block size is 16 bytes. This method returns bytes.</p>
+<p>Example:</p>
+<p class="notranslate">CALL ENCRYPT(&#39;AES&#39;, &#39;00&#39;, STRINGTOUTF8(&#39;Test&#39;))</p>
+
+<h3 id="decrypt" class="notranslate" onclick="switchBnf(this)">DECRYPT</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+DECRYPT(<a href="grammar.html#string">algorithmString</a>, <a href="grammar.html#bytes">keyBytes</a>, <a href="grammar.html#bytes">dataBytes</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">DECRYPT ( <a href="grammar.html#string">algorithmString</a> , <a href="grammar.html#bytes">keyBytes</a> , <a href="grammar.html#bytes">dataBytes</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+DECRYPT(<a href="grammar.html#string">algorithmString</a>, <a href="grammar.html#bytes">keyBytes</a>, <a href="grammar.html#bytes">dataBytes</a>)
+</pre>
+syntax-end -->
+<p>Decrypts data using a key. Supported algorithms are <code>XTEA</code> and <code>AES</code>. The block size is 16 bytes. This method returns bytes.</p>
+<p>Example:</p>
+<p class="notranslate">CALL TRIM(CHAR(0) FROM UTF8TOSTRING(<br />&nbsp;&nbsp;&nbsp;&nbsp;DECRYPT(&#39;AES&#39;, &#39;00&#39;, &#39;3fabb4de8f1ee2e97d7793bab2db1116&#39;)))</p>
+
+<h3 id="hash" class="notranslate" onclick="switchBnf(this)">HASH</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+HASH(<a href="grammar.html#string">algorithmString</a>, <a href="grammar.html#bytes">dataBytes</a>, <a href="grammar.html#int">iterationInt</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">HASH ( <a href="grammar.html#string">algorithmString</a> , <a href="grammar.html#bytes">dataBytes</a> , <a href="grammar.html#int">iterationInt</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+HASH(<a href="grammar.html#string">algorithmString</a>, <a href="grammar.html#bytes">dataBytes</a>, <a href="grammar.html#int">iterationInt</a>)
+</pre>
+syntax-end -->
+<p>Calculate the hash value using an algorithm, and repeat this process for a number of iterations. Currently, the only algorithm supported is <code>SHA256</code>. This method returns bytes.</p>
+<p>Example:</p>
+<p class="notranslate">CALL HASH(&#39;SHA256&#39;, STRINGTOUTF8(&#39;Password&#39;), 1000)</p>
+
+<h3 id="truncate" class="notranslate" onclick="switchBnf(this)">TRUNCATE</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+{ TRUNC | TRUNCATE } (<a href="grammar.html#numeric">numeric</a>, <a href="grammar.html#int">digitsInt</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d"><code class="c">TRUNC</code></td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">TRUNCATE</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">( <a href="grammar.html#numeric">numeric</a> , <a href="grammar.html#int">digitsInt</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+{ TRUNC | TRUNCATE } (<a href="grammar.html#numeric">numeric</a>, <a href="grammar.html#int">digitsInt</a>)
+</pre>
+syntax-end -->
+<p>Truncates to a number of digits (to the next value closer to 0). This method returns a double.</p>
+<p>Example:</p>
+<p class="notranslate">TRUNCATE(VALUE, 2)</p>
+
+<h3 id="compress" class="notranslate" onclick="switchBnf(this)">COMPRESS</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+COMPRESS(<a href="grammar.html#bytes">dataBytes</a> [, <a href="grammar.html#string">algorithmString</a>])
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">COMPRESS ( <a href="grammar.html#bytes">dataBytes</a></code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">, <a href="grammar.html#string">algorithmString</a></code></td></tr></table></td><td class="le"></td></tr></table></td><td class="d"><code class="c">)</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+COMPRESS(<a href="grammar.html#bytes">dataBytes</a> [, <a href="grammar.html#string">algorithmString</a>])
+</pre>
+syntax-end -->
+<p>Compresses the data using the specified compression algorithm. Supported algorithms are: <code>LZF</code> (faster but lower compression; default), and <code>DEFLATE</code> (higher compression). Compression does not always reduce size. Very small objects and objects with little redundancy may get larger. This method returns bytes.</p>
+<p>Example:</p>
+<p class="notranslate">COMPRESS(STRINGTOUTF8(&#39;Test&#39;))</p>
+
+<h3 id="expand" class="notranslate" onclick="switchBnf(this)">EXPAND</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+EXPAND(<a href="grammar.html#bytes">bytes</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">EXPAND ( <a href="grammar.html#bytes">bytes</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+EXPAND(<a href="grammar.html#bytes">bytes</a>)
+</pre>
+syntax-end -->
+<p>Expands data that was compressed using the <code>COMPRESS</code> function. This method returns bytes.</p>
+<p>Example:</p>
+<p class="notranslate">UTF8TOSTRING(EXPAND(COMPRESS(STRINGTOUTF8(&#39;Test&#39;))))</p>
+
+<h3 id="zero" class="notranslate" onclick="switchBnf(this)">ZERO</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+ZERO()
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">ZERO ( )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+ZERO()
+</pre>
+syntax-end -->
+<p>Returns the value 0. This function can be used even if numeric literals are disabled.</p>
+<p>Example:</p>
+<p class="notranslate">ZERO()</p>
+
+<h3 id="ascii" class="notranslate" onclick="switchBnf(this)">ASCII</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+ASCII(<a href="grammar.html#string">string</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">ASCII ( <a href="grammar.html#string">string</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+ASCII(<a href="grammar.html#string">string</a>)
+</pre>
+syntax-end -->
+<p>Returns the <code>ASCII</code> value of the first character in the string. This method returns an int.</p>
+<p>Example:</p>
+<p class="notranslate">ASCII(&#39;Hi&#39;)</p>
+
+<h3 id="bit_length" class="notranslate" onclick="switchBnf(this)">BIT_LENGTH</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+BIT_LENGTH(<a href="grammar.html#string">string</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">BIT_LENGTH ( <a href="grammar.html#string">string</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+BIT_LENGTH(<a href="grammar.html#string">string</a>)
+</pre>
+syntax-end -->
+<p>Returns the number of bits in a string. This method returns a long. For <code>BLOB, CLOB, BYTES</code> and <code>JAVA_OBJECT</code>, the precision is used. Each character needs 16 bits.</p>
+<p>Example:</p>
+<p class="notranslate">BIT_LENGTH(NAME)</p>
+
+<h3 id="length" class="notranslate" onclick="switchBnf(this)">LENGTH</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+{ LENGTH | CHAR_LENGTH | CHARACTER_LENGTH } ( <a href="grammar.html#string">string</a> )
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d"><code class="c">LENGTH</code></td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">CHAR_LENGTH</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">CHARACTER_LENGTH</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">( <a href="grammar.html#string">string</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+{ LENGTH | CHAR_LENGTH | CHARACTER_LENGTH } ( <a href="grammar.html#string">string</a> )
+</pre>
+syntax-end -->
+<p>Returns the number of characters in a string. This method returns a long. For <code>BLOB, CLOB, BYTES</code> and <code>JAVA_OBJECT</code>, the precision is used.</p>
+<p>Example:</p>
+<p class="notranslate">LENGTH(NAME)</p>
+
+<h3 id="octet_length" class="notranslate" onclick="switchBnf(this)">OCTET_LENGTH</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+OCTET_LENGTH(<a href="grammar.html#string">string</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">OCTET_LENGTH ( <a href="grammar.html#string">string</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+OCTET_LENGTH(<a href="grammar.html#string">string</a>)
+</pre>
+syntax-end -->
+<p>Returns the number of bytes in a string. This method returns a long. For <code>BLOB, CLOB, BYTES</code> and <code>JAVA_OBJECT</code>, the precision is used. Each character needs 2 bytes.</p>
+<p>Example:</p>
+<p class="notranslate">OCTET_LENGTH(NAME)</p>
+
+<h3 id="char" class="notranslate" onclick="switchBnf(this)">CHAR</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+{ CHAR | CHR } ( <a href="grammar.html#int">int</a> )
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d"><code class="c">CHAR</code></td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">CHR</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">( <a href="grammar.html#int">int</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+{ CHAR | CHR } ( <a href="grammar.html#int">int</a> )
+</pre>
+syntax-end -->
+<p>Returns the character that represents the <code>ASCII</code> value. This method returns a string.</p>
+<p>Example:</p>
+<p class="notranslate">CHAR(65)</p>
+
+<h3 id="concat" class="notranslate" onclick="switchBnf(this)">CONCAT</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+CONCAT(<a href="grammar.html#string">string</a>, <a href="grammar.html#string">string</a> [,...])
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">CONCAT ( <a href="grammar.html#string">string</a> , <a href="grammar.html#string">string</a></code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">, ...</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">)</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+CONCAT(<a href="grammar.html#string">string</a>, <a href="grammar.html#string">string</a> [,...])
+</pre>
+syntax-end -->
+<p>Combines strings. This method returns a string.</p>
+<p>Example:</p>
+<p class="notranslate">CONCAT(NAME, &#39;!&#39;)</p>
+
+<h3 id="concat_ws" class="notranslate" onclick="switchBnf(this)">CONCAT_WS</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+CONCAT_WS(<a href="grammar.html#string">separatorString</a>, <a href="grammar.html#string">string</a>, <a href="grammar.html#string">string</a> [,...])
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">CONCAT_WS ( <a href="grammar.html#string">separatorString</a> , <a href="grammar.html#string">string</a> , <a href="grammar.html#string">string</a></code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">, ...</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">)</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+CONCAT_WS(<a href="grammar.html#string">separatorString</a>, <a href="grammar.html#string">string</a>, <a href="grammar.html#string">string</a> [,...])
+</pre>
+syntax-end -->
+<p>Combines strings with separator. This method returns a string.</p>
+<p>Example:</p>
+<p class="notranslate">CONCAT_WS(&#39;,&#39;, NAME, &#39;!&#39;)</p>
+
+<h3 id="difference" class="notranslate" onclick="switchBnf(this)">DIFFERENCE</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+DIFFERENCE(<a href="grammar.html#string">string</a>, <a href="grammar.html#string">string</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">DIFFERENCE ( <a href="grammar.html#string">string</a> , <a href="grammar.html#string">string</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+DIFFERENCE(<a href="grammar.html#string">string</a>, <a href="grammar.html#string">string</a>)
+</pre>
+syntax-end -->
+<p>Returns the difference between the sounds of two strings. This method returns an int.</p>
+<p>Example:</p>
+<p class="notranslate">DIFFERENCE(T1.NAME, T2.NAME)</p>
+
+<h3 id="hextoraw" class="notranslate" onclick="switchBnf(this)">HEXTORAW</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+HEXTORAW(<a href="grammar.html#string">string</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">HEXTORAW ( <a href="grammar.html#string">string</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+HEXTORAW(<a href="grammar.html#string">string</a>)
+</pre>
+syntax-end -->
+<p>Converts a hex representation of a string to a string. 4 hex characters per string character are used.</p>
+<p>Example:</p>
+<p class="notranslate">HEXTORAW(DATA)</p>
+
+<h3 id="rawtohex" class="notranslate" onclick="switchBnf(this)">RAWTOHEX</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+RAWTOHEX(<a href="grammar.html#string">string</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">RAWTOHEX ( <a href="grammar.html#string">string</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+RAWTOHEX(<a href="grammar.html#string">string</a>)
+</pre>
+syntax-end -->
+<p>Converts a string to the hex representation. 4 hex characters per string character are used. This method returns a string.</p>
+<p>Example:</p>
+<p class="notranslate">RAWTOHEX(DATA)</p>
+
+<h3 id="instr" class="notranslate" onclick="switchBnf(this)">INSTR</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+INSTR(<a href="grammar.html#string">string</a>, <a href="grammar.html#string">searchString</a>, [, <a href="grammar.html#int">startInt</a>])
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">INSTR ( <a href="grammar.html#string">string</a> , <a href="grammar.html#string">searchString</a> ,</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">, <a href="grammar.html#int">startInt</a></code></td></tr></table></td><td class="le"></td></tr></table></td><td class="d"><code class="c">)</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+INSTR(<a href="grammar.html#string">string</a>, <a href="grammar.html#string">searchString</a>, [, <a href="grammar.html#int">startInt</a>])
+</pre>
+syntax-end -->
+<p>Returns the location of a search string in a string. If a start position is used, the characters before it are ignored. If position is negative, the rightmost location is returned. 0 is returned if the search string is not found.</p>
+<p>Example:</p>
+<p class="notranslate">INSTR(EMAIL,&#39;@&#39;)</p>
+
+<h3 id="insert_function" class="notranslate" onclick="switchBnf(this)">INSERT Function</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+INSERT(<a href="grammar.html#string">originalString</a>, <a href="grammar.html#int">startInt</a>, <a href="grammar.html#int">lengthInt</a>, <a href="grammar.html#string">addString</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">INSERT ( <a href="grammar.html#string">originalString</a> , <a href="grammar.html#int">startInt</a> , <a href="grammar.html#int">lengthInt</a> , <a href="grammar.html#string">addString</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+INSERT(<a href="grammar.html#string">originalString</a>, <a href="grammar.html#int">startInt</a>, <a href="grammar.html#int">lengthInt</a>, <a href="grammar.html#string">addString</a>)
+</pre>
+syntax-end -->
+<p>Inserts a additional string into the original string at a specified start position. The length specifies the number of characters that are removed at the start position in the original string. This method returns a string.</p>
+<p>Example:</p>
+<p class="notranslate">INSERT(NAME, 1, 1, &#39; &#39;)</p>
+
+<h3 id="lower" class="notranslate" onclick="switchBnf(this)">LOWER</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+{ LOWER | LCASE } ( <a href="grammar.html#string">string</a> )
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d"><code class="c">LOWER</code></td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">LCASE</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">( <a href="grammar.html#string">string</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+{ LOWER | LCASE } ( <a href="grammar.html#string">string</a> )
+</pre>
+syntax-end -->
+<p>Converts a string to lowercase.</p>
+<p>Example:</p>
+<p class="notranslate">LOWER(NAME)</p>
+
+<h3 id="upper" class="notranslate" onclick="switchBnf(this)">UPPER</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+{ UPPER | UCASE } ( <a href="grammar.html#string">string</a> )
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d"><code class="c">UPPER</code></td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">UCASE</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">( <a href="grammar.html#string">string</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+{ UPPER | UCASE } ( <a href="grammar.html#string">string</a> )
+</pre>
+syntax-end -->
+<p>Converts a string to uppercase.</p>
+<p>Example:</p>
+<p class="notranslate">UPPER(NAME)</p>
+
+<h3 id="left" class="notranslate" onclick="switchBnf(this)">LEFT</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+LEFT(<a href="grammar.html#string">string</a>, <a href="grammar.html#int">int</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">LEFT ( <a href="grammar.html#string">string</a> , <a href="grammar.html#int">int</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+LEFT(<a href="grammar.html#string">string</a>, <a href="grammar.html#int">int</a>)
+</pre>
+syntax-end -->
+<p>Returns the leftmost number of characters.</p>
+<p>Example:</p>
+<p class="notranslate">LEFT(NAME, 3)</p>
+
+<h3 id="right" class="notranslate" onclick="switchBnf(this)">RIGHT</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+RIGHT(<a href="grammar.html#string">string</a>, <a href="grammar.html#int">int</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">RIGHT ( <a href="grammar.html#string">string</a> , <a href="grammar.html#int">int</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+RIGHT(<a href="grammar.html#string">string</a>, <a href="grammar.html#int">int</a>)
+</pre>
+syntax-end -->
+<p>Returns the rightmost number of characters.</p>
+<p>Example:</p>
+<p class="notranslate">RIGHT(NAME, 3)</p>
+
+<h3 id="locate" class="notranslate" onclick="switchBnf(this)">LOCATE</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+LOCATE(<a href="grammar.html#string">searchString</a>, <a href="grammar.html#string">string</a> [, <a href="grammar.html#int">startInt</a>])
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">LOCATE ( <a href="grammar.html#string">searchString</a> , <a href="grammar.html#string">string</a></code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">, <a href="grammar.html#int">startInt</a></code></td></tr></table></td><td class="le"></td></tr></table></td><td class="d"><code class="c">)</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+LOCATE(<a href="grammar.html#string">searchString</a>, <a href="grammar.html#string">string</a> [, <a href="grammar.html#int">startInt</a>])
+</pre>
+syntax-end -->
+<p>Returns the location of a search string in a string. If a start position is used, the characters before it are ignored. If position is negative, the rightmost location is returned. 0 is returned if the search string is not found.</p>
+<p>Example:</p>
+<p class="notranslate">LOCATE(&#39;.&#39;, NAME)</p>
+
+<h3 id="position" class="notranslate" onclick="switchBnf(this)">POSITION</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+POSITION(<a href="grammar.html#string">searchString</a>, <a href="grammar.html#string">string</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">POSITION ( <a href="grammar.html#string">searchString</a> , <a href="grammar.html#string">string</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+POSITION(<a href="grammar.html#string">searchString</a>, <a href="grammar.html#string">string</a>)
+</pre>
+syntax-end -->
+<p>Returns the location of a search string in a string. See also <code>LOCATE</code>.</p>
+<p>Example:</p>
+<p class="notranslate">POSITION(&#39;.&#39;, NAME)</p>
+
+<h3 id="lpad" class="notranslate" onclick="switchBnf(this)">LPAD</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+LPAD(<a href="grammar.html#string">string</a>, <a href="grammar.html#int">int</a>[, <a href="grammar.html#string">paddingString</a>])
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">LPAD ( <a href="grammar.html#string">string</a> , <a href="grammar.html#int">int</a></code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">, <a href="grammar.html#string">paddingString</a></code></td></tr></table></td><td class="le"></td></tr></table></td><td class="d"><code class="c">)</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+LPAD(<a href="grammar.html#string">string</a>, <a href="grammar.html#int">int</a>[, <a href="grammar.html#string">paddingString</a>])
+</pre>
+syntax-end -->
+<p>Left pad the string to the specified length. If the length is shorter than the string, it will be truncated at the end. If the padding string is not set, spaces will be used.</p>
+<p>Example:</p>
+<p class="notranslate">LPAD(AMOUNT, 10, &#39;*&#39;)</p>
+
+<h3 id="rpad" class="notranslate" onclick="switchBnf(this)">RPAD</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+RPAD(<a href="grammar.html#string">string</a>, <a href="grammar.html#int">int</a>[, <a href="grammar.html#string">paddingString</a>])
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">RPAD ( <a href="grammar.html#string">string</a> , <a href="grammar.html#int">int</a></code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">, <a href="grammar.html#string">paddingString</a></code></td></tr></table></td><td class="le"></td></tr></table></td><td class="d"><code class="c">)</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+RPAD(<a href="grammar.html#string">string</a>, <a href="grammar.html#int">int</a>[, <a href="grammar.html#string">paddingString</a>])
+</pre>
+syntax-end -->
+<p>Right pad the string to the specified length. If the length is shorter than the string, it will be truncated. If the padding string is not set, spaces will be used.</p>
+<p>Example:</p>
+<p class="notranslate">RPAD(TEXT, 10, &#39;-&#39;)</p>
+
+<h3 id="ltrim" class="notranslate" onclick="switchBnf(this)">LTRIM</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+LTRIM(<a href="grammar.html#string">string</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">LTRIM ( <a href="grammar.html#string">string</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+LTRIM(<a href="grammar.html#string">string</a>)
+</pre>
+syntax-end -->
+<p>Removes all leading spaces from a string.</p>
+<p>Example:</p>
+<p class="notranslate">LTRIM(NAME)</p>
+
+<h3 id="rtrim" class="notranslate" onclick="switchBnf(this)">RTRIM</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+RTRIM(<a href="grammar.html#string">string</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">RTRIM ( <a href="grammar.html#string">string</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+RTRIM(<a href="grammar.html#string">string</a>)
+</pre>
+syntax-end -->
+<p>Removes all trailing spaces from a string.</p>
+<p>Example:</p>
+<p class="notranslate">RTRIM(NAME)</p>
+
+<h3 id="trim" class="notranslate" onclick="switchBnf(this)">TRIM</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+TRIM ( [ { LEADING | TRAILING | BOTH } [ <a href="grammar.html#string">string</a> ] FROM ] <a href="grammar.html#string">string</a> )
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">TRIM (</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d"><code class="c">LEADING</code></td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">TRAILING</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">BOTH</code></td><td class="le"></td></tr></table></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c"><a href="grammar.html#string">string</a></code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">FROM</code></td></tr></table></td><td class="le"></td></tr></table></td><td class="d"><code class="c"><a href="grammar.html#string">string</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+TRIM ( [ { LEADING | TRAILING | BOTH } [ <a href="grammar.html#string">string</a> ] FROM ] <a href="grammar.html#string">string</a> )
+</pre>
+syntax-end -->
+<p>Removes all leading spaces, trailing spaces, or spaces at both ends, from a string. Other characters can be removed as well.</p>
+<p>Example:</p>
+<p class="notranslate">TRIM(BOTH &#39;_&#39; FROM NAME)</p>
+
+<h3 id="regexp_replace" class="notranslate" onclick="switchBnf(this)">REGEXP_REPLACE</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+REGEXP_REPLACE(<a href="grammar.html#string">inputString</a>, <a href="grammar.html#string">regexString</a>, <a href="grammar.html#string">replacementString</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">REGEXP_REPLACE ( <a href="grammar.html#string">inputString</a> , <a href="grammar.html#string">regexString</a> , <a href="grammar.html#string">replacementString</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+REGEXP_REPLACE(<a href="grammar.html#string">inputString</a>, <a href="grammar.html#string">regexString</a>, <a href="grammar.html#string">replacementString</a>)
+</pre>
+syntax-end -->
+<p>Replaces each substring that matches a regular expression. For details, see the Java <code>String.replaceAll()</code> method. If any parameter is null, the result is null.</p>
+<p>Example:</p>
+<p class="notranslate">REGEXP_REPLACE(&#39;Hello &nbsp;&nbsp;&nbsp;World&#39;, &#39; +&#39;, &#39; &#39;)</p>
+
+<h3 id="repeat" class="notranslate" onclick="switchBnf(this)">REPEAT</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+REPEAT(<a href="grammar.html#string">string</a>, <a href="grammar.html#int">int</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">REPEAT ( <a href="grammar.html#string">string</a> , <a href="grammar.html#int">int</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+REPEAT(<a href="grammar.html#string">string</a>, <a href="grammar.html#int">int</a>)
+</pre>
+syntax-end -->
+<p>Returns a string repeated some number of times.</p>
+<p>Example:</p>
+<p class="notranslate">REPEAT(NAME || &#39; &#39;, 10)</p>
+
+<h3 id="replace" class="notranslate" onclick="switchBnf(this)">REPLACE</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+REPLACE(<a href="grammar.html#string">string</a>, <a href="grammar.html#string">searchString</a> [, <a href="grammar.html#string">replacementString</a>])
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">REPLACE ( <a href="grammar.html#string">string</a> , <a href="grammar.html#string">searchString</a></code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">, <a href="grammar.html#string">replacementString</a></code></td></tr></table></td><td class="le"></td></tr></table></td><td class="d"><code class="c">)</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+REPLACE(<a href="grammar.html#string">string</a>, <a href="grammar.html#string">searchString</a> [, <a href="grammar.html#string">replacementString</a>])
+</pre>
+syntax-end -->
+<p>Replaces all occurrences of a search string in a text with another string. If no replacement is specified, the search string is removed from the original string. If any parameter is null, the result is null.</p>
+<p>Example:</p>
+<p class="notranslate">REPLACE(NAME, &#39; &#39;)</p>
+
+<h3 id="soundex" class="notranslate" onclick="switchBnf(this)">SOUNDEX</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+SOUNDEX(<a href="grammar.html#string">string</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">SOUNDEX ( <a href="grammar.html#string">string</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+SOUNDEX(<a href="grammar.html#string">string</a>)
+</pre>
+syntax-end -->
+<p>Returns a four character code representing the sound of a string. See also http://www.archives.gov/genealogy/census/soundex.html . This method returns a string.</p>
+<p>Example:</p>
+<p class="notranslate">SOUNDEX(NAME)</p>
+
+<h3 id="space" class="notranslate" onclick="switchBnf(this)">SPACE</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+SPACE(<a href="grammar.html#int">int</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">SPACE ( <a href="grammar.html#int">int</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+SPACE(<a href="grammar.html#int">int</a>)
+</pre>
+syntax-end -->
+<p>Returns a string consisting of a number of spaces.</p>
+<p>Example:</p>
+<p class="notranslate">SPACE(80)</p>
+
+<h3 id="stringdecode" class="notranslate" onclick="switchBnf(this)">STRINGDECODE</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+STRINGDECODE(<a href="grammar.html#string">string</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">STRINGDECODE ( <a href="grammar.html#string">string</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+STRINGDECODE(<a href="grammar.html#string">string</a>)
+</pre>
+syntax-end -->
+<p>Converts a encoded string using the Java string literal encoding format. Special characters are \b, \t, \n, \f, \r, \", \\, \&lt;octal&gt;, \u&lt;unicode&gt;. This method returns a string.</p>
+<p>Example:</p>
+<p class="notranslate">CALL STRINGENCODE(STRINGDECODE(&#39;Lines 1\nLine 2&#39;))</p>
+
+<h3 id="stringencode" class="notranslate" onclick="switchBnf(this)">STRINGENCODE</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+STRINGENCODE(<a href="grammar.html#string">string</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">STRINGENCODE ( <a href="grammar.html#string">string</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+STRINGENCODE(<a href="grammar.html#string">string</a>)
+</pre>
+syntax-end -->
+<p>Encodes special characters in a string using the Java string literal encoding format. Special characters are \b, \t, \n, \f, \r, \", \\, \&lt;octal&gt;, \u&lt;unicode&gt;. This method returns a string.</p>
+<p>Example:</p>
+<p class="notranslate">CALL STRINGENCODE(STRINGDECODE(&#39;Lines 1\nLine 2&#39;))</p>
+
+<h3 id="stringtoutf8" class="notranslate" onclick="switchBnf(this)">STRINGTOUTF8</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+STRINGTOUTF8(<a href="grammar.html#string">string</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">STRINGTOUTF8 ( <a href="grammar.html#string">string</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+STRINGTOUTF8(<a href="grammar.html#string">string</a>)
+</pre>
+syntax-end -->
+<p>Encodes a string to a byte array using the <code>UTF8</code> encoding format. This method returns bytes.</p>
+<p>Example:</p>
+<p class="notranslate">CALL UTF8TOSTRING(STRINGTOUTF8(&#39;This is a test&#39;))</p>
+
+<h3 id="substring" class="notranslate" onclick="switchBnf(this)">SUBSTRING</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+{ SUBSTRING | SUBSTR } ( <a href="grammar.html#string">string</a>, <a href="grammar.html#int">startInt</a> [, <a href="grammar.html#int">lengthInt</a> ] )
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d"><code class="c">SUBSTRING</code></td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">SUBSTR</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">( <a href="grammar.html#string">string</a> , <a href="grammar.html#int">startInt</a></code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">, <a href="grammar.html#int">lengthInt</a></code></td></tr></table></td><td class="le"></td></tr></table></td><td class="d"><code class="c">)</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+{ SUBSTRING | SUBSTR } ( <a href="grammar.html#string">string</a>, <a href="grammar.html#int">startInt</a> [, <a href="grammar.html#int">lengthInt</a> ] )
+</pre>
+syntax-end -->
+<p>Returns a substring of a string starting at a position. If the start index is negative, then the start index is relative to the end of the string. The length is optional. Also supported is: <code>SUBSTRING(string FROM start [FOR length])</code>.</p>
+<p>Example:</p>
+<p class="notranslate">CALL SUBSTR(&#39;[Hello]&#39;, 2, 5);<br />CALL SUBSTR(&#39;Hello World&#39;, -5);</p>
+
+<h3 id="utf8tostring" class="notranslate" onclick="switchBnf(this)">UTF8TOSTRING</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+UTF8TOSTRING(<a href="grammar.html#bytes">bytes</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">UTF8TOSTRING ( <a href="grammar.html#bytes">bytes</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+UTF8TOSTRING(<a href="grammar.html#bytes">bytes</a>)
+</pre>
+syntax-end -->
+<p>Decodes a byte array in the <code>UTF8</code> format to a string.</p>
+<p>Example:</p>
+<p class="notranslate">CALL UTF8TOSTRING(STRINGTOUTF8(&#39;This is a test&#39;))</p>
+
+<h3 id="xmlattr" class="notranslate" onclick="switchBnf(this)">XMLATTR</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+XMLATTR(<a href="grammar.html#string">nameString</a>, <a href="grammar.html#string">valueString</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">XMLATTR ( <a href="grammar.html#string">nameString</a> , <a href="grammar.html#string">valueString</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+XMLATTR(<a href="grammar.html#string">nameString</a>, <a href="grammar.html#string">valueString</a>)
+</pre>
+syntax-end -->
+<p>Creates an XML attribute element of the form <code>name=value</code>. The value is encoded as XML text. This method returns a string.</p>
+<p>Example:</p>
+<p class="notranslate">CALL XMLNODE(&#39;a&#39;, XMLATTR(&#39;href&#39;, &#39;http://h2database.com&#39;))</p>
+
+<h3 id="xmlnode" class="notranslate" onclick="switchBnf(this)">XMLNODE</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+XMLNODE(<a href="grammar.html#string">elementString</a> [, <a href="grammar.html#string">attributesString</a> [, <a href="grammar.html#string">contentString</a> [, <a href="grammar.html#boolean">indentBoolean</a>]]])
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">XMLNODE ( <a href="grammar.html#string">elementString</a></code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">, <a href="grammar.html#string">attributesString</a></code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">, <a href="grammar.html#string">contentString</a></code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">, <a href="grammar.html#boolean">indentBoolean</a></code></td></tr></table></td><td class="le"></td></tr></table></td></tr></table></td><td class="le"></td></tr></table></td></tr></table></td><td class="le"></td></tr></table></td><td class="d"><code class="c">)</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+XMLNODE(<a href="grammar.html#string">elementString</a> [, <a href="grammar.html#string">attributesString</a> [, <a href="grammar.html#string">contentString</a> [, <a href="grammar.html#boolean">indentBoolean</a>]]])
+</pre>
+syntax-end -->
+<p>Create an XML node element. An empty or null attribute string means no attributes are set. An empty or null content string means the node is empty. The content is indented by default if it contains a newline. This method returns a string.</p>
+<p>Example:</p>
+<p class="notranslate">CALL XMLNODE(&#39;a&#39;, XMLATTR(&#39;href&#39;, &#39;http://h2database.com&#39;), &#39;H2&#39;)</p>
+
+<h3 id="xmlcomment" class="notranslate" onclick="switchBnf(this)">XMLCOMMENT</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+XMLCOMMENT(<a href="grammar.html#string">commentString</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">XMLCOMMENT ( <a href="grammar.html#string">commentString</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+XMLCOMMENT(<a href="grammar.html#string">commentString</a>)
+</pre>
+syntax-end -->
+<p>Creates an XML comment. Two dashes (<code>--</code>) are converted to <code>- -</code>. This method returns a string.</p>
+<p>Example:</p>
+<p class="notranslate">CALL XMLCOMMENT(&#39;Test&#39;)</p>
+
+<h3 id="xmlcdata" class="notranslate" onclick="switchBnf(this)">XMLCDATA</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+XMLCDATA(<a href="grammar.html#string">valueString</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">XMLCDATA ( <a href="grammar.html#string">valueString</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+XMLCDATA(<a href="grammar.html#string">valueString</a>)
+</pre>
+syntax-end -->
+<p>Creates an <code>XML CDATA</code> element. If the value contains <code>]]&gt;</code>, an XML text element is created instead. This method returns a string.</p>
+<p>Example:</p>
+<p class="notranslate">CALL XMLCDATA(&#39;data&#39;)</p>
+
+<h3 id="xmlstartdoc" class="notranslate" onclick="switchBnf(this)">XMLSTARTDOC</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+XMLSTARTDOC()
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">XMLSTARTDOC ( )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+XMLSTARTDOC()
+</pre>
+syntax-end -->
+<p>Returns the XML declaration. The result is always <code>&lt;?xml version=</code>1.0<code>?&gt;</code>.</p>
+<p>Example:</p>
+<p class="notranslate">CALL XMLSTARTDOC()</p>
+
+<h3 id="xmltext" class="notranslate" onclick="switchBnf(this)">XMLTEXT</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+XMLTEXT(<a href="grammar.html#string">valueString</a> [, <a href="grammar.html#boolean">escapeNewlineBoolean</a>])
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">XMLTEXT ( <a href="grammar.html#string">valueString</a></code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">, <a href="grammar.html#boolean">escapeNewlineBoolean</a></code></td></tr></table></td><td class="le"></td></tr></table></td><td class="d"><code class="c">)</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+XMLTEXT(<a href="grammar.html#string">valueString</a> [, <a href="grammar.html#boolean">escapeNewlineBoolean</a>])
+</pre>
+syntax-end -->
+<p>Creates an XML text element. If enabled, newline and linefeed is converted to an XML entity (&amp;#). This method returns a string.</p>
+<p>Example:</p>
+<p class="notranslate">CALL XMLTEXT(&#39;test&#39;)</p>
+
+<h3 id="array_get" class="notranslate" onclick="switchBnf(this)">ARRAY_GET</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+ARRAY_GET(<a href="grammar.html#expression">arrayExpression</a>, <a href="grammar.html#expression">indexExpression</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">ARRAY_GET ( <a href="grammar.html#expression">arrayExpression</a> , <a href="grammar.html#expression">indexExpression</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+ARRAY_GET(<a href="grammar.html#expression">arrayExpression</a>, <a href="grammar.html#expression">indexExpression</a>)
+</pre>
+syntax-end -->
+<p>Returns one element of an array. This method returns a string.</p>
+<p>Example:</p>
+<p class="notranslate">CALL ARRAY_GET((&#39;Hello&#39;, &#39;World&#39;), 2)</p>
+
+<h3 id="array_length" class="notranslate" onclick="switchBnf(this)">ARRAY_LENGTH</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+ARRAY_LENGTH(<a href="grammar.html#expression">arrayExpression</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">ARRAY_LENGTH ( <a href="grammar.html#expression">arrayExpression</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+ARRAY_LENGTH(<a href="grammar.html#expression">arrayExpression</a>)
+</pre>
+syntax-end -->
+<p>Returns the length of an array.</p>
+<p>Example:</p>
+<p class="notranslate">CALL ARRAY_LENGTH((&#39;Hello&#39;, &#39;World&#39;))</p>
+
+<h3 id="array_contains" class="notranslate" onclick="switchBnf(this)">ARRAY_CONTAINS</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+ARRAY_CONTAINS(<a href="grammar.html#expression">arrayExpression</a>, <a href="grammar.html#value">value</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">ARRAY_CONTAINS ( <a href="grammar.html#expression">arrayExpression</a> , <a href="grammar.html#value">value</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+ARRAY_CONTAINS(<a href="grammar.html#expression">arrayExpression</a>, <a href="grammar.html#value">value</a>)
+</pre>
+syntax-end -->
+<p>Returns a boolean true if the array contains the value.</p>
+<p>Example:</p>
+<p class="notranslate">CALL ARRAY_CONTAINS((&#39;Hello&#39;, &#39;World&#39;), &#39;Hello&#39;)</p>
+
+<h3 id="autocommit" class="notranslate" onclick="switchBnf(this)">AUTOCOMMIT</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+AUTOCOMMIT()
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">AUTOCOMMIT ( )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+AUTOCOMMIT()
+</pre>
+syntax-end -->
+<p>Returns true if auto commit is switched on for this session.</p>
+<p>Example:</p>
+<p class="notranslate">AUTOCOMMIT()</p>
+
+<h3 id="cancel_session" class="notranslate" onclick="switchBnf(this)">CANCEL_SESSION</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+CANCEL_SESSION(<a href="grammar.html#int">sessionInt</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">CANCEL_SESSION ( <a href="grammar.html#int">sessionInt</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+CANCEL_SESSION(<a href="grammar.html#int">sessionInt</a>)
+</pre>
+syntax-end -->
+<p>Cancels the currently executing statement of another session. The method only works if the multithreaded kernel is enabled (see <code>SET MULTI_THREADED</code>). Returns true if the statement was canceled, false if the session is closed or no statement is currently executing.</p><p>Admin rights are required to execute this command.</p>
+<p>Example:</p>
+<p class="notranslate">CANCEL_SESSION(3)</p>
+
+<h3 id="casewhen_function" class="notranslate" onclick="switchBnf(this)">CASEWHEN Function</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+CASEWHEN(<a href="grammar.html#boolean">boolean</a>, <a href="grammar.html#value">aValue</a>, <a href="grammar.html#value">bValue</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">CASEWHEN ( <a href="grammar.html#boolean">boolean</a> , <a href="grammar.html#value">aValue</a> , <a href="grammar.html#value">bValue</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+CASEWHEN(<a href="grammar.html#boolean">boolean</a>, <a href="grammar.html#value">aValue</a>, <a href="grammar.html#value">bValue</a>)
+</pre>
+syntax-end -->
+<p>Returns &#39;a&#39; if the boolean expression is true, otherwise &#39;b&#39;. Returns the same data type as the parameter.</p>
+<p>Example:</p>
+<p class="notranslate">CASEWHEN(ID=1, &#39;A&#39;, &#39;B&#39;)</p>
+
+<h3 id="cast" class="notranslate" onclick="switchBnf(this)">CAST</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+CAST(<a href="grammar.html#value">value</a> AS <a href="grammar.html#data_type">dataType</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">CAST ( <a href="grammar.html#value">value</a> AS <a href="grammar.html#data_type">dataType</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+CAST(<a href="grammar.html#value">value</a> AS <a href="grammar.html#data_type">dataType</a>)
+</pre>
+syntax-end -->
+<p>Converts a value to another data type. The following conversion rules are used: When converting a number to a boolean, 0 is false and every other value is true. When converting a boolean to a number, false is 0 and true is 1. When converting a number to a number of another type, the value is checked for overflow. When converting a number to binary, the number of bytes matches the precision. When converting a string to binary, it is hex encoded (every byte two characters); a hex string can be converted to a number by first converting it to binary. If a direct conversion is not possible, the value is first converted to a string.</p>
+<p>Example:</p>
+<p class="notranslate">CAST(NAME AS INT);<br />CAST(65535 AS BINARY);<br />CAST(CAST(&#39;FFFF&#39; AS BINARY) AS INT);</p>
+
+<h3 id="coalesce" class="notranslate" onclick="switchBnf(this)">COALESCE</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+{ COALESCE | NVL } (<a href="grammar.html#value">aValue</a>, <a href="grammar.html#value">bValue</a> [,...])
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d"><code class="c">COALESCE</code></td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">NVL</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">( <a href="grammar.html#value">aValue</a> , <a href="grammar.html#value">bValue</a></code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">, ...</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">)</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+{ COALESCE | NVL } (<a href="grammar.html#value">aValue</a>, <a href="grammar.html#value">bValue</a> [,...])
+</pre>
+syntax-end -->
+<p>Returns the first value that is not null.</p>
+<p>Example:</p>
+<p class="notranslate">COALESCE(A, B, C)</p>
+
+<h3 id="convert" class="notranslate" onclick="switchBnf(this)">CONVERT</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+CONVERT(<a href="grammar.html#value">value</a>, <a href="grammar.html#data_type">dataType</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">CONVERT ( <a href="grammar.html#value">value</a> , <a href="grammar.html#data_type">dataType</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+CONVERT(<a href="grammar.html#value">value</a>, <a href="grammar.html#data_type">dataType</a>)
+</pre>
+syntax-end -->
+<p>Converts a value to another data type.</p>
+<p>Example:</p>
+<p class="notranslate">CONVERT(NAME, INT)</p>
+
+<h3 id="currval" class="notranslate" onclick="switchBnf(this)">CURRVAL</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+CURRVAL( [ <a href="grammar.html#name">schemaName</a>, ] <a href="grammar.html#string">sequenceString</a> )
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">CURRVAL (</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c"><a href="grammar.html#name">schemaName</a> ,</code></td></tr></table></td><td class="le"></td></tr></table></td><td class="d"><code class="c"><a href="grammar.html#string">sequenceString</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+CURRVAL( [ <a href="grammar.html#name">schemaName</a>, ] <a href="grammar.html#string">sequenceString</a> )
+</pre>
+syntax-end -->
+<p>Returns the current (last) value of the sequence, independent of the session. If the sequence was just created, the method returns (start - interval). If the schema name is not set, the current schema is used. If the schema name is not set, the sequence name is converted to uppercase (for compatibility). This method returns a long.</p>
+<p>Example:</p>
+<p class="notranslate">CURRVAL(&#39;TEST_SEQ&#39;)</p>
+
+<h3 id="csvread" class="notranslate" onclick="switchBnf(this)">CSVREAD</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+CSVREAD(<a href="grammar.html#string">fileNameString</a> [, <a href="grammar.html#string">columnsString</a> [, <a href="grammar.html#csv_options">csvOptions</a> ] ] )
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">CSVREAD ( <a href="grammar.html#string">fileNameString</a></code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">, <a href="grammar.html#string">columnsString</a></code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">, <a href="grammar.html#csv_options">csvOptions</a></code></td></tr></table></td><td class="le"></td></tr></table></td></tr></table></td><td class="le"></td></tr></table></td><td class="d"><code class="c">)</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+CSVREAD(<a href="grammar.html#string">fileNameString</a> [, <a href="grammar.html#string">columnsString</a> [, <a href="grammar.html#csv_options">csvOptions</a> ] ] )
+</pre>
+syntax-end -->
+<p>Returns the result set of reading the <code>CSV</code> (comma separated values) file. For each parameter, <code>NULL</code> means the default value should be used.</p><p>If the column names are specified (a list of column names separated with the fieldSeparator), those are used, otherwise (or if they are set to <code>NULL</code>) the first line of the file is interpreted as the column names. In that case, column names that contain no special characters (only letters, &#39;_&#39;, and digits; similar to the rule for Java identifiers) are considered case insensitive. Other column names are case sensitive, that means you need to use quoted identifiers (see below).</p><p>The default charset is the default value for this system, and the default field separator is a comma. Missing unquoted values as well as data that matches nullString is parsed as <code>NULL</code>. All columns of type <code>VARCHAR</code>.</p><p>The <code>BOM</code> (the byte-order-mark) character 0xfeff at the beginning of the file is ignored.</p><p>This function can be used like a table: <code>SELECT * FROM CSVREAD(...)</code>.</p><p>Instead of a file, an URL may be used, for example <code>jar:file:///c:/temp/example.zip!/org/example/nested.csv</code>. To read a stream from the classpath, use the prefix <code>classpath:</code>. To read from <code>HTTP</code>, use the prefix <code>http:</code> (as in a browser).</p><p>For performance reason, <code>CSVREAD</code> should not be used inside a join. Instead, import the data first (possibly into a temporary table) and then use the table.</p><p>Admin rights are required to execute this command.</p>
+<p>Example:</p>
+<p class="notranslate">CALL CSVREAD(&#39;test.csv&#39;);<br />-- Read a file containing the columns ID, NAME with<br />CALL CSVREAD(&#39;test2.csv&#39;, &#39;ID|NAME&#39;, &#39;charset=UTF-8 fieldSeparator=|&#39;);<br />SELECT * FROM CSVREAD(&#39;data/test.csv&#39;, null, &#39;rowSeparator=;&#39;);<br />-- Read a tab-separated file<br />SELECT * FROM CSVREAD(&#39;data/test.tsv&#39;, null, &#39;rowSeparator=&#39; || CHAR(9));<br />SELECT &quot;Last Name&quot; FROM CSVREAD(&#39;address.csv&#39;);<br />SELECT &quot;Last Name&quot; FROM CSVREAD(&#39;classpath:/org/acme/data/address.csv&#39;);</p>
+
+<h3 id="csvwrite" class="notranslate" onclick="switchBnf(this)">CSVWRITE</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+CSVWRITE ( <a href="grammar.html#string">fileNameString</a>, <a href="grammar.html#string">queryString</a> [, <a href="grammar.html#csv_options">csvOptions</a> [, <a href="grammar.html#string">lineSepString</a>] ] )
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">CSVWRITE ( <a href="grammar.html#string">fileNameString</a> , <a href="grammar.html#string">queryString</a></code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">, <a href="grammar.html#csv_options">csvOptions</a></code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">, <a href="grammar.html#string">lineSepString</a></code></td></tr></table></td><td class="le"></td></tr></table></td></tr></table></td><td class="le"></td></tr></table></td><td class="d"><code class="c">)</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+CSVWRITE ( <a href="grammar.html#string">fileNameString</a>, <a href="grammar.html#string">queryString</a> [, <a href="grammar.html#csv_options">csvOptions</a> [, <a href="grammar.html#string">lineSepString</a>] ] )
+</pre>
+syntax-end -->
+<p>Writes a <code>CSV</code> (comma separated values). The file is overwritten if it exists. If only a file name is specified, it will be written to the current working directory. For each parameter, <code>NULL</code> means the default value should be used. The default charset is the default value for this system, and the default field separator is a comma.</p><p>The values are converted to text using the default string representation; if another conversion is required you need to change the select statement accordingly. The parameter nullString is used when writing <code>NULL</code> (by default nothing is written when <code>NULL</code> appears). The default line separator is the default value for this system (system property <code>line.separator</code>).</p><p>The returned value is the number or rows written. Admin rights are required to execute this command.</p>
+<p>Example:</p>
+<p class="notranslate">CALL CSVWRITE(&#39;data/test.csv&#39;, &#39;SELECT * FROM TEST&#39;);<br />CALL CSVWRITE(&#39;data/test2.csv&#39;, &#39;SELECT * FROM TEST&#39;, &#39;charset=UTF-8 fieldSeparator=|&#39;);<br />-- Write a tab-separated file<br />CALL CSVWRITE(&#39;data/test.tsv&#39;, &#39;SELECT * FROM TEST&#39;, &#39;charset=UTF-8 fieldSeparator=&#39; || CHAR(9));</p>
+
+<h3 id="database" class="notranslate" onclick="switchBnf(this)">DATABASE</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+DATABASE()
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">DATABASE ( )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+DATABASE()
+</pre>
+syntax-end -->
+<p>Returns the name of the database.</p>
+<p>Example:</p>
+<p class="notranslate">CALL DATABASE();</p>
+
+<h3 id="database_path" class="notranslate" onclick="switchBnf(this)">DATABASE_PATH</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+DATABASE_PATH()
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">DATABASE_PATH ( )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+DATABASE_PATH()
+</pre>
+syntax-end -->
+<p>Returns the directory of the database files and the database name, if it is file based. Returns <code>NULL</code> otherwise.</p>
+<p>Example:</p>
+<p class="notranslate">CALL DATABASE_PATH();</p>
+
+<h3 id="decode" class="notranslate" onclick="switchBnf(this)">DECODE</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+DECODE(<a href="grammar.html#value">value</a>, <a href="grammar.html#value">whenValue</a>, <a href="grammar.html#value">thenValue</a> [,...])
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">DECODE ( <a href="grammar.html#value">value</a> , <a href="grammar.html#value">whenValue</a> , <a href="grammar.html#value">thenValue</a></code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">, ...</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">)</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+DECODE(<a href="grammar.html#value">value</a>, <a href="grammar.html#value">whenValue</a>, <a href="grammar.html#value">thenValue</a> [,...])
+</pre>
+syntax-end -->
+<p>Returns the first matching value. <code>NULL</code> is considered to match <code>NULL</code>. If no match was found, then <code>NULL</code> or the last parameter (if the parameter count is even) is returned. This function is provided for Oracle compatibility (see there for details).</p>
+<p>Example:</p>
+<p class="notranslate">CALL DECODE(RAND()&gt;0.5, 0, &#39;Red&#39;, 1, &#39;Black&#39;);</p>
+
+<h3 id="file_read" class="notranslate" onclick="switchBnf(this)">FILE_READ</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+FILE_READ(<a href="grammar.html#string">fileNameString</a> [,<a href="grammar.html#string">encodingString</a>])
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">FILE_READ ( <a href="grammar.html#string">fileNameString</a></code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">, <a href="grammar.html#string">encodingString</a></code></td></tr></table></td><td class="le"></td></tr></table></td><td class="d"><code class="c">)</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+FILE_READ(<a href="grammar.html#string">fileNameString</a> [,<a href="grammar.html#string">encodingString</a>])
+</pre>
+syntax-end -->
+<p>Returns the contents of a file. If only one parameter is supplied, the data are returned as a <code>BLOB</code>. If two parameters are used, the data is returned as a <code>CLOB</code> (text). The second parameter is the character set to use, <code>NULL</code> meaning the default character set for this system.</p><p>File names and URLs are supported. To read a stream from the classpath, use the prefix <code>classpath:</code>.</p><p>Admin rights are required to execute this command.</p>
+<p>Example:</p>
+<p class="notranslate">SELECT LENGTH(FILE_READ(&#39;~/.h2.server.properties&#39;)) LEN;<br />SELECT FILE_READ(&#39;http://localhost:8182/stylesheet.css&#39;, NULL) CSS;</p>
+
+<h3 id="greatest" class="notranslate" onclick="switchBnf(this)">GREATEST</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+GREATEST(<a href="grammar.html#value">aValue</a>, <a href="grammar.html#value">bValue</a> [,...])
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">GREATEST ( <a href="grammar.html#value">aValue</a> , <a href="grammar.html#value">bValue</a></code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">, ...</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">)</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+GREATEST(<a href="grammar.html#value">aValue</a>, <a href="grammar.html#value">bValue</a> [,...])
+</pre>
+syntax-end -->
+<p>Returns the largest value that is not <code>NULL</code>, or <code>NULL</code> if all values are <code>NULL</code>.</p>
+<p>Example:</p>
+<p class="notranslate">CALL GREATEST(1, 2, 3);</p>
+
+<h3 id="identity" class="notranslate" onclick="switchBnf(this)">IDENTITY</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+IDENTITY()
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">IDENTITY ( )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+IDENTITY()
+</pre>
+syntax-end -->
+<p>Returns the last inserted identity value for this session. This value changes whenever a new sequence number was generated, even within a trigger or Java function. See also <code>SCOPE_IDENTITY</code>. This method returns a long.</p>
+<p>Example:</p>
+<p class="notranslate">CALL IDENTITY();</p>
+
+<h3 id="ifnull" class="notranslate" onclick="switchBnf(this)">IFNULL</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+IFNULL(<a href="grammar.html#value">aValue</a>, <a href="grammar.html#value">bValue</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">IFNULL ( <a href="grammar.html#value">aValue</a> , <a href="grammar.html#value">bValue</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+IFNULL(<a href="grammar.html#value">aValue</a>, <a href="grammar.html#value">bValue</a>)
+</pre>
+syntax-end -->
+<p>Returns the value of &#39;a&#39; if it is not null, otherwise &#39;b&#39;.</p>
+<p>Example:</p>
+<p class="notranslate">CALL IFNULL(NULL, &#39;&#39;);</p>
+
+<h3 id="least" class="notranslate" onclick="switchBnf(this)">LEAST</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+LEAST(<a href="grammar.html#value">aValue</a>, <a href="grammar.html#value">bValue</a> [,...])
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">LEAST ( <a href="grammar.html#value">aValue</a> , <a href="grammar.html#value">bValue</a></code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">, ...</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">)</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+LEAST(<a href="grammar.html#value">aValue</a>, <a href="grammar.html#value">bValue</a> [,...])
+</pre>
+syntax-end -->
+<p>Returns the smallest value that is not <code>NULL</code>, or <code>NULL</code> if all values are <code>NULL</code>.</p>
+<p>Example:</p>
+<p class="notranslate">CALL LEAST(1, 2, 3);</p>
+
+<h3 id="lock_mode" class="notranslate" onclick="switchBnf(this)">LOCK_MODE</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+LOCK_MODE()
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">LOCK_MODE ( )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+LOCK_MODE()
+</pre>
+syntax-end -->
+<p>Returns the current lock mode. See <code>SET LOCK_MODE</code>. This method returns an int.</p>
+<p>Example:</p>
+<p class="notranslate">CALL LOCK_MODE();</p>
+
+<h3 id="lock_timeout" class="notranslate" onclick="switchBnf(this)">LOCK_TIMEOUT</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+LOCK_TIMEOUT()
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">LOCK_TIMEOUT ( )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+LOCK_TIMEOUT()
+</pre>
+syntax-end -->
+<p>Returns the lock timeout of the current session (in milliseconds).</p>
+<p>Example:</p>
+<p class="notranslate">LOCK_TIMEOUT()</p>
+
+<h3 id="link_schema" class="notranslate" onclick="switchBnf(this)">LINK_SCHEMA</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+LINK_SCHEMA(<a href="grammar.html#string">targetSchemaString</a>, <a href="grammar.html#string">driverString</a>, <a href="grammar.html#string">urlString</a>,
+<a href="grammar.html#string">userString</a>, <a href="grammar.html#string">passwordString</a>, <a href="grammar.html#string">sourceSchemaString</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">LINK_SCHEMA ( <a href="grammar.html#string">targetSchemaString</a> , <a href="grammar.html#string">driverString</a> , <a href="grammar.html#string">urlString</a> ,</code></td></tr></table><br /><table class="railroad"><tr class="railroad"><td class="d"><code class="c"><a href="grammar.html#string">userString</a> , <a href="grammar.html#string">passwordString</a> , <a href="grammar.html#string">sourceSchemaString</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+LINK_SCHEMA(<a href="grammar.html#string">targetSchemaString</a>, <a href="grammar.html#string">driverString</a>, <a href="grammar.html#string">urlString</a>,
+<a href="grammar.html#string">userString</a>, <a href="grammar.html#string">passwordString</a>, <a href="grammar.html#string">sourceSchemaString</a>)
+</pre>
+syntax-end -->
+<p>Creates table links for all tables in a schema. If tables with the same name already exist, they are dropped first. The target schema is created automatically if it does not yet exist. The driver name may be empty if the driver is already loaded. The list of tables linked is returned in the form of a result set. Admin rights are required to execute this command.</p>
+<p>Example:</p>
+<p class="notranslate">CALL LINK_SCHEMA(&#39;TEST2&#39;, &#39;&#39;, &#39;jdbc:h2:test2&#39;, &#39;sa&#39;, &#39;sa&#39;, &#39;PUBLIC&#39;);</p>
+
+<h3 id="memory_free" class="notranslate" onclick="switchBnf(this)">MEMORY_FREE</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+MEMORY_FREE()
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">MEMORY_FREE ( )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+MEMORY_FREE()
+</pre>
+syntax-end -->
+<p>Returns the free memory in KB (where 1024 bytes is a KB). This method returns an int. The garbage is run before returning the value. Admin rights are required to execute this command.</p>
+<p>Example:</p>
+<p class="notranslate">MEMORY_FREE()</p>
+
+<h3 id="memory_used" class="notranslate" onclick="switchBnf(this)">MEMORY_USED</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+MEMORY_USED()
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">MEMORY_USED ( )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+MEMORY_USED()
+</pre>
+syntax-end -->
+<p>Returns the used memory in KB (where 1024 bytes is a KB). This method returns an int. The garbage is run before returning the value. Admin rights are required to execute this command.</p>
+<p>Example:</p>
+<p class="notranslate">MEMORY_USED()</p>
+
+<h3 id="nextval" class="notranslate" onclick="switchBnf(this)">NEXTVAL</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+NEXTVAL ( [ <a href="grammar.html#name">schemaName</a>, ] <a href="grammar.html#string">sequenceString</a> )
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">NEXTVAL (</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c"><a href="grammar.html#name">schemaName</a> ,</code></td></tr></table></td><td class="le"></td></tr></table></td><td class="d"><code class="c"><a href="grammar.html#string">sequenceString</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+NEXTVAL ( [ <a href="grammar.html#name">schemaName</a>, ] <a href="grammar.html#string">sequenceString</a> )
+</pre>
+syntax-end -->
+<p>Returns the next value of the sequence. Used values are never re-used, even when the transaction is rolled back. If the schema name is not set, the current schema is used, and the sequence name is converted to uppercase (for compatibility). This method returns a long.</p>
+<p>Example:</p>
+<p class="notranslate">NEXTVAL(&#39;TEST_SEQ&#39;)</p>
+
+<h3 id="nullif" class="notranslate" onclick="switchBnf(this)">NULLIF</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+NULLIF(<a href="grammar.html#value">aValue</a>, <a href="grammar.html#value">bValue</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">NULLIF ( <a href="grammar.html#value">aValue</a> , <a href="grammar.html#value">bValue</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+NULLIF(<a href="grammar.html#value">aValue</a>, <a href="grammar.html#value">bValue</a>)
+</pre>
+syntax-end -->
+<p>Returns <code>NULL</code> if &#39;a&#39; is equals to &#39;b&#39;, otherwise &#39;a&#39;.</p>
+<p>Example:</p>
+<p class="notranslate">NULLIF(A, B)</p>
+
+<h3 id="nvl2" class="notranslate" onclick="switchBnf(this)">NVL2</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+NVL2(<a href="grammar.html#value">testValue</a>, <a href="grammar.html#value">aValue</a>, <a href="grammar.html#value">bValue</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">NVL2 ( <a href="grammar.html#value">testValue</a> , <a href="grammar.html#value">aValue</a> , <a href="grammar.html#value">bValue</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+NVL2(<a href="grammar.html#value">testValue</a>, <a href="grammar.html#value">aValue</a>, <a href="grammar.html#value">bValue</a>)
+</pre>
+syntax-end -->
+<p>If the test value is null, then &#39;b&#39; is returned. Otherwise, &#39;a&#39; is returned. The data type of the returned value is the data type of &#39;a&#39; if this is a text type.</p>
+<p>Example:</p>
+<p class="notranslate">NVL2(X, &#39;not null&#39;, &#39;null&#39;)</p>
+
+<h3 id="readonly" class="notranslate" onclick="switchBnf(this)">READONLY</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+READONLY()
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">READONLY ( )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+READONLY()
+</pre>
+syntax-end -->
+<p>Returns true if the database is read-only.</p>
+<p>Example:</p>
+<p class="notranslate">READONLY()</p>
+
+<h3 id="rownum" class="notranslate" onclick="switchBnf(this)">ROWNUM</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+{ ROWNUM() } | { ROW_NUMBER() OVER() }
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">ROWNUM ( )</code></td></tr></table></td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">ROW_NUMBER ( ) OVER ( )</code></td></tr></table></td><td class="le"></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+{ ROWNUM() } | { ROW_NUMBER() OVER() }
+</pre>
+syntax-end -->
+<p>Returns the number of the current row. This method returns a long. It is supported for <code>SELECT</code> statements, as well as for <code>DELETE</code> and <code>UPDATE</code>. The first row has the row number 1, and is calculated before ordering and grouping the result set, but after evaluating index conditions (even when the &nbsp;index conditions are specified in an outer query). To get the row number after ordering and grouping, use a subquery.</p>
+<p>Example:</p>
+<p class="notranslate">SELECT ROWNUM(), * FROM TEST;<br />SELECT ROWNUM(), * FROM (SELECT * FROM TEST ORDER BY NAME);<br />SELECT ID FROM (SELECT T.*, ROWNUM AS R FROM TEST T) WHERE R BETWEEN 2 AND 3;</p>
+
+<h3 id="schema" class="notranslate" onclick="switchBnf(this)">SCHEMA</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+SCHEMA()
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">SCHEMA ( )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+SCHEMA()
+</pre>
+syntax-end -->
+<p>Returns the name of the default &nbsp;schema for this session.</p>
+<p>Example:</p>
+<p class="notranslate">CALL SCHEMA()</p>
+
+<h3 id="scope_identity" class="notranslate" onclick="switchBnf(this)">SCOPE_IDENTITY</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+SCOPE_IDENTITY()
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">SCOPE_IDENTITY ( )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+SCOPE_IDENTITY()
+</pre>
+syntax-end -->
+<p>Returns the last inserted identity value for this session for the current scope. Changes within triggers and Java functions are ignored. See also <code>IDENTITY</code>(). This method returns a long.</p>
+<p>Example:</p>
+<p class="notranslate">CALL SCOPE_IDENTITY();</p>
+
+<h3 id="session_id" class="notranslate" onclick="switchBnf(this)">SESSION_ID</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+SESSION_ID()
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">SESSION_ID ( )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+SESSION_ID()
+</pre>
+syntax-end -->
+<p>Returns the unique session id number for the current database connection. This id stays the same while the connection is open. This method returns an int. The database engine may re-use a session id after the connection is closed.</p>
+<p>Example:</p>
+<p class="notranslate">CALL SESSION_ID()</p>
+
+<h3 id="set" class="notranslate" onclick="switchBnf(this)">SET</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+SET(<a href="grammar.html#name">@variableName</a>, <a href="grammar.html#value">value</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">SET ( <a href="grammar.html#name">@variableName</a> , <a href="grammar.html#value">value</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+SET(<a href="grammar.html#name">@variableName</a>, <a href="grammar.html#value">value</a>)
+</pre>
+syntax-end -->
+<p>Updates a variable with the given value. The new value is returned. When used in a query, the value is updated in the order the rows are read. When used in a subquery, not all rows might be read depending on the query plan. This can be used to implement running totals / cumulative sums.</p>
+<p>Example:</p>
+<p class="notranslate">SELECT X, SET(@I, IFNULL(@I, 0)+X) RUNNING_TOTAL FROM SYSTEM_RANGE(1, 10)</p>
+
+<h3 id="table" class="notranslate" onclick="switchBnf(this)">TABLE</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+{ TABLE | TABLE_DISTINCT } ( { <a href="grammar.html#name">name</a> <a href="grammar.html#data_type">dataType</a> = <a href="grammar.html#expression">expression</a> } [,...] )
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d"><code class="c">TABLE</code></td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">TABLE_DISTINCT</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">( <a href="grammar.html#name">name</a> <a href="grammar.html#data_type">dataType</a> = <a href="grammar.html#expression">expression</a></code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">, ...</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">)</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+{ TABLE | TABLE_DISTINCT } ( { <a href="grammar.html#name">name</a> <a href="grammar.html#data_type">dataType</a> = <a href="grammar.html#expression">expression</a> } [,...] )
+</pre>
+syntax-end -->
+<p>Returns the result set. <code>TABLE_DISTINCT</code> removes duplicate rows.</p>
+<p>Example:</p>
+<p class="notranslate">SELECT * FROM TABLE(ID INT=(1, 2), NAME VARCHAR=(&#39;Hello&#39;, &#39;World&#39;))</p>
+
+<h3 id="transaction_id" class="notranslate" onclick="switchBnf(this)">TRANSACTION_ID</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+TRANSACTION_ID()
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">TRANSACTION_ID ( )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+TRANSACTION_ID()
+</pre>
+syntax-end -->
+<p>Returns the current transaction id for this session. This method returns <code>NULL</code> if there is no uncommitted change, or if the the database is not persisted. Otherwise a value of the following form is returned: <code>logFileId-position-sessionId</code>. This method returns a string. The value is unique across database restarts (values are not re-used).</p>
+<p>Example:</p>
+<p class="notranslate">CALL TRANSACTION_ID()</p>
+
+<h3 id="truncate_value" class="notranslate" onclick="switchBnf(this)">TRUNCATE_VALUE</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+TRUNCATE_VALUE(<a href="grammar.html#value">value</a>, <a href="grammar.html#int">precisionInt</a>, <a href="grammar.html#boolean">forceBoolean</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">TRUNCATE_VALUE ( <a href="grammar.html#value">value</a> , <a href="grammar.html#int">precisionInt</a> , <a href="grammar.html#boolean">forceBoolean</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+TRUNCATE_VALUE(<a href="grammar.html#value">value</a>, <a href="grammar.html#int">precisionInt</a>, <a href="grammar.html#boolean">forceBoolean</a>)
+</pre>
+syntax-end -->
+<p>Truncate a value to the required precision. The precision of the returned value may be a bit larger than requested, because fixed precision values are not truncated (unlike the numeric <code>TRUNCATE</code> method). Unlike <code>CAST</code>, the truncating a decimal value may lose precision if the force flag is set to true. The method returns a value with the same data type as the first parameter.</p>
+<p>Example:</p>
+<p class="notranslate">CALL TRUNCATE_VALUE(X, 10, TRUE);</p>
+
+<h3 id="user" class="notranslate" onclick="switchBnf(this)">USER</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+{ USER | CURRENT_USER } ()
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d"><code class="c">USER</code></td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">CURRENT_USER</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">( )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+{ USER | CURRENT_USER } ()
+</pre>
+syntax-end -->
+<p>Returns the name of the current user of this session.</p>
+<p>Example:</p>
+<p class="notranslate">CURRENT_USER()</p>
+
+<h3 id="current_date" class="notranslate" onclick="switchBnf(this)">CURRENT_DATE</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+{ CURRENT_DATE [ () ] | CURDATE() | SYSDATE | TODAY }
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">CURRENT_DATE</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">( )</code></td></tr></table></td><td class="le"></td></tr></table></td></tr></table></td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">CURDATE ( )</code></td></tr></table></td><td class="ke"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">SYSDATE</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">TODAY</code></td><td class="le"></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+{ CURRENT_DATE [ () ] | CURDATE() | SYSDATE | TODAY }
+</pre>
+syntax-end -->
+<p>Returns the current date. This method always returns the same value within a transaction.</p>
+<p>Example:</p>
+<p class="notranslate">CURRENT_DATE()</p>
+
+<h3 id="current_time" class="notranslate" onclick="switchBnf(this)">CURRENT_TIME</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+{ CURRENT_TIME [ () ] | CURTIME() }
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">CURRENT_TIME</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">( )</code></td></tr></table></td><td class="le"></td></tr></table></td></tr></table></td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">CURTIME ( )</code></td></tr></table></td><td class="le"></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+{ CURRENT_TIME [ () ] | CURTIME() }
+</pre>
+syntax-end -->
+<p>Returns the current time. This method always returns the same value within a transaction.</p>
+<p>Example:</p>
+<p class="notranslate">CURRENT_TIME()</p>
+
+<h3 id="current_timestamp" class="notranslate" onclick="switchBnf(this)">CURRENT_TIMESTAMP</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+{ CURRENT_TIMESTAMP [ ( [ <a href="grammar.html#int">int</a> ] ) ] | NOW( [ <a href="grammar.html#int">int</a> ] ) }
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">CURRENT_TIMESTAMP</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">(</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c"><a href="grammar.html#int">int</a></code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">)</code></td></tr></table></td><td class="le"></td></tr></table></td></tr></table></td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">NOW (</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c"><a href="grammar.html#int">int</a></code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">)</code></td></tr></table></td><td class="le"></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+{ CURRENT_TIMESTAMP [ ( [ <a href="grammar.html#int">int</a> ] ) ] | NOW( [ <a href="grammar.html#int">int</a> ] ) }
+</pre>
+syntax-end -->
+<p>Returns the current timestamp. The precision parameter for nanoseconds precision is optional. This method always returns the same value within a transaction.</p>
+<p>Example:</p>
+<p class="notranslate">CURRENT_TIMESTAMP()</p>
+
+<h3 id="dateadd" class="notranslate" onclick="switchBnf(this)">DATEADD</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+{ DATEADD| TIMESTAMPADD } (<a href="grammar.html#string">unitString</a>, <a href="grammar.html#int">addInt</a>, <a href="grammar.html#timestamp">timestamp</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d"><code class="c">DATEADD</code></td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">TIMESTAMPADD</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">( <a href="grammar.html#string">unitString</a> , <a href="grammar.html#int">addInt</a> , <a href="grammar.html#timestamp">timestamp</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+{ DATEADD| TIMESTAMPADD } (<a href="grammar.html#string">unitString</a>, <a href="grammar.html#int">addInt</a>, <a href="grammar.html#timestamp">timestamp</a>)
+</pre>
+syntax-end -->
+<p>Adds units to a timestamp. The string indicates the unit. Use negative values to subtract units. The same units as in the <code>EXTRACT</code> function are supported. This method returns a timestamp.</p>
+<p>Example:</p>
+<p class="notranslate">DATEADD(&#39;MONTH&#39;, 1, DATE &#39;2001-01-31&#39;)</p>
+
+<h3 id="datediff" class="notranslate" onclick="switchBnf(this)">DATEDIFF</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+{ DATEDIFF | TIMESTAMPDIFF } (<a href="grammar.html#string">unitString</a>, <a href="grammar.html#timestamp">aTimestamp</a>, <a href="grammar.html#timestamp">bTimestamp</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d"><code class="c">DATEDIFF</code></td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">TIMESTAMPDIFF</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">( <a href="grammar.html#string">unitString</a> , <a href="grammar.html#timestamp">aTimestamp</a> , <a href="grammar.html#timestamp">bTimestamp</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+{ DATEDIFF | TIMESTAMPDIFF } (<a href="grammar.html#string">unitString</a>, <a href="grammar.html#timestamp">aTimestamp</a>, <a href="grammar.html#timestamp">bTimestamp</a>)
+</pre>
+syntax-end -->
+<p>Returns the the number of crossed unit boundaries between two timestamps. This method returns a long. The string indicates the unit. The same units as in the <code>EXTRACT</code> function are supported.</p>
+<p>Example:</p>
+<p class="notranslate">DATEDIFF(&#39;YEAR&#39;, T1.CREATED, T2.CREATED)</p>
+
+<h3 id="dayname" class="notranslate" onclick="switchBnf(this)">DAYNAME</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+DAYNAME(<a href="grammar.html#date">date</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">DAYNAME ( <a href="grammar.html#date">date</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+DAYNAME(<a href="grammar.html#date">date</a>)
+</pre>
+syntax-end -->
+<p>Returns the name of the day (in English).</p>
+<p>Example:</p>
+<p class="notranslate">DAYNAME(CREATED)</p>
+
+<h3 id="day_of_month" class="notranslate" onclick="switchBnf(this)">DAY_OF_MONTH</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+DAY_OF_MONTH(<a href="grammar.html#date">date</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">DAY_OF_MONTH ( <a href="grammar.html#date">date</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+DAY_OF_MONTH(<a href="grammar.html#date">date</a>)
+</pre>
+syntax-end -->
+<p>Returns the day of the month (1-31).</p>
+<p>Example:</p>
+<p class="notranslate">DAY_OF_MONTH(CREATED)</p>
+
+<h3 id="day_of_week" class="notranslate" onclick="switchBnf(this)">DAY_OF_WEEK</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+DAY_OF_WEEK(<a href="grammar.html#date">date</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">DAY_OF_WEEK ( <a href="grammar.html#date">date</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+DAY_OF_WEEK(<a href="grammar.html#date">date</a>)
+</pre>
+syntax-end -->
+<p>Returns the day of the week (1 means Sunday).</p>
+<p>Example:</p>
+<p class="notranslate">DAY_OF_WEEK(CREATED)</p>
+
+<h3 id="day_of_year" class="notranslate" onclick="switchBnf(this)">DAY_OF_YEAR</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+DAY_OF_YEAR(<a href="grammar.html#date">date</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">DAY_OF_YEAR ( <a href="grammar.html#date">date</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+DAY_OF_YEAR(<a href="grammar.html#date">date</a>)
+</pre>
+syntax-end -->
+<p>Returns the day of the year (1-366).</p>
+<p>Example:</p>
+<p class="notranslate">DAY_OF_YEAR(CREATED)</p>
+
+<h3 id="extract" class="notranslate" onclick="switchBnf(this)">EXTRACT</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+EXTRACT ( { YEAR | YY | MONTH | MM | WEEK | DAY | DD | DAY_OF_YEAR
+| DOY | HOUR | HH | MINUTE | MI | SECOND | SS | MILLISECOND | MS }
+FROM <a href="grammar.html#timestamp">timestamp</a> )
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">EXTRACT (</code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d"><code class="c">YEAR</code></td><td class="te"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">YY</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">MONTH</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">MM</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">WEEK</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">DAY</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">DD</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">DAY_OF_YEAR</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">DOY</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">HOUR</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">HH</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">MINUTE</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">MI</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">SECOND</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">SS</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ks"></td><td class="d"><code class="c">MILLISECOND</code></td><td class="ke"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><code class="c">MS</code></td><td class="le"></td></tr></table></td><td class="d"><code class="c">FROM <a href="grammar.html#timestamp">timestamp</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+EXTRACT ( { YEAR | YY | MONTH | MM | WEEK | DAY | DD | DAY_OF_YEAR
+| DOY | HOUR | HH | MINUTE | MI | SECOND | SS | MILLISECOND | MS }
+FROM <a href="grammar.html#timestamp">timestamp</a> )
+</pre>
+syntax-end -->
+<p>Returns a specific value from a timestamps. This method returns an int.</p>
+<p>Example:</p>
+<p class="notranslate">EXTRACT(SECOND FROM CURRENT_TIMESTAMP)</p>
+
+<h3 id="formatdatetime" class="notranslate" onclick="switchBnf(this)">FORMATDATETIME</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+FORMATDATETIME ( <a href="grammar.html#timestamp">timestamp</a>, <a href="grammar.html#string">formatString</a>
+[ , <a href="grammar.html#string">localeString</a> [ , <a href="grammar.html#string">timeZoneString</a> ] ] )
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">FORMATDATETIME ( <a href="grammar.html#timestamp">timestamp</a> , <a href="grammar.html#string">formatString</a></code></td></tr></table><br /><table class="railroad"><tr class="railroad"><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">, <a href="grammar.html#string">localeString</a></code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">, <a href="grammar.html#string">timeZoneString</a></code></td></tr></table></td><td class="le"></td></tr></table></td></tr></table></td><td class="le"></td></tr></table></td><td class="d"><code class="c">)</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+FORMATDATETIME ( <a href="grammar.html#timestamp">timestamp</a>, <a href="grammar.html#string">formatString</a>
+[ , <a href="grammar.html#string">localeString</a> [ , <a href="grammar.html#string">timeZoneString</a> ] ] )
+</pre>
+syntax-end -->
+<p>Formats a date, time or timestamp as a string. The most important format characters are: y year, M month, d day, H hour, m minute, s second. For details of the format, see <code>java.text.SimpleDateFormat</code>. This method returns a string.</p>
+<p>Example:</p>
+<p class="notranslate">CALL FORMATDATETIME(TIMESTAMP &#39;2001-02-03 04:05:06&#39;,<br />&nbsp;&nbsp;&nbsp;&nbsp;&#39;EEE, d MMM yyyy HH:mm:ss z&#39;, &#39;en&#39;, &#39;GMT&#39;)</p>
+
+<h3 id="hour" class="notranslate" onclick="switchBnf(this)">HOUR</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+HOUR(<a href="grammar.html#timestamp">timestamp</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">HOUR ( <a href="grammar.html#timestamp">timestamp</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+HOUR(<a href="grammar.html#timestamp">timestamp</a>)
+</pre>
+syntax-end -->
+<p>Returns the hour (0-23) from a timestamp.</p>
+<p>Example:</p>
+<p class="notranslate">HOUR(CREATED)</p>
+
+<h3 id="minute" class="notranslate" onclick="switchBnf(this)">MINUTE</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+MINUTE(<a href="grammar.html#timestamp">timestamp</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">MINUTE ( <a href="grammar.html#timestamp">timestamp</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+MINUTE(<a href="grammar.html#timestamp">timestamp</a>)
+</pre>
+syntax-end -->
+<p>Returns the minute (0-59) from a timestamp.</p>
+<p>Example:</p>
+<p class="notranslate">MINUTE(CREATED)</p>
+
+<h3 id="month" class="notranslate" onclick="switchBnf(this)">MONTH</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+MONTH(<a href="grammar.html#timestamp">timestamp</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">MONTH ( <a href="grammar.html#timestamp">timestamp</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+MONTH(<a href="grammar.html#timestamp">timestamp</a>)
+</pre>
+syntax-end -->
+<p>Returns the month (1-12) from a timestamp.</p>
+<p>Example:</p>
+<p class="notranslate">MONTH(CREATED)</p>
+
+<h3 id="monthname" class="notranslate" onclick="switchBnf(this)">MONTHNAME</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+MONTHNAME(<a href="grammar.html#date">date</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">MONTHNAME ( <a href="grammar.html#date">date</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+MONTHNAME(<a href="grammar.html#date">date</a>)
+</pre>
+syntax-end -->
+<p>Returns the name of the month (in English).</p>
+<p>Example:</p>
+<p class="notranslate">MONTHNAME(CREATED)</p>
+
+<h3 id="parsedatetime" class="notranslate" onclick="switchBnf(this)">PARSEDATETIME</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+PARSEDATETIME(<a href="grammar.html#string">string</a>, <a href="grammar.html#string">formatString</a>
+[, <a href="grammar.html#string">localeString</a> [, <a href="grammar.html#string">timeZoneString</a>]])
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">PARSEDATETIME ( <a href="grammar.html#string">string</a> , <a href="grammar.html#string">formatString</a></code></td></tr></table><br /><table class="railroad"><tr class="railroad"><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">, <a href="grammar.html#string">localeString</a></code></td><td class="d"><table class="railroad"><tr class="railroad"><td class="ts"></td><td class="d">&nbsp;</td><td class="te"></td></tr><tr class="railroad"><td class="ls"></td><td class="d"><table class="railroad"><tr class="railroad"><td class="d"><code class="c">, <a href="grammar.html#string">timeZoneString</a></code></td></tr></table></td><td class="le"></td></tr></table></td></tr></table></td><td class="le"></td></tr></table></td><td class="d"><code class="c">)</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+PARSEDATETIME(<a href="grammar.html#string">string</a>, <a href="grammar.html#string">formatString</a>
+[, <a href="grammar.html#string">localeString</a> [, <a href="grammar.html#string">timeZoneString</a>]])
+</pre>
+syntax-end -->
+<p>Parses a string and returns a timestamp. The most important format characters are: y year, M month, d day, H hour, m minute, s second. For details of the format, see <code>java.text.SimpleDateFormat</code>.</p>
+<p>Example:</p>
+<p class="notranslate">CALL PARSEDATETIME(&#39;Sat, 3 Feb 2001 03:05:06 GMT&#39;,<br />&nbsp;&nbsp;&nbsp;&nbsp;&#39;EEE, d MMM yyyy HH:mm:ss z&#39;, &#39;en&#39;, &#39;GMT&#39;)</p>
+
+<h3 id="quarter" class="notranslate" onclick="switchBnf(this)">QUARTER</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+QUARTER(<a href="grammar.html#timestamp">timestamp</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">QUARTER ( <a href="grammar.html#timestamp">timestamp</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+QUARTER(<a href="grammar.html#timestamp">timestamp</a>)
+</pre>
+syntax-end -->
+<p>Returns the quarter (1-4) from a timestamp.</p>
+<p>Example:</p>
+<p class="notranslate">QUARTER(CREATED)</p>
+
+<h3 id="second" class="notranslate" onclick="switchBnf(this)">SECOND</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+SECOND(<a href="grammar.html#timestamp">timestamp</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">SECOND ( <a href="grammar.html#timestamp">timestamp</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+SECOND(<a href="grammar.html#timestamp">timestamp</a>)
+</pre>
+syntax-end -->
+<p>Returns the second (0-59) from a timestamp.</p>
+<p>Example:</p>
+<p class="notranslate">SECOND(CREATED)</p>
+
+<h3 id="week" class="notranslate" onclick="switchBnf(this)">WEEK</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+WEEK(<a href="grammar.html#timestamp">timestamp</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">WEEK ( <a href="grammar.html#timestamp">timestamp</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+WEEK(<a href="grammar.html#timestamp">timestamp</a>)
+</pre>
+syntax-end -->
+<p>Returns the week (1-53) from a timestamp. This method uses the current system locale.</p>
+<p>Example:</p>
+<p class="notranslate">WEEK(CREATED)</p>
+
+<h3 id="year" class="notranslate" onclick="switchBnf(this)">YEAR</h3>
+<!-- railroad-start -->
+<pre name="bnf" style="display: none">
+YEAR(<a href="grammar.html#timestamp">timestamp</a>)
+</pre>
+<div name="railroad">
+<table class="railroad"><tr class="railroad"><td class="d"><code class="c">YEAR ( <a href="grammar.html#timestamp">timestamp</a> )</code></td></tr></table>
+</div>
+<!-- railroad-end -->
+<!-- syntax-start
+<pre>
+YEAR(<a href="grammar.html#timestamp">timestamp</a>)
+</pre>
+syntax-end -->
+<p>Returns the year from a timestamp.</p>
+<p>Example:</p>
+<p class="notranslate">YEAR(CREATED)</p>
+
+<!--[if lte IE 7]><script language="javascript">switchBnf(null);</script><![endif]-->
+
+<!-- [close] { -->
+</div></td></tr></table>
+<script type="text/javascript" src="index.js"></script>
+<script type="text/javascript" src="search.js"></script>
+<script type="text/javascript">
+function startTranslate() {
+    document.getElementById('translate').style.display='';
+    var script=document.createElement('script');
+    script.setAttribute("type","text/javascript");
+    script.setAttribute("src", "http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit");
+    document.getElementsByTagName("head")[0].appendChild(script);
+}
+function googleTranslateElementInit() {
+    new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+}
+</script>
+
+<!-- } --><!-- analytics --></body></html>
+

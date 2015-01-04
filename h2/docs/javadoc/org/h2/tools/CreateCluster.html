@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head><meta http-equiv="Content-Type" content="text/html;charset=utf-8" /><title>
+CreateCluster
+</title><link rel="stylesheet" type="text/css" href="../../../stylesheet.css" />
+<script type="text/javascript" src="../../../animate.js"></script>
+</head><body onload="openLink();">
+<table class="content"><tr class="content"><td class="content"><div class="contentDiv">
+<h1>CreateCluster</h1>
+Creates a cluster from a standalone database.
+ <br />
+ Copies a database to another location if required.<br /><br />
+<table class="block"><tr onclick="return allDetails()"><th colspan="2">Methods</th></tr>
+<tr id="__0" onclick="return on(0)">
+<td class="return">static void</td><td class="method">
+<a id="main_String..." href="#main_String...">main</a>(String... args)
+<div class="methodText">Options are case sensitive.</div>
+</td></tr>
+<tr onclick="return off(0)" class="detail" id="_0">
+<td class="return">static void</td><td>
+<a id="main_String..." href="#main_String...">main</a>(String... args) throws SQLException
+<div class="methodText">Options are case sensitive. Supported options are:
+ <table>
+ <tr><td>[-help] or [-?]</td>
+ <td>Print the list of options</td></tr>
+ <tr><td>[-urlSource "&lt;url&gt;"]</td>
+ <td>The database URL of the source database (jdbc:h2:...)</td></tr>
+ <tr><td>[-urlTarget "&lt;url&gt;"]</td>
+ <td>The database URL of the target database (jdbc:h2:...)</td></tr>
+ <tr><td>[-user &lt;user&gt;]</td>
+ <td>The user name (default: sa)</td></tr>
+ <tr><td>[-password &lt;pwd&gt;]</td>
+ <td>The password</td></tr>
+ <tr><td>[-serverList &lt;list&gt;]</td>
+ <td>The comma separated list of host names or IP addresses</td></tr>
+ </table></div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">args - the command line arguments</div>
+</td></tr>
+<tr id="__1" onclick="return on(1)">
+<td class="return">void</td><td class="method">
+<a id="execute_String_String_String_String_String" href="#execute_String_String_String_String_String">execute</a>(String urlSource, String urlTarget, String user, String password, String serverList)
+<div class="methodText">Creates a cluster.</div>
+</td></tr>
+<tr onclick="return off(1)" class="detail" id="_1">
+<td class="return">void</td><td>
+<a id="execute_String_String_String_String_String" href="#execute_String_String_String_String_String">execute</a>(String urlSource, String urlTarget, String user, String password, String serverList) throws SQLException
+<div class="methodText">Creates a cluster.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">urlSource - the database URL of the original database</div>
+<div class="item">urlTarget - the database URL of the copy</div>
+<div class="item">user - the user name</div>
+<div class="item">password - the password</div>
+<div class="item">serverList - the server list</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException</div>
+</td></tr>
+<tr id="__2" onclick="return on(2)">
+<td class="return">void</td><td class="method">
+<a id="runTool_String..." href="#runTool_String...">runTool</a>(String... args)
+</td></tr>
+<tr onclick="return off(2)" class="detail" id="_2">
+<td class="return">void</td><td>
+<a id="runTool_String..." href="#runTool_String...">runTool</a>(String... args) throws SQLException
+<div class="methodText"></div>
+</td></tr>
+</table>
+</div></td></tr></table></body></html>

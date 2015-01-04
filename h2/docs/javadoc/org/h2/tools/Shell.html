@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head><meta http-equiv="Content-Type" content="text/html;charset=utf-8" /><title>
+Shell
+</title><link rel="stylesheet" type="text/css" href="../../../stylesheet.css" />
+<script type="text/javascript" src="../../../animate.js"></script>
+</head><body onload="openLink();">
+<table class="content"><tr class="content"><td class="content"><div class="contentDiv">
+<h1>Shell</h1>
+Interactive command line tool to access a database using JDBC.<br /><br />
+<table class="block"><tr onclick="return allDetails()"><th colspan="2">Methods</th></tr>
+<tr id="__0" onclick="return on(0)">
+<td class="return">static void</td><td class="method">
+<a id="main_String..." href="#main_String...">main</a>(String... args)
+<div class="methodText">Options are case sensitive.</div>
+</td></tr>
+<tr onclick="return off(0)" class="detail" id="_0">
+<td class="return">static void</td><td>
+<a id="main_String..." href="#main_String...">main</a>(String... args) throws SQLException
+<div class="methodText">Options are case sensitive. Supported options are:
+ <table>
+ <tr><td>[-help] or [-?]</td>
+ <td>Print the list of options</td></tr>
+ <tr><td>[-url "&lt;url&gt;"]</td>
+ <td>The database URL (jdbc:h2:...)</td></tr>
+ <tr><td>[-user &lt;user&gt;]</td>
+ <td>The user name</td></tr>
+ <tr><td>[-password &lt;pwd&gt;]</td>
+ <td>The password</td></tr>
+ <tr><td>[-driver &lt;class&gt;]</td>
+ <td>The JDBC driver class to use (not required in most cases)</td></tr>
+ <tr><td>[-sql "&lt;statements&gt;"]</td>
+ <td>Execute the SQL statements and exit</td></tr>
+ <tr><td>[-properties "&lt;dir&gt;"]</td>
+ <td>Load the server properties from this directory</td></tr>
+ </table>
+ If special characters don't work as expected, you may need to use
+ -Dfile.encoding=UTF-8 (Mac OS X) or CP850 (Windows).</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">args - the command line arguments</div>
+</td></tr>
+<tr id="__1" onclick="return on(1)">
+<td class="return">void</td><td class="method">
+<a id="print_String" href="#print_String">print</a>(String s)
+<div class="methodText">Print the string without newline, and flush.</div>
+</td></tr>
+<tr onclick="return off(1)" class="detail" id="_1">
+<td class="return">void</td><td>
+<a id="print_String" href="#print_String">print</a>(String s)
+<div class="methodText">Print the string without newline, and flush.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">s - the string to print</div>
+</td></tr>
+<tr id="__2" onclick="return on(2)">
+<td class="return">void</td><td class="method">
+<a id="runTool_String..." href="#runTool_String...">runTool</a>(String... args)
+<div class="methodText">Run the shell tool with the given command line settings.</div>
+</td></tr>
+<tr onclick="return off(2)" class="detail" id="_2">
+<td class="return">void</td><td>
+<a id="runTool_String..." href="#runTool_String...">runTool</a>(String... args) throws SQLException
+<div class="methodText">Run the shell tool with the given command line settings.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">args - the command line settings</div>
+</td></tr>
+<tr id="__3" onclick="return on(3)">
+<td class="return">void</td><td class="method">
+<a id="setErr_PrintStream" href="#setErr_PrintStream">setErr</a>(PrintStream err)
+<div class="methodText">Sets the standard error stream.</div>
+</td></tr>
+<tr onclick="return off(3)" class="detail" id="_3">
+<td class="return">void</td><td>
+<a id="setErr_PrintStream" href="#setErr_PrintStream">setErr</a>(PrintStream err)
+<div class="methodText">Sets the standard error stream.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">err - the new standard error stream</div>
+</td></tr>
+<tr id="__4" onclick="return on(4)">
+<td class="return">void</td><td class="method">
+<a id="setIn_InputStream" href="#setIn_InputStream">setIn</a>(InputStream in)
+<div class="methodText">Redirects the standard input.</div>
+</td></tr>
+<tr onclick="return off(4)" class="detail" id="_4">
+<td class="return">void</td><td>
+<a id="setIn_InputStream" href="#setIn_InputStream">setIn</a>(InputStream in)
+<div class="methodText">Redirects the standard input. By default, System.in is used.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">in - the input stream to use</div>
+</td></tr>
+<tr id="__5" onclick="return on(5)">
+<td class="return">void</td><td class="method">
+<a id="setInReader_BufferedReader" href="#setInReader_BufferedReader">setInReader</a>(BufferedReader reader)
+<div class="methodText">Redirects the standard input.</div>
+</td></tr>
+<tr onclick="return off(5)" class="detail" id="_5">
+<td class="return">void</td><td>
+<a id="setInReader_BufferedReader" href="#setInReader_BufferedReader">setInReader</a>(BufferedReader reader)
+<div class="methodText">Redirects the standard input. By default, System.in is used.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">reader - the input stream reader to use</div>
+</td></tr>
+</table>
+</div></td></tr></table></body></html>

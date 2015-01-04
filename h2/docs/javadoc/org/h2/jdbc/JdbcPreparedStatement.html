@@ -1,0 +1,1060 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head><meta http-equiv="Content-Type" content="text/html;charset=utf-8" /><title>
+PreparedStatement
+</title><link rel="stylesheet" type="text/css" href="../../../stylesheet.css" />
+<script type="text/javascript" src="../../../animate.js"></script>
+</head><body onload="openLink();">
+<table class="content"><tr class="content"><td class="content"><div class="contentDiv">
+<h1>PreparedStatement</h1>
+Represents a prepared statement.<br /><br />
+<table class="block"><tr onclick="return allDetails()"><th colspan="2">Methods</th></tr>
+<tr id="__0" onclick="return on(0)">
+<td class="return">void</td><td class="method">
+<a id="addBatch_String" href="#addBatch_String">addBatch</a>(String sql)
+<div class="methodText">Calling this method is not legal on a PreparedStatement.</div>
+</td></tr>
+<tr onclick="return off(0)" class="detail" id="_0">
+<td class="return">void</td><td>
+<a id="addBatch_String" href="#addBatch_String">addBatch</a>(String sql) throws SQLException
+<div class="methodText">Calling this method is not legal on a PreparedStatement.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">sql - ignored</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - Unsupported Feature</div>
+</td></tr>
+<tr id="__1" onclick="return on(1)">
+<td class="return">void</td><td class="method">
+<a id="addBatch" href="#addBatch">addBatch</a>()
+<div class="methodText">Adds the current settings to the batch.</div>
+</td></tr>
+<tr onclick="return off(1)" class="detail" id="_1">
+<td class="return">void</td><td>
+<a id="addBatch" href="#addBatch">addBatch</a>() throws SQLException
+<div class="methodText">Adds the current settings to the batch.</div>
+</td></tr>
+<tr id="__2" onclick="return on(2)">
+<td class="return">boolean</td><td class="method">
+<a id="checkClosed_boolean" href="#checkClosed_boolean">checkClosed</a>(boolean write)
+</td></tr>
+<tr onclick="return off(2)" class="detail" id="_2">
+<td class="return">boolean</td><td>
+<a id="checkClosed_boolean" href="#checkClosed_boolean">checkClosed</a>(boolean write)
+<div class="methodText"></div>
+</td></tr>
+<tr id="__3" onclick="return on(3)">
+<td class="return">void</td><td class="method">
+<a id="clearBatch" href="#clearBatch">clearBatch</a>()
+<div class="methodText">Clears the batch.</div>
+</td></tr>
+<tr onclick="return off(3)" class="detail" id="_3">
+<td class="return">void</td><td>
+<a id="clearBatch" href="#clearBatch">clearBatch</a>() throws SQLException
+<div class="methodText">Clears the batch.</div>
+</td></tr>
+<tr id="__4" onclick="return on(4)">
+<td class="return">void</td><td class="method">
+<a id="clearParameters" href="#clearParameters">clearParameters</a>()
+<div class="methodText">Clears all parameters.</div>
+</td></tr>
+<tr onclick="return off(4)" class="detail" id="_4">
+<td class="return">void</td><td>
+<a id="clearParameters" href="#clearParameters">clearParameters</a>() throws SQLException
+<div class="methodText">Clears all parameters.</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed or invalid</div>
+</td></tr>
+<tr id="__5" onclick="return on(5)">
+<td class="return">void</td><td class="method">
+<a id="close" href="#close">close</a>()
+<div class="methodText">Closes this statement.</div>
+</td></tr>
+<tr onclick="return off(5)" class="detail" id="_5">
+<td class="return">void</td><td>
+<a id="close" href="#close">close</a>() throws SQLException
+<div class="methodText">Closes this statement.
+ All result sets that where created by this statement
+ become invalid after calling this method.</div>
+</td></tr>
+<tr id="__6" onclick="return on(6)">
+<td class="return">boolean</td><td class="method">
+<a id="execute" href="#execute">execute</a>()
+<div class="methodText">Executes an arbitrary statement.</div>
+</td></tr>
+<tr onclick="return off(6)" class="detail" id="_6">
+<td class="return">boolean</td><td>
+<a id="execute" href="#execute">execute</a>() throws SQLException
+<div class="methodText">Executes an arbitrary statement. If another result set exists for this
+ statement, this will be closed (even if this statement fails). If auto
+ commit is on, and the statement is not a select, this statement will be
+ committed.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">true if a result set is available, false if not</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed or invalid</div>
+</td></tr>
+<tr id="__7" onclick="return on(7)">
+<td class="return">boolean</td><td class="method">
+<a id="execute_String" href="#execute_String">execute</a>(String sql)
+<div class="methodText">Calling this method is not legal on a PreparedStatement.</div>
+</td></tr>
+<tr onclick="return off(7)" class="detail" id="_7">
+<td class="return">boolean</td><td>
+<a id="execute_String" href="#execute_String">execute</a>(String sql) throws SQLException
+<div class="methodText">Calling this method is not legal on a PreparedStatement.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">sql - ignored</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - Unsupported Feature</div>
+</td></tr>
+<tr id="__8" onclick="return on(8)">
+<td class="return">boolean</td><td class="method">
+<a id="execute_String_int" href="#execute_String_int">execute</a>(String sql, int autoGeneratedKeys)
+<div class="methodText">Calling this method is not legal on a PreparedStatement.</div>
+</td></tr>
+<tr onclick="return off(8)" class="detail" id="_8">
+<td class="return">boolean</td><td>
+<a id="execute_String_int" href="#execute_String_int">execute</a>(String sql, int autoGeneratedKeys) throws SQLException
+<div class="methodText">Calling this method is not legal on a PreparedStatement.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">sql - ignored</div>
+<div class="item">autoGeneratedKeys - ignored</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - Unsupported Feature</div>
+</td></tr>
+<tr id="__9" onclick="return on(9)">
+<td class="return">boolean</td><td class="method">
+<a id="execute_String_int-" href="#execute_String_int-">execute</a>(String sql, int[] columnIndexes)
+<div class="methodText">Calling this method is not legal on a PreparedStatement.</div>
+</td></tr>
+<tr onclick="return off(9)" class="detail" id="_9">
+<td class="return">boolean</td><td>
+<a id="execute_String_int-" href="#execute_String_int-">execute</a>(String sql, int[] columnIndexes) throws SQLException
+<div class="methodText">Calling this method is not legal on a PreparedStatement.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">sql - ignored</div>
+<div class="item">columnIndexes - ignored</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - Unsupported Feature</div>
+</td></tr>
+<tr id="__10" onclick="return on(10)">
+<td class="return">boolean</td><td class="method">
+<a id="execute_String_String-" href="#execute_String_String-">execute</a>(String sql, String[] columnNames)
+<div class="methodText">Calling this method is not legal on a PreparedStatement.</div>
+</td></tr>
+<tr onclick="return off(10)" class="detail" id="_10">
+<td class="return">boolean</td><td>
+<a id="execute_String_String-" href="#execute_String_String-">execute</a>(String sql, String[] columnNames) throws SQLException
+<div class="methodText">Calling this method is not legal on a PreparedStatement.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">sql - ignored</div>
+<div class="item">columnNames - ignored</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - Unsupported Feature</div>
+</td></tr>
+<tr id="__11" onclick="return on(11)">
+<td class="return">int[]</td><td class="method">
+<a id="executeBatch" href="#executeBatch">executeBatch</a>()
+<div class="methodText">Executes the batch.</div>
+</td></tr>
+<tr onclick="return off(11)" class="detail" id="_11">
+<td class="return">int[]</td><td>
+<a id="executeBatch" href="#executeBatch">executeBatch</a>() throws SQLException
+<div class="methodText">Executes the batch.
+ If one of the batched statements fails, this database will continue.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the array of update counts</div>
+</td></tr>
+<tr id="__12" onclick="return on(12)">
+<td class="return">ResultSet</td><td class="method">
+<a id="executeQuery" href="#executeQuery">executeQuery</a>()
+<div class="methodText">Executes a query (select statement) and returns the result set.</div>
+</td></tr>
+<tr onclick="return off(12)" class="detail" id="_12">
+<td class="return">ResultSet</td><td>
+<a id="executeQuery" href="#executeQuery">executeQuery</a>() throws SQLException
+<div class="methodText">Executes a query (select statement) and returns the result set. If
+ another result set exists for this statement, this will be closed (even
+ if this statement fails).</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the result set</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed or invalid</div>
+</td></tr>
+<tr id="__13" onclick="return on(13)">
+<td class="return">ResultSet</td><td class="method">
+<a id="executeQuery_String" href="#executeQuery_String">executeQuery</a>(String sql)
+<div class="methodText">Calling this method is not legal on a PreparedStatement.</div>
+</td></tr>
+<tr onclick="return off(13)" class="detail" id="_13">
+<td class="return">ResultSet</td><td>
+<a id="executeQuery_String" href="#executeQuery_String">executeQuery</a>(String sql) throws SQLException
+<div class="methodText">Calling this method is not legal on a PreparedStatement.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">sql - ignored</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - Unsupported Feature</div>
+</td></tr>
+<tr id="__14" onclick="return on(14)">
+<td class="return">int</td><td class="method">
+<a id="executeUpdate" href="#executeUpdate">executeUpdate</a>()
+<div class="methodText">Executes a statement (insert, update, delete, create, drop)
+ and returns the update count.</div>
+</td></tr>
+<tr onclick="return off(14)" class="detail" id="_14">
+<td class="return">int</td><td>
+<a id="executeUpdate" href="#executeUpdate">executeUpdate</a>() throws SQLException
+<div class="methodText">Executes a statement (insert, update, delete, create, drop)
+ and returns the update count.
+ If another result set exists for this statement, this will be closed
+ (even if this statement fails).
+
+ If auto commit is on, this statement will be committed.
+ If the statement is a DDL statement (create, drop, alter) and does not
+ throw an exception, the current transaction (if any) is committed after
+ executing the statement.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the update count (number of row affected by an insert, update or
+         delete, or 0 if no rows or the statement was a create, drop,
+         commit or rollback)</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed or invalid</div>
+</td></tr>
+<tr id="__15" onclick="return on(15)">
+<td class="return">int</td><td class="method">
+<a id="executeUpdate_String" href="#executeUpdate_String">executeUpdate</a>(String sql)
+<div class="methodText">Calling this method is not legal on a PreparedStatement.</div>
+</td></tr>
+<tr onclick="return off(15)" class="detail" id="_15">
+<td class="return">int</td><td>
+<a id="executeUpdate_String" href="#executeUpdate_String">executeUpdate</a>(String sql) throws SQLException
+<div class="methodText">Calling this method is not legal on a PreparedStatement.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">sql - ignored</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - Unsupported Feature</div>
+</td></tr>
+<tr id="__16" onclick="return on(16)">
+<td class="return">int</td><td class="method">
+<a id="executeUpdate_String_int" href="#executeUpdate_String_int">executeUpdate</a>(String sql, int autoGeneratedKeys)
+<div class="methodText">Calling this method is not legal on a PreparedStatement.</div>
+</td></tr>
+<tr onclick="return off(16)" class="detail" id="_16">
+<td class="return">int</td><td>
+<a id="executeUpdate_String_int" href="#executeUpdate_String_int">executeUpdate</a>(String sql, int autoGeneratedKeys) throws SQLException
+<div class="methodText">Calling this method is not legal on a PreparedStatement.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">sql - ignored</div>
+<div class="item">autoGeneratedKeys - ignored</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - Unsupported Feature</div>
+</td></tr>
+<tr id="__17" onclick="return on(17)">
+<td class="return">int</td><td class="method">
+<a id="executeUpdate_String_int-" href="#executeUpdate_String_int-">executeUpdate</a>(String sql, int[] columnIndexes)
+<div class="methodText">Calling this method is not legal on a PreparedStatement.</div>
+</td></tr>
+<tr onclick="return off(17)" class="detail" id="_17">
+<td class="return">int</td><td>
+<a id="executeUpdate_String_int-" href="#executeUpdate_String_int-">executeUpdate</a>(String sql, int[] columnIndexes) throws SQLException
+<div class="methodText">Calling this method is not legal on a PreparedStatement.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">sql - ignored</div>
+<div class="item">columnIndexes - ignored</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - Unsupported Feature</div>
+</td></tr>
+<tr id="__18" onclick="return on(18)">
+<td class="return">int</td><td class="method">
+<a id="executeUpdate_String_String-" href="#executeUpdate_String_String-">executeUpdate</a>(String sql, String[] columnNames)
+<div class="methodText">Calling this method is not legal on a PreparedStatement.</div>
+</td></tr>
+<tr onclick="return off(18)" class="detail" id="_18">
+<td class="return">int</td><td>
+<a id="executeUpdate_String_String-" href="#executeUpdate_String_String-">executeUpdate</a>(String sql, String[] columnNames) throws SQLException
+<div class="methodText">Calling this method is not legal on a PreparedStatement.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">sql - ignored</div>
+<div class="item">columnNames - ignored</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - Unsupported Feature</div>
+</td></tr>
+<tr id="__19" onclick="return on(19)">
+<td class="return">ResultSetMetaData</td><td class="method">
+<a id="getMetaData" href="#getMetaData">getMetaData</a>()
+<div class="methodText">Gets the result set metadata of the query returned when the statement is
+ executed.</div>
+</td></tr>
+<tr onclick="return off(19)" class="detail" id="_19">
+<td class="return">ResultSetMetaData</td><td>
+<a id="getMetaData" href="#getMetaData">getMetaData</a>() throws SQLException
+<div class="methodText">Gets the result set metadata of the query returned when the statement is
+ executed. If this is not a query, this method returns null.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the meta data or null if this is not a query</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__20" onclick="return on(20)">
+<td class="return">ParameterMetaData</td><td class="method">
+<a id="getParameterMetaData" href="#getParameterMetaData">getParameterMetaData</a>()
+<div class="methodText">Get the parameter meta data of this prepared statement.</div>
+</td></tr>
+<tr onclick="return off(20)" class="detail" id="_20">
+<td class="return">ParameterMetaData</td><td>
+<a id="getParameterMetaData" href="#getParameterMetaData">getParameterMetaData</a>() throws SQLException
+<div class="methodText">Get the parameter meta data of this prepared statement.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the meta data</div>
+</td></tr>
+<tr id="__21" onclick="return on(21)">
+<td class="return">void</td><td class="method">
+<a id="setArray_int_Array" href="#setArray_int_Array">setArray</a>(int parameterIndex, Array x)
+<div class="methodText">[Not supported] Sets the value of a parameter as a Array.</div>
+</td></tr>
+<tr onclick="return off(21)" class="detail" id="_21">
+<td class="return">void</td><td>
+<a id="setArray_int_Array" href="#setArray_int_Array">setArray</a>(int parameterIndex, Array x) throws SQLException
+<div class="methodText">[Not supported] Sets the value of a parameter as a Array.</div>
+</td></tr>
+<tr id="__22" onclick="return on(22)">
+<td class="return">void</td><td class="method">
+<a id="setAsciiStream_int_InputStream_int" href="#setAsciiStream_int_InputStream_int">setAsciiStream</a>(int parameterIndex, InputStream x, int length)
+<div class="methodText">Sets the value of a parameter as an ASCII stream.</div>
+</td></tr>
+<tr onclick="return off(22)" class="detail" id="_22">
+<td class="return">void</td><td>
+<a id="setAsciiStream_int_InputStream_int" href="#setAsciiStream_int_InputStream_int">setAsciiStream</a>(int parameterIndex, InputStream x, int length) throws SQLException
+<div class="methodText">Sets the value of a parameter as an ASCII stream.
+ This method does not close the stream.
+ The stream may be closed after executing the statement.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterIndex - the parameter index (1, 2, ...)</div>
+<div class="item">x - the value</div>
+<div class="item">length - the maximum number of bytes</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__23" onclick="return on(23)">
+<td class="return">void</td><td class="method">
+<a id="setAsciiStream_int_InputStream_long" href="#setAsciiStream_int_InputStream_long">setAsciiStream</a>(int parameterIndex, InputStream x, long length)
+<div class="methodText">Sets the value of a parameter as an ASCII stream.</div>
+</td></tr>
+<tr onclick="return off(23)" class="detail" id="_23">
+<td class="return">void</td><td>
+<a id="setAsciiStream_int_InputStream_long" href="#setAsciiStream_int_InputStream_long">setAsciiStream</a>(int parameterIndex, InputStream x, long length) throws SQLException
+<div class="methodText">Sets the value of a parameter as an ASCII stream.
+ This method does not close the stream.
+ The stream may be closed after executing the statement.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterIndex - the parameter index (1, 2, ...)</div>
+<div class="item">x - the value</div>
+<div class="item">length - the maximum number of bytes</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__24" onclick="return on(24)">
+<td class="return">void</td><td class="method">
+<a id="setAsciiStream_int_InputStream" href="#setAsciiStream_int_InputStream">setAsciiStream</a>(int parameterIndex, InputStream x)
+<div class="methodText">Sets the value of a parameter as an ASCII stream.</div>
+</td></tr>
+<tr onclick="return off(24)" class="detail" id="_24">
+<td class="return">void</td><td>
+<a id="setAsciiStream_int_InputStream" href="#setAsciiStream_int_InputStream">setAsciiStream</a>(int parameterIndex, InputStream x) throws SQLException
+<div class="methodText">Sets the value of a parameter as an ASCII stream.
+ This method does not close the stream.
+ The stream may be closed after executing the statement.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterIndex - the parameter index (1, 2, ...)</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__25" onclick="return on(25)">
+<td class="return">void</td><td class="method">
+<a id="setBigDecimal_int_BigDecimal" href="#setBigDecimal_int_BigDecimal">setBigDecimal</a>(int parameterIndex, BigDecimal x)
+<div class="methodText">Sets the value of a parameter.</div>
+</td></tr>
+<tr onclick="return off(25)" class="detail" id="_25">
+<td class="return">void</td><td>
+<a id="setBigDecimal_int_BigDecimal" href="#setBigDecimal_int_BigDecimal">setBigDecimal</a>(int parameterIndex, BigDecimal x) throws SQLException
+<div class="methodText">Sets the value of a parameter.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterIndex - the parameter index (1, 2, ...)</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__26" onclick="return on(26)">
+<td class="return">void</td><td class="method">
+<a id="setBinaryStream_int_InputStream_long" href="#setBinaryStream_int_InputStream_long">setBinaryStream</a>(int parameterIndex, InputStream x, long length)
+<div class="methodText">Sets the value of a parameter as an input stream.</div>
+</td></tr>
+<tr onclick="return off(26)" class="detail" id="_26">
+<td class="return">void</td><td>
+<a id="setBinaryStream_int_InputStream_long" href="#setBinaryStream_int_InputStream_long">setBinaryStream</a>(int parameterIndex, InputStream x, long length) throws SQLException
+<div class="methodText">Sets the value of a parameter as an input stream.
+ This method does not close the stream.
+ The stream may be closed after executing the statement.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterIndex - the parameter index (1, 2, ...)</div>
+<div class="item">x - the value</div>
+<div class="item">length - the maximum number of bytes</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__27" onclick="return on(27)">
+<td class="return">void</td><td class="method">
+<a id="setBinaryStream_int_InputStream_int" href="#setBinaryStream_int_InputStream_int">setBinaryStream</a>(int parameterIndex, InputStream x, int length)
+<div class="methodText">Sets the value of a parameter as an input stream.</div>
+</td></tr>
+<tr onclick="return off(27)" class="detail" id="_27">
+<td class="return">void</td><td>
+<a id="setBinaryStream_int_InputStream_int" href="#setBinaryStream_int_InputStream_int">setBinaryStream</a>(int parameterIndex, InputStream x, int length) throws SQLException
+<div class="methodText">Sets the value of a parameter as an input stream.
+ This method does not close the stream.
+ The stream may be closed after executing the statement.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterIndex - the parameter index (1, 2, ...)</div>
+<div class="item">x - the value</div>
+<div class="item">length - the maximum number of bytes</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__28" onclick="return on(28)">
+<td class="return">void</td><td class="method">
+<a id="setBinaryStream_int_InputStream" href="#setBinaryStream_int_InputStream">setBinaryStream</a>(int parameterIndex, InputStream x)
+<div class="methodText">Sets the value of a parameter as an input stream.</div>
+</td></tr>
+<tr onclick="return off(28)" class="detail" id="_28">
+<td class="return">void</td><td>
+<a id="setBinaryStream_int_InputStream" href="#setBinaryStream_int_InputStream">setBinaryStream</a>(int parameterIndex, InputStream x) throws SQLException
+<div class="methodText">Sets the value of a parameter as an input stream.
+ This method does not close the stream.
+ The stream may be closed after executing the statement.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterIndex - the parameter index (1, 2, ...)</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__29" onclick="return on(29)">
+<td class="return">void</td><td class="method">
+<a id="setBlob_int_Blob" href="#setBlob_int_Blob">setBlob</a>(int parameterIndex, Blob x)
+<div class="methodText">Sets the value of a parameter as a Blob.</div>
+</td></tr>
+<tr onclick="return off(29)" class="detail" id="_29">
+<td class="return">void</td><td>
+<a id="setBlob_int_Blob" href="#setBlob_int_Blob">setBlob</a>(int parameterIndex, Blob x) throws SQLException
+<div class="methodText">Sets the value of a parameter as a Blob.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterIndex - the parameter index (1, 2, ...)</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__30" onclick="return on(30)">
+<td class="return">void</td><td class="method">
+<a id="setBlob_int_InputStream" href="#setBlob_int_InputStream">setBlob</a>(int parameterIndex, InputStream x)
+<div class="methodText">Sets the value of a parameter as a Blob.</div>
+</td></tr>
+<tr onclick="return off(30)" class="detail" id="_30">
+<td class="return">void</td><td>
+<a id="setBlob_int_InputStream" href="#setBlob_int_InputStream">setBlob</a>(int parameterIndex, InputStream x) throws SQLException
+<div class="methodText">Sets the value of a parameter as a Blob.
+ This method does not close the stream.
+ The stream may be closed after executing the statement.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterIndex - the parameter index (1, 2, ...)</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__31" onclick="return on(31)">
+<td class="return">void</td><td class="method">
+<a id="setBlob_int_InputStream_long" href="#setBlob_int_InputStream_long">setBlob</a>(int parameterIndex, InputStream x, long length)
+<div class="methodText">Sets the value of a parameter as a Blob.</div>
+</td></tr>
+<tr onclick="return off(31)" class="detail" id="_31">
+<td class="return">void</td><td>
+<a id="setBlob_int_InputStream_long" href="#setBlob_int_InputStream_long">setBlob</a>(int parameterIndex, InputStream x, long length) throws SQLException
+<div class="methodText">Sets the value of a parameter as a Blob.
+ This method does not close the stream.
+ The stream may be closed after executing the statement.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterIndex - the parameter index (1, 2, ...)</div>
+<div class="item">x - the value</div>
+<div class="item">length - the maximum number of bytes</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__32" onclick="return on(32)">
+<td class="return">void</td><td class="method">
+<a id="setBoolean_int_boolean" href="#setBoolean_int_boolean">setBoolean</a>(int parameterIndex, boolean x)
+<div class="methodText">Sets the value of a parameter.</div>
+</td></tr>
+<tr onclick="return off(32)" class="detail" id="_32">
+<td class="return">void</td><td>
+<a id="setBoolean_int_boolean" href="#setBoolean_int_boolean">setBoolean</a>(int parameterIndex, boolean x) throws SQLException
+<div class="methodText">Sets the value of a parameter.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterIndex - the parameter index (1, 2, ...)</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__33" onclick="return on(33)">
+<td class="return">void</td><td class="method">
+<a id="setByte_int_byte" href="#setByte_int_byte">setByte</a>(int parameterIndex, byte x)
+<div class="methodText">Sets the value of a parameter.</div>
+</td></tr>
+<tr onclick="return off(33)" class="detail" id="_33">
+<td class="return">void</td><td>
+<a id="setByte_int_byte" href="#setByte_int_byte">setByte</a>(int parameterIndex, byte x) throws SQLException
+<div class="methodText">Sets the value of a parameter.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterIndex - the parameter index (1, 2, ...)</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__34" onclick="return on(34)">
+<td class="return">void</td><td class="method">
+<a id="setBytes_int_byte-" href="#setBytes_int_byte-">setBytes</a>(int parameterIndex, byte[] x)
+<div class="methodText">Sets the value of a parameter as a byte array.</div>
+</td></tr>
+<tr onclick="return off(34)" class="detail" id="_34">
+<td class="return">void</td><td>
+<a id="setBytes_int_byte-" href="#setBytes_int_byte-">setBytes</a>(int parameterIndex, byte[] x) throws SQLException
+<div class="methodText">Sets the value of a parameter as a byte array.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterIndex - the parameter index (1, 2, ...)</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__35" onclick="return on(35)">
+<td class="return">void</td><td class="method">
+<a id="setCharacterStream_int_Reader_int" href="#setCharacterStream_int_Reader_int">setCharacterStream</a>(int parameterIndex, Reader x, int length)
+<div class="methodText">Sets the value of a parameter as a character stream.</div>
+</td></tr>
+<tr onclick="return off(35)" class="detail" id="_35">
+<td class="return">void</td><td>
+<a id="setCharacterStream_int_Reader_int" href="#setCharacterStream_int_Reader_int">setCharacterStream</a>(int parameterIndex, Reader x, int length) throws SQLException
+<div class="methodText">Sets the value of a parameter as a character stream.
+ This method does not close the reader.
+ The reader may be closed after executing the statement.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterIndex - the parameter index (1, 2, ...)</div>
+<div class="item">x - the value</div>
+<div class="item">length - the maximum number of characters</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__36" onclick="return on(36)">
+<td class="return">void</td><td class="method">
+<a id="setCharacterStream_int_Reader" href="#setCharacterStream_int_Reader">setCharacterStream</a>(int parameterIndex, Reader x)
+<div class="methodText">Sets the value of a parameter as a character stream.</div>
+</td></tr>
+<tr onclick="return off(36)" class="detail" id="_36">
+<td class="return">void</td><td>
+<a id="setCharacterStream_int_Reader" href="#setCharacterStream_int_Reader">setCharacterStream</a>(int parameterIndex, Reader x) throws SQLException
+<div class="methodText">Sets the value of a parameter as a character stream.
+ This method does not close the reader.
+ The reader may be closed after executing the statement.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterIndex - the parameter index (1, 2, ...)</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__37" onclick="return on(37)">
+<td class="return">void</td><td class="method">
+<a id="setCharacterStream_int_Reader_long" href="#setCharacterStream_int_Reader_long">setCharacterStream</a>(int parameterIndex, Reader x, long length)
+<div class="methodText">Sets the value of a parameter as a character stream.</div>
+</td></tr>
+<tr onclick="return off(37)" class="detail" id="_37">
+<td class="return">void</td><td>
+<a id="setCharacterStream_int_Reader_long" href="#setCharacterStream_int_Reader_long">setCharacterStream</a>(int parameterIndex, Reader x, long length) throws SQLException
+<div class="methodText">Sets the value of a parameter as a character stream.
+ This method does not close the reader.
+ The reader may be closed after executing the statement.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterIndex - the parameter index (1, 2, ...)</div>
+<div class="item">x - the value</div>
+<div class="item">length - the maximum number of characters</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__38" onclick="return on(38)">
+<td class="return">void</td><td class="method">
+<a id="setClob_int_Clob" href="#setClob_int_Clob">setClob</a>(int parameterIndex, Clob x)
+<div class="methodText">Sets the value of a parameter as a Clob.</div>
+</td></tr>
+<tr onclick="return off(38)" class="detail" id="_38">
+<td class="return">void</td><td>
+<a id="setClob_int_Clob" href="#setClob_int_Clob">setClob</a>(int parameterIndex, Clob x) throws SQLException
+<div class="methodText">Sets the value of a parameter as a Clob.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterIndex - the parameter index (1, 2, ...)</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__39" onclick="return on(39)">
+<td class="return">void</td><td class="method">
+<a id="setClob_int_Reader" href="#setClob_int_Reader">setClob</a>(int parameterIndex, Reader x)
+<div class="methodText">Sets the value of a parameter as a Clob.</div>
+</td></tr>
+<tr onclick="return off(39)" class="detail" id="_39">
+<td class="return">void</td><td>
+<a id="setClob_int_Reader" href="#setClob_int_Reader">setClob</a>(int parameterIndex, Reader x) throws SQLException
+<div class="methodText">Sets the value of a parameter as a Clob.
+ This method does not close the reader.
+ The reader may be closed after executing the statement.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterIndex - the parameter index (1, 2, ...)</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__40" onclick="return on(40)">
+<td class="return">void</td><td class="method">
+<a id="setClob_int_Reader_long" href="#setClob_int_Reader_long">setClob</a>(int parameterIndex, Reader x, long length)
+<div class="methodText">Sets the value of a parameter as a Clob.</div>
+</td></tr>
+<tr onclick="return off(40)" class="detail" id="_40">
+<td class="return">void</td><td>
+<a id="setClob_int_Reader_long" href="#setClob_int_Reader_long">setClob</a>(int parameterIndex, Reader x, long length) throws SQLException
+<div class="methodText">Sets the value of a parameter as a Clob.
+ This method does not close the reader.
+ The reader may be closed after executing the statement.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterIndex - the parameter index (1, 2, ...)</div>
+<div class="item">x - the value</div>
+<div class="item">length - the maximum number of characters</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__41" onclick="return on(41)">
+<td class="return">void</td><td class="method">
+<a id="setDate_int_Date" href="#setDate_int_Date">setDate</a>(int parameterIndex, Date x)
+<div class="methodText">Sets the value of a parameter.</div>
+</td></tr>
+<tr onclick="return off(41)" class="detail" id="_41">
+<td class="return">void</td><td>
+<a id="setDate_int_Date" href="#setDate_int_Date">setDate</a>(int parameterIndex, Date x) throws SQLException
+<div class="methodText">Sets the value of a parameter.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterIndex - the parameter index (1, 2, ...)</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__42" onclick="return on(42)">
+<td class="return">void</td><td class="method">
+<a id="setDate_int_Date_Calendar" href="#setDate_int_Date_Calendar">setDate</a>(int parameterIndex, Date x, Calendar calendar)
+<div class="methodText">Sets the date using a specified time zone.</div>
+</td></tr>
+<tr onclick="return off(42)" class="detail" id="_42">
+<td class="return">void</td><td>
+<a id="setDate_int_Date_Calendar" href="#setDate_int_Date_Calendar">setDate</a>(int parameterIndex, Date x, Calendar calendar) throws SQLException
+<div class="methodText">Sets the date using a specified time zone. The value will be converted to
+ the local time zone.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterIndex - the parameter index (1, 2, ...)</div>
+<div class="item">x - the value</div>
+<div class="item">calendar - the calendar</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__43" onclick="return on(43)">
+<td class="return">void</td><td class="method">
+<a id="setDouble_int_double" href="#setDouble_int_double">setDouble</a>(int parameterIndex, double x)
+<div class="methodText">Sets the value of a parameter.</div>
+</td></tr>
+<tr onclick="return off(43)" class="detail" id="_43">
+<td class="return">void</td><td>
+<a id="setDouble_int_double" href="#setDouble_int_double">setDouble</a>(int parameterIndex, double x) throws SQLException
+<div class="methodText">Sets the value of a parameter.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterIndex - the parameter index (1, 2, ...)</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__44" onclick="return on(44)">
+<td class="return">void</td><td class="method">
+<a id="setFloat_int_float" href="#setFloat_int_float">setFloat</a>(int parameterIndex, float x)
+<div class="methodText">Sets the value of a parameter.</div>
+</td></tr>
+<tr onclick="return off(44)" class="detail" id="_44">
+<td class="return">void</td><td>
+<a id="setFloat_int_float" href="#setFloat_int_float">setFloat</a>(int parameterIndex, float x) throws SQLException
+<div class="methodText">Sets the value of a parameter.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterIndex - the parameter index (1, 2, ...)</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__45" onclick="return on(45)">
+<td class="return">void</td><td class="method">
+<a id="setInt_int_int" href="#setInt_int_int">setInt</a>(int parameterIndex, int x)
+<div class="methodText">Sets the value of a parameter.</div>
+</td></tr>
+<tr onclick="return off(45)" class="detail" id="_45">
+<td class="return">void</td><td>
+<a id="setInt_int_int" href="#setInt_int_int">setInt</a>(int parameterIndex, int x) throws SQLException
+<div class="methodText">Sets the value of a parameter.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterIndex - the parameter index (1, 2, ...)</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__46" onclick="return on(46)">
+<td class="return">void</td><td class="method">
+<a id="setLong_int_long" href="#setLong_int_long">setLong</a>(int parameterIndex, long x)
+<div class="methodText">Sets the value of a parameter.</div>
+</td></tr>
+<tr onclick="return off(46)" class="detail" id="_46">
+<td class="return">void</td><td>
+<a id="setLong_int_long" href="#setLong_int_long">setLong</a>(int parameterIndex, long x) throws SQLException
+<div class="methodText">Sets the value of a parameter.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterIndex - the parameter index (1, 2, ...)</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__47" onclick="return on(47)">
+<td class="return">void</td><td class="method">
+<a id="setNCharacterStream_int_Reader_long" href="#setNCharacterStream_int_Reader_long">setNCharacterStream</a>(int parameterIndex, Reader x, long length)
+<div class="methodText">Sets the value of a parameter as a character stream.</div>
+</td></tr>
+<tr onclick="return off(47)" class="detail" id="_47">
+<td class="return">void</td><td>
+<a id="setNCharacterStream_int_Reader_long" href="#setNCharacterStream_int_Reader_long">setNCharacterStream</a>(int parameterIndex, Reader x, long length) throws SQLException
+<div class="methodText">Sets the value of a parameter as a character stream.
+ This method does not close the reader.
+ The reader may be closed after executing the statement.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterIndex - the parameter index (1, 2, ...)</div>
+<div class="item">x - the value</div>
+<div class="item">length - the maximum number of characters</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__48" onclick="return on(48)">
+<td class="return">void</td><td class="method">
+<a id="setNCharacterStream_int_Reader" href="#setNCharacterStream_int_Reader">setNCharacterStream</a>(int parameterIndex, Reader x)
+<div class="methodText">Sets the value of a parameter as a character stream.</div>
+</td></tr>
+<tr onclick="return off(48)" class="detail" id="_48">
+<td class="return">void</td><td>
+<a id="setNCharacterStream_int_Reader" href="#setNCharacterStream_int_Reader">setNCharacterStream</a>(int parameterIndex, Reader x) throws SQLException
+<div class="methodText">Sets the value of a parameter as a character stream.
+ This method does not close the reader.
+ The reader may be closed after executing the statement.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterIndex - the parameter index (1, 2, ...)</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__49" onclick="return on(49)">
+<td class="return">void</td><td class="method">
+<a id="setNClob_int_NClob" href="#setNClob_int_NClob">setNClob</a>(int parameterIndex, NClob x)
+<div class="methodText">Sets the value of a parameter as a Clob.</div>
+</td></tr>
+<tr onclick="return off(49)" class="detail" id="_49">
+<td class="return">void</td><td>
+<a id="setNClob_int_NClob" href="#setNClob_int_NClob">setNClob</a>(int parameterIndex, NClob x) throws SQLException
+<div class="methodText">Sets the value of a parameter as a Clob.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterIndex - the parameter index (1, 2, ...)</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__50" onclick="return on(50)">
+<td class="return">void</td><td class="method">
+<a id="setNClob_int_Reader" href="#setNClob_int_Reader">setNClob</a>(int parameterIndex, Reader x)
+<div class="methodText">Sets the value of a parameter as a Clob.</div>
+</td></tr>
+<tr onclick="return off(50)" class="detail" id="_50">
+<td class="return">void</td><td>
+<a id="setNClob_int_Reader" href="#setNClob_int_Reader">setNClob</a>(int parameterIndex, Reader x) throws SQLException
+<div class="methodText">Sets the value of a parameter as a Clob.
+ This method does not close the reader.
+ The reader may be closed after executing the statement.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterIndex - the parameter index (1, 2, ...)</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__51" onclick="return on(51)">
+<td class="return">void</td><td class="method">
+<a id="setNClob_int_Reader_long" href="#setNClob_int_Reader_long">setNClob</a>(int parameterIndex, Reader x, long length)
+<div class="methodText">Sets the value of a parameter as a Clob.</div>
+</td></tr>
+<tr onclick="return off(51)" class="detail" id="_51">
+<td class="return">void</td><td>
+<a id="setNClob_int_Reader_long" href="#setNClob_int_Reader_long">setNClob</a>(int parameterIndex, Reader x, long length) throws SQLException
+<div class="methodText">Sets the value of a parameter as a Clob.
+ This method does not close the reader.
+ The reader may be closed after executing the statement.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterIndex - the parameter index (1, 2, ...)</div>
+<div class="item">x - the value</div>
+<div class="item">length - the maximum number of characters</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__52" onclick="return on(52)">
+<td class="return">void</td><td class="method">
+<a id="setNString_int_String" href="#setNString_int_String">setNString</a>(int parameterIndex, String x)
+<div class="methodText">Sets the value of a parameter.</div>
+</td></tr>
+<tr onclick="return off(52)" class="detail" id="_52">
+<td class="return">void</td><td>
+<a id="setNString_int_String" href="#setNString_int_String">setNString</a>(int parameterIndex, String x) throws SQLException
+<div class="methodText">Sets the value of a parameter.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterIndex - the parameter index (1, 2, ...)</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__53" onclick="return on(53)">
+<td class="return">void</td><td class="method">
+<a id="setNull_int_int" href="#setNull_int_int">setNull</a>(int parameterIndex, int sqlType)
+<div class="methodText">Sets a parameter to null.</div>
+</td></tr>
+<tr onclick="return off(53)" class="detail" id="_53">
+<td class="return">void</td><td>
+<a id="setNull_int_int" href="#setNull_int_int">setNull</a>(int parameterIndex, int sqlType) throws SQLException
+<div class="methodText">Sets a parameter to null.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterIndex - the parameter index (1, 2, ...)</div>
+<div class="item">sqlType - the data type (Types.x)</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__54" onclick="return on(54)">
+<td class="return">void</td><td class="method">
+<a id="setNull_int_int_String" href="#setNull_int_int_String">setNull</a>(int parameterIndex, int sqlType, String typeName)
+<div class="methodText">Sets a parameter to null.</div>
+</td></tr>
+<tr onclick="return off(54)" class="detail" id="_54">
+<td class="return">void</td><td>
+<a id="setNull_int_int_String" href="#setNull_int_int_String">setNull</a>(int parameterIndex, int sqlType, String typeName) throws SQLException
+<div class="methodText">Sets a parameter to null.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterIndex - the parameter index (1, 2, ...)</div>
+<div class="item">sqlType - the data type (Types.x)</div>
+<div class="item">typeName - this parameter is ignored</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__55" onclick="return on(55)">
+<td class="return">void</td><td class="method">
+<a id="setObject_int_Object" href="#setObject_int_Object">setObject</a>(int parameterIndex, Object x)
+<div class="methodText">Sets the value of a parameter.</div>
+</td></tr>
+<tr onclick="return off(55)" class="detail" id="_55">
+<td class="return">void</td><td>
+<a id="setObject_int_Object" href="#setObject_int_Object">setObject</a>(int parameterIndex, Object x) throws SQLException
+<div class="methodText">Sets the value of a parameter.
+ Objects of unknown classes are serialized (on the client side).</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterIndex - the parameter index (1, 2, ...)</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__56" onclick="return on(56)">
+<td class="return">void</td><td class="method">
+<a id="setObject_int_Object_int" href="#setObject_int_Object_int">setObject</a>(int parameterIndex, Object x, int targetSqlType)
+<div class="methodText">Sets the value of a parameter.</div>
+</td></tr>
+<tr onclick="return off(56)" class="detail" id="_56">
+<td class="return">void</td><td>
+<a id="setObject_int_Object_int" href="#setObject_int_Object_int">setObject</a>(int parameterIndex, Object x, int targetSqlType) throws SQLException
+<div class="methodText">Sets the value of a parameter. The object is converted, if required, to
+ the specified data type before sending to the database.
+ Objects of unknown classes are serialized (on the client side).</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterIndex - the parameter index (1, 2, ...)</div>
+<div class="item">x - the value, null is allowed</div>
+<div class="item">targetSqlType - the type as defined in java.sql.Types</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__57" onclick="return on(57)">
+<td class="return">void</td><td class="method">
+<a id="setObject_int_Object_int_int" href="#setObject_int_Object_int_int">setObject</a>(int parameterIndex, Object x, int targetSqlType, int scale)
+<div class="methodText">Sets the value of a parameter.</div>
+</td></tr>
+<tr onclick="return off(57)" class="detail" id="_57">
+<td class="return">void</td><td>
+<a id="setObject_int_Object_int_int" href="#setObject_int_Object_int_int">setObject</a>(int parameterIndex, Object x, int targetSqlType, int scale) throws SQLException
+<div class="methodText">Sets the value of a parameter. The object is converted, if required, to
+ the specified data type before sending to the database.
+ Objects of unknown classes are serialized (on the client side).</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterIndex - the parameter index (1, 2, ...)</div>
+<div class="item">x - the value, null is allowed</div>
+<div class="item">targetSqlType - the type as defined in java.sql.Types</div>
+<div class="item">scale - is ignored</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__58" onclick="return on(58)">
+<td class="return">void</td><td class="method">
+<a id="setRef_int_Ref" href="#setRef_int_Ref">setRef</a>(int parameterIndex, Ref x)
+<div class="methodText">[Not supported] Sets the value of a column as a reference.</div>
+</td></tr>
+<tr onclick="return off(58)" class="detail" id="_58">
+<td class="return">void</td><td>
+<a id="setRef_int_Ref" href="#setRef_int_Ref">setRef</a>(int parameterIndex, Ref x) throws SQLException
+<div class="methodText">[Not supported] Sets the value of a column as a reference.</div>
+</td></tr>
+<tr id="__59" onclick="return on(59)">
+<td class="return">void</td><td class="method">
+<a id="setRowId_int_RowId" href="#setRowId_int_RowId">setRowId</a>(int parameterIndex, RowId x)
+<div class="methodText">[Not supported] Sets the value of a parameter as a row id.</div>
+</td></tr>
+<tr onclick="return off(59)" class="detail" id="_59">
+<td class="return">void</td><td>
+<a id="setRowId_int_RowId" href="#setRowId_int_RowId">setRowId</a>(int parameterIndex, RowId x) throws SQLException
+<div class="methodText">[Not supported] Sets the value of a parameter as a row id.</div>
+</td></tr>
+<tr id="__60" onclick="return on(60)">
+<td class="return">void</td><td class="method">
+<a id="setSQLXML_int_SQLXML" href="#setSQLXML_int_SQLXML">setSQLXML</a>(int parameterIndex, SQLXML x)
+<div class="methodText">[Not supported] Sets the value of a parameter as a SQLXML object.</div>
+</td></tr>
+<tr onclick="return off(60)" class="detail" id="_60">
+<td class="return">void</td><td>
+<a id="setSQLXML_int_SQLXML" href="#setSQLXML_int_SQLXML">setSQLXML</a>(int parameterIndex, SQLXML x) throws SQLException
+<div class="methodText">[Not supported] Sets the value of a parameter as a SQLXML object.</div>
+</td></tr>
+<tr id="__61" onclick="return on(61)">
+<td class="return">void</td><td class="method">
+<a id="setShort_int_short" href="#setShort_int_short">setShort</a>(int parameterIndex, short x)
+<div class="methodText">Sets the value of a parameter.</div>
+</td></tr>
+<tr onclick="return off(61)" class="detail" id="_61">
+<td class="return">void</td><td>
+<a id="setShort_int_short" href="#setShort_int_short">setShort</a>(int parameterIndex, short x) throws SQLException
+<div class="methodText">Sets the value of a parameter.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterIndex - the parameter index (1, 2, ...)</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__62" onclick="return on(62)">
+<td class="return">void</td><td class="method">
+<a id="setString_int_String" href="#setString_int_String">setString</a>(int parameterIndex, String x)
+<div class="methodText">Sets the value of a parameter.</div>
+</td></tr>
+<tr onclick="return off(62)" class="detail" id="_62">
+<td class="return">void</td><td>
+<a id="setString_int_String" href="#setString_int_String">setString</a>(int parameterIndex, String x) throws SQLException
+<div class="methodText">Sets the value of a parameter.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterIndex - the parameter index (1, 2, ...)</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__63" onclick="return on(63)">
+<td class="return">void</td><td class="method">
+<a id="setTime_int_Time" href="#setTime_int_Time">setTime</a>(int parameterIndex, Time x)
+<div class="methodText">Sets the value of a parameter.</div>
+</td></tr>
+<tr onclick="return off(63)" class="detail" id="_63">
+<td class="return">void</td><td>
+<a id="setTime_int_Time" href="#setTime_int_Time">setTime</a>(int parameterIndex, Time x) throws SQLException
+<div class="methodText">Sets the value of a parameter.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterIndex - the parameter index (1, 2, ...)</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__64" onclick="return on(64)">
+<td class="return">void</td><td class="method">
+<a id="setTime_int_Time_Calendar" href="#setTime_int_Time_Calendar">setTime</a>(int parameterIndex, Time x, Calendar calendar)
+<div class="methodText">Sets the time using a specified time zone.</div>
+</td></tr>
+<tr onclick="return off(64)" class="detail" id="_64">
+<td class="return">void</td><td>
+<a id="setTime_int_Time_Calendar" href="#setTime_int_Time_Calendar">setTime</a>(int parameterIndex, Time x, Calendar calendar) throws SQLException
+<div class="methodText">Sets the time using a specified time zone. The value will be converted to
+ the local time zone.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterIndex - the parameter index (1, 2, ...)</div>
+<div class="item">x - the value</div>
+<div class="item">calendar - the calendar</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__65" onclick="return on(65)">
+<td class="return">void</td><td class="method">
+<a id="setTimestamp_int_Timestamp" href="#setTimestamp_int_Timestamp">setTimestamp</a>(int parameterIndex, Timestamp x)
+<div class="methodText">Sets the value of a parameter.</div>
+</td></tr>
+<tr onclick="return off(65)" class="detail" id="_65">
+<td class="return">void</td><td>
+<a id="setTimestamp_int_Timestamp" href="#setTimestamp_int_Timestamp">setTimestamp</a>(int parameterIndex, Timestamp x) throws SQLException
+<div class="methodText">Sets the value of a parameter.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterIndex - the parameter index (1, 2, ...)</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__66" onclick="return on(66)">
+<td class="return">void</td><td class="method">
+<a id="setTimestamp_int_Timestamp_Calendar" href="#setTimestamp_int_Timestamp_Calendar">setTimestamp</a>(int parameterIndex, Timestamp x, Calendar calendar)
+<div class="methodText">Sets the timestamp using a specified time zone.</div>
+</td></tr>
+<tr onclick="return off(66)" class="detail" id="_66">
+<td class="return">void</td><td>
+<a id="setTimestamp_int_Timestamp_Calendar" href="#setTimestamp_int_Timestamp_Calendar">setTimestamp</a>(int parameterIndex, Timestamp x, Calendar calendar) throws SQLException
+<div class="methodText">Sets the timestamp using a specified time zone. The value will be
+ converted to the local time zone.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterIndex - the parameter index (1, 2, ...)</div>
+<div class="item">x - the value</div>
+<div class="item">calendar - the calendar</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__67" onclick="return on(67)">
+<td class="return">void</td><td class="method">
+<a id="setURL_int_URL" href="#setURL_int_URL">setURL</a>(int parameterIndex, URL x)
+<div class="methodText">[Not supported]</div>
+</td></tr>
+<tr onclick="return off(67)" class="detail" id="_67">
+<td class="return">void</td><td>
+<a id="setURL_int_URL" href="#setURL_int_URL">setURL</a>(int parameterIndex, URL x) throws SQLException
+<div class="methodText">[Not supported]</div>
+</td></tr>
+<tr id="__68" onclick="return on(68)">
+<td class="return">void</td><td class="method">
+<a id="setUnicodeStream_int_InputStream_int" href="#setUnicodeStream_int_InputStream_int"><span class="deprecated">setUnicodeStream</span></a>(int parameterIndex, InputStream x, int length)
+<div class="methodText">[Not supported] This feature is deprecated and not supported.</div>
+</td></tr>
+<tr onclick="return off(68)" class="detail" id="_68">
+<td class="return">void</td><td>
+<a id="setUnicodeStream_int_InputStream_int" href="#setUnicodeStream_int_InputStream_int"><span class="deprecated">setUnicodeStream</span></a>(int parameterIndex, InputStream x, int length) throws SQLException
+<div class="methodText">[Not supported] This feature is deprecated and not supported.</div>
+</td></tr>
+</table>
+</div></td></tr></table></body></html>

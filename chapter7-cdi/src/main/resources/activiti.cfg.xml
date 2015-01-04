@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- JTA事务管理器 -->
+    <bean id="transactionManager" class="org.springframework.jndi.JndiObjectFactoryBean">
+        <property name="jndiName" value="java:jboss/TransactionManager"></property>
+        <property name="resourceRef" value="true" />
+    </bean>
+
+    <bean id="processEngineConfiguration"
+          class="org.activiti.cdi.CdiJtaProcessEngineConfiguration">
+
+        <!-- 使用JBOSS内置的演示数据源 -->
+        <property name="dataSourceJndiName" value="java:jboss/datasources/ExampleDS" />
+        <property name="databaseType" value="h2" />
+
+        <property name="transactionManager" ref="transactionManager" />
+        <!-- 打开外部事务管理器开关 -->
+        <property name="transactionsExternallyManaged" value="true" />
+        <property name="databaseSchemaUpdate" value="true" />
+
+        <!-- 启用Activiti CDI事件监听功能 -->
+        <property name="postBpmnParseHandlers">
+            <list>
+                <bean class="org.activiti.cdi.impl.event.CdiEventSupportBpmnParseHandler" />
+            </list>
+        </property>
+    </bean>
+</beans>

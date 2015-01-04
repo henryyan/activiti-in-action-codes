@@ -1,0 +1,245 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head><meta http-equiv="Content-Type" content="text/html;charset=utf-8" /><title>
+FullTextLucene
+</title><link rel="stylesheet" type="text/css" href="../../../stylesheet.css" />
+<script type="text/javascript" src="../../../animate.js"></script>
+</head><body onload="openLink();">
+<table class="content"><tr class="content"><td class="content"><div class="contentDiv">
+<h1>FullTextLucene</h1>
+This class implements the full text search based on Apache Lucene.
+ Most methods can be called using SQL statements as well.<br /><br />
+<table class="block"><tr onclick="return allDetails()"><th colspan="2">Methods</th></tr>
+<tr id="__0" onclick="return on(0)">
+<td class="return">static SQLException</td><td class="method">
+<a id="convertException_Exception" href="#convertException_Exception">convertException</a>(Exception e)
+<div class="methodText">Convert an exception to a fulltext exception.</div>
+</td></tr>
+<tr onclick="return off(0)" class="detail" id="_0">
+<td class="return">static SQLException</td><td>
+<a id="convertException_Exception" href="#convertException_Exception">convertException</a>(Exception e)
+<div class="methodText">Convert an exception to a fulltext exception.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">e - the original exception</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the converted SQL exception</div>
+</td></tr>
+<tr id="__1" onclick="return on(1)">
+<td class="return">static void</td><td class="method">
+<a id="createIndex_Connection_String_String_String" href="#createIndex_Connection_String_String_String">createIndex</a>(Connection conn, String schema, String table, String columnList)
+<div class="methodText">Create a new full text index for a table and column list.</div>
+</td></tr>
+<tr onclick="return off(1)" class="detail" id="_1">
+<td class="return">static void</td><td>
+<a id="createIndex_Connection_String_String_String" href="#createIndex_Connection_String_String_String">createIndex</a>(Connection conn, String schema, String table, String columnList) throws SQLException
+<div class="methodText">Create a new full text index for a table and column list. Each table may
+ only have one index at any time.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">conn - the connection</div>
+<div class="item">schema - the schema name of the table (case sensitive)</div>
+<div class="item">table - the table name (case sensitive)</div>
+<div class="item">columnList - the column list (null for all columns)</div>
+</td></tr>
+<tr id="__2" onclick="return on(2)">
+<td class="return">static void</td><td class="method">
+<a id="createTrigger_Connection_String_String" href="#createTrigger_Connection_String_String">createTrigger</a>(Connection conn, String schema, String table)
+<div class="methodText">Create the trigger.</div>
+</td></tr>
+<tr onclick="return off(2)" class="detail" id="_2">
+<td class="return">static void</td><td>
+<a id="createTrigger_Connection_String_String" href="#createTrigger_Connection_String_String">createTrigger</a>(Connection conn, String schema, String table) throws SQLException
+<div class="methodText">Create the trigger.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">conn - the database connection</div>
+<div class="item">schema - the schema name</div>
+<div class="item">table - the table name</div>
+</td></tr>
+<tr id="__3" onclick="return on(3)">
+<td class="return">static void</td><td class="method">
+<a id="dropAll_Connection" href="#dropAll_Connection">dropAll</a>(Connection conn)
+<div class="methodText">Drops all full text indexes from the database.</div>
+</td></tr>
+<tr onclick="return off(3)" class="detail" id="_3">
+<td class="return">static void</td><td>
+<a id="dropAll_Connection" href="#dropAll_Connection">dropAll</a>(Connection conn) throws SQLException
+<div class="methodText">Drops all full text indexes from the database.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">conn - the connection</div>
+</td></tr>
+<tr id="__4" onclick="return on(4)">
+<td class="return">static FullTextLucene.IndexAccess</td><td class="method">
+<a id="getIndexAccess_Connection" href="#getIndexAccess_Connection">getIndexAccess</a>(Connection conn)
+<div class="methodText">Get the index writer/searcher wrapper for the given connection.</div>
+</td></tr>
+<tr onclick="return off(4)" class="detail" id="_4">
+<td class="return">static FullTextLucene.IndexAccess</td><td>
+<a id="getIndexAccess_Connection" href="#getIndexAccess_Connection">getIndexAccess</a>(Connection conn) throws SQLException
+<div class="methodText">Get the index writer/searcher wrapper for the given connection.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">conn - the connection</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the index access wrapper</div>
+</td></tr>
+<tr id="__5" onclick="return on(5)">
+<td class="return">static String</td><td class="method">
+<a id="getIndexPath_Connection" href="#getIndexPath_Connection">getIndexPath</a>(Connection conn)
+<div class="methodText">Get the path of the Lucene index for this database.</div>
+</td></tr>
+<tr onclick="return off(5)" class="detail" id="_5">
+<td class="return">static String</td><td>
+<a id="getIndexPath_Connection" href="#getIndexPath_Connection">getIndexPath</a>(Connection conn) throws SQLException
+<div class="methodText">Get the path of the Lucene index for this database.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">conn - the database connection</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the path</div>
+</td></tr>
+<tr id="__6" onclick="return on(6)">
+<td class="return">static void</td><td class="method">
+<a id="indexExistingRows_Connection_String_String" href="#indexExistingRows_Connection_String_String">indexExistingRows</a>(Connection conn, String schema, String table)
+<div class="methodText">Add the existing data to the index.</div>
+</td></tr>
+<tr onclick="return off(6)" class="detail" id="_6">
+<td class="return">static void</td><td>
+<a id="indexExistingRows_Connection_String_String" href="#indexExistingRows_Connection_String_String">indexExistingRows</a>(Connection conn, String schema, String table) throws SQLException
+<div class="methodText">Add the existing data to the index.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">conn - the database connection</div>
+<div class="item">schema - the schema name</div>
+<div class="item">table - the table name</div>
+</td></tr>
+<tr id="__7" onclick="return on(7)">
+<td class="return">static void</td><td class="method">
+<a id="init_Connection" href="#init_Connection">init</a>(Connection conn)
+<div class="methodText">Initializes full text search functionality for this database.</div>
+</td></tr>
+<tr onclick="return off(7)" class="detail" id="_7">
+<td class="return">static void</td><td>
+<a id="init_Connection" href="#init_Connection">init</a>(Connection conn) throws SQLException
+<div class="methodText">Initializes full text search functionality for this database. This adds
+ the following Java functions to the database:
+ <ul>
+ <li>FTL_CREATE_INDEX(schemaNameString, tableNameString,
+ columnListString)</li>
+ <li>FTL_SEARCH(queryString, limitInt, offsetInt): result set</li>
+ <li>FTL_REINDEX()</li>
+ <li>FTL_DROP_ALL()</li>
+ </ul>
+ It also adds a schema FTL to the database where bookkeeping information
+ is stored. This function may be called from a Java application, or by
+ using the SQL statements:
+
+ <pre>
+ CREATE ALIAS IF NOT EXISTS FTL_INIT FOR
+      &quot;org.h2.fulltext.FullTextLucene.init&quot;;
+ CALL FTL_INIT();</pre></div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">conn - the connection</div>
+</td></tr>
+<tr id="__8" onclick="return on(8)">
+<td class="return">static void</td><td class="method">
+<a id="reindex_Connection" href="#reindex_Connection">reindex</a>(Connection conn)
+<div class="methodText">Re-creates the full text index for this database.</div>
+</td></tr>
+<tr onclick="return off(8)" class="detail" id="_8">
+<td class="return">static void</td><td>
+<a id="reindex_Connection" href="#reindex_Connection">reindex</a>(Connection conn) throws SQLException
+<div class="methodText">Re-creates the full text index for this database. Calling this method is
+ usually not needed, as the index is kept up-to-date automatically.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">conn - the connection</div>
+</td></tr>
+<tr id="__9" onclick="return on(9)">
+<td class="return">static void</td><td class="method">
+<a id="removeIndexAccess_FullTextLucene.IndexAccess_String" href="#removeIndexAccess_FullTextLucene.IndexAccess_String">removeIndexAccess</a>(FullTextLucene.IndexAccess access, String indexPath)
+<div class="methodText">Close the index writer and searcher and remove them from the index access set.</div>
+</td></tr>
+<tr onclick="return off(9)" class="detail" id="_9">
+<td class="return">static void</td><td>
+<a id="removeIndexAccess_FullTextLucene.IndexAccess_String" href="#removeIndexAccess_FullTextLucene.IndexAccess_String">removeIndexAccess</a>(FullTextLucene.IndexAccess access, String indexPath) throws SQLException
+<div class="methodText">Close the index writer and searcher and remove them from the index access set.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">access - the index writer/searcher wrapper</div>
+<div class="item">indexPath - the index path</div>
+</td></tr>
+<tr id="__10" onclick="return on(10)">
+<td class="return">static ResultSet</td><td class="method">
+<a id="search_Connection_String_int_int" href="#search_Connection_String_int_int">search</a>(Connection conn, String text, int limit, int offset)
+<div class="methodText">Searches from the full text index for this database.</div>
+</td></tr>
+<tr onclick="return off(10)" class="detail" id="_10">
+<td class="return">static ResultSet</td><td>
+<a id="search_Connection_String_int_int" href="#search_Connection_String_int_int">search</a>(Connection conn, String text, int limit, int offset) throws SQLException
+<div class="methodText">Searches from the full text index for this database.
+ The returned result set has the following column:
+ <ul><li>QUERY (varchar): the query to use to get the data.
+ The query does not include 'SELECT * FROM '. Example:
+ PUBLIC.TEST WHERE ID = 1
+ </li><li>SCORE (float) the relevance score as returned by Lucene.
+ </li></ul></div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">conn - the connection</div>
+<div class="item">text - the search query</div>
+<div class="item">limit - the maximum number of rows or 0 for no limit</div>
+<div class="item">offset - the offset or 0 for no offset</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the result set</div>
+</td></tr>
+<tr id="__11" onclick="return on(11)">
+<td class="return">static ResultSet</td><td class="method">
+<a id="search_Connection_String_int_int_boolean" href="#search_Connection_String_int_int_boolean">search</a>(Connection conn, String text, int limit, int offset, boolean data)
+<div class="methodText">Do the search.</div>
+</td></tr>
+<tr onclick="return off(11)" class="detail" id="_11">
+<td class="return">static ResultSet</td><td>
+<a id="search_Connection_String_int_int_boolean" href="#search_Connection_String_int_int_boolean">search</a>(Connection conn, String text, int limit, int offset, boolean data) throws SQLException
+<div class="methodText">Do the search.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">conn - the database connection</div>
+<div class="item">text - the query</div>
+<div class="item">limit - the limit</div>
+<div class="item">offset - the offset</div>
+<div class="item">data - whether the raw data should be returned</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the result set</div>
+</td></tr>
+<tr id="__12" onclick="return on(12)">
+<td class="return">static ResultSet</td><td class="method">
+<a id="searchData_Connection_String_int_int" href="#searchData_Connection_String_int_int">searchData</a>(Connection conn, String text, int limit, int offset)
+<div class="methodText">Searches from the full text index for this database.</div>
+</td></tr>
+<tr onclick="return off(12)" class="detail" id="_12">
+<td class="return">static ResultSet</td><td>
+<a id="searchData_Connection_String_int_int" href="#searchData_Connection_String_int_int">searchData</a>(Connection conn, String text, int limit, int offset) throws SQLException
+<div class="methodText">Searches from the full text index for this database. The result contains
+ the primary key data as an array. The returned result set has the
+ following columns:
+ <ul>
+ <li>SCHEMA (varchar): the schema name. Example: PUBLIC </li>
+ <li>TABLE (varchar): the table name. Example: TEST </li>
+ <li>COLUMNS (array of varchar): comma separated list of quoted column
+ names. The column names are quoted if necessary. Example: (ID) </li>
+ <li>KEYS (array of values): comma separated list of values. Example: (1)
+ </li><li>SCORE (float) the relevance score as returned by Lucene.
+ </li>
+ </ul></div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">conn - the connection</div>
+<div class="item">text - the search query</div>
+<div class="item">limit - the maximum number of rows or 0 for no limit</div>
+<div class="item">offset - the offset or 0 for no offset</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the result set</div>
+</td></tr>
+</table>
+<br /><table><tr><th colspan="2">Fields</th></tr>
+<tr><td class="return">static boolean</td><td class="method">
+<a href="#store_document_text_in_index">STORE_DOCUMENT_TEXT_IN_INDEX</a>
+</td></tr>
+</table>
+<h4 id="store_document_text_in_index"><span class="methodName">STORE_DOCUMENT_TEXT_IN_INDEX
+
+</span></h4>
+<div class="item">Whether the text content should be stored in the Lucene index.</div>
+<hr />
+</div></td></tr></table></body></html>

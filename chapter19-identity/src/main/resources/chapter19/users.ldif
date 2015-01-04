@@ -1,0 +1,217 @@
+# Based on the example LDIF file at http://krams915.blogspot.be/2011/01/spring-security-mvc-using-embedded-ldap.html
+
+# 组织架构根
+
+dn: o=aia
+objectClass: organization
+objectClass: extensibleObject
+objectClass: top
+o: aia
+
+# 用户类型定义
+
+dn: ou=users,o=aia
+objectClass: extensibleObject
+objectClass: organizationalUnit
+objectClass: top
+ou: users
+
+# 组类型定义
+
+dn: ou=groups,o=aia
+objectClass: extensibleObject
+objectClass: organizationalUnit
+objectClass: top
+ou: groups
+
+# 定义组
+
+dn: cn=普通用户,ou=groups,o=aia
+objectClass: groupOfUniqueNames
+objectClass: top
+cn: 普通用户
+uid : user
+uniqueMember: uid=bill, ou=users,o=aia
+uniqueMember: uid=jenny, ou=users,o=aia
+uniqueMember: uid=kermit, ou=users,o=aia
+uniqueMember: uid=eric, ou=users,o=aia
+uniqueMember: uid=tom, ou=users,o=aia
+uniqueMember: uid=andy, ou=users,o=aia
+uniqueMember: uid=amy, ou=users,o=aia
+uniqueMember: uid=tony, ou=users,o=aia
+uniqueMember: uid=lily, ou=users,o=aia
+uniqueMember: uid=thomas, ou=users,o=aia
+
+dn: cn=系统管理员,ou=groups,o=aia
+objectClass: groupOfUniqueNames
+objectClass: top
+cn: 系统管理员
+uid : admin
+uniqueMember: uid=henry, ou=users,o=aia
+
+dn: cn=总经理,ou=groups,o=aia
+objectClass: groupOfUniqueNames
+objectClass: top
+cn: 总经理
+uid : generalManager
+uniqueMember: uid=bill, ou=users,o=aia
+
+dn: cn=部门经理,ou=groups,o=aia
+objectClass: groupOfUniqueNames
+objectClass: top
+cn: 部门经理
+uid : deptLeader
+uniqueMember: uid=kermit, ou=users,o=aia
+uniqueMember: uid=andy, ou=users,o=aia
+
+dn: cn=销售人员,ou=groups,o=aia
+objectClass: groupOfUniqueNames
+objectClass: top
+cn: 销售人员
+uid : sales
+uniqueMember: uid=eric, ou=users,o=aia
+uniqueMember: uid=tom, ou=users,o=aia
+
+dn: cn=财务人员,ou=groups,o=aia
+objectClass: groupOfUniqueNames
+objectClass: top
+cn: 财务人员
+uid : treasurer
+uniqueMember: uid=tony, ou=users,o=aia
+
+dn: cn=出纳员,ou=groups,o=aia
+objectClass: groupOfUniqueNames
+objectClass: top
+cn: 出纳员
+uid : cashier
+uniqueMember: uid=lily, ou=users,o=aia
+
+dn: cn=后勤人员,ou=groups,o=aia
+objectClass: groupOfUniqueNames
+objectClass: top
+cn: 后勤人员
+uid : supportCrew
+uniqueMember: uid=thomas, ou=users,o=aia
+
+# 用户定义
+
+dn: uid=admin,ou=users,o=aia
+objectClass: organizationalPerson
+objectClass: person
+objectClass: inetOrgPerson
+objectClass: top
+cn: admin
+sn: admin
+uid: admin
+userPassword:: cGFzcw==
+
+dn: uid=henry,ou=users,o=aia
+objectClass: organizationalPerson
+objectClass: person
+objectClass: inetOrgPerson
+objectClass: top
+cn: Henry
+sn: Yan
+uid: henry
+userPassword:: MDAwMDAw
+
+
+dn: uid=bill, ou=users,o=aia
+objectClass: organizationalPerson
+objectClass: person
+objectClass: inetOrgPerson
+objectClass: top
+cn: Bill
+sn: Zheng
+uid: pepe
+userPassword:: MDAwMDAw
+
+dn: uid=jenny,ou=users,o=aia
+objectClass: organizationalPerson
+objectClass: person
+objectClass: inetOrgPerson
+objectClass: top
+cn: Jenny
+sn: Luo
+uid: jenny
+userPassword:: MDAwMDAw
+
+dn: uid=kermit,ou=users,o=aia
+objectClass: organizationalPerson
+objectClass: person
+objectClass: inetOrgPerson
+objectClass: top
+cn: Kermit
+sn: Miao
+uid: kermit
+userPassword:: MDAwMDAw
+
+dn: uid=eric,ou=users,o=aia
+objectClass: organizationalPerson
+objectClass: person
+objectClass: inetOrgPerson
+objectClass: top
+cn: Eric
+sn: Li
+uid: eric
+userPassword:: MDAwMDAw
+
+dn: uid=tom,ou=users,o=aia
+objectClass: organizationalPerson
+objectClass: person
+objectClass: inetOrgPerson
+objectClass: top
+cn: Tom
+sn: Wang
+uid: tom
+userPassword:: MDAwMDAw
+
+dn: uid=andy,ou=users,o=aia
+objectClass: organizationalPerson
+objectClass: person
+objectClass: inetOrgPerson
+objectClass: top
+cn: Andy
+sn: Zhao
+uid: andy
+userPassword:: MDAwMDAw
+
+dn: uid=amy,ou=users,o=aia
+objectClass: organizationalPerson
+objectClass: person
+objectClass: inetOrgPerson
+objectClass: top
+cn: Amy
+sn: Zhang
+uid: amy
+userPassword:: MDAwMDAw
+
+dn: uid=tony,ou=users,o=aia
+objectClass: organizationalPerson
+objectClass: person
+objectClass: inetOrgPerson
+objectClass: top
+cn: Tony
+sn: Zhang
+uid: tony
+userPassword:: MDAwMDAw
+
+dn: uid=lily,ou=users,o=aia
+objectClass: organizationalPerson
+objectClass: person
+objectClass: inetOrgPerson
+objectClass: top
+cn: Lily
+sn: Song
+uid: lily
+userPassword:: MDAwMDAw
+
+dn: uid=thomas,ou=users,o=aia
+objectClass: organizationalPerson
+objectClass: person
+objectClass: inetOrgPerson
+objectClass: top
+cn: Thomas
+sn: Wang
+uid: thomas
+userPassword:: MDAwMDAw

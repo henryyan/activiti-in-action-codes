@@ -1,0 +1,2850 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head><meta http-equiv="Content-Type" content="text/html;charset=utf-8" /><title>
+ResultSet
+</title><link rel="stylesheet" type="text/css" href="../../../stylesheet.css" />
+<script type="text/javascript" src="../../../animate.js"></script>
+</head><body onload="openLink();">
+<table class="content"><tr class="content"><td class="content"><div class="contentDiv">
+<h1>ResultSet</h1>
+<p>
+ Represents a result set.
+ </p>
+ <p>
+ Column labels are case-insensitive, quotes are not supported. The first column
+ has the column index 1.
+ </p>
+ <p>
+ Updatable result sets:
+ Result sets are updatable when the result only contains columns from one
+ table, and if it contains all columns of a unique index (primary key or
+ other) of this table. Key columns may not contain NULL (because multiple rows
+ with NULL could exist). In updatable result sets, own changes are visible,
+ but not own inserts and deletes.
+ </p><br /><br />
+<table class="block"><tr onclick="return allDetails()"><th colspan="2">Methods</th></tr>
+<tr id="__0" onclick="return on(0)">
+<td class="return">boolean</td><td class="method">
+<a id="absolute_int" href="#absolute_int">absolute</a>(int rowNumber)
+<div class="methodText">Moves the current position to a specific row.</div>
+</td></tr>
+<tr onclick="return off(0)" class="detail" id="_0">
+<td class="return">boolean</td><td>
+<a id="absolute_int" href="#absolute_int">absolute</a>(int rowNumber) throws SQLException
+<div class="methodText">Moves the current position to a specific row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">rowNumber - the row number. 0 is not allowed, 1 means the first row,
+            2 the second. -1 means the last row, -2 the row before the
+            last row. If the value is too large, the position is moved
+            after the last row, if if the value is too small it is moved
+            before the first row.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">true if there is a row available, false if not</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed</div>
+</td></tr>
+<tr id="__1" onclick="return on(1)">
+<td class="return">void</td><td class="method">
+<a id="afterLast" href="#afterLast">afterLast</a>()
+<div class="methodText">Moves the current position to after the last row, that means after the end.</div>
+</td></tr>
+<tr onclick="return off(1)" class="detail" id="_1">
+<td class="return">void</td><td>
+<a id="afterLast" href="#afterLast">afterLast</a>() throws SQLException
+<div class="methodText">Moves the current position to after the last row, that means after the end.</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed</div>
+</td></tr>
+<tr id="__2" onclick="return on(2)">
+<td class="return">void</td><td class="method">
+<a id="beforeFirst" href="#beforeFirst">beforeFirst</a>()
+<div class="methodText">Moves the current position to before the first row, that means resets the
+ result set.</div>
+</td></tr>
+<tr onclick="return off(2)" class="detail" id="_2">
+<td class="return">void</td><td>
+<a id="beforeFirst" href="#beforeFirst">beforeFirst</a>() throws SQLException
+<div class="methodText">Moves the current position to before the first row, that means resets the
+ result set.</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed</div>
+</td></tr>
+<tr id="__3" onclick="return on(3)">
+<td class="return">void</td><td class="method">
+<a id="cancelRowUpdates" href="#cancelRowUpdates">cancelRowUpdates</a>()
+<div class="methodText">Cancels updating a row.</div>
+</td></tr>
+<tr onclick="return off(3)" class="detail" id="_3">
+<td class="return">void</td><td>
+<a id="cancelRowUpdates" href="#cancelRowUpdates">cancelRowUpdates</a>() throws SQLException
+<div class="methodText">Cancels updating a row.</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or if the current row is
+             the insert row</div>
+</td></tr>
+<tr id="__4" onclick="return on(4)">
+<td class="return">void</td><td class="method">
+<a id="clearWarnings" href="#clearWarnings">clearWarnings</a>()
+<div class="methodText">Clears all warnings.</div>
+</td></tr>
+<tr onclick="return off(4)" class="detail" id="_4">
+<td class="return">void</td><td>
+<a id="clearWarnings" href="#clearWarnings">clearWarnings</a>() throws SQLException
+<div class="methodText">Clears all warnings.</div>
+</td></tr>
+<tr id="__5" onclick="return on(5)">
+<td class="return">void</td><td class="method">
+<a id="close" href="#close">close</a>()
+<div class="methodText">Closes the result set.</div>
+</td></tr>
+<tr onclick="return off(5)" class="detail" id="_5">
+<td class="return">void</td><td>
+<a id="close" href="#close">close</a>() throws SQLException
+<div class="methodText">Closes the result set.</div>
+</td></tr>
+<tr id="__6" onclick="return on(6)">
+<td class="return">void</td><td class="method">
+<a id="deleteRow" href="#deleteRow">deleteRow</a>()
+<div class="methodText">Deletes the current row.</div>
+</td></tr>
+<tr onclick="return off(6)" class="detail" id="_6">
+<td class="return">void</td><td>
+<a id="deleteRow" href="#deleteRow">deleteRow</a>() throws SQLException
+<div class="methodText">Deletes the current row.</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed, if the current row is
+             the insert row or if not on a valid row, or if the result set
+             it not updatable</div>
+</td></tr>
+<tr id="__7" onclick="return on(7)">
+<td class="return">int</td><td class="method">
+<a id="findColumn_String" href="#findColumn_String">findColumn</a>(String columnLabel)
+<div class="methodText">Searches for a specific column in the result set.</div>
+</td></tr>
+<tr onclick="return off(7)" class="detail" id="_7">
+<td class="return">int</td><td>
+<a id="findColumn_String" href="#findColumn_String">findColumn</a>(String columnLabel) throws SQLException
+<div class="methodText">Searches for a specific column in the result set. A case-insensitive
+ search is made.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the column index (1,2,...)</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__8" onclick="return on(8)">
+<td class="return">boolean</td><td class="method">
+<a id="first" href="#first">first</a>()
+<div class="methodText">Moves the current position to the first row.</div>
+</td></tr>
+<tr onclick="return off(8)" class="detail" id="_8">
+<td class="return">boolean</td><td>
+<a id="first" href="#first">first</a>() throws SQLException
+<div class="methodText">Moves the current position to the first row. This is the same as calling
+ beforeFirst() followed by next().</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">true if there is a row available, false if not</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed</div>
+</td></tr>
+<tr id="__9" onclick="return on(9)">
+<td class="return">Array</td><td class="method">
+<a id="getArray_int" href="#getArray_int">getArray</a>(int columnIndex)
+<div class="methodText">Returns the value of the specified column as an Array.</div>
+</td></tr>
+<tr onclick="return off(9)" class="detail" id="_9">
+<td class="return">Array</td><td>
+<a id="getArray_int" href="#getArray_int">getArray</a>(int columnIndex) throws SQLException
+<div class="methodText">Returns the value of the specified column as an Array.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__10" onclick="return on(10)">
+<td class="return">Array</td><td class="method">
+<a id="getArray_String" href="#getArray_String">getArray</a>(String columnLabel)
+<div class="methodText">Returns the value of the specified column as an Array.</div>
+</td></tr>
+<tr onclick="return off(10)" class="detail" id="_10">
+<td class="return">Array</td><td>
+<a id="getArray_String" href="#getArray_String">getArray</a>(String columnLabel) throws SQLException
+<div class="methodText">Returns the value of the specified column as an Array.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__11" onclick="return on(11)">
+<td class="return">InputStream</td><td class="method">
+<a id="getAsciiStream_int" href="#getAsciiStream_int">getAsciiStream</a>(int columnIndex)
+<div class="methodText">Returns the value of the specified column as an input stream.</div>
+</td></tr>
+<tr onclick="return off(11)" class="detail" id="_11">
+<td class="return">InputStream</td><td>
+<a id="getAsciiStream_int" href="#getAsciiStream_int">getAsciiStream</a>(int columnIndex) throws SQLException
+<div class="methodText">Returns the value of the specified column as an input stream.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__12" onclick="return on(12)">
+<td class="return">InputStream</td><td class="method">
+<a id="getAsciiStream_String" href="#getAsciiStream_String">getAsciiStream</a>(String columnLabel)
+<div class="methodText">Returns the value of the specified column as an input stream.</div>
+</td></tr>
+<tr onclick="return off(12)" class="detail" id="_12">
+<td class="return">InputStream</td><td>
+<a id="getAsciiStream_String" href="#getAsciiStream_String">getAsciiStream</a>(String columnLabel) throws SQLException
+<div class="methodText">Returns the value of the specified column as an input stream.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__13" onclick="return on(13)">
+<td class="return">BigDecimal</td><td class="method">
+<a id="getBigDecimal_int" href="#getBigDecimal_int">getBigDecimal</a>(int columnIndex)
+<div class="methodText">Returns the value of the specified column as a BigDecimal.</div>
+</td></tr>
+<tr onclick="return off(13)" class="detail" id="_13">
+<td class="return">BigDecimal</td><td>
+<a id="getBigDecimal_int" href="#getBigDecimal_int">getBigDecimal</a>(int columnIndex) throws SQLException
+<div class="methodText">Returns the value of the specified column as a BigDecimal.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is closed</div>
+</td></tr>
+<tr id="__14" onclick="return on(14)">
+<td class="return">BigDecimal</td><td class="method">
+<a id="getBigDecimal_String" href="#getBigDecimal_String">getBigDecimal</a>(String columnLabel)
+<div class="methodText">Returns the value of the specified column as a BigDecimal.</div>
+</td></tr>
+<tr onclick="return off(14)" class="detail" id="_14">
+<td class="return">BigDecimal</td><td>
+<a id="getBigDecimal_String" href="#getBigDecimal_String">getBigDecimal</a>(String columnLabel) throws SQLException
+<div class="methodText">Returns the value of the specified column as a BigDecimal.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__15" onclick="return on(15)">
+<td class="return">BigDecimal</td><td class="method">
+<a id="getBigDecimal_String_int" href="#getBigDecimal_String_int"><span class="deprecated">getBigDecimal</span></a>(String columnLabel, int scale)
+<div class="methodText">Returns the value of the specified column as a BigDecimal.</div>
+</td></tr>
+<tr onclick="return off(15)" class="detail" id="_15">
+<td class="return">BigDecimal</td><td>
+<a id="getBigDecimal_String_int" href="#getBigDecimal_String_int"><span class="deprecated">getBigDecimal</span></a>(String columnLabel, int scale) throws SQLException
+<div class="methodText">Returns the value of the specified column as a BigDecimal.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="item">scale - the scale of the returned value</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__16" onclick="return on(16)">
+<td class="return">BigDecimal</td><td class="method">
+<a id="getBigDecimal_int_int" href="#getBigDecimal_int_int"><span class="deprecated">getBigDecimal</span></a>(int columnIndex, int scale)
+<div class="methodText">Returns the value of the specified column as a BigDecimal.</div>
+</td></tr>
+<tr onclick="return off(16)" class="detail" id="_16">
+<td class="return">BigDecimal</td><td>
+<a id="getBigDecimal_int_int" href="#getBigDecimal_int_int"><span class="deprecated">getBigDecimal</span></a>(int columnIndex, int scale) throws SQLException
+<div class="methodText">Returns the value of the specified column as a BigDecimal.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="item">scale - the scale of the returned value</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__17" onclick="return on(17)">
+<td class="return">InputStream</td><td class="method">
+<a id="getBinaryStream_int" href="#getBinaryStream_int">getBinaryStream</a>(int columnIndex)
+<div class="methodText">Returns the value of the specified column as an input stream.</div>
+</td></tr>
+<tr onclick="return off(17)" class="detail" id="_17">
+<td class="return">InputStream</td><td>
+<a id="getBinaryStream_int" href="#getBinaryStream_int">getBinaryStream</a>(int columnIndex) throws SQLException
+<div class="methodText">Returns the value of the specified column as an input stream.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__18" onclick="return on(18)">
+<td class="return">InputStream</td><td class="method">
+<a id="getBinaryStream_String" href="#getBinaryStream_String">getBinaryStream</a>(String columnLabel)
+<div class="methodText">Returns the value of the specified column as an input stream.</div>
+</td></tr>
+<tr onclick="return off(18)" class="detail" id="_18">
+<td class="return">InputStream</td><td>
+<a id="getBinaryStream_String" href="#getBinaryStream_String">getBinaryStream</a>(String columnLabel) throws SQLException
+<div class="methodText">Returns the value of the specified column as an input stream.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__19" onclick="return on(19)">
+<td class="return">Blob</td><td class="method">
+<a id="getBlob_int" href="#getBlob_int">getBlob</a>(int columnIndex)
+<div class="methodText">Returns the value of the specified column as a Blob.</div>
+</td></tr>
+<tr onclick="return off(19)" class="detail" id="_19">
+<td class="return">Blob</td><td>
+<a id="getBlob_int" href="#getBlob_int">getBlob</a>(int columnIndex) throws SQLException
+<div class="methodText">Returns the value of the specified column as a Blob.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__20" onclick="return on(20)">
+<td class="return">Blob</td><td class="method">
+<a id="getBlob_String" href="#getBlob_String">getBlob</a>(String columnLabel)
+<div class="methodText">Returns the value of the specified column as a Blob.</div>
+</td></tr>
+<tr onclick="return off(20)" class="detail" id="_20">
+<td class="return">Blob</td><td>
+<a id="getBlob_String" href="#getBlob_String">getBlob</a>(String columnLabel) throws SQLException
+<div class="methodText">Returns the value of the specified column as a Blob.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__21" onclick="return on(21)">
+<td class="return">boolean</td><td class="method">
+<a id="getBoolean_int" href="#getBoolean_int">getBoolean</a>(int columnIndex)
+<div class="methodText">Returns the value of the specified column as a boolean.</div>
+</td></tr>
+<tr onclick="return off(21)" class="detail" id="_21">
+<td class="return">boolean</td><td>
+<a id="getBoolean_int" href="#getBoolean_int">getBoolean</a>(int columnIndex) throws SQLException
+<div class="methodText">Returns the value of the specified column as a boolean.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__22" onclick="return on(22)">
+<td class="return">boolean</td><td class="method">
+<a id="getBoolean_String" href="#getBoolean_String">getBoolean</a>(String columnLabel)
+<div class="methodText">Returns the value of the specified column as a boolean.</div>
+</td></tr>
+<tr onclick="return off(22)" class="detail" id="_22">
+<td class="return">boolean</td><td>
+<a id="getBoolean_String" href="#getBoolean_String">getBoolean</a>(String columnLabel) throws SQLException
+<div class="methodText">Returns the value of the specified column as a boolean.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__23" onclick="return on(23)">
+<td class="return">byte</td><td class="method">
+<a id="getByte_int" href="#getByte_int">getByte</a>(int columnIndex)
+<div class="methodText">Returns the value of the specified column as a byte.</div>
+</td></tr>
+<tr onclick="return off(23)" class="detail" id="_23">
+<td class="return">byte</td><td>
+<a id="getByte_int" href="#getByte_int">getByte</a>(int columnIndex) throws SQLException
+<div class="methodText">Returns the value of the specified column as a byte.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__24" onclick="return on(24)">
+<td class="return">byte</td><td class="method">
+<a id="getByte_String" href="#getByte_String">getByte</a>(String columnLabel)
+<div class="methodText">Returns the value of the specified column as a byte.</div>
+</td></tr>
+<tr onclick="return off(24)" class="detail" id="_24">
+<td class="return">byte</td><td>
+<a id="getByte_String" href="#getByte_String">getByte</a>(String columnLabel) throws SQLException
+<div class="methodText">Returns the value of the specified column as a byte.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__25" onclick="return on(25)">
+<td class="return">byte[]</td><td class="method">
+<a id="getBytes_int" href="#getBytes_int">getBytes</a>(int columnIndex)
+<div class="methodText">Returns the value of the specified column as a byte array.</div>
+</td></tr>
+<tr onclick="return off(25)" class="detail" id="_25">
+<td class="return">byte[]</td><td>
+<a id="getBytes_int" href="#getBytes_int">getBytes</a>(int columnIndex) throws SQLException
+<div class="methodText">Returns the value of the specified column as a byte array.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__26" onclick="return on(26)">
+<td class="return">byte[]</td><td class="method">
+<a id="getBytes_String" href="#getBytes_String">getBytes</a>(String columnLabel)
+<div class="methodText">Returns the value of the specified column as a byte array.</div>
+</td></tr>
+<tr onclick="return off(26)" class="detail" id="_26">
+<td class="return">byte[]</td><td>
+<a id="getBytes_String" href="#getBytes_String">getBytes</a>(String columnLabel) throws SQLException
+<div class="methodText">Returns the value of the specified column as a byte array.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__27" onclick="return on(27)">
+<td class="return">Reader</td><td class="method">
+<a id="getCharacterStream_int" href="#getCharacterStream_int">getCharacterStream</a>(int columnIndex)
+<div class="methodText">Returns the value of the specified column as a reader.</div>
+</td></tr>
+<tr onclick="return off(27)" class="detail" id="_27">
+<td class="return">Reader</td><td>
+<a id="getCharacterStream_int" href="#getCharacterStream_int">getCharacterStream</a>(int columnIndex) throws SQLException
+<div class="methodText">Returns the value of the specified column as a reader.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__28" onclick="return on(28)">
+<td class="return">Reader</td><td class="method">
+<a id="getCharacterStream_String" href="#getCharacterStream_String">getCharacterStream</a>(String columnLabel)
+<div class="methodText">Returns the value of the specified column as a reader.</div>
+</td></tr>
+<tr onclick="return off(28)" class="detail" id="_28">
+<td class="return">Reader</td><td>
+<a id="getCharacterStream_String" href="#getCharacterStream_String">getCharacterStream</a>(String columnLabel) throws SQLException
+<div class="methodText">Returns the value of the specified column as a reader.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__29" onclick="return on(29)">
+<td class="return">Clob</td><td class="method">
+<a id="getClob_int" href="#getClob_int">getClob</a>(int columnIndex)
+<div class="methodText">Returns the value of the specified column as a Clob.</div>
+</td></tr>
+<tr onclick="return off(29)" class="detail" id="_29">
+<td class="return">Clob</td><td>
+<a id="getClob_int" href="#getClob_int">getClob</a>(int columnIndex) throws SQLException
+<div class="methodText">Returns the value of the specified column as a Clob.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__30" onclick="return on(30)">
+<td class="return">Clob</td><td class="method">
+<a id="getClob_String" href="#getClob_String">getClob</a>(String columnLabel)
+<div class="methodText">Returns the value of the specified column as a Clob.</div>
+</td></tr>
+<tr onclick="return off(30)" class="detail" id="_30">
+<td class="return">Clob</td><td>
+<a id="getClob_String" href="#getClob_String">getClob</a>(String columnLabel) throws SQLException
+<div class="methodText">Returns the value of the specified column as a Clob.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__31" onclick="return on(31)">
+<td class="return">int</td><td class="method">
+<a id="getConcurrency" href="#getConcurrency">getConcurrency</a>()
+<div class="methodText">Gets the result set concurrency.</div>
+</td></tr>
+<tr onclick="return off(31)" class="detail" id="_31">
+<td class="return">int</td><td>
+<a id="getConcurrency" href="#getConcurrency">getConcurrency</a>() throws SQLException
+<div class="methodText">Gets the result set concurrency. Result sets are only updatable if the
+ statement was created with updatable concurrency, and if the result set
+ contains all columns of the primary key or of a unique index of a table.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">ResultSet.CONCUR_UPDATABLE if the result set is updatable, or
+         ResultSet.CONCUR_READ_ONLY otherwise</div>
+</td></tr>
+<tr id="__32" onclick="return on(32)">
+<td class="return">String</td><td class="method">
+<a id="getCursorName" href="#getCursorName">getCursorName</a>()
+<div class="methodText">[Not supported] Gets the cursor name if it was defined.</div>
+</td></tr>
+<tr onclick="return off(32)" class="detail" id="_32">
+<td class="return">String</td><td>
+<a id="getCursorName" href="#getCursorName">getCursorName</a>() throws SQLException
+<div class="methodText">[Not supported] Gets the cursor name if it was defined. This feature is
+ superseded by updateX methods. This method throws a SQLException because
+ cursor names are not supported.</div>
+</td></tr>
+<tr id="__33" onclick="return on(33)">
+<td class="return">Date</td><td class="method">
+<a id="getDate_int" href="#getDate_int">getDate</a>(int columnIndex)
+<div class="methodText">Returns the value of the specified column as a java.sql.Date.</div>
+</td></tr>
+<tr onclick="return off(33)" class="detail" id="_33">
+<td class="return">Date</td><td>
+<a id="getDate_int" href="#getDate_int">getDate</a>(int columnIndex) throws SQLException
+<div class="methodText">Returns the value of the specified column as a java.sql.Date.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is closed</div>
+</td></tr>
+<tr id="__34" onclick="return on(34)">
+<td class="return">Date</td><td class="method">
+<a id="getDate_String" href="#getDate_String">getDate</a>(String columnLabel)
+<div class="methodText">Returns the value of the specified column as a java.sql.Date.</div>
+</td></tr>
+<tr onclick="return off(34)" class="detail" id="_34">
+<td class="return">Date</td><td>
+<a id="getDate_String" href="#getDate_String">getDate</a>(String columnLabel) throws SQLException
+<div class="methodText">Returns the value of the specified column as a java.sql.Date.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is closed</div>
+</td></tr>
+<tr id="__35" onclick="return on(35)">
+<td class="return">Date</td><td class="method">
+<a id="getDate_int_Calendar" href="#getDate_int_Calendar">getDate</a>(int columnIndex, Calendar calendar)
+<div class="methodText">Returns the value of the specified column as a java.sql.Date using a
+ specified time zone.</div>
+</td></tr>
+<tr onclick="return off(35)" class="detail" id="_35">
+<td class="return">Date</td><td>
+<a id="getDate_int_Calendar" href="#getDate_int_Calendar">getDate</a>(int columnIndex, Calendar calendar) throws SQLException
+<div class="methodText">Returns the value of the specified column as a java.sql.Date using a
+ specified time zone.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="item">calendar - the calendar</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__36" onclick="return on(36)">
+<td class="return">Date</td><td class="method">
+<a id="getDate_String_Calendar" href="#getDate_String_Calendar">getDate</a>(String columnLabel, Calendar calendar)
+<div class="methodText">Returns the value of the specified column as a java.sql.Date using a
+ specified time zone.</div>
+</td></tr>
+<tr onclick="return off(36)" class="detail" id="_36">
+<td class="return">Date</td><td>
+<a id="getDate_String_Calendar" href="#getDate_String_Calendar">getDate</a>(String columnLabel, Calendar calendar) throws SQLException
+<div class="methodText">Returns the value of the specified column as a java.sql.Date using a
+ specified time zone.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="item">calendar - the calendar</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__37" onclick="return on(37)">
+<td class="return">double</td><td class="method">
+<a id="getDouble_int" href="#getDouble_int">getDouble</a>(int columnIndex)
+<div class="methodText">Returns the value of the specified column as a double.</div>
+</td></tr>
+<tr onclick="return off(37)" class="detail" id="_37">
+<td class="return">double</td><td>
+<a id="getDouble_int" href="#getDouble_int">getDouble</a>(int columnIndex) throws SQLException
+<div class="methodText">Returns the value of the specified column as a double.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__38" onclick="return on(38)">
+<td class="return">double</td><td class="method">
+<a id="getDouble_String" href="#getDouble_String">getDouble</a>(String columnLabel)
+<div class="methodText">Returns the value of the specified column as a double.</div>
+</td></tr>
+<tr onclick="return off(38)" class="detail" id="_38">
+<td class="return">double</td><td>
+<a id="getDouble_String" href="#getDouble_String">getDouble</a>(String columnLabel) throws SQLException
+<div class="methodText">Returns the value of the specified column as a double.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__39" onclick="return on(39)">
+<td class="return">int</td><td class="method">
+<a id="getFetchDirection" href="#getFetchDirection">getFetchDirection</a>()
+<div class="methodText">Gets the fetch direction.</div>
+</td></tr>
+<tr onclick="return off(39)" class="detail" id="_39">
+<td class="return">int</td><td>
+<a id="getFetchDirection" href="#getFetchDirection">getFetchDirection</a>() throws SQLException
+<div class="methodText">Gets the fetch direction.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the direction: FETCH_FORWARD</div>
+</td></tr>
+<tr id="__40" onclick="return on(40)">
+<td class="return">int</td><td class="method">
+<a id="getFetchSize" href="#getFetchSize">getFetchSize</a>()
+<div class="methodText">Gets the number of rows suggested to read in one step.</div>
+</td></tr>
+<tr onclick="return off(40)" class="detail" id="_40">
+<td class="return">int</td><td>
+<a id="getFetchSize" href="#getFetchSize">getFetchSize</a>() throws SQLException
+<div class="methodText">Gets the number of rows suggested to read in one step.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the current fetch size</div>
+</td></tr>
+<tr id="__41" onclick="return on(41)">
+<td class="return">float</td><td class="method">
+<a id="getFloat_int" href="#getFloat_int">getFloat</a>(int columnIndex)
+<div class="methodText">Returns the value of the specified column as a float.</div>
+</td></tr>
+<tr onclick="return off(41)" class="detail" id="_41">
+<td class="return">float</td><td>
+<a id="getFloat_int" href="#getFloat_int">getFloat</a>(int columnIndex) throws SQLException
+<div class="methodText">Returns the value of the specified column as a float.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__42" onclick="return on(42)">
+<td class="return">float</td><td class="method">
+<a id="getFloat_String" href="#getFloat_String">getFloat</a>(String columnLabel)
+<div class="methodText">Returns the value of the specified column as a float.</div>
+</td></tr>
+<tr onclick="return off(42)" class="detail" id="_42">
+<td class="return">float</td><td>
+<a id="getFloat_String" href="#getFloat_String">getFloat</a>(String columnLabel) throws SQLException
+<div class="methodText">Returns the value of the specified column as a float.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__43" onclick="return on(43)">
+<td class="return">int</td><td class="method">
+<a id="getHoldability" href="#getHoldability">getHoldability</a>()
+<div class="methodText">Returns the current result set holdability.</div>
+</td></tr>
+<tr onclick="return off(43)" class="detail" id="_43">
+<td class="return">int</td><td>
+<a id="getHoldability" href="#getHoldability">getHoldability</a>() throws SQLException
+<div class="methodText">Returns the current result set holdability.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the holdability</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the connection is closed</div>
+</td></tr>
+<tr id="__44" onclick="return on(44)">
+<td class="return">int</td><td class="method">
+<a id="getInt_int" href="#getInt_int">getInt</a>(int columnIndex)
+<div class="methodText">Returns the value of the specified column as an int.</div>
+</td></tr>
+<tr onclick="return off(44)" class="detail" id="_44">
+<td class="return">int</td><td>
+<a id="getInt_int" href="#getInt_int">getInt</a>(int columnIndex) throws SQLException
+<div class="methodText">Returns the value of the specified column as an int.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is closed</div>
+</td></tr>
+<tr id="__45" onclick="return on(45)">
+<td class="return">int</td><td class="method">
+<a id="getInt_String" href="#getInt_String">getInt</a>(String columnLabel)
+<div class="methodText">Returns the value of the specified column as an int.</div>
+</td></tr>
+<tr onclick="return off(45)" class="detail" id="_45">
+<td class="return">int</td><td>
+<a id="getInt_String" href="#getInt_String">getInt</a>(String columnLabel) throws SQLException
+<div class="methodText">Returns the value of the specified column as an int.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is closed</div>
+</td></tr>
+<tr id="__46" onclick="return on(46)">
+<td class="return">long</td><td class="method">
+<a id="getLong_int" href="#getLong_int">getLong</a>(int columnIndex)
+<div class="methodText">Returns the value of the specified column as a long.</div>
+</td></tr>
+<tr onclick="return off(46)" class="detail" id="_46">
+<td class="return">long</td><td>
+<a id="getLong_int" href="#getLong_int">getLong</a>(int columnIndex) throws SQLException
+<div class="methodText">Returns the value of the specified column as a long.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__47" onclick="return on(47)">
+<td class="return">long</td><td class="method">
+<a id="getLong_String" href="#getLong_String">getLong</a>(String columnLabel)
+<div class="methodText">Returns the value of the specified column as a long.</div>
+</td></tr>
+<tr onclick="return off(47)" class="detail" id="_47">
+<td class="return">long</td><td>
+<a id="getLong_String" href="#getLong_String">getLong</a>(String columnLabel) throws SQLException
+<div class="methodText">Returns the value of the specified column as a long.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__48" onclick="return on(48)">
+<td class="return">ResultSetMetaData</td><td class="method">
+<a id="getMetaData" href="#getMetaData">getMetaData</a>()
+<div class="methodText">Gets the meta data of this result set.</div>
+</td></tr>
+<tr onclick="return off(48)" class="detail" id="_48">
+<td class="return">ResultSetMetaData</td><td>
+<a id="getMetaData" href="#getMetaData">getMetaData</a>() throws SQLException
+<div class="methodText">Gets the meta data of this result set.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the meta data</div>
+</td></tr>
+<tr id="__49" onclick="return on(49)">
+<td class="return">Reader</td><td class="method">
+<a id="getNCharacterStream_int" href="#getNCharacterStream_int">getNCharacterStream</a>(int columnIndex)
+<div class="methodText">Returns the value of the specified column as a reader.</div>
+</td></tr>
+<tr onclick="return off(49)" class="detail" id="_49">
+<td class="return">Reader</td><td>
+<a id="getNCharacterStream_int" href="#getNCharacterStream_int">getNCharacterStream</a>(int columnIndex) throws SQLException
+<div class="methodText">Returns the value of the specified column as a reader.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__50" onclick="return on(50)">
+<td class="return">Reader</td><td class="method">
+<a id="getNCharacterStream_String" href="#getNCharacterStream_String">getNCharacterStream</a>(String columnLabel)
+<div class="methodText">Returns the value of the specified column as a reader.</div>
+</td></tr>
+<tr onclick="return off(50)" class="detail" id="_50">
+<td class="return">Reader</td><td>
+<a id="getNCharacterStream_String" href="#getNCharacterStream_String">getNCharacterStream</a>(String columnLabel) throws SQLException
+<div class="methodText">Returns the value of the specified column as a reader.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__51" onclick="return on(51)">
+<td class="return">NClob</td><td class="method">
+<a id="getNClob_int" href="#getNClob_int">getNClob</a>(int columnIndex)
+<div class="methodText">Returns the value of the specified column as a Clob.</div>
+</td></tr>
+<tr onclick="return off(51)" class="detail" id="_51">
+<td class="return">NClob</td><td>
+<a id="getNClob_int" href="#getNClob_int">getNClob</a>(int columnIndex) throws SQLException
+<div class="methodText">Returns the value of the specified column as a Clob.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is closed</div>
+</td></tr>
+<tr id="__52" onclick="return on(52)">
+<td class="return">NClob</td><td class="method">
+<a id="getNClob_String" href="#getNClob_String">getNClob</a>(String columnLabel)
+<div class="methodText">Returns the value of the specified column as a Clob.</div>
+</td></tr>
+<tr onclick="return off(52)" class="detail" id="_52">
+<td class="return">NClob</td><td>
+<a id="getNClob_String" href="#getNClob_String">getNClob</a>(String columnLabel) throws SQLException
+<div class="methodText">Returns the value of the specified column as a Clob.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is closed</div>
+</td></tr>
+<tr id="__53" onclick="return on(53)">
+<td class="return">String</td><td class="method">
+<a id="getNString_int" href="#getNString_int">getNString</a>(int columnIndex)
+<div class="methodText">Returns the value of the specified column as a String.</div>
+</td></tr>
+<tr onclick="return off(53)" class="detail" id="_53">
+<td class="return">String</td><td>
+<a id="getNString_int" href="#getNString_int">getNString</a>(int columnIndex) throws SQLException
+<div class="methodText">Returns the value of the specified column as a String.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__54" onclick="return on(54)">
+<td class="return">String</td><td class="method">
+<a id="getNString_String" href="#getNString_String">getNString</a>(String columnLabel)
+<div class="methodText">Returns the value of the specified column as a String.</div>
+</td></tr>
+<tr onclick="return off(54)" class="detail" id="_54">
+<td class="return">String</td><td>
+<a id="getNString_String" href="#getNString_String">getNString</a>(String columnLabel) throws SQLException
+<div class="methodText">Returns the value of the specified column as a String.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__55" onclick="return on(55)">
+<td class="return">Object</td><td class="method">
+<a id="getObject_int" href="#getObject_int">getObject</a>(int columnIndex)
+<div class="methodText">Returns a column value as a Java object.</div>
+</td></tr>
+<tr onclick="return off(55)" class="detail" id="_55">
+<td class="return">Object</td><td>
+<a id="getObject_int" href="#getObject_int">getObject</a>(int columnIndex) throws SQLException
+<div class="methodText">Returns a column value as a Java object. The data is
+ de-serialized into a Java object (on the client side).</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value or null</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__56" onclick="return on(56)">
+<td class="return">Object</td><td class="method">
+<a id="getObject_String" href="#getObject_String">getObject</a>(String columnLabel)
+<div class="methodText">Returns a column value as a Java object.</div>
+</td></tr>
+<tr onclick="return off(56)" class="detail" id="_56">
+<td class="return">Object</td><td>
+<a id="getObject_String" href="#getObject_String">getObject</a>(String columnLabel) throws SQLException
+<div class="methodText">Returns a column value as a Java object. The data is
+ de-serialized into a Java object (on the client side).</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value or null</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__57" onclick="return on(57)">
+<td class="return">Object</td><td class="method">
+<a id="getObject_int_Map" href="#getObject_int_Map">getObject</a>(int columnIndex, Map map)
+<div class="methodText">[Not supported] Gets a column as a object using the specified type
+ mapping.</div>
+</td></tr>
+<tr onclick="return off(57)" class="detail" id="_57">
+<td class="return">Object</td><td>
+<a id="getObject_int_Map" href="#getObject_int_Map">getObject</a>(int columnIndex, Map map) throws SQLException
+<div class="methodText">[Not supported] Gets a column as a object using the specified type
+ mapping.</div>
+</td></tr>
+<tr id="__58" onclick="return on(58)">
+<td class="return">Object</td><td class="method">
+<a id="getObject_String_Map" href="#getObject_String_Map">getObject</a>(String columnLabel, Map map)
+<div class="methodText">[Not supported] Gets a column as a object using the specified type
+ mapping.</div>
+</td></tr>
+<tr onclick="return off(58)" class="detail" id="_58">
+<td class="return">Object</td><td>
+<a id="getObject_String_Map" href="#getObject_String_Map">getObject</a>(String columnLabel, Map map) throws SQLException
+<div class="methodText">[Not supported] Gets a column as a object using the specified type
+ mapping.</div>
+</td></tr>
+<tr id="__59" onclick="return on(59)">
+<td class="return">Ref</td><td class="method">
+<a id="getRef_int" href="#getRef_int">getRef</a>(int columnIndex)
+<div class="methodText">[Not supported] Gets a column as a reference.</div>
+</td></tr>
+<tr onclick="return off(59)" class="detail" id="_59">
+<td class="return">Ref</td><td>
+<a id="getRef_int" href="#getRef_int">getRef</a>(int columnIndex) throws SQLException
+<div class="methodText">[Not supported] Gets a column as a reference.</div>
+</td></tr>
+<tr id="__60" onclick="return on(60)">
+<td class="return">Ref</td><td class="method">
+<a id="getRef_String" href="#getRef_String">getRef</a>(String columnLabel)
+<div class="methodText">[Not supported] Gets a column as a reference.</div>
+</td></tr>
+<tr onclick="return off(60)" class="detail" id="_60">
+<td class="return">Ref</td><td>
+<a id="getRef_String" href="#getRef_String">getRef</a>(String columnLabel) throws SQLException
+<div class="methodText">[Not supported] Gets a column as a reference.</div>
+</td></tr>
+<tr id="__61" onclick="return on(61)">
+<td class="return">int</td><td class="method">
+<a id="getRow" href="#getRow">getRow</a>()
+<div class="methodText">Gets the current row number.</div>
+</td></tr>
+<tr onclick="return off(61)" class="detail" id="_61">
+<td class="return">int</td><td>
+<a id="getRow" href="#getRow">getRow</a>() throws SQLException
+<div class="methodText">Gets the current row number. The first row is row 1, the second 2 and so
+ on. This method returns 0 before the first and after the last row.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the row number</div>
+</td></tr>
+<tr id="__62" onclick="return on(62)">
+<td class="return">RowId</td><td class="method">
+<a id="getRowId_int" href="#getRowId_int">getRowId</a>(int columnIndex)
+<div class="methodText">[Not supported] Returns the value of the specified column as a row id.</div>
+</td></tr>
+<tr onclick="return off(62)" class="detail" id="_62">
+<td class="return">RowId</td><td>
+<a id="getRowId_int" href="#getRowId_int">getRowId</a>(int columnIndex) throws SQLException
+<div class="methodText">[Not supported] Returns the value of the specified column as a row id.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+</td></tr>
+<tr id="__63" onclick="return on(63)">
+<td class="return">RowId</td><td class="method">
+<a id="getRowId_String" href="#getRowId_String">getRowId</a>(String columnLabel)
+<div class="methodText">[Not supported] Returns the value of the specified column as a row id.</div>
+</td></tr>
+<tr onclick="return off(63)" class="detail" id="_63">
+<td class="return">RowId</td><td>
+<a id="getRowId_String" href="#getRowId_String">getRowId</a>(String columnLabel) throws SQLException
+<div class="methodText">[Not supported] Returns the value of the specified column as a row id.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+</td></tr>
+<tr id="__64" onclick="return on(64)">
+<td class="return">SQLXML</td><td class="method">
+<a id="getSQLXML_int" href="#getSQLXML_int">getSQLXML</a>(int columnIndex)
+<div class="methodText">[Not supported] Returns the value of the specified column as a SQLXML object.</div>
+</td></tr>
+<tr onclick="return off(64)" class="detail" id="_64">
+<td class="return">SQLXML</td><td>
+<a id="getSQLXML_int" href="#getSQLXML_int">getSQLXML</a>(int columnIndex) throws SQLException
+<div class="methodText">[Not supported] Returns the value of the specified column as a SQLXML object.</div>
+</td></tr>
+<tr id="__65" onclick="return on(65)">
+<td class="return">SQLXML</td><td class="method">
+<a id="getSQLXML_String" href="#getSQLXML_String">getSQLXML</a>(String columnLabel)
+<div class="methodText">[Not supported] Returns the value of the specified column as a SQLXML object.</div>
+</td></tr>
+<tr onclick="return off(65)" class="detail" id="_65">
+<td class="return">SQLXML</td><td>
+<a id="getSQLXML_String" href="#getSQLXML_String">getSQLXML</a>(String columnLabel) throws SQLException
+<div class="methodText">[Not supported] Returns the value of the specified column as a SQLXML object.</div>
+</td></tr>
+<tr id="__66" onclick="return on(66)">
+<td class="return">short</td><td class="method">
+<a id="getShort_int" href="#getShort_int">getShort</a>(int columnIndex)
+<div class="methodText">Returns the value of the specified column as a short.</div>
+</td></tr>
+<tr onclick="return off(66)" class="detail" id="_66">
+<td class="return">short</td><td>
+<a id="getShort_int" href="#getShort_int">getShort</a>(int columnIndex) throws SQLException
+<div class="methodText">Returns the value of the specified column as a short.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__67" onclick="return on(67)">
+<td class="return">short</td><td class="method">
+<a id="getShort_String" href="#getShort_String">getShort</a>(String columnLabel)
+<div class="methodText">Returns the value of the specified column as a short.</div>
+</td></tr>
+<tr onclick="return off(67)" class="detail" id="_67">
+<td class="return">short</td><td>
+<a id="getShort_String" href="#getShort_String">getShort</a>(String columnLabel) throws SQLException
+<div class="methodText">Returns the value of the specified column as a short.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__68" onclick="return on(68)">
+<td class="return">Statement</td><td class="method">
+<a id="getStatement" href="#getStatement">getStatement</a>()
+<div class="methodText">Returns the statement that created this object.</div>
+</td></tr>
+<tr onclick="return off(68)" class="detail" id="_68">
+<td class="return">Statement</td><td>
+<a id="getStatement" href="#getStatement">getStatement</a>() throws SQLException
+<div class="methodText">Returns the statement that created this object.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the statement or prepared statement, or null if created by a
+         DatabaseMetaData call.</div>
+</td></tr>
+<tr id="__69" onclick="return on(69)">
+<td class="return">String</td><td class="method">
+<a id="getString_int" href="#getString_int">getString</a>(int columnIndex)
+<div class="methodText">Returns the value of the specified column as a String.</div>
+</td></tr>
+<tr onclick="return off(69)" class="detail" id="_69">
+<td class="return">String</td><td>
+<a id="getString_int" href="#getString_int">getString</a>(int columnIndex) throws SQLException
+<div class="methodText">Returns the value of the specified column as a String.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is closed</div>
+</td></tr>
+<tr id="__70" onclick="return on(70)">
+<td class="return">String</td><td class="method">
+<a id="getString_String" href="#getString_String">getString</a>(String columnLabel)
+<div class="methodText">Returns the value of the specified column as a String.</div>
+</td></tr>
+<tr onclick="return off(70)" class="detail" id="_70">
+<td class="return">String</td><td>
+<a id="getString_String" href="#getString_String">getString</a>(String columnLabel) throws SQLException
+<div class="methodText">Returns the value of the specified column as a String.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is closed</div>
+</td></tr>
+<tr id="__71" onclick="return on(71)">
+<td class="return">Time</td><td class="method">
+<a id="getTime_int" href="#getTime_int">getTime</a>(int columnIndex)
+<div class="methodText">Returns the value of the specified column as a java.sql.Time.</div>
+</td></tr>
+<tr onclick="return off(71)" class="detail" id="_71">
+<td class="return">Time</td><td>
+<a id="getTime_int" href="#getTime_int">getTime</a>(int columnIndex) throws SQLException
+<div class="methodText">Returns the value of the specified column as a java.sql.Time.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is closed</div>
+</td></tr>
+<tr id="__72" onclick="return on(72)">
+<td class="return">Time</td><td class="method">
+<a id="getTime_String" href="#getTime_String">getTime</a>(String columnLabel)
+<div class="methodText">Returns the value of the specified column as a java.sql.Time.</div>
+</td></tr>
+<tr onclick="return off(72)" class="detail" id="_72">
+<td class="return">Time</td><td>
+<a id="getTime_String" href="#getTime_String">getTime</a>(String columnLabel) throws SQLException
+<div class="methodText">Returns the value of the specified column as a java.sql.Time.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__73" onclick="return on(73)">
+<td class="return">Time</td><td class="method">
+<a id="getTime_int_Calendar" href="#getTime_int_Calendar">getTime</a>(int columnIndex, Calendar calendar)
+<div class="methodText">Returns the value of the specified column as a java.sql.Time using a
+ specified time zone.</div>
+</td></tr>
+<tr onclick="return off(73)" class="detail" id="_73">
+<td class="return">Time</td><td>
+<a id="getTime_int_Calendar" href="#getTime_int_Calendar">getTime</a>(int columnIndex, Calendar calendar) throws SQLException
+<div class="methodText">Returns the value of the specified column as a java.sql.Time using a
+ specified time zone.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="item">calendar - the calendar</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__74" onclick="return on(74)">
+<td class="return">Time</td><td class="method">
+<a id="getTime_String_Calendar" href="#getTime_String_Calendar">getTime</a>(String columnLabel, Calendar calendar)
+<div class="methodText">Returns the value of the specified column as a java.sql.Time using a
+ specified time zone.</div>
+</td></tr>
+<tr onclick="return off(74)" class="detail" id="_74">
+<td class="return">Time</td><td>
+<a id="getTime_String_Calendar" href="#getTime_String_Calendar">getTime</a>(String columnLabel, Calendar calendar) throws SQLException
+<div class="methodText">Returns the value of the specified column as a java.sql.Time using a
+ specified time zone.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="item">calendar - the calendar</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__75" onclick="return on(75)">
+<td class="return">Timestamp</td><td class="method">
+<a id="getTimestamp_int" href="#getTimestamp_int">getTimestamp</a>(int columnIndex)
+<div class="methodText">Returns the value of the specified column as a java.sql.Timestamp.</div>
+</td></tr>
+<tr onclick="return off(75)" class="detail" id="_75">
+<td class="return">Timestamp</td><td>
+<a id="getTimestamp_int" href="#getTimestamp_int">getTimestamp</a>(int columnIndex) throws SQLException
+<div class="methodText">Returns the value of the specified column as a java.sql.Timestamp.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is closed</div>
+</td></tr>
+<tr id="__76" onclick="return on(76)">
+<td class="return">Timestamp</td><td class="method">
+<a id="getTimestamp_String" href="#getTimestamp_String">getTimestamp</a>(String columnLabel)
+<div class="methodText">Returns the value of the specified column as a java.sql.Timestamp.</div>
+</td></tr>
+<tr onclick="return off(76)" class="detail" id="_76">
+<td class="return">Timestamp</td><td>
+<a id="getTimestamp_String" href="#getTimestamp_String">getTimestamp</a>(String columnLabel) throws SQLException
+<div class="methodText">Returns the value of the specified column as a java.sql.Timestamp.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__77" onclick="return on(77)">
+<td class="return">Timestamp</td><td class="method">
+<a id="getTimestamp_int_Calendar" href="#getTimestamp_int_Calendar">getTimestamp</a>(int columnIndex, Calendar calendar)
+<div class="methodText">Returns the value of the specified column as a java.sql.Timestamp using a
+ specified time zone.</div>
+</td></tr>
+<tr onclick="return off(77)" class="detail" id="_77">
+<td class="return">Timestamp</td><td>
+<a id="getTimestamp_int_Calendar" href="#getTimestamp_int_Calendar">getTimestamp</a>(int columnIndex, Calendar calendar) throws SQLException
+<div class="methodText">Returns the value of the specified column as a java.sql.Timestamp using a
+ specified time zone.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="item">calendar - the calendar</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__78" onclick="return on(78)">
+<td class="return">Timestamp</td><td class="method">
+<a id="getTimestamp_String_Calendar" href="#getTimestamp_String_Calendar">getTimestamp</a>(String columnLabel, Calendar calendar)
+<div class="methodText">Returns the value of the specified column as a java.sql.Timestamp.</div>
+</td></tr>
+<tr onclick="return off(78)" class="detail" id="_78">
+<td class="return">Timestamp</td><td>
+<a id="getTimestamp_String_Calendar" href="#getTimestamp_String_Calendar">getTimestamp</a>(String columnLabel, Calendar calendar) throws SQLException
+<div class="methodText">Returns the value of the specified column as a java.sql.Timestamp.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="item">calendar - the calendar</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__79" onclick="return on(79)">
+<td class="return">int</td><td class="method">
+<a id="getType" href="#getType">getType</a>()
+<div class="methodText">Get the result set type.</div>
+</td></tr>
+<tr onclick="return off(79)" class="detail" id="_79">
+<td class="return">int</td><td>
+<a id="getType" href="#getType">getType</a>() throws SQLException
+<div class="methodText">Get the result set type.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the result set type (TYPE_FORWARD_ONLY, TYPE_SCROLL_INSENSITIVE
+         or TYPE_SCROLL_SENSITIVE)</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__80" onclick="return on(80)">
+<td class="return">URL</td><td class="method">
+<a id="getURL_int" href="#getURL_int">getURL</a>(int columnIndex)
+<div class="methodText">[Not supported]</div>
+</td></tr>
+<tr onclick="return off(80)" class="detail" id="_80">
+<td class="return">URL</td><td>
+<a id="getURL_int" href="#getURL_int">getURL</a>(int columnIndex) throws SQLException
+<div class="methodText">[Not supported]</div>
+</td></tr>
+<tr id="__81" onclick="return on(81)">
+<td class="return">URL</td><td class="method">
+<a id="getURL_String" href="#getURL_String">getURL</a>(String columnLabel)
+<div class="methodText">[Not supported]</div>
+</td></tr>
+<tr onclick="return off(81)" class="detail" id="_81">
+<td class="return">URL</td><td>
+<a id="getURL_String" href="#getURL_String">getURL</a>(String columnLabel) throws SQLException
+<div class="methodText">[Not supported]</div>
+</td></tr>
+<tr id="__82" onclick="return on(82)">
+<td class="return">InputStream</td><td class="method">
+<a id="getUnicodeStream_int" href="#getUnicodeStream_int"><span class="deprecated">getUnicodeStream</span></a>(int columnIndex)
+<div class="methodText">[Not supported]</div>
+</td></tr>
+<tr onclick="return off(82)" class="detail" id="_82">
+<td class="return">InputStream</td><td>
+<a id="getUnicodeStream_int" href="#getUnicodeStream_int"><span class="deprecated">getUnicodeStream</span></a>(int columnIndex) throws SQLException
+<div class="methodText">[Not supported]</div>
+</td></tr>
+<tr id="__83" onclick="return on(83)">
+<td class="return">InputStream</td><td class="method">
+<a id="getUnicodeStream_String" href="#getUnicodeStream_String"><span class="deprecated">getUnicodeStream</span></a>(String columnLabel)
+<div class="methodText">[Not supported]</div>
+</td></tr>
+<tr onclick="return off(83)" class="detail" id="_83">
+<td class="return">InputStream</td><td>
+<a id="getUnicodeStream_String" href="#getUnicodeStream_String"><span class="deprecated">getUnicodeStream</span></a>(String columnLabel) throws SQLException
+<div class="methodText">[Not supported]</div>
+</td></tr>
+<tr id="__84" onclick="return on(84)">
+<td class="return">SQLWarning</td><td class="method">
+<a id="getWarnings" href="#getWarnings">getWarnings</a>()
+<div class="methodText">Gets the first warning reported by calls on this object.</div>
+</td></tr>
+<tr onclick="return off(84)" class="detail" id="_84">
+<td class="return">SQLWarning</td><td>
+<a id="getWarnings" href="#getWarnings">getWarnings</a>() throws SQLException
+<div class="methodText">Gets the first warning reported by calls on this object.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">null</div>
+</td></tr>
+<tr id="__85" onclick="return on(85)">
+<td class="return">void</td><td class="method">
+<a id="insertRow" href="#insertRow">insertRow</a>()
+<div class="methodText">Inserts the current row.</div>
+</td></tr>
+<tr onclick="return off(85)" class="detail" id="_85">
+<td class="return">void</td><td>
+<a id="insertRow" href="#insertRow">insertRow</a>() throws SQLException
+<div class="methodText">Inserts the current row. The current position must be the insert row.</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or if not on the insert
+             row, or if the result set it not updatable</div>
+</td></tr>
+<tr id="__86" onclick="return on(86)">
+<td class="return">boolean</td><td class="method">
+<a id="isAfterLast" href="#isAfterLast">isAfterLast</a>()
+<div class="methodText">Checks if the current position is after the last row, that means next()
+ was called and returned false, and there was at least one row.</div>
+</td></tr>
+<tr onclick="return off(86)" class="detail" id="_86">
+<td class="return">boolean</td><td>
+<a id="isAfterLast" href="#isAfterLast">isAfterLast</a>() throws SQLException
+<div class="methodText">Checks if the current position is after the last row, that means next()
+ was called and returned false, and there was at least one row.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">if there are results and the current position is after the last row</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed</div>
+</td></tr>
+<tr id="__87" onclick="return on(87)">
+<td class="return">boolean</td><td class="method">
+<a id="isBeforeFirst" href="#isBeforeFirst">isBeforeFirst</a>()
+<div class="methodText">Checks if the current position is before the first row, that means next()
+ was not called yet, and there is at least one row.</div>
+</td></tr>
+<tr onclick="return off(87)" class="detail" id="_87">
+<td class="return">boolean</td><td>
+<a id="isBeforeFirst" href="#isBeforeFirst">isBeforeFirst</a>() throws SQLException
+<div class="methodText">Checks if the current position is before the first row, that means next()
+ was not called yet, and there is at least one row.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">if there are results and the current position is before the first row</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed</div>
+</td></tr>
+<tr id="__88" onclick="return on(88)">
+<td class="return">boolean</td><td class="method">
+<a id="isClosed" href="#isClosed">isClosed</a>()
+<div class="methodText">Returns whether this result set is closed.</div>
+</td></tr>
+<tr onclick="return off(88)" class="detail" id="_88">
+<td class="return">boolean</td><td>
+<a id="isClosed" href="#isClosed">isClosed</a>() throws SQLException
+<div class="methodText">Returns whether this result set is closed.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">true if the result set is closed</div>
+</td></tr>
+<tr id="__89" onclick="return on(89)">
+<td class="return">boolean</td><td class="method">
+<a id="isFirst" href="#isFirst">isFirst</a>()
+<div class="methodText">Checks if the current position is row 1, that means next() was called
+ once and returned true.</div>
+</td></tr>
+<tr onclick="return off(89)" class="detail" id="_89">
+<td class="return">boolean</td><td>
+<a id="isFirst" href="#isFirst">isFirst</a>() throws SQLException
+<div class="methodText">Checks if the current position is row 1, that means next() was called
+ once and returned true.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">if the current position is the first row</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed</div>
+</td></tr>
+<tr id="__90" onclick="return on(90)">
+<td class="return">boolean</td><td class="method">
+<a id="isLast" href="#isLast">isLast</a>()
+<div class="methodText">Checks if the current position is the last row, that means next() was
+ called and did not yet returned false, but will in the next call.</div>
+</td></tr>
+<tr onclick="return off(90)" class="detail" id="_90">
+<td class="return">boolean</td><td>
+<a id="isLast" href="#isLast">isLast</a>() throws SQLException
+<div class="methodText">Checks if the current position is the last row, that means next() was
+ called and did not yet returned false, but will in the next call.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">if the current position is the last row</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed</div>
+</td></tr>
+<tr id="__91" onclick="return on(91)">
+<td class="return">boolean</td><td class="method">
+<a id="isWrapperFor_Class" href="#isWrapperFor_Class">isWrapperFor</a>(Class iface)
+<div class="methodText">[Not supported] Checks if unwrap can return an object of this class.</div>
+</td></tr>
+<tr onclick="return off(91)" class="detail" id="_91">
+<td class="return">boolean</td><td>
+<a id="isWrapperFor_Class" href="#isWrapperFor_Class">isWrapperFor</a>(Class iface) throws SQLException
+<div class="methodText">[Not supported] Checks if unwrap can return an object of this class.</div>
+</td></tr>
+<tr id="__92" onclick="return on(92)">
+<td class="return">boolean</td><td class="method">
+<a id="last" href="#last">last</a>()
+<div class="methodText">Moves the current position to the last row.</div>
+</td></tr>
+<tr onclick="return off(92)" class="detail" id="_92">
+<td class="return">boolean</td><td>
+<a id="last" href="#last">last</a>() throws SQLException
+<div class="methodText">Moves the current position to the last row.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">true if there is a row available, false if not</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed</div>
+</td></tr>
+<tr id="__93" onclick="return on(93)">
+<td class="return">void</td><td class="method">
+<a id="moveToCurrentRow" href="#moveToCurrentRow">moveToCurrentRow</a>()
+<div class="methodText">Moves the current position to the current row.</div>
+</td></tr>
+<tr onclick="return off(93)" class="detail" id="_93">
+<td class="return">void</td><td>
+<a id="moveToCurrentRow" href="#moveToCurrentRow">moveToCurrentRow</a>() throws SQLException
+<div class="methodText">Moves the current position to the current row.</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or is not updatable</div>
+</td></tr>
+<tr id="__94" onclick="return on(94)">
+<td class="return">void</td><td class="method">
+<a id="moveToInsertRow" href="#moveToInsertRow">moveToInsertRow</a>()
+<div class="methodText">Moves the current position to the insert row.</div>
+</td></tr>
+<tr onclick="return off(94)" class="detail" id="_94">
+<td class="return">void</td><td>
+<a id="moveToInsertRow" href="#moveToInsertRow">moveToInsertRow</a>() throws SQLException
+<div class="methodText">Moves the current position to the insert row. The current row is remembered.</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or is not updatable</div>
+</td></tr>
+<tr id="__95" onclick="return on(95)">
+<td class="return">boolean</td><td class="method">
+<a id="next" href="#next">next</a>()
+<div class="methodText">Moves the cursor to the next row of the result set.</div>
+</td></tr>
+<tr onclick="return off(95)" class="detail" id="_95">
+<td class="return">boolean</td><td>
+<a id="next" href="#next">next</a>() throws SQLException
+<div class="methodText">Moves the cursor to the next row of the result set.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">true if successful, false if there are no more rows</div>
+</td></tr>
+<tr id="__96" onclick="return on(96)">
+<td class="return">boolean</td><td class="method">
+<a id="previous" href="#previous">previous</a>()
+<div class="methodText">Moves the cursor to the last row, or row before first row if the current
+ position is the first row.</div>
+</td></tr>
+<tr onclick="return off(96)" class="detail" id="_96">
+<td class="return">boolean</td><td>
+<a id="previous" href="#previous">previous</a>() throws SQLException
+<div class="methodText">Moves the cursor to the last row, or row before first row if the current
+ position is the first row.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">true if there is a row available, false if not</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed</div>
+</td></tr>
+<tr id="__97" onclick="return on(97)">
+<td class="return">void</td><td class="method">
+<a id="refreshRow" href="#refreshRow">refreshRow</a>()
+<div class="methodText">Re-reads the current row from the database.</div>
+</td></tr>
+<tr onclick="return off(97)" class="detail" id="_97">
+<td class="return">void</td><td>
+<a id="refreshRow" href="#refreshRow">refreshRow</a>() throws SQLException
+<div class="methodText">Re-reads the current row from the database.</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or if the current row is
+             the insert row or if the row has been deleted or if not on a
+             valid row</div>
+</td></tr>
+<tr id="__98" onclick="return on(98)">
+<td class="return">boolean</td><td class="method">
+<a id="relative_int" href="#relative_int">relative</a>(int rowCount)
+<div class="methodText">Moves the current position to a specific row relative to the current row.</div>
+</td></tr>
+<tr onclick="return off(98)" class="detail" id="_98">
+<td class="return">boolean</td><td>
+<a id="relative_int" href="#relative_int">relative</a>(int rowCount) throws SQLException
+<div class="methodText">Moves the current position to a specific row relative to the current row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">rowCount - 0 means don't do anything, 1 is the next row, -1 the
+            previous. If the value is too large, the position is moved
+            after the last row, if if the value is too small it is moved
+            before the first row.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">true if there is a row available, false if not</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed</div>
+</td></tr>
+<tr id="__99" onclick="return on(99)">
+<td class="return">boolean</td><td class="method">
+<a id="rowDeleted" href="#rowDeleted">rowDeleted</a>()
+<div class="methodText">Detects if the row was deleted (by somebody else or the caller).</div>
+</td></tr>
+<tr onclick="return off(99)" class="detail" id="_99">
+<td class="return">boolean</td><td>
+<a id="rowDeleted" href="#rowDeleted">rowDeleted</a>() throws SQLException
+<div class="methodText">Detects if the row was deleted (by somebody else or the caller).</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">false because this driver does not detect this</div>
+</td></tr>
+<tr id="__100" onclick="return on(100)">
+<td class="return">boolean</td><td class="method">
+<a id="rowInserted" href="#rowInserted">rowInserted</a>()
+<div class="methodText">Detects if the row was inserted.</div>
+</td></tr>
+<tr onclick="return off(100)" class="detail" id="_100">
+<td class="return">boolean</td><td>
+<a id="rowInserted" href="#rowInserted">rowInserted</a>() throws SQLException
+<div class="methodText">Detects if the row was inserted.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">false because this driver does not detect this</div>
+</td></tr>
+<tr id="__101" onclick="return on(101)">
+<td class="return">boolean</td><td class="method">
+<a id="rowUpdated" href="#rowUpdated">rowUpdated</a>()
+<div class="methodText">Detects if the row was updated (by somebody else or the caller).</div>
+</td></tr>
+<tr onclick="return off(101)" class="detail" id="_101">
+<td class="return">boolean</td><td>
+<a id="rowUpdated" href="#rowUpdated">rowUpdated</a>() throws SQLException
+<div class="methodText">Detects if the row was updated (by somebody else or the caller).</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">false because this driver does not detect this</div>
+</td></tr>
+<tr id="__102" onclick="return on(102)">
+<td class="return">void</td><td class="method">
+<a id="setFetchDirection_int" href="#setFetchDirection_int">setFetchDirection</a>(int direction)
+<div class="methodText">[Not supported]
+ Sets (changes) the fetch direction for this result set.</div>
+</td></tr>
+<tr onclick="return off(102)" class="detail" id="_102">
+<td class="return">void</td><td>
+<a id="setFetchDirection_int" href="#setFetchDirection_int">setFetchDirection</a>(int direction) throws SQLException
+<div class="methodText">[Not supported]
+ Sets (changes) the fetch direction for this result set. This method
+ should only be called for scrollable result sets, otherwise it will throw
+ an exception (no matter what direction is used).</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">direction - the new fetch direction</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - Unsupported Feature if the method is called for a
+             forward-only result set</div>
+</td></tr>
+<tr id="__103" onclick="return on(103)">
+<td class="return">void</td><td class="method">
+<a id="setFetchSize_int" href="#setFetchSize_int">setFetchSize</a>(int rows)
+<div class="methodText">Sets the number of rows suggested to read in one step.</div>
+</td></tr>
+<tr onclick="return off(103)" class="detail" id="_103">
+<td class="return">void</td><td>
+<a id="setFetchSize_int" href="#setFetchSize_int">setFetchSize</a>(int rows) throws SQLException
+<div class="methodText">Sets the number of rows suggested to read in one step. This value cannot
+ be higher than the maximum rows (setMaxRows) set by the statement or
+ prepared statement, otherwise an exception is throws. Setting the value
+ to 0 will set the default value. The default value can be changed using
+ the system property h2.serverResultSetFetchSize.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">rows - the number of rows</div>
+</td></tr>
+<tr id="__104" onclick="return on(104)">
+<td class="return">T</td><td class="method">
+<a id="unwrap_Class" href="#unwrap_Class">unwrap</a>(Class iface)
+<div class="methodText">[Not supported] Return an object of this class if possible.</div>
+</td></tr>
+<tr onclick="return off(104)" class="detail" id="_104">
+<td class="return">T</td><td>
+<a id="unwrap_Class" href="#unwrap_Class">unwrap</a>(Class iface) throws SQLException
+<div class="methodText">[Not supported] Return an object of this class if possible.</div>
+</td></tr>
+<tr id="__105" onclick="return on(105)">
+<td class="return">void</td><td class="method">
+<a id="updateArray_int_Array" href="#updateArray_int_Array">updateArray</a>(int columnIndex, Array x)
+<div class="methodText">[Not supported]</div>
+</td></tr>
+<tr onclick="return off(105)" class="detail" id="_105">
+<td class="return">void</td><td>
+<a id="updateArray_int_Array" href="#updateArray_int_Array">updateArray</a>(int columnIndex, Array x) throws SQLException
+<div class="methodText">[Not supported]</div>
+</td></tr>
+<tr id="__106" onclick="return on(106)">
+<td class="return">void</td><td class="method">
+<a id="updateArray_String_Array" href="#updateArray_String_Array">updateArray</a>(String columnLabel, Array x)
+<div class="methodText">[Not supported]</div>
+</td></tr>
+<tr onclick="return off(106)" class="detail" id="_106">
+<td class="return">void</td><td>
+<a id="updateArray_String_Array" href="#updateArray_String_Array">updateArray</a>(String columnLabel, Array x) throws SQLException
+<div class="methodText">[Not supported]</div>
+</td></tr>
+<tr id="__107" onclick="return on(107)">
+<td class="return">void</td><td class="method">
+<a id="updateAsciiStream_int_InputStream_int" href="#updateAsciiStream_int_InputStream_int">updateAsciiStream</a>(int columnIndex, InputStream x, int length)
+<div class="methodText">Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(107)" class="detail" id="_107">
+<td class="return">void</td><td>
+<a id="updateAsciiStream_int_InputStream_int" href="#updateAsciiStream_int_InputStream_int">updateAsciiStream</a>(int columnIndex, InputStream x, int length) throws SQLException
+<div class="methodText">Updates a column in the current or insert row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="item">x - the value</div>
+<div class="item">length - the number of characters</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or not updatable</div>
+</td></tr>
+<tr id="__108" onclick="return on(108)">
+<td class="return">void</td><td class="method">
+<a id="updateAsciiStream_int_InputStream" href="#updateAsciiStream_int_InputStream">updateAsciiStream</a>(int columnIndex, InputStream x)
+<div class="methodText">Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(108)" class="detail" id="_108">
+<td class="return">void</td><td>
+<a id="updateAsciiStream_int_InputStream" href="#updateAsciiStream_int_InputStream">updateAsciiStream</a>(int columnIndex, InputStream x) throws SQLException
+<div class="methodText">Updates a column in the current or insert row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or not updatable</div>
+</td></tr>
+<tr id="__109" onclick="return on(109)">
+<td class="return">void</td><td class="method">
+<a id="updateAsciiStream_int_InputStream_long" href="#updateAsciiStream_int_InputStream_long">updateAsciiStream</a>(int columnIndex, InputStream x, long length)
+<div class="methodText">Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(109)" class="detail" id="_109">
+<td class="return">void</td><td>
+<a id="updateAsciiStream_int_InputStream_long" href="#updateAsciiStream_int_InputStream_long">updateAsciiStream</a>(int columnIndex, InputStream x, long length) throws SQLException
+<div class="methodText">Updates a column in the current or insert row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="item">x - the value</div>
+<div class="item">length - the number of characters</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or not updatable</div>
+</td></tr>
+<tr id="__110" onclick="return on(110)">
+<td class="return">void</td><td class="method">
+<a id="updateAsciiStream_String_InputStream_int" href="#updateAsciiStream_String_InputStream_int">updateAsciiStream</a>(String columnLabel, InputStream x, int length)
+<div class="methodText">Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(110)" class="detail" id="_110">
+<td class="return">void</td><td>
+<a id="updateAsciiStream_String_InputStream_int" href="#updateAsciiStream_String_InputStream_int">updateAsciiStream</a>(String columnLabel, InputStream x, int length) throws SQLException
+<div class="methodText">Updates a column in the current or insert row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="item">x - the value</div>
+<div class="item">length - the number of characters</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or not updatable</div>
+</td></tr>
+<tr id="__111" onclick="return on(111)">
+<td class="return">void</td><td class="method">
+<a id="updateAsciiStream_String_InputStream" href="#updateAsciiStream_String_InputStream">updateAsciiStream</a>(String columnLabel, InputStream x)
+<div class="methodText">Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(111)" class="detail" id="_111">
+<td class="return">void</td><td>
+<a id="updateAsciiStream_String_InputStream" href="#updateAsciiStream_String_InputStream">updateAsciiStream</a>(String columnLabel, InputStream x) throws SQLException
+<div class="methodText">Updates a column in the current or insert row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed</div>
+</td></tr>
+<tr id="__112" onclick="return on(112)">
+<td class="return">void</td><td class="method">
+<a id="updateAsciiStream_String_InputStream_long" href="#updateAsciiStream_String_InputStream_long">updateAsciiStream</a>(String columnLabel, InputStream x, long length)
+<div class="methodText">Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(112)" class="detail" id="_112">
+<td class="return">void</td><td>
+<a id="updateAsciiStream_String_InputStream_long" href="#updateAsciiStream_String_InputStream_long">updateAsciiStream</a>(String columnLabel, InputStream x, long length) throws SQLException
+<div class="methodText">Updates a column in the current or insert row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="item">x - the value</div>
+<div class="item">length - the number of characters</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or not updatable</div>
+</td></tr>
+<tr id="__113" onclick="return on(113)">
+<td class="return">void</td><td class="method">
+<a id="updateBigDecimal_int_BigDecimal" href="#updateBigDecimal_int_BigDecimal">updateBigDecimal</a>(int columnIndex, BigDecimal x)
+<div class="methodText">Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(113)" class="detail" id="_113">
+<td class="return">void</td><td>
+<a id="updateBigDecimal_int_BigDecimal" href="#updateBigDecimal_int_BigDecimal">updateBigDecimal</a>(int columnIndex, BigDecimal x) throws SQLException
+<div class="methodText">Updates a column in the current or insert row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or not updatable</div>
+</td></tr>
+<tr id="__114" onclick="return on(114)">
+<td class="return">void</td><td class="method">
+<a id="updateBigDecimal_String_BigDecimal" href="#updateBigDecimal_String_BigDecimal">updateBigDecimal</a>(String columnLabel, BigDecimal x)
+<div class="methodText">Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(114)" class="detail" id="_114">
+<td class="return">void</td><td>
+<a id="updateBigDecimal_String_BigDecimal" href="#updateBigDecimal_String_BigDecimal">updateBigDecimal</a>(String columnLabel, BigDecimal x) throws SQLException
+<div class="methodText">Updates a column in the current or insert row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or not updatable</div>
+</td></tr>
+<tr id="__115" onclick="return on(115)">
+<td class="return">void</td><td class="method">
+<a id="updateBinaryStream_int_InputStream_int" href="#updateBinaryStream_int_InputStream_int">updateBinaryStream</a>(int columnIndex, InputStream x, int length)
+<div class="methodText">Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(115)" class="detail" id="_115">
+<td class="return">void</td><td>
+<a id="updateBinaryStream_int_InputStream_int" href="#updateBinaryStream_int_InputStream_int">updateBinaryStream</a>(int columnIndex, InputStream x, int length) throws SQLException
+<div class="methodText">Updates a column in the current or insert row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="item">x - the value</div>
+<div class="item">length - the number of characters</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or not updatable</div>
+</td></tr>
+<tr id="__116" onclick="return on(116)">
+<td class="return">void</td><td class="method">
+<a id="updateBinaryStream_int_InputStream" href="#updateBinaryStream_int_InputStream">updateBinaryStream</a>(int columnIndex, InputStream x)
+<div class="methodText">Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(116)" class="detail" id="_116">
+<td class="return">void</td><td>
+<a id="updateBinaryStream_int_InputStream" href="#updateBinaryStream_int_InputStream">updateBinaryStream</a>(int columnIndex, InputStream x) throws SQLException
+<div class="methodText">Updates a column in the current or insert row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or not updatable</div>
+</td></tr>
+<tr id="__117" onclick="return on(117)">
+<td class="return">void</td><td class="method">
+<a id="updateBinaryStream_int_InputStream_long" href="#updateBinaryStream_int_InputStream_long">updateBinaryStream</a>(int columnIndex, InputStream x, long length)
+<div class="methodText">Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(117)" class="detail" id="_117">
+<td class="return">void</td><td>
+<a id="updateBinaryStream_int_InputStream_long" href="#updateBinaryStream_int_InputStream_long">updateBinaryStream</a>(int columnIndex, InputStream x, long length) throws SQLException
+<div class="methodText">Updates a column in the current or insert row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="item">x - the value</div>
+<div class="item">length - the number of characters</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or not updatable</div>
+</td></tr>
+<tr id="__118" onclick="return on(118)">
+<td class="return">void</td><td class="method">
+<a id="updateBinaryStream_String_InputStream" href="#updateBinaryStream_String_InputStream">updateBinaryStream</a>(String columnLabel, InputStream x)
+<div class="methodText">Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(118)" class="detail" id="_118">
+<td class="return">void</td><td>
+<a id="updateBinaryStream_String_InputStream" href="#updateBinaryStream_String_InputStream">updateBinaryStream</a>(String columnLabel, InputStream x) throws SQLException
+<div class="methodText">Updates a column in the current or insert row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or not updatable</div>
+</td></tr>
+<tr id="__119" onclick="return on(119)">
+<td class="return">void</td><td class="method">
+<a id="updateBinaryStream_String_InputStream_int" href="#updateBinaryStream_String_InputStream_int">updateBinaryStream</a>(String columnLabel, InputStream x, int length)
+<div class="methodText">Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(119)" class="detail" id="_119">
+<td class="return">void</td><td>
+<a id="updateBinaryStream_String_InputStream_int" href="#updateBinaryStream_String_InputStream_int">updateBinaryStream</a>(String columnLabel, InputStream x, int length) throws SQLException
+<div class="methodText">Updates a column in the current or insert row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="item">x - the value</div>
+<div class="item">length - the number of characters</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or not updatable</div>
+</td></tr>
+<tr id="__120" onclick="return on(120)">
+<td class="return">void</td><td class="method">
+<a id="updateBinaryStream_String_InputStream_long" href="#updateBinaryStream_String_InputStream_long">updateBinaryStream</a>(String columnLabel, InputStream x, long length)
+<div class="methodText">Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(120)" class="detail" id="_120">
+<td class="return">void</td><td>
+<a id="updateBinaryStream_String_InputStream_long" href="#updateBinaryStream_String_InputStream_long">updateBinaryStream</a>(String columnLabel, InputStream x, long length) throws SQLException
+<div class="methodText">Updates a column in the current or insert row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="item">x - the value</div>
+<div class="item">length - the number of characters</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or not updatable</div>
+</td></tr>
+<tr id="__121" onclick="return on(121)">
+<td class="return">void</td><td class="method">
+<a id="updateBlob_int_InputStream" href="#updateBlob_int_InputStream">updateBlob</a>(int columnIndex, InputStream x)
+<div class="methodText">Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(121)" class="detail" id="_121">
+<td class="return">void</td><td>
+<a id="updateBlob_int_InputStream" href="#updateBlob_int_InputStream">updateBlob</a>(int columnIndex, InputStream x) throws SQLException
+<div class="methodText">Updates a column in the current or insert row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or not updatable</div>
+</td></tr>
+<tr id="__122" onclick="return on(122)">
+<td class="return">void</td><td class="method">
+<a id="updateBlob_int_InputStream_long" href="#updateBlob_int_InputStream_long">updateBlob</a>(int columnIndex, InputStream x, long length)
+<div class="methodText">Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(122)" class="detail" id="_122">
+<td class="return">void</td><td>
+<a id="updateBlob_int_InputStream_long" href="#updateBlob_int_InputStream_long">updateBlob</a>(int columnIndex, InputStream x, long length) throws SQLException
+<div class="methodText">Updates a column in the current or insert row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="item">x - the value</div>
+<div class="item">length - the length</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or not updatable</div>
+</td></tr>
+<tr id="__123" onclick="return on(123)">
+<td class="return">void</td><td class="method">
+<a id="updateBlob_int_Blob" href="#updateBlob_int_Blob">updateBlob</a>(int columnIndex, Blob x)
+<div class="methodText">Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(123)" class="detail" id="_123">
+<td class="return">void</td><td>
+<a id="updateBlob_int_Blob" href="#updateBlob_int_Blob">updateBlob</a>(int columnIndex, Blob x) throws SQLException
+<div class="methodText">Updates a column in the current or insert row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or not updatable</div>
+</td></tr>
+<tr id="__124" onclick="return on(124)">
+<td class="return">void</td><td class="method">
+<a id="updateBlob_String_Blob" href="#updateBlob_String_Blob">updateBlob</a>(String columnLabel, Blob x)
+<div class="methodText">Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(124)" class="detail" id="_124">
+<td class="return">void</td><td>
+<a id="updateBlob_String_Blob" href="#updateBlob_String_Blob">updateBlob</a>(String columnLabel, Blob x) throws SQLException
+<div class="methodText">Updates a column in the current or insert row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or not updatable</div>
+</td></tr>
+<tr id="__125" onclick="return on(125)">
+<td class="return">void</td><td class="method">
+<a id="updateBlob_String_InputStream" href="#updateBlob_String_InputStream">updateBlob</a>(String columnLabel, InputStream x)
+<div class="methodText">Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(125)" class="detail" id="_125">
+<td class="return">void</td><td>
+<a id="updateBlob_String_InputStream" href="#updateBlob_String_InputStream">updateBlob</a>(String columnLabel, InputStream x) throws SQLException
+<div class="methodText">Updates a column in the current or insert row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or not updatable</div>
+</td></tr>
+<tr id="__126" onclick="return on(126)">
+<td class="return">void</td><td class="method">
+<a id="updateBlob_String_InputStream_long" href="#updateBlob_String_InputStream_long">updateBlob</a>(String columnLabel, InputStream x, long length)
+<div class="methodText">Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(126)" class="detail" id="_126">
+<td class="return">void</td><td>
+<a id="updateBlob_String_InputStream_long" href="#updateBlob_String_InputStream_long">updateBlob</a>(String columnLabel, InputStream x, long length) throws SQLException
+<div class="methodText">Updates a column in the current or insert row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="item">x - the value</div>
+<div class="item">length - the length</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or not updatable</div>
+</td></tr>
+<tr id="__127" onclick="return on(127)">
+<td class="return">void</td><td class="method">
+<a id="updateBoolean_int_boolean" href="#updateBoolean_int_boolean">updateBoolean</a>(int columnIndex, boolean x)
+<div class="methodText">Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(127)" class="detail" id="_127">
+<td class="return">void</td><td>
+<a id="updateBoolean_int_boolean" href="#updateBoolean_int_boolean">updateBoolean</a>(int columnIndex, boolean x) throws SQLException
+<div class="methodText">Updates a column in the current or insert row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or not updatable</div>
+</td></tr>
+<tr id="__128" onclick="return on(128)">
+<td class="return">void</td><td class="method">
+<a id="updateBoolean_String_boolean" href="#updateBoolean_String_boolean">updateBoolean</a>(String columnLabel, boolean x)
+<div class="methodText">Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(128)" class="detail" id="_128">
+<td class="return">void</td><td>
+<a id="updateBoolean_String_boolean" href="#updateBoolean_String_boolean">updateBoolean</a>(String columnLabel, boolean x) throws SQLException
+<div class="methodText">Updates a column in the current or insert row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if result set is closed or not updatable</div>
+</td></tr>
+<tr id="__129" onclick="return on(129)">
+<td class="return">void</td><td class="method">
+<a id="updateByte_int_byte" href="#updateByte_int_byte">updateByte</a>(int columnIndex, byte x)
+<div class="methodText">Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(129)" class="detail" id="_129">
+<td class="return">void</td><td>
+<a id="updateByte_int_byte" href="#updateByte_int_byte">updateByte</a>(int columnIndex, byte x) throws SQLException
+<div class="methodText">Updates a column in the current or insert row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or not updatable</div>
+</td></tr>
+<tr id="__130" onclick="return on(130)">
+<td class="return">void</td><td class="method">
+<a id="updateByte_String_byte" href="#updateByte_String_byte">updateByte</a>(String columnLabel, byte x)
+<div class="methodText">Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(130)" class="detail" id="_130">
+<td class="return">void</td><td>
+<a id="updateByte_String_byte" href="#updateByte_String_byte">updateByte</a>(String columnLabel, byte x) throws SQLException
+<div class="methodText">Updates a column in the current or insert row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or not updatable</div>
+</td></tr>
+<tr id="__131" onclick="return on(131)">
+<td class="return">void</td><td class="method">
+<a id="updateBytes_int_byte-" href="#updateBytes_int_byte-">updateBytes</a>(int columnIndex, byte[] x)
+<div class="methodText">Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(131)" class="detail" id="_131">
+<td class="return">void</td><td>
+<a id="updateBytes_int_byte-" href="#updateBytes_int_byte-">updateBytes</a>(int columnIndex, byte[] x) throws SQLException
+<div class="methodText">Updates a column in the current or insert row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or not updatable</div>
+</td></tr>
+<tr id="__132" onclick="return on(132)">
+<td class="return">void</td><td class="method">
+<a id="updateBytes_String_byte-" href="#updateBytes_String_byte-">updateBytes</a>(String columnLabel, byte[] x)
+<div class="methodText">Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(132)" class="detail" id="_132">
+<td class="return">void</td><td>
+<a id="updateBytes_String_byte-" href="#updateBytes_String_byte-">updateBytes</a>(String columnLabel, byte[] x) throws SQLException
+<div class="methodText">Updates a column in the current or insert row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or not updatable</div>
+</td></tr>
+<tr id="__133" onclick="return on(133)">
+<td class="return">void</td><td class="method">
+<a id="updateCharacterStream_int_Reader_long" href="#updateCharacterStream_int_Reader_long">updateCharacterStream</a>(int columnIndex, Reader x, long length)
+<div class="methodText">Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(133)" class="detail" id="_133">
+<td class="return">void</td><td>
+<a id="updateCharacterStream_int_Reader_long" href="#updateCharacterStream_int_Reader_long">updateCharacterStream</a>(int columnIndex, Reader x, long length) throws SQLException
+<div class="methodText">Updates a column in the current or insert row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="item">x - the value</div>
+<div class="item">length - the number of characters</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or not updatable</div>
+</td></tr>
+<tr id="__134" onclick="return on(134)">
+<td class="return">void</td><td class="method">
+<a id="updateCharacterStream_int_Reader_int" href="#updateCharacterStream_int_Reader_int">updateCharacterStream</a>(int columnIndex, Reader x, int length)
+<div class="methodText">Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(134)" class="detail" id="_134">
+<td class="return">void</td><td>
+<a id="updateCharacterStream_int_Reader_int" href="#updateCharacterStream_int_Reader_int">updateCharacterStream</a>(int columnIndex, Reader x, int length) throws SQLException
+<div class="methodText">Updates a column in the current or insert row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="item">x - the value</div>
+<div class="item">length - the number of characters</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or not updatable</div>
+</td></tr>
+<tr id="__135" onclick="return on(135)">
+<td class="return">void</td><td class="method">
+<a id="updateCharacterStream_int_Reader" href="#updateCharacterStream_int_Reader">updateCharacterStream</a>(int columnIndex, Reader x)
+<div class="methodText">Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(135)" class="detail" id="_135">
+<td class="return">void</td><td>
+<a id="updateCharacterStream_int_Reader" href="#updateCharacterStream_int_Reader">updateCharacterStream</a>(int columnIndex, Reader x) throws SQLException
+<div class="methodText">Updates a column in the current or insert row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or not updatable</div>
+</td></tr>
+<tr id="__136" onclick="return on(136)">
+<td class="return">void</td><td class="method">
+<a id="updateCharacterStream_String_Reader_int" href="#updateCharacterStream_String_Reader_int">updateCharacterStream</a>(String columnLabel, Reader x, int length)
+<div class="methodText">Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(136)" class="detail" id="_136">
+<td class="return">void</td><td>
+<a id="updateCharacterStream_String_Reader_int" href="#updateCharacterStream_String_Reader_int">updateCharacterStream</a>(String columnLabel, Reader x, int length) throws SQLException
+<div class="methodText">Updates a column in the current or insert row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="item">x - the value</div>
+<div class="item">length - the number of characters</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or not updatable</div>
+</td></tr>
+<tr id="__137" onclick="return on(137)">
+<td class="return">void</td><td class="method">
+<a id="updateCharacterStream_String_Reader" href="#updateCharacterStream_String_Reader">updateCharacterStream</a>(String columnLabel, Reader x)
+<div class="methodText">Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(137)" class="detail" id="_137">
+<td class="return">void</td><td>
+<a id="updateCharacterStream_String_Reader" href="#updateCharacterStream_String_Reader">updateCharacterStream</a>(String columnLabel, Reader x) throws SQLException
+<div class="methodText">Updates a column in the current or insert row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or not updatable</div>
+</td></tr>
+<tr id="__138" onclick="return on(138)">
+<td class="return">void</td><td class="method">
+<a id="updateCharacterStream_String_Reader_long" href="#updateCharacterStream_String_Reader_long">updateCharacterStream</a>(String columnLabel, Reader x, long length)
+<div class="methodText">Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(138)" class="detail" id="_138">
+<td class="return">void</td><td>
+<a id="updateCharacterStream_String_Reader_long" href="#updateCharacterStream_String_Reader_long">updateCharacterStream</a>(String columnLabel, Reader x, long length) throws SQLException
+<div class="methodText">Updates a column in the current or insert row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="item">x - the value</div>
+<div class="item">length - the number of characters</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or not updatable</div>
+</td></tr>
+<tr id="__139" onclick="return on(139)">
+<td class="return">void</td><td class="method">
+<a id="updateClob_int_Clob" href="#updateClob_int_Clob">updateClob</a>(int columnIndex, Clob x)
+<div class="methodText">Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(139)" class="detail" id="_139">
+<td class="return">void</td><td>
+<a id="updateClob_int_Clob" href="#updateClob_int_Clob">updateClob</a>(int columnIndex, Clob x) throws SQLException
+<div class="methodText">Updates a column in the current or insert row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or not updatable</div>
+</td></tr>
+<tr id="__140" onclick="return on(140)">
+<td class="return">void</td><td class="method">
+<a id="updateClob_int_Reader" href="#updateClob_int_Reader">updateClob</a>(int columnIndex, Reader x)
+<div class="methodText">Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(140)" class="detail" id="_140">
+<td class="return">void</td><td>
+<a id="updateClob_int_Reader" href="#updateClob_int_Reader">updateClob</a>(int columnIndex, Reader x) throws SQLException
+<div class="methodText">Updates a column in the current or insert row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or not updatable</div>
+</td></tr>
+<tr id="__141" onclick="return on(141)">
+<td class="return">void</td><td class="method">
+<a id="updateClob_int_Reader_long" href="#updateClob_int_Reader_long">updateClob</a>(int columnIndex, Reader x, long length)
+<div class="methodText">Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(141)" class="detail" id="_141">
+<td class="return">void</td><td>
+<a id="updateClob_int_Reader_long" href="#updateClob_int_Reader_long">updateClob</a>(int columnIndex, Reader x, long length) throws SQLException
+<div class="methodText">Updates a column in the current or insert row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="item">x - the value</div>
+<div class="item">length - the length</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or not updatable</div>
+</td></tr>
+<tr id="__142" onclick="return on(142)">
+<td class="return">void</td><td class="method">
+<a id="updateClob_String_Clob" href="#updateClob_String_Clob">updateClob</a>(String columnLabel, Clob x)
+<div class="methodText">Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(142)" class="detail" id="_142">
+<td class="return">void</td><td>
+<a id="updateClob_String_Clob" href="#updateClob_String_Clob">updateClob</a>(String columnLabel, Clob x) throws SQLException
+<div class="methodText">Updates a column in the current or insert row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or not updatable</div>
+</td></tr>
+<tr id="__143" onclick="return on(143)">
+<td class="return">void</td><td class="method">
+<a id="updateClob_String_Reader" href="#updateClob_String_Reader">updateClob</a>(String columnLabel, Reader x)
+<div class="methodText">Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(143)" class="detail" id="_143">
+<td class="return">void</td><td>
+<a id="updateClob_String_Reader" href="#updateClob_String_Reader">updateClob</a>(String columnLabel, Reader x) throws SQLException
+<div class="methodText">Updates a column in the current or insert row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or not updatable</div>
+</td></tr>
+<tr id="__144" onclick="return on(144)">
+<td class="return">void</td><td class="method">
+<a id="updateClob_String_Reader_long" href="#updateClob_String_Reader_long">updateClob</a>(String columnLabel, Reader x, long length)
+<div class="methodText">Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(144)" class="detail" id="_144">
+<td class="return">void</td><td>
+<a id="updateClob_String_Reader_long" href="#updateClob_String_Reader_long">updateClob</a>(String columnLabel, Reader x, long length) throws SQLException
+<div class="methodText">Updates a column in the current or insert row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="item">x - the value</div>
+<div class="item">length - the length</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or not updatable</div>
+</td></tr>
+<tr id="__145" onclick="return on(145)">
+<td class="return">void</td><td class="method">
+<a id="updateDate_int_Date" href="#updateDate_int_Date">updateDate</a>(int columnIndex, Date x)
+<div class="methodText">Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(145)" class="detail" id="_145">
+<td class="return">void</td><td>
+<a id="updateDate_int_Date" href="#updateDate_int_Date">updateDate</a>(int columnIndex, Date x) throws SQLException
+<div class="methodText">Updates a column in the current or insert row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or not updatable</div>
+</td></tr>
+<tr id="__146" onclick="return on(146)">
+<td class="return">void</td><td class="method">
+<a id="updateDate_String_Date" href="#updateDate_String_Date">updateDate</a>(String columnLabel, Date x)
+<div class="methodText">Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(146)" class="detail" id="_146">
+<td class="return">void</td><td>
+<a id="updateDate_String_Date" href="#updateDate_String_Date">updateDate</a>(String columnLabel, Date x) throws SQLException
+<div class="methodText">Updates a column in the current or insert row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or not updatable</div>
+</td></tr>
+<tr id="__147" onclick="return on(147)">
+<td class="return">void</td><td class="method">
+<a id="updateDouble_int_double" href="#updateDouble_int_double">updateDouble</a>(int columnIndex, double x)
+<div class="methodText">Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(147)" class="detail" id="_147">
+<td class="return">void</td><td>
+<a id="updateDouble_int_double" href="#updateDouble_int_double">updateDouble</a>(int columnIndex, double x) throws SQLException
+<div class="methodText">Updates a column in the current or insert row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or not updatable</div>
+</td></tr>
+<tr id="__148" onclick="return on(148)">
+<td class="return">void</td><td class="method">
+<a id="updateDouble_String_double" href="#updateDouble_String_double">updateDouble</a>(String columnLabel, double x)
+<div class="methodText">Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(148)" class="detail" id="_148">
+<td class="return">void</td><td>
+<a id="updateDouble_String_double" href="#updateDouble_String_double">updateDouble</a>(String columnLabel, double x) throws SQLException
+<div class="methodText">Updates a column in the current or insert row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or not updatable</div>
+</td></tr>
+<tr id="__149" onclick="return on(149)">
+<td class="return">void</td><td class="method">
+<a id="updateFloat_int_float" href="#updateFloat_int_float">updateFloat</a>(int columnIndex, float x)
+<div class="methodText">Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(149)" class="detail" id="_149">
+<td class="return">void</td><td>
+<a id="updateFloat_int_float" href="#updateFloat_int_float">updateFloat</a>(int columnIndex, float x) throws SQLException
+<div class="methodText">Updates a column in the current or insert row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or not updatable</div>
+</td></tr>
+<tr id="__150" onclick="return on(150)">
+<td class="return">void</td><td class="method">
+<a id="updateFloat_String_float" href="#updateFloat_String_float">updateFloat</a>(String columnLabel, float x)
+<div class="methodText">Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(150)" class="detail" id="_150">
+<td class="return">void</td><td>
+<a id="updateFloat_String_float" href="#updateFloat_String_float">updateFloat</a>(String columnLabel, float x) throws SQLException
+<div class="methodText">Updates a column in the current or insert row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or not updatable</div>
+</td></tr>
+<tr id="__151" onclick="return on(151)">
+<td class="return">void</td><td class="method">
+<a id="updateInt_int_int" href="#updateInt_int_int">updateInt</a>(int columnIndex, int x)
+<div class="methodText">Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(151)" class="detail" id="_151">
+<td class="return">void</td><td>
+<a id="updateInt_int_int" href="#updateInt_int_int">updateInt</a>(int columnIndex, int x) throws SQLException
+<div class="methodText">Updates a column in the current or insert row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or not updatable</div>
+</td></tr>
+<tr id="__152" onclick="return on(152)">
+<td class="return">void</td><td class="method">
+<a id="updateInt_String_int" href="#updateInt_String_int">updateInt</a>(String columnLabel, int x)
+<div class="methodText">Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(152)" class="detail" id="_152">
+<td class="return">void</td><td>
+<a id="updateInt_String_int" href="#updateInt_String_int">updateInt</a>(String columnLabel, int x) throws SQLException
+<div class="methodText">Updates a column in the current or insert row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or not updatable</div>
+</td></tr>
+<tr id="__153" onclick="return on(153)">
+<td class="return">void</td><td class="method">
+<a id="updateLong_int_long" href="#updateLong_int_long">updateLong</a>(int columnIndex, long x)
+<div class="methodText">Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(153)" class="detail" id="_153">
+<td class="return">void</td><td>
+<a id="updateLong_int_long" href="#updateLong_int_long">updateLong</a>(int columnIndex, long x) throws SQLException
+<div class="methodText">Updates a column in the current or insert row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or not updatable</div>
+</td></tr>
+<tr id="__154" onclick="return on(154)">
+<td class="return">void</td><td class="method">
+<a id="updateLong_String_long" href="#updateLong_String_long">updateLong</a>(String columnLabel, long x)
+<div class="methodText">Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(154)" class="detail" id="_154">
+<td class="return">void</td><td>
+<a id="updateLong_String_long" href="#updateLong_String_long">updateLong</a>(String columnLabel, long x) throws SQLException
+<div class="methodText">Updates a column in the current or insert row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or not updatable</div>
+</td></tr>
+<tr id="__155" onclick="return on(155)">
+<td class="return">void</td><td class="method">
+<a id="updateNCharacterStream_int_Reader" href="#updateNCharacterStream_int_Reader">updateNCharacterStream</a>(int columnIndex, Reader x)
+<div class="methodText">Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(155)" class="detail" id="_155">
+<td class="return">void</td><td>
+<a id="updateNCharacterStream_int_Reader" href="#updateNCharacterStream_int_Reader">updateNCharacterStream</a>(int columnIndex, Reader x) throws SQLException
+<div class="methodText">Updates a column in the current or insert row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or not updatable</div>
+</td></tr>
+<tr id="__156" onclick="return on(156)">
+<td class="return">void</td><td class="method">
+<a id="updateNCharacterStream_int_Reader_long" href="#updateNCharacterStream_int_Reader_long">updateNCharacterStream</a>(int columnIndex, Reader x, long length)
+<div class="methodText">Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(156)" class="detail" id="_156">
+<td class="return">void</td><td>
+<a id="updateNCharacterStream_int_Reader_long" href="#updateNCharacterStream_int_Reader_long">updateNCharacterStream</a>(int columnIndex, Reader x, long length) throws SQLException
+<div class="methodText">Updates a column in the current or insert row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="item">x - the value</div>
+<div class="item">length - the number of characters</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or not updatable</div>
+</td></tr>
+<tr id="__157" onclick="return on(157)">
+<td class="return">void</td><td class="method">
+<a id="updateNCharacterStream_String_Reader" href="#updateNCharacterStream_String_Reader">updateNCharacterStream</a>(String columnLabel, Reader x)
+<div class="methodText">Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(157)" class="detail" id="_157">
+<td class="return">void</td><td>
+<a id="updateNCharacterStream_String_Reader" href="#updateNCharacterStream_String_Reader">updateNCharacterStream</a>(String columnLabel, Reader x) throws SQLException
+<div class="methodText">Updates a column in the current or insert row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or not updatable</div>
+</td></tr>
+<tr id="__158" onclick="return on(158)">
+<td class="return">void</td><td class="method">
+<a id="updateNCharacterStream_String_Reader_long" href="#updateNCharacterStream_String_Reader_long">updateNCharacterStream</a>(String columnLabel, Reader x, long length)
+<div class="methodText">Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(158)" class="detail" id="_158">
+<td class="return">void</td><td>
+<a id="updateNCharacterStream_String_Reader_long" href="#updateNCharacterStream_String_Reader_long">updateNCharacterStream</a>(String columnLabel, Reader x, long length) throws SQLException
+<div class="methodText">Updates a column in the current or insert row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="item">x - the value</div>
+<div class="item">length - the number of characters</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or not updatable</div>
+</td></tr>
+<tr id="__159" onclick="return on(159)">
+<td class="return">void</td><td class="method">
+<a id="updateNClob_int_NClob" href="#updateNClob_int_NClob">updateNClob</a>(int columnIndex, NClob x)
+<div class="methodText">[Not supported]</div>
+</td></tr>
+<tr onclick="return off(159)" class="detail" id="_159">
+<td class="return">void</td><td>
+<a id="updateNClob_int_NClob" href="#updateNClob_int_NClob">updateNClob</a>(int columnIndex, NClob x) throws SQLException
+<div class="methodText">[Not supported]</div>
+</td></tr>
+<tr id="__160" onclick="return on(160)">
+<td class="return">void</td><td class="method">
+<a id="updateNClob_int_Reader" href="#updateNClob_int_Reader">updateNClob</a>(int columnIndex, Reader x)
+<div class="methodText">Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(160)" class="detail" id="_160">
+<td class="return">void</td><td>
+<a id="updateNClob_int_Reader" href="#updateNClob_int_Reader">updateNClob</a>(int columnIndex, Reader x) throws SQLException
+<div class="methodText">Updates a column in the current or insert row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or not updatable</div>
+</td></tr>
+<tr id="__161" onclick="return on(161)">
+<td class="return">void</td><td class="method">
+<a id="updateNClob_int_Reader_long" href="#updateNClob_int_Reader_long">updateNClob</a>(int columnIndex, Reader x, long length)
+<div class="methodText">Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(161)" class="detail" id="_161">
+<td class="return">void</td><td>
+<a id="updateNClob_int_Reader_long" href="#updateNClob_int_Reader_long">updateNClob</a>(int columnIndex, Reader x, long length) throws SQLException
+<div class="methodText">Updates a column in the current or insert row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="item">x - the value</div>
+<div class="item">length - the length</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or not updatable</div>
+</td></tr>
+<tr id="__162" onclick="return on(162)">
+<td class="return">void</td><td class="method">
+<a id="updateNClob_String_Reader" href="#updateNClob_String_Reader">updateNClob</a>(String columnLabel, Reader x)
+<div class="methodText">Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(162)" class="detail" id="_162">
+<td class="return">void</td><td>
+<a id="updateNClob_String_Reader" href="#updateNClob_String_Reader">updateNClob</a>(String columnLabel, Reader x) throws SQLException
+<div class="methodText">Updates a column in the current or insert row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or not updatable</div>
+</td></tr>
+<tr id="__163" onclick="return on(163)">
+<td class="return">void</td><td class="method">
+<a id="updateNClob_String_Reader_long" href="#updateNClob_String_Reader_long">updateNClob</a>(String columnLabel, Reader x, long length)
+<div class="methodText">Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(163)" class="detail" id="_163">
+<td class="return">void</td><td>
+<a id="updateNClob_String_Reader_long" href="#updateNClob_String_Reader_long">updateNClob</a>(String columnLabel, Reader x, long length) throws SQLException
+<div class="methodText">Updates a column in the current or insert row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="item">x - the value</div>
+<div class="item">length - the length</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or not updatable</div>
+</td></tr>
+<tr id="__164" onclick="return on(164)">
+<td class="return">void</td><td class="method">
+<a id="updateNClob_String_NClob" href="#updateNClob_String_NClob">updateNClob</a>(String columnLabel, NClob x)
+<div class="methodText">[Not supported]</div>
+</td></tr>
+<tr onclick="return off(164)" class="detail" id="_164">
+<td class="return">void</td><td>
+<a id="updateNClob_String_NClob" href="#updateNClob_String_NClob">updateNClob</a>(String columnLabel, NClob x) throws SQLException
+<div class="methodText">[Not supported]</div>
+</td></tr>
+<tr id="__165" onclick="return on(165)">
+<td class="return">void</td><td class="method">
+<a id="updateNString_int_String" href="#updateNString_int_String">updateNString</a>(int columnIndex, String x)
+<div class="methodText">Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(165)" class="detail" id="_165">
+<td class="return">void</td><td>
+<a id="updateNString_int_String" href="#updateNString_int_String">updateNString</a>(int columnIndex, String x) throws SQLException
+<div class="methodText">Updates a column in the current or insert row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or not updatable</div>
+</td></tr>
+<tr id="__166" onclick="return on(166)">
+<td class="return">void</td><td class="method">
+<a id="updateNString_String_String" href="#updateNString_String_String">updateNString</a>(String columnLabel, String x)
+<div class="methodText">Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(166)" class="detail" id="_166">
+<td class="return">void</td><td>
+<a id="updateNString_String_String" href="#updateNString_String_String">updateNString</a>(String columnLabel, String x) throws SQLException
+<div class="methodText">Updates a column in the current or insert row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or not updatable</div>
+</td></tr>
+<tr id="__167" onclick="return on(167)">
+<td class="return">void</td><td class="method">
+<a id="updateNull_int" href="#updateNull_int">updateNull</a>(int columnIndex)
+<div class="methodText">Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(167)" class="detail" id="_167">
+<td class="return">void</td><td>
+<a id="updateNull_int" href="#updateNull_int">updateNull</a>(int columnIndex) throws SQLException
+<div class="methodText">Updates a column in the current or insert row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or not updatable</div>
+</td></tr>
+<tr id="__168" onclick="return on(168)">
+<td class="return">void</td><td class="method">
+<a id="updateNull_String" href="#updateNull_String">updateNull</a>(String columnLabel)
+<div class="methodText">Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(168)" class="detail" id="_168">
+<td class="return">void</td><td>
+<a id="updateNull_String" href="#updateNull_String">updateNull</a>(String columnLabel) throws SQLException
+<div class="methodText">Updates a column in the current or insert row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or not updatable</div>
+</td></tr>
+<tr id="__169" onclick="return on(169)">
+<td class="return">void</td><td class="method">
+<a id="updateObject_int_Object_int" href="#updateObject_int_Object_int">updateObject</a>(int columnIndex, Object x, int scale)
+<div class="methodText">Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(169)" class="detail" id="_169">
+<td class="return">void</td><td>
+<a id="updateObject_int_Object_int" href="#updateObject_int_Object_int">updateObject</a>(int columnIndex, Object x, int scale) throws SQLException
+<div class="methodText">Updates a column in the current or insert row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="item">x - the value</div>
+<div class="item">scale - is ignored</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or not updatable</div>
+</td></tr>
+<tr id="__170" onclick="return on(170)">
+<td class="return">void</td><td class="method">
+<a id="updateObject_String_Object_int" href="#updateObject_String_Object_int">updateObject</a>(String columnLabel, Object x, int scale)
+<div class="methodText">Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(170)" class="detail" id="_170">
+<td class="return">void</td><td>
+<a id="updateObject_String_Object_int" href="#updateObject_String_Object_int">updateObject</a>(String columnLabel, Object x, int scale) throws SQLException
+<div class="methodText">Updates a column in the current or insert row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="item">x - the value</div>
+<div class="item">scale - is ignored</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or not updatable</div>
+</td></tr>
+<tr id="__171" onclick="return on(171)">
+<td class="return">void</td><td class="method">
+<a id="updateObject_int_Object" href="#updateObject_int_Object">updateObject</a>(int columnIndex, Object x)
+<div class="methodText">Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(171)" class="detail" id="_171">
+<td class="return">void</td><td>
+<a id="updateObject_int_Object" href="#updateObject_int_Object">updateObject</a>(int columnIndex, Object x) throws SQLException
+<div class="methodText">Updates a column in the current or insert row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or not updatable</div>
+</td></tr>
+<tr id="__172" onclick="return on(172)">
+<td class="return">void</td><td class="method">
+<a id="updateObject_String_Object" href="#updateObject_String_Object">updateObject</a>(String columnLabel, Object x)
+<div class="methodText">Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(172)" class="detail" id="_172">
+<td class="return">void</td><td>
+<a id="updateObject_String_Object" href="#updateObject_String_Object">updateObject</a>(String columnLabel, Object x) throws SQLException
+<div class="methodText">Updates a column in the current or insert row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or not updatable</div>
+</td></tr>
+<tr id="__173" onclick="return on(173)">
+<td class="return">void</td><td class="method">
+<a id="updateRef_int_Ref" href="#updateRef_int_Ref">updateRef</a>(int columnIndex, Ref x)
+<div class="methodText">[Not supported]</div>
+</td></tr>
+<tr onclick="return off(173)" class="detail" id="_173">
+<td class="return">void</td><td>
+<a id="updateRef_int_Ref" href="#updateRef_int_Ref">updateRef</a>(int columnIndex, Ref x) throws SQLException
+<div class="methodText">[Not supported]</div>
+</td></tr>
+<tr id="__174" onclick="return on(174)">
+<td class="return">void</td><td class="method">
+<a id="updateRef_String_Ref" href="#updateRef_String_Ref">updateRef</a>(String columnLabel, Ref x)
+<div class="methodText">[Not supported]</div>
+</td></tr>
+<tr onclick="return off(174)" class="detail" id="_174">
+<td class="return">void</td><td>
+<a id="updateRef_String_Ref" href="#updateRef_String_Ref">updateRef</a>(String columnLabel, Ref x) throws SQLException
+<div class="methodText">[Not supported]</div>
+</td></tr>
+<tr id="__175" onclick="return on(175)">
+<td class="return">void</td><td class="method">
+<a id="updateRow" href="#updateRow">updateRow</a>()
+<div class="methodText">Updates the current row.</div>
+</td></tr>
+<tr onclick="return off(175)" class="detail" id="_175">
+<td class="return">void</td><td>
+<a id="updateRow" href="#updateRow">updateRow</a>() throws SQLException
+<div class="methodText">Updates the current row.</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed, if the current row is
+             the insert row or if not on a valid row, or if the result set
+             it not updatable</div>
+</td></tr>
+<tr id="__176" onclick="return on(176)">
+<td class="return">void</td><td class="method">
+<a id="updateRowId_int_RowId" href="#updateRowId_int_RowId">updateRowId</a>(int columnIndex, RowId x)
+<div class="methodText">[Not supported] Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(176)" class="detail" id="_176">
+<td class="return">void</td><td>
+<a id="updateRowId_int_RowId" href="#updateRowId_int_RowId">updateRowId</a>(int columnIndex, RowId x) throws SQLException
+<div class="methodText">[Not supported] Updates a column in the current or insert row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="item">x - the value</div>
+</td></tr>
+<tr id="__177" onclick="return on(177)">
+<td class="return">void</td><td class="method">
+<a id="updateRowId_String_RowId" href="#updateRowId_String_RowId">updateRowId</a>(String columnLabel, RowId x)
+<div class="methodText">[Not supported] Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(177)" class="detail" id="_177">
+<td class="return">void</td><td>
+<a id="updateRowId_String_RowId" href="#updateRowId_String_RowId">updateRowId</a>(String columnLabel, RowId x) throws SQLException
+<div class="methodText">[Not supported] Updates a column in the current or insert row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="item">x - the value</div>
+</td></tr>
+<tr id="__178" onclick="return on(178)">
+<td class="return">void</td><td class="method">
+<a id="updateSQLXML_int_SQLXML" href="#updateSQLXML_int_SQLXML">updateSQLXML</a>(int columnIndex, SQLXML xmlObject)
+<div class="methodText">[Not supported] Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(178)" class="detail" id="_178">
+<td class="return">void</td><td>
+<a id="updateSQLXML_int_SQLXML" href="#updateSQLXML_int_SQLXML">updateSQLXML</a>(int columnIndex, SQLXML xmlObject) throws SQLException
+<div class="methodText">[Not supported] Updates a column in the current or insert row.</div>
+</td></tr>
+<tr id="__179" onclick="return on(179)">
+<td class="return">void</td><td class="method">
+<a id="updateSQLXML_String_SQLXML" href="#updateSQLXML_String_SQLXML">updateSQLXML</a>(String columnLabel, SQLXML xmlObject)
+<div class="methodText">[Not supported] Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(179)" class="detail" id="_179">
+<td class="return">void</td><td>
+<a id="updateSQLXML_String_SQLXML" href="#updateSQLXML_String_SQLXML">updateSQLXML</a>(String columnLabel, SQLXML xmlObject) throws SQLException
+<div class="methodText">[Not supported] Updates a column in the current or insert row.</div>
+</td></tr>
+<tr id="__180" onclick="return on(180)">
+<td class="return">void</td><td class="method">
+<a id="updateShort_int_short" href="#updateShort_int_short">updateShort</a>(int columnIndex, short x)
+<div class="methodText">Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(180)" class="detail" id="_180">
+<td class="return">void</td><td>
+<a id="updateShort_int_short" href="#updateShort_int_short">updateShort</a>(int columnIndex, short x) throws SQLException
+<div class="methodText">Updates a column in the current or insert row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or not updatable</div>
+</td></tr>
+<tr id="__181" onclick="return on(181)">
+<td class="return">void</td><td class="method">
+<a id="updateShort_String_short" href="#updateShort_String_short">updateShort</a>(String columnLabel, short x)
+<div class="methodText">Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(181)" class="detail" id="_181">
+<td class="return">void</td><td>
+<a id="updateShort_String_short" href="#updateShort_String_short">updateShort</a>(String columnLabel, short x) throws SQLException
+<div class="methodText">Updates a column in the current or insert row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or not updatable</div>
+</td></tr>
+<tr id="__182" onclick="return on(182)">
+<td class="return">void</td><td class="method">
+<a id="updateString_int_String" href="#updateString_int_String">updateString</a>(int columnIndex, String x)
+<div class="methodText">Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(182)" class="detail" id="_182">
+<td class="return">void</td><td>
+<a id="updateString_int_String" href="#updateString_int_String">updateString</a>(int columnIndex, String x) throws SQLException
+<div class="methodText">Updates a column in the current or insert row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or not updatable</div>
+</td></tr>
+<tr id="__183" onclick="return on(183)">
+<td class="return">void</td><td class="method">
+<a id="updateString_String_String" href="#updateString_String_String">updateString</a>(String columnLabel, String x)
+<div class="methodText">Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(183)" class="detail" id="_183">
+<td class="return">void</td><td>
+<a id="updateString_String_String" href="#updateString_String_String">updateString</a>(String columnLabel, String x) throws SQLException
+<div class="methodText">Updates a column in the current or insert row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or not updatable</div>
+</td></tr>
+<tr id="__184" onclick="return on(184)">
+<td class="return">void</td><td class="method">
+<a id="updateTime_int_Time" href="#updateTime_int_Time">updateTime</a>(int columnIndex, Time x)
+<div class="methodText">Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(184)" class="detail" id="_184">
+<td class="return">void</td><td>
+<a id="updateTime_int_Time" href="#updateTime_int_Time">updateTime</a>(int columnIndex, Time x) throws SQLException
+<div class="methodText">Updates a column in the current or insert row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or not updatable</div>
+</td></tr>
+<tr id="__185" onclick="return on(185)">
+<td class="return">void</td><td class="method">
+<a id="updateTime_String_Time" href="#updateTime_String_Time">updateTime</a>(String columnLabel, Time x)
+<div class="methodText">Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(185)" class="detail" id="_185">
+<td class="return">void</td><td>
+<a id="updateTime_String_Time" href="#updateTime_String_Time">updateTime</a>(String columnLabel, Time x) throws SQLException
+<div class="methodText">Updates a column in the current or insert row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or not updatable</div>
+</td></tr>
+<tr id="__186" onclick="return on(186)">
+<td class="return">void</td><td class="method">
+<a id="updateTimestamp_int_Timestamp" href="#updateTimestamp_int_Timestamp">updateTimestamp</a>(int columnIndex, Timestamp x)
+<div class="methodText">Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(186)" class="detail" id="_186">
+<td class="return">void</td><td>
+<a id="updateTimestamp_int_Timestamp" href="#updateTimestamp_int_Timestamp">updateTimestamp</a>(int columnIndex, Timestamp x) throws SQLException
+<div class="methodText">Updates a column in the current or insert row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or not updatable</div>
+</td></tr>
+<tr id="__187" onclick="return on(187)">
+<td class="return">void</td><td class="method">
+<a id="updateTimestamp_String_Timestamp" href="#updateTimestamp_String_Timestamp">updateTimestamp</a>(String columnLabel, Timestamp x)
+<div class="methodText">Updates a column in the current or insert row.</div>
+</td></tr>
+<tr onclick="return off(187)" class="detail" id="_187">
+<td class="return">void</td><td>
+<a id="updateTimestamp_String_Timestamp" href="#updateTimestamp_String_Timestamp">updateTimestamp</a>(String columnLabel, Timestamp x) throws SQLException
+<div class="methodText">Updates a column in the current or insert row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the result set is closed or not updatable</div>
+</td></tr>
+<tr id="__188" onclick="return on(188)">
+<td class="return">boolean</td><td class="method">
+<a id="wasNull" href="#wasNull">wasNull</a>()
+<div class="methodText">Returns whether the last column accessed was null.</div>
+</td></tr>
+<tr onclick="return off(188)" class="detail" id="_188">
+<td class="return">boolean</td><td>
+<a id="wasNull" href="#wasNull">wasNull</a>() throws SQLException
+<div class="methodText">Returns whether the last column accessed was null.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">true if the last column accessed was null</div>
+</td></tr>
+</table>
+</div></td></tr></table></body></html>

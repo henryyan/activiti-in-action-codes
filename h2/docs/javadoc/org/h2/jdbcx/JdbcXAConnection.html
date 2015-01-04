@@ -1,0 +1,248 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head><meta http-equiv="Content-Type" content="text/html;charset=utf-8" /><title>
+JdbcXAConnection
+</title><link rel="stylesheet" type="text/css" href="../../../stylesheet.css" />
+<script type="text/javascript" src="../../../animate.js"></script>
+</head><body onload="openLink();">
+<table class="content"><tr class="content"><td class="content"><div class="contentDiv">
+<h1>JdbcXAConnection</h1>
+This class provides support for distributed transactions.
+ An application developer usually does not use this interface.
+ It is used by the transaction manager internally.<br /><br />
+<table class="block"><tr onclick="return allDetails()"><th colspan="2">Methods</th></tr>
+<tr id="__0" onclick="return on(0)">
+<td class="return">void</td><td class="method">
+<a id="addConnectionEventListener_ConnectionEventListener" href="#addConnectionEventListener_ConnectionEventListener">addConnectionEventListener</a>(ConnectionEventListener listener)
+<div class="methodText">Register a new listener for the connection.</div>
+</td></tr>
+<tr onclick="return off(0)" class="detail" id="_0">
+<td class="return">void</td><td>
+<a id="addConnectionEventListener_ConnectionEventListener" href="#addConnectionEventListener_ConnectionEventListener">addConnectionEventListener</a>(ConnectionEventListener listener)
+<div class="methodText">Register a new listener for the connection.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">listener - the event listener</div>
+</td></tr>
+<tr id="__1" onclick="return on(1)">
+<td class="return">void</td><td class="method">
+<a id="addStatementEventListener_StatementEventListener" href="#addStatementEventListener_StatementEventListener">addStatementEventListener</a>(StatementEventListener listener)
+<div class="methodText">[Not supported] Add a statement event listener.</div>
+</td></tr>
+<tr onclick="return off(1)" class="detail" id="_1">
+<td class="return">void</td><td>
+<a id="addStatementEventListener_StatementEventListener" href="#addStatementEventListener_StatementEventListener">addStatementEventListener</a>(StatementEventListener listener)
+<div class="methodText">[Not supported] Add a statement event listener.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">listener - the new statement event listener</div>
+</td></tr>
+<tr id="__2" onclick="return on(2)">
+<td class="return">void</td><td class="method">
+<a id="close" href="#close">close</a>()
+<div class="methodText">Close the physical connection.</div>
+</td></tr>
+<tr onclick="return off(2)" class="detail" id="_2">
+<td class="return">void</td><td>
+<a id="close" href="#close">close</a>() throws SQLException
+<div class="methodText">Close the physical connection.
+ This method is usually called by the connection pool.</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException</div>
+</td></tr>
+<tr id="__3" onclick="return on(3)">
+<td class="return">void</td><td class="method">
+<a id="commit_Xid_boolean" href="#commit_Xid_boolean">commit</a>(Xid xid, boolean onePhase)
+<div class="methodText">Commit a transaction.</div>
+</td></tr>
+<tr onclick="return off(3)" class="detail" id="_3">
+<td class="return">void</td><td>
+<a id="commit_Xid_boolean" href="#commit_Xid_boolean">commit</a>(Xid xid, boolean onePhase) throws XAException
+<div class="methodText">Commit a transaction.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">xid - the transaction id</div>
+<div class="item">onePhase - use a one-phase protocol if true</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">XAException</div>
+</td></tr>
+<tr id="__4" onclick="return on(4)">
+<td class="return">void</td><td class="method">
+<a id="end_Xid_int" href="#end_Xid_int">end</a>(Xid xid, int flags)
+<div class="methodText">End a transaction.</div>
+</td></tr>
+<tr onclick="return off(4)" class="detail" id="_4">
+<td class="return">void</td><td>
+<a id="end_Xid_int" href="#end_Xid_int">end</a>(Xid xid, int flags) throws XAException
+<div class="methodText">End a transaction.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">xid - the transaction id</div>
+<div class="item">flags - TMSUCCESS, TMFAIL, or TMSUSPEND</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">XAException</div>
+</td></tr>
+<tr id="__5" onclick="return on(5)">
+<td class="return">void</td><td class="method">
+<a id="forget_Xid" href="#forget_Xid">forget</a>(Xid xid)
+<div class="methodText">Forget a transaction.</div>
+</td></tr>
+<tr onclick="return off(5)" class="detail" id="_5">
+<td class="return">void</td><td>
+<a id="forget_Xid" href="#forget_Xid">forget</a>(Xid xid)
+<div class="methodText">Forget a transaction.
+ This method does not have an effect for this database.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">xid - the transaction id</div>
+</td></tr>
+<tr id="__6" onclick="return on(6)">
+<td class="return">Connection</td><td class="method">
+<a id="getConnection" href="#getConnection">getConnection</a>()
+<div class="methodText">Get a connection that is a handle to the physical connection.</div>
+</td></tr>
+<tr onclick="return off(6)" class="detail" id="_6">
+<td class="return">Connection</td><td>
+<a id="getConnection" href="#getConnection">getConnection</a>() throws SQLException
+<div class="methodText">Get a connection that is a handle to the physical connection. This method
+ is usually called by the connection pool. This method closes the last
+ connection handle if one exists.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the connection</div>
+</td></tr>
+<tr id="__7" onclick="return on(7)">
+<td class="return">int</td><td class="method">
+<a id="getTransactionTimeout" href="#getTransactionTimeout">getTransactionTimeout</a>()
+<div class="methodText">Get the transaction timeout.</div>
+</td></tr>
+<tr onclick="return off(7)" class="detail" id="_7">
+<td class="return">int</td><td>
+<a id="getTransactionTimeout" href="#getTransactionTimeout">getTransactionTimeout</a>()
+<div class="methodText">Get the transaction timeout.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">0</div>
+</td></tr>
+<tr id="__8" onclick="return on(8)">
+<td class="return">XAResource</td><td class="method">
+<a id="getXAResource" href="#getXAResource">getXAResource</a>()
+<div class="methodText">Get the XAResource object.</div>
+</td></tr>
+<tr onclick="return off(8)" class="detail" id="_8">
+<td class="return">XAResource</td><td>
+<a id="getXAResource" href="#getXAResource">getXAResource</a>()
+<div class="methodText">Get the XAResource object.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">itself</div>
+</td></tr>
+<tr id="__9" onclick="return on(9)">
+<td class="return">boolean</td><td class="method">
+<a id="isSameRM_XAResource" href="#isSameRM_XAResource">isSameRM</a>(XAResource xares)
+<div class="methodText">Checks if this is the same XAResource.</div>
+</td></tr>
+<tr onclick="return off(9)" class="detail" id="_9">
+<td class="return">boolean</td><td>
+<a id="isSameRM_XAResource" href="#isSameRM_XAResource">isSameRM</a>(XAResource xares)
+<div class="methodText">Checks if this is the same XAResource.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">xares - the other object</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">true if this is the same object</div>
+</td></tr>
+<tr id="__10" onclick="return on(10)">
+<td class="return">int</td><td class="method">
+<a id="prepare_Xid" href="#prepare_Xid">prepare</a>(Xid xid)
+<div class="methodText">Prepare a transaction.</div>
+</td></tr>
+<tr onclick="return off(10)" class="detail" id="_10">
+<td class="return">int</td><td>
+<a id="prepare_Xid" href="#prepare_Xid">prepare</a>(Xid xid) throws XAException
+<div class="methodText">Prepare a transaction.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">xid - the transaction id</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">XA_OK</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">XAException</div>
+</td></tr>
+<tr id="__11" onclick="return on(11)">
+<td class="return">Xid[]</td><td class="method">
+<a id="recover_int" href="#recover_int">recover</a>(int flag)
+<div class="methodText">Get the list of prepared transaction branches.</div>
+</td></tr>
+<tr onclick="return off(11)" class="detail" id="_11">
+<td class="return">Xid[]</td><td>
+<a id="recover_int" href="#recover_int">recover</a>(int flag) throws XAException
+<div class="methodText">Get the list of prepared transaction branches.
+ This method is called by the transaction manager during recovery.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">flag - TMSTARTRSCAN, TMENDRSCAN, or TMNOFLAGS. If no other flags are set,
+  TMNOFLAGS must be used.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">zero or more Xid objects</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">XAException</div>
+</td></tr>
+<tr id="__12" onclick="return on(12)">
+<td class="return">void</td><td class="method">
+<a id="removeConnectionEventListener_ConnectionEventListener" href="#removeConnectionEventListener_ConnectionEventListener">removeConnectionEventListener</a>(ConnectionEventListener listener)
+<div class="methodText">Remove the event listener.</div>
+</td></tr>
+<tr onclick="return off(12)" class="detail" id="_12">
+<td class="return">void</td><td>
+<a id="removeConnectionEventListener_ConnectionEventListener" href="#removeConnectionEventListener_ConnectionEventListener">removeConnectionEventListener</a>(ConnectionEventListener listener)
+<div class="methodText">Remove the event listener.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">listener - the event listener</div>
+</td></tr>
+<tr id="__13" onclick="return on(13)">
+<td class="return">void</td><td class="method">
+<a id="removeStatementEventListener_StatementEventListener" href="#removeStatementEventListener_StatementEventListener">removeStatementEventListener</a>(StatementEventListener listener)
+<div class="methodText">[Not supported] Remove a statement event listener.</div>
+</td></tr>
+<tr onclick="return off(13)" class="detail" id="_13">
+<td class="return">void</td><td>
+<a id="removeStatementEventListener_StatementEventListener" href="#removeStatementEventListener_StatementEventListener">removeStatementEventListener</a>(StatementEventListener listener)
+<div class="methodText">[Not supported] Remove a statement event listener.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">listener - the statement event listener</div>
+</td></tr>
+<tr id="__14" onclick="return on(14)">
+<td class="return">void</td><td class="method">
+<a id="rollback_Xid" href="#rollback_Xid">rollback</a>(Xid xid)
+<div class="methodText">Roll back a transaction.</div>
+</td></tr>
+<tr onclick="return off(14)" class="detail" id="_14">
+<td class="return">void</td><td>
+<a id="rollback_Xid" href="#rollback_Xid">rollback</a>(Xid xid) throws XAException
+<div class="methodText">Roll back a transaction.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">xid - the transaction id</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">XAException</div>
+</td></tr>
+<tr id="__15" onclick="return on(15)">
+<td class="return">boolean</td><td class="method">
+<a id="setTransactionTimeout_int" href="#setTransactionTimeout_int">setTransactionTimeout</a>(int seconds)
+<div class="methodText">Set the transaction timeout.</div>
+</td></tr>
+<tr onclick="return off(15)" class="detail" id="_15">
+<td class="return">boolean</td><td>
+<a id="setTransactionTimeout_int" href="#setTransactionTimeout_int">setTransactionTimeout</a>(int seconds)
+<div class="methodText">Set the transaction timeout.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">seconds - ignored</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">false</div>
+</td></tr>
+<tr id="__16" onclick="return on(16)">
+<td class="return">void</td><td class="method">
+<a id="start_Xid_int" href="#start_Xid_int">start</a>(Xid xid, int flags)
+<div class="methodText">Start or continue to work on a transaction.</div>
+</td></tr>
+<tr onclick="return off(16)" class="detail" id="_16">
+<td class="return">void</td><td>
+<a id="start_Xid_int" href="#start_Xid_int">start</a>(Xid xid, int flags) throws XAException
+<div class="methodText">Start or continue to work on a transaction.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">xid - the transaction id</div>
+<div class="item">flags - TMNOFLAGS, TMJOIN, or TMRESUME</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">XAException</div>
+</td></tr>
+</table>
+</div></td></tr></table></body></html>

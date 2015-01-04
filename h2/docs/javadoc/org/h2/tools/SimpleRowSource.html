@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head><meta http-equiv="Content-Type" content="text/html;charset=utf-8" /><title>
+SimpleRowSource
+</title><link rel="stylesheet" type="text/css" href="../../../stylesheet.css" />
+<script type="text/javascript" src="../../../animate.js"></script>
+</head><body onload="openLink();">
+<table class="content"><tr class="content"><td class="content"><div class="contentDiv">
+<h1>SimpleRowSource</h1>
+This interface is for classes that create rows on demand.
+ It is used together with SimpleResultSet to create a dynamic result set.<br /><br />
+<table class="block"><tr onclick="return allDetails()"><th colspan="2">Methods</th></tr>
+<tr id="__0" onclick="return on(0)">
+<td class="return">void</td><td class="method">
+<a id="close" href="#close">close</a>()
+<div class="methodText">Close the row source.</div>
+</td></tr>
+<tr onclick="return off(0)" class="detail" id="_0">
+<td class="return">void</td><td>
+<a id="close" href="#close">close</a>()
+<div class="methodText">Close the row source.</div>
+</td></tr>
+<tr id="__1" onclick="return on(1)">
+<td class="return">Object[]</td><td class="method">
+<a id="readRow" href="#readRow">readRow</a>()
+<div class="methodText">Get the next row.</div>
+</td></tr>
+<tr onclick="return off(1)" class="detail" id="_1">
+<td class="return">Object[]</td><td>
+<a id="readRow" href="#readRow">readRow</a>() throws SQLException
+<div class="methodText">Get the next row. Must return null if no more rows are available.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the row or null</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException</div>
+</td></tr>
+<tr id="__2" onclick="return on(2)">
+<td class="return">void</td><td class="method">
+<a id="reset" href="#reset">reset</a>()
+<div class="methodText">Reset the position (before the first row).</div>
+</td></tr>
+<tr onclick="return off(2)" class="detail" id="_2">
+<td class="return">void</td><td>
+<a id="reset" href="#reset">reset</a>() throws SQLException
+<div class="methodText">Reset the position (before the first row).</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this operation is not supported</div>
+</td></tr>
+</table>
+</div></td></tr></table></body></html>

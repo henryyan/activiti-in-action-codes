@@ -1,0 +1,35 @@
+<mule xmlns="http://www.mulesoft.org/schema/mule/core"
+      xmlns:spring="http://www.springframework.org/schema/beans"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:vm="http://www.mulesoft.org/schema/mule/vm"
+      xmlns:activiti="http://www.mulesoft.org/schema/mule/activiti-embedded"
+      xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+  				http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/3.1/mule.xsd
+         	http://www.mulesoft.org/schema/mule/vm http://www.mulesoft.org/schema/mule/vm/3.1/mule-vm.xsd
+         	http://www.mulesoft.org/schema/mule/activiti-embedded http://www.mulesoft.org/schema/mule/activiti-embedded/3.2/mule-activiti-embedded.xsd">
+
+    <spring:beans>
+        <spring:import resource="spring-activiti-lesser.xml" />
+    </spring:beans>
+
+    <activiti:connector name="actServer"
+                        repositoryService-ref="repositoryService"
+                        runtimeService-ref="runtimeService"
+                        taskService-ref="taskService"
+                        historyService-ref="historyService" />
+
+    <flow name="StartLeaveProcessUseMule">
+        <vm:inbound-endpoint path="startLeaveProcess" exchange-pattern="request-response" />
+        <activiti:create-process parametersExpression="#[header:INBOUND:createProcessParameters]" />
+    </flow>
+
+    <flow name="LeaveMuleService">
+        <vm:inbound-endpoint path="checkDays" exchange-pattern="request-response" />
+        <component class="me.kafeitu.activiti.chapter18.esb.mule.LeaveMuleService">
+            <method-entry-point-resolver>
+                <include-entry-point method="isDeptLeaderApproved"/>
+            </method-entry-point-resolver>
+        </component>
+    </flow>
+
+</mule>

@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head><meta http-equiv="Content-Type" content="text/html;charset=utf-8" /><title>
+TriggerAdapter
+</title><link rel="stylesheet" type="text/css" href="../../../stylesheet.css" />
+<script type="text/javascript" src="../../../animate.js"></script>
+</head><body onload="openLink();">
+<table class="content"><tr class="content"><td class="content"><div class="contentDiv">
+<h1>TriggerAdapter</h1>
+An adapter for the trigger interface that allows to use the ResultSet
+ interface instead of a row array.<br /><br />
+<table class="block"><tr onclick="return allDetails()"><th colspan="2">Methods</th></tr>
+<tr id="__0" onclick="return on(0)">
+<td class="return">void</td><td class="method">
+<a id="close" href="#close">close</a>()
+<div class="methodText">This method is called when the trigger is dropped.</div>
+</td></tr>
+<tr onclick="return off(0)" class="detail" id="_0">
+<td class="return">void</td><td>
+<a id="close" href="#close">close</a>() throws SQLException
+<div class="methodText">This method is called when the trigger is dropped.
+ The default implementation does nothing.</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException</div>
+</td></tr>
+<tr id="__1" onclick="return on(1)">
+<td class="return">void</td><td class="method">
+<a id="fire_Connection_Object-_Object-" href="#fire_Connection_Object-_Object-">fire</a>(Connection conn, Object[] oldRow, Object[] newRow)
+<div class="methodText">This method is called for each triggered action.</div>
+</td></tr>
+<tr onclick="return off(1)" class="detail" id="_1">
+<td class="return">void</td><td>
+<a id="fire_Connection_Object-_Object-" href="#fire_Connection_Object-_Object-">fire</a>(Connection conn, Object[] oldRow, Object[] newRow) throws SQLException
+<div class="methodText">This method is called for each triggered action. The method is called
+ immediately when the operation occurred (before it is committed). A
+ transaction rollback will also rollback the operations that were done
+ within the trigger, if the operations occurred within the same database.
+ If the trigger changes state outside the database, a rollback trigger
+ should be used.
+ <p>
+ The row arrays contain all columns of the table, in the same order
+ as defined in the table.
+ </p>
+ <p>
+ The default implementation calls the fire method with the ResultSet
+ parameters.
+ </p></div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">conn - a connection to the database</div>
+<div class="item">oldRow - the old row, or null if no old row is available (for
+            INSERT)</div>
+<div class="item">newRow - the new row, or null if no new row is available (for
+            DELETE)</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the operation must be undone</div>
+</td></tr>
+<tr id="__2" onclick="return on(2)">
+<td class="return">void</td><td class="method">
+<a id="fire_Connection_ResultSet_ResultSet" href="#fire_Connection_ResultSet_ResultSet">fire</a>(Connection conn, ResultSet oldRow, ResultSet newRow)
+<div class="methodText">This method is called for each triggered action by the default
+ fire(Connection conn, Object[] oldRow, Object[] newRow) method.</div>
+</td></tr>
+<tr onclick="return off(2)" class="detail" id="_2">
+<td class="return">void</td><td>
+<a id="fire_Connection_ResultSet_ResultSet" href="#fire_Connection_ResultSet_ResultSet">fire</a>(Connection conn, ResultSet oldRow, ResultSet newRow) throws SQLException
+<div class="methodText">This method is called for each triggered action by the default
+ fire(Connection conn, Object[] oldRow, Object[] newRow) method.
+ ResultSet.next does not need to be called (and calling it has no effect;
+ it will always return true).
+ <p>
+ For "before" triggers, the new values of the new row may be changed
+ using the ResultSet.updateX methods.
+ </p></div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">conn - a connection to the database</div>
+<div class="item">oldRow - the old row, or null if no old row is available (for
+            INSERT)</div>
+<div class="item">newRow - the new row, or null if no new row is available (for
+            DELETE)</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the operation must be undone</div>
+</td></tr>
+<tr id="__3" onclick="return on(3)">
+<td class="return">void</td><td class="method">
+<a id="init_Connection_String_String_String_boolean_int" href="#init_Connection_String_String_String_boolean_int">init</a>(Connection conn, String schemaName, String triggerName, String tableName, boolean before, int type)
+<div class="methodText">This method is called by the database engine once when initializing the
+ trigger.</div>
+</td></tr>
+<tr onclick="return off(3)" class="detail" id="_3">
+<td class="return">void</td><td>
+<a id="init_Connection_String_String_String_boolean_int" href="#init_Connection_String_String_String_boolean_int">init</a>(Connection conn, String schemaName, String triggerName, String tableName, boolean before, int type) throws SQLException
+<div class="methodText">This method is called by the database engine once when initializing the
+ trigger. It is called when the trigger is created, as well as when the
+ database is opened. The default implementation initialized the result
+ sets.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">conn - a connection to the database</div>
+<div class="item">schemaName - the name of the schema</div>
+<div class="item">triggerName - the name of the trigger used in the CREATE TRIGGER
+            statement</div>
+<div class="item">tableName - the name of the table</div>
+<div class="item">before - whether the fire method is called before or after the
+            operation is performed</div>
+<div class="item">type - the operation type: INSERT, UPDATE, DELETE, SELECT, or a
+            combination (this parameter is a bit field)</div>
+</td></tr>
+<tr id="__4" onclick="return on(4)">
+<td class="return">void</td><td class="method">
+<a id="remove" href="#remove">remove</a>()
+<div class="methodText">This method is called when the database is closed.</div>
+</td></tr>
+<tr onclick="return off(4)" class="detail" id="_4">
+<td class="return">void</td><td>
+<a id="remove" href="#remove">remove</a>() throws SQLException
+<div class="methodText">This method is called when the database is closed.
+ If the method throws an exception, it will be logged, but
+ closing the database will continue.
+ The default implementation does nothing.</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException</div>
+</td></tr>
+</table>
+</div></td></tr></table></body></html>

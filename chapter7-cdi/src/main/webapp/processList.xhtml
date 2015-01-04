@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                template="/WEB-INF/templates/template.xhtml">
+    <ui:define name="content">
+        <h2>流程定义列表</h2>
+        <h:dataTable value="#{processDefinitionList}" var="process" cellpadding="10">
+            <h:column>
+                <f:facet name="header">Key</f:facet>
+                #{process.key}
+            </h:column>
+            <h:column>
+                <f:facet name="header">名称</f:facet>
+                #{process.name}
+            </h:column>
+            <h:column>
+                <f:facet name="header">版本</f:facet>
+                #{process.version}
+            </h:column>
+            <h:column>
+                <f:facet name="header">操作</f:facet>
+                <h:outputLink value="#{formService.getStartFormData(process.id).formKey}">
+                    启动
+                    <f:param name="processDefinitionKey" value="#{process.key}"></f:param>
+                </h:outputLink>
+            </h:column>
+        </h:dataTable>
+    </ui:define>
+</ui:composition>

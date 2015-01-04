@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head><meta http-equiv="Content-Type" content="text/html;charset=utf-8" /><title>
+Recover
+</title><link rel="stylesheet" type="text/css" href="../../../stylesheet.css" />
+<script type="text/javascript" src="../../../animate.js"></script>
+</head><body onload="openLink();">
+<table class="content"><tr class="content"><td class="content"><div class="contentDiv">
+<h1>Recover</h1>
+Helps recovering a corrupted database.<br /><br />
+<table class="block"><tr onclick="return allDetails()"><th colspan="2">Methods</th></tr>
+<tr id="__0" onclick="return on(0)">
+<td class="return">static void</td><td class="method">
+<a id="execute_String_String" href="#execute_String_String">execute</a>(String dir, String db)
+<div class="methodText">Dumps the contents of a database to a SQL script file.</div>
+</td></tr>
+<tr onclick="return off(0)" class="detail" id="_0">
+<td class="return">static void</td><td>
+<a id="execute_String_String" href="#execute_String_String">execute</a>(String dir, String db) throws SQLException
+<div class="methodText">Dumps the contents of a database to a SQL script file.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">dir - the directory</div>
+<div class="item">db - the database name (null for all databases)</div>
+</td></tr>
+<tr id="__1" onclick="return on(1)">
+<td class="return">static void</td><td class="method">
+<a id="main_String..." href="#main_String...">main</a>(String... args)
+<div class="methodText">Options are case sensitive.</div>
+</td></tr>
+<tr onclick="return off(1)" class="detail" id="_1">
+<td class="return">static void</td><td>
+<a id="main_String..." href="#main_String...">main</a>(String... args) throws SQLException
+<div class="methodText">Options are case sensitive. Supported options are:
+ <table>
+ <tr><td>[-help] or [-?]</td>
+ <td>Print the list of options</td></tr>
+ <tr><td>[-dir &lt;dir&gt;]</td>
+ <td>The directory (default: .)</td></tr>
+ <tr><td>[-db &lt;database&gt;]</td>
+ <td>The database name (all databases if not set)</td></tr>
+ <tr><td>[-trace]</td>
+ <td>Print additional trace information</td></tr>
+ </table>
+ Encrypted databases need to be decrypted first.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">args - the command line arguments</div>
+</td></tr>
+<tr id="__2" onclick="return on(2)">
+<td class="return">void</td><td class="method">
+<a id="runTool_String..." href="#runTool_String...">runTool</a>(String... args)
+<div class="methodText">Dumps the contents of a database file to a human readable text file.</div>
+</td></tr>
+<tr onclick="return off(2)" class="detail" id="_2">
+<td class="return">void</td><td>
+<a id="runTool_String..." href="#runTool_String...">runTool</a>(String... args) throws SQLException
+<div class="methodText">Dumps the contents of a database file to a human readable text file. This
+ text file can be used to recover most of the data. This tool does not
+ open the database and can be used even if the database files are
+ corrupted. A database can get corrupted if there is a bug in the database
+ engine or file system software, or if an application writes into the
+ database file that doesn't understand the the file format, or if there is
+ a hardware problem.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">args - the command line arguments</div>
+</td></tr>
+</table>
+</div></td></tr></table></body></html>

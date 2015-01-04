@@ -1,0 +1,184 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head><meta http-equiv="Content-Type" content="text/html;charset=utf-8" /><title>
+JdbcConnectionPool
+</title><link rel="stylesheet" type="text/css" href="../../../stylesheet.css" />
+<script type="text/javascript" src="../../../animate.js"></script>
+</head><body onload="openLink();">
+<table class="content"><tr class="content"><td class="content"><div class="contentDiv">
+<h1>JdbcConnectionPool</h1>
+A simple standalone JDBC connection pool.
+ It is based on the
+ <a href="http://www.source-code.biz/snippets/java/8.htm">
+  MiniConnectionPoolManager written by Christian d'Heureuse (Java 1.5)
+ </a>. It is used as follows:
+ <pre>
+ import java.sql.*;
+ import org.h2.jdbcx.JdbcConnectionPool;
+ public class Test {
+     public static void main(String... args) throws Exception {
+         JdbcConnectionPool cp = JdbcConnectionPool.create(
+             "jdbc:h2:~/test", "sa", "sa");
+         for (String sql : args) {
+             Connection conn = cp.getConnection();
+             conn.createStatement().execute(sql);
+             conn.close();
+         }
+         cp.dispose();
+     }
+ }</pre><br /><br />
+<table class="block"><tr onclick="return allDetails()"><th colspan="2">Methods</th></tr>
+<tr id="__0" onclick="return on(0)">
+<td class="return">static JdbcConnectionPool</td><td class="method">
+<a id="create_ConnectionPoolDataSource" href="#create_ConnectionPoolDataSource">create</a>(ConnectionPoolDataSource dataSource)
+<div class="methodText">Constructs a new connection pool.</div>
+</td></tr>
+<tr onclick="return off(0)" class="detail" id="_0">
+<td class="return">static JdbcConnectionPool</td><td>
+<a id="create_ConnectionPoolDataSource" href="#create_ConnectionPoolDataSource">create</a>(ConnectionPoolDataSource dataSource)
+<div class="methodText">Constructs a new connection pool.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">dataSource - the data source to create connections</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the connection pool</div>
+</td></tr>
+<tr id="__1" onclick="return on(1)">
+<td class="return">static JdbcConnectionPool</td><td class="method">
+<a id="create_String_String_String" href="#create_String_String_String">create</a>(String url, String user, String password)
+<div class="methodText">Constructs a new connection pool for H2 databases.</div>
+</td></tr>
+<tr onclick="return off(1)" class="detail" id="_1">
+<td class="return">static JdbcConnectionPool</td><td>
+<a id="create_String_String_String" href="#create_String_String_String">create</a>(String url, String user, String password)
+<div class="methodText">Constructs a new connection pool for H2 databases.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">url - the database URL of the H2 connection</div>
+<div class="item">user - the user name</div>
+<div class="item">password - the password</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the connection pool</div>
+</td></tr>
+<tr id="__2" onclick="return on(2)">
+<td class="return">void</td><td class="method">
+<a id="dispose" href="#dispose">dispose</a>()
+<div class="methodText">Closes all unused pooled connections.</div>
+</td></tr>
+<tr onclick="return off(2)" class="detail" id="_2">
+<td class="return">void</td><td>
+<a id="dispose" href="#dispose">dispose</a>()
+<div class="methodText">Closes all unused pooled connections.
+ Exceptions while closing are written to the log stream (if set).</div>
+</td></tr>
+<tr id="__3" onclick="return on(3)">
+<td class="return">int</td><td class="method">
+<a id="getActiveConnections" href="#getActiveConnections">getActiveConnections</a>()
+<div class="methodText">Returns the number of active (open) connections of this pool.</div>
+</td></tr>
+<tr onclick="return off(3)" class="detail" id="_3">
+<td class="return">int</td><td>
+<a id="getActiveConnections" href="#getActiveConnections">getActiveConnections</a>()
+<div class="methodText">Returns the number of active (open) connections of this pool. This is the
+ number of <code>Connection</code> objects that have been issued by
+ getConnection() for which <code>Connection.close()</code> has
+ not yet been called.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the number of active connections.</div>
+</td></tr>
+<tr id="__4" onclick="return on(4)">
+<td class="return">Connection</td><td class="method">
+<a id="getConnection" href="#getConnection">getConnection</a>()
+<div class="methodText">Retrieves a connection from the connection pool.</div>
+</td></tr>
+<tr onclick="return off(4)" class="detail" id="_4">
+<td class="return">Connection</td><td>
+<a id="getConnection" href="#getConnection">getConnection</a>() throws SQLException
+<div class="methodText">Retrieves a connection from the connection pool. If
+ <code>maxConnections</code> connections are already in use, the method
+ waits until a connection becomes available or <code>timeout</code>
+ seconds elapsed. When the application is finished using the connection,
+ it must close it in order to return it to the pool.
+ If no connection becomes available within the given timeout, an exception
+ with SQL state 08001 and vendor code 8001 is thrown.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">a new Connection object.</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - when a new connection could not be established,
+      or a timeout occurred</div>
+</td></tr>
+<tr id="__5" onclick="return on(5)">
+<td class="return">int</td><td class="method">
+<a id="getLoginTimeout" href="#getLoginTimeout">getLoginTimeout</a>()
+<div class="methodText">Gets the maximum time in seconds to wait for a free connection.</div>
+</td></tr>
+<tr onclick="return off(5)" class="detail" id="_5">
+<td class="return">int</td><td>
+<a id="getLoginTimeout" href="#getLoginTimeout">getLoginTimeout</a>()
+<div class="methodText">Gets the maximum time in seconds to wait for a free connection.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the timeout in seconds</div>
+</td></tr>
+<tr id="__6" onclick="return on(6)">
+<td class="return">int</td><td class="method">
+<a id="getMaxConnections" href="#getMaxConnections">getMaxConnections</a>()
+<div class="methodText">Gets the maximum number of connections to use.</div>
+</td></tr>
+<tr onclick="return off(6)" class="detail" id="_6">
+<td class="return">int</td><td>
+<a id="getMaxConnections" href="#getMaxConnections">getMaxConnections</a>()
+<div class="methodText">Gets the maximum number of connections to use.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the max the maximum number of connections</div>
+</td></tr>
+<tr id="__7" onclick="return on(7)">
+<td class="return">boolean</td><td class="method">
+<a id="isWrapperFor_Class" href="#isWrapperFor_Class">isWrapperFor</a>(Class iface)
+<div class="methodText">[Not supported] Checks if unwrap can return an object of this class.</div>
+</td></tr>
+<tr onclick="return off(7)" class="detail" id="_7">
+<td class="return">boolean</td><td>
+<a id="isWrapperFor_Class" href="#isWrapperFor_Class">isWrapperFor</a>(Class iface) throws SQLException
+<div class="methodText">[Not supported] Checks if unwrap can return an object of this class.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">iface - the class</div>
+</td></tr>
+<tr id="__8" onclick="return on(8)">
+<td class="return">void</td><td class="method">
+<a id="setLoginTimeout_int" href="#setLoginTimeout_int">setLoginTimeout</a>(int seconds)
+<div class="methodText">Sets the maximum time in seconds to wait for a free connection.</div>
+</td></tr>
+<tr onclick="return off(8)" class="detail" id="_8">
+<td class="return">void</td><td>
+<a id="setLoginTimeout_int" href="#setLoginTimeout_int">setLoginTimeout</a>(int seconds)
+<div class="methodText">Sets the maximum time in seconds to wait for a free connection.
+ The default timeout is 30 seconds. Calling this method with the
+ value 0 will set the timeout to the default value.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">seconds - the timeout, 0 meaning the default</div>
+</td></tr>
+<tr id="__9" onclick="return on(9)">
+<td class="return">void</td><td class="method">
+<a id="setMaxConnections_int" href="#setMaxConnections_int">setMaxConnections</a>(int max)
+<div class="methodText">Sets the maximum number of connections to use from now on.</div>
+</td></tr>
+<tr onclick="return off(9)" class="detail" id="_9">
+<td class="return">void</td><td>
+<a id="setMaxConnections_int" href="#setMaxConnections_int">setMaxConnections</a>(int max)
+<div class="methodText">Sets the maximum number of connections to use from now on.
+ The default value is 10 connections.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">max - the maximum number of connections</div>
+</td></tr>
+<tr id="__10" onclick="return on(10)">
+<td class="return">T</td><td class="method">
+<a id="unwrap_Class" href="#unwrap_Class">unwrap</a>(Class iface)
+<div class="methodText">[Not supported] Return an object of this class if possible.</div>
+</td></tr>
+<tr onclick="return off(10)" class="detail" id="_10">
+<td class="return">T</td><td>
+<a id="unwrap_Class" href="#unwrap_Class">unwrap</a>(Class iface) throws SQLException
+<div class="methodText">[Not supported] Return an object of this class if possible.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">iface - the class</div>
+</td></tr>
+</table>
+</div></td></tr></table></body></html>

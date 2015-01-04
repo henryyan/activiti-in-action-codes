@@ -1,0 +1,766 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head><meta http-equiv="Content-Type" content="text/html;charset=utf-8" /><title>
+Connection
+</title><link rel="stylesheet" type="text/css" href="../../../stylesheet.css" />
+<script type="text/javascript" src="../../../animate.js"></script>
+</head><body onload="openLink();">
+<table class="content"><tr class="content"><td class="content"><div class="contentDiv">
+<h1>Connection</h1>
+<p>
+ Represents a connection (session) to a database.
+ </p>
+ <p>
+ Thread safety: the connection is thread-safe, because access
+ is synchronized. However, for compatibility with other databases, a
+ connection should only be used in one thread at any time.
+ </p><br /><br />
+<table class="block"><tr onclick="return allDetails()"><th colspan="2">Methods</th></tr>
+<tr id="__0" onclick="return on(0)">
+<td class="return">void</td><td class="method">
+<a id="clearWarnings" href="#clearWarnings">clearWarnings</a>()
+<div class="methodText">Clears all warnings.</div>
+</td></tr>
+<tr onclick="return off(0)" class="detail" id="_0">
+<td class="return">void</td><td>
+<a id="clearWarnings" href="#clearWarnings">clearWarnings</a>() throws SQLException
+<div class="methodText">Clears all warnings.</div>
+</td></tr>
+<tr id="__1" onclick="return on(1)">
+<td class="return">void</td><td class="method">
+<a id="close" href="#close">close</a>()
+<div class="methodText">Closes this connection.</div>
+</td></tr>
+<tr onclick="return off(1)" class="detail" id="_1">
+<td class="return">void</td><td>
+<a id="close" href="#close">close</a>() throws SQLException
+<div class="methodText">Closes this connection. All open statements, prepared statements and
+ result sets that where created by this connection become invalid after
+ calling this method. If there is an uncommitted transaction, it will be
+ rolled back.</div>
+</td></tr>
+<tr id="__2" onclick="return on(2)">
+<td class="return">void</td><td class="method">
+<a id="commit" href="#commit">commit</a>()
+<div class="methodText">Commits the current transaction.</div>
+</td></tr>
+<tr onclick="return off(2)" class="detail" id="_2">
+<td class="return">void</td><td>
+<a id="commit" href="#commit">commit</a>() throws SQLException
+<div class="methodText">Commits the current transaction. This call has only an effect if auto
+ commit is switched off.</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the connection is closed</div>
+</td></tr>
+<tr id="__3" onclick="return on(3)">
+<td class="return">Array</td><td class="method">
+<a id="createArrayOf_String_Object-" href="#createArrayOf_String_Object-">createArrayOf</a>(String typeName, Object[] elements)
+<div class="methodText">[Not supported] Create a new empty Array object.</div>
+</td></tr>
+<tr onclick="return off(3)" class="detail" id="_3">
+<td class="return">Array</td><td>
+<a id="createArrayOf_String_Object-" href="#createArrayOf_String_Object-">createArrayOf</a>(String typeName, Object[] elements) throws SQLException
+<div class="methodText">[Not supported] Create a new empty Array object.</div>
+</td></tr>
+<tr id="__4" onclick="return on(4)">
+<td class="return">Blob</td><td class="method">
+<a id="createBlob" href="#createBlob">createBlob</a>()
+<div class="methodText">Create a new empty Blob object.</div>
+</td></tr>
+<tr onclick="return off(4)" class="detail" id="_4">
+<td class="return">Blob</td><td>
+<a id="createBlob" href="#createBlob">createBlob</a>() throws SQLException
+<div class="methodText">Create a new empty Blob object.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the object</div>
+</td></tr>
+<tr id="__5" onclick="return on(5)">
+<td class="return">Value</td><td class="method">
+<a id="createBlob_InputStream_long" href="#createBlob_InputStream_long">createBlob</a>(InputStream x, long length)
+<div class="methodText">Create a Blob value from this input stream.</div>
+</td></tr>
+<tr onclick="return off(5)" class="detail" id="_5">
+<td class="return">Value</td><td>
+<a id="createBlob_InputStream_long" href="#createBlob_InputStream_long">createBlob</a>(InputStream x, long length)
+<div class="methodText">Create a Blob value from this input stream.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">x - the input stream</div>
+<div class="item">length - the length (if smaller or equal than 0, all data until the
+            end of file is read)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+</td></tr>
+<tr id="__6" onclick="return on(6)">
+<td class="return">Clob</td><td class="method">
+<a id="createClob" href="#createClob">createClob</a>()
+<div class="methodText">Create a new empty Clob object.</div>
+</td></tr>
+<tr onclick="return off(6)" class="detail" id="_6">
+<td class="return">Clob</td><td>
+<a id="createClob" href="#createClob">createClob</a>() throws SQLException
+<div class="methodText">Create a new empty Clob object.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the object</div>
+</td></tr>
+<tr id="__7" onclick="return on(7)">
+<td class="return">Value</td><td class="method">
+<a id="createClob_Reader_long" href="#createClob_Reader_long">createClob</a>(Reader x, long length)
+<div class="methodText">Create a Clob value from this reader.</div>
+</td></tr>
+<tr onclick="return off(7)" class="detail" id="_7">
+<td class="return">Value</td><td>
+<a id="createClob_Reader_long" href="#createClob_Reader_long">createClob</a>(Reader x, long length)
+<div class="methodText">Create a Clob value from this reader.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">x - the reader</div>
+<div class="item">length - the length (if smaller or equal than 0, all data until the
+            end of file is read)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+</td></tr>
+<tr id="__8" onclick="return on(8)">
+<td class="return">NClob</td><td class="method">
+<a id="createNClob" href="#createNClob">createNClob</a>()
+<div class="methodText">Create a new empty NClob object.</div>
+</td></tr>
+<tr onclick="return off(8)" class="detail" id="_8">
+<td class="return">NClob</td><td>
+<a id="createNClob" href="#createNClob">createNClob</a>() throws SQLException
+<div class="methodText">Create a new empty NClob object.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the object</div>
+</td></tr>
+<tr id="__9" onclick="return on(9)">
+<td class="return">SQLXML</td><td class="method">
+<a id="createSQLXML" href="#createSQLXML">createSQLXML</a>()
+<div class="methodText">[Not supported] Create a new empty SQLXML object.</div>
+</td></tr>
+<tr onclick="return off(9)" class="detail" id="_9">
+<td class="return">SQLXML</td><td>
+<a id="createSQLXML" href="#createSQLXML">createSQLXML</a>() throws SQLException
+<div class="methodText">[Not supported] Create a new empty SQLXML object.</div>
+</td></tr>
+<tr id="__10" onclick="return on(10)">
+<td class="return">Statement</td><td class="method">
+<a id="createStatement" href="#createStatement">createStatement</a>()
+<div class="methodText">Creates a new statement.</div>
+</td></tr>
+<tr onclick="return off(10)" class="detail" id="_10">
+<td class="return">Statement</td><td>
+<a id="createStatement" href="#createStatement">createStatement</a>() throws SQLException
+<div class="methodText">Creates a new statement.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the new statement</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the connection is closed</div>
+</td></tr>
+<tr id="__11" onclick="return on(11)">
+<td class="return">Statement</td><td class="method">
+<a id="createStatement_int_int" href="#createStatement_int_int">createStatement</a>(int resultSetType, int resultSetConcurrency)
+<div class="methodText">Creates a statement with the specified result set type and concurrency.</div>
+</td></tr>
+<tr onclick="return off(11)" class="detail" id="_11">
+<td class="return">Statement</td><td>
+<a id="createStatement_int_int" href="#createStatement_int_int">createStatement</a>(int resultSetType, int resultSetConcurrency) throws SQLException
+<div class="methodText">Creates a statement with the specified result set type and concurrency.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">resultSetType - the result set type (ResultSet.TYPE_*)</div>
+<div class="item">resultSetConcurrency - the concurrency (ResultSet.CONCUR_*)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the statement</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the connection is closed or the result set type or
+             concurrency are not supported</div>
+</td></tr>
+<tr id="__12" onclick="return on(12)">
+<td class="return">Statement</td><td class="method">
+<a id="createStatement_int_int_int" href="#createStatement_int_int_int">createStatement</a>(int resultSetType, int resultSetConcurrency, int resultSetHoldability)
+<div class="methodText">Creates a statement with the specified result set type, concurrency, and
+ holdability.</div>
+</td></tr>
+<tr onclick="return off(12)" class="detail" id="_12">
+<td class="return">Statement</td><td>
+<a id="createStatement_int_int_int" href="#createStatement_int_int_int">createStatement</a>(int resultSetType, int resultSetConcurrency, int resultSetHoldability) throws SQLException
+<div class="methodText">Creates a statement with the specified result set type, concurrency, and
+ holdability.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">resultSetType - the result set type (ResultSet.TYPE_*)</div>
+<div class="item">resultSetConcurrency - the concurrency (ResultSet.CONCUR_*)</div>
+<div class="item">resultSetHoldability - the holdability (ResultSet.HOLD* / CLOSE*)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the statement</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the connection is closed or the result set type,
+             concurrency, or holdability are not supported</div>
+</td></tr>
+<tr id="__13" onclick="return on(13)">
+<td class="return">Struct</td><td class="method">
+<a id="createStruct_String_Object-" href="#createStruct_String_Object-">createStruct</a>(String typeName, Object[] attributes)
+<div class="methodText">[Not supported] Create a new empty Struct object.</div>
+</td></tr>
+<tr onclick="return off(13)" class="detail" id="_13">
+<td class="return">Struct</td><td>
+<a id="createStruct_String_Object-" href="#createStruct_String_Object-">createStruct</a>(String typeName, Object[] attributes) throws SQLException
+<div class="methodText">[Not supported] Create a new empty Struct object.</div>
+</td></tr>
+<tr id="__14" onclick="return on(14)">
+<td class="return">boolean</td><td class="method">
+<a id="getAutoCommit" href="#getAutoCommit">getAutoCommit</a>()
+<div class="methodText">Gets the current setting for auto commit.</div>
+</td></tr>
+<tr onclick="return off(14)" class="detail" id="_14">
+<td class="return">boolean</td><td>
+<a id="getAutoCommit" href="#getAutoCommit">getAutoCommit</a>() throws SQLException
+<div class="methodText">Gets the current setting for auto commit.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">true for on, false for off</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the connection is closed</div>
+</td></tr>
+<tr id="__15" onclick="return on(15)">
+<td class="return">String</td><td class="method">
+<a id="getCatalog" href="#getCatalog">getCatalog</a>()
+<div class="methodText">Gets the current catalog name.</div>
+</td></tr>
+<tr onclick="return off(15)" class="detail" id="_15">
+<td class="return">String</td><td>
+<a id="getCatalog" href="#getCatalog">getCatalog</a>() throws SQLException
+<div class="methodText">Gets the current catalog name.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the catalog name</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the connection is closed</div>
+</td></tr>
+<tr id="__16" onclick="return on(16)">
+<td class="return">Properties</td><td class="method">
+<a id="getClientInfo" href="#getClientInfo">getClientInfo</a>()
+<div class="methodText">[Not supported] Get the client properties.</div>
+</td></tr>
+<tr onclick="return off(16)" class="detail" id="_16">
+<td class="return">Properties</td><td>
+<a id="getClientInfo" href="#getClientInfo">getClientInfo</a>() throws SQLClientInfoException
+<div class="methodText">[Not supported] Get the client properties.</div>
+</td></tr>
+<tr id="__17" onclick="return on(17)">
+<td class="return">String</td><td class="method">
+<a id="getClientInfo_String" href="#getClientInfo_String">getClientInfo</a>(String name)
+<div class="methodText">[Not supported] Set a client property.</div>
+</td></tr>
+<tr onclick="return off(17)" class="detail" id="_17">
+<td class="return">String</td><td>
+<a id="getClientInfo_String" href="#getClientInfo_String">getClientInfo</a>(String name) throws SQLException
+<div class="methodText">[Not supported] Set a client property.</div>
+</td></tr>
+<tr id="__18" onclick="return on(18)">
+<td class="return">int</td><td class="method">
+<a id="getHoldability" href="#getHoldability">getHoldability</a>()
+<div class="methodText">Returns the current result set holdability.</div>
+</td></tr>
+<tr onclick="return off(18)" class="detail" id="_18">
+<td class="return">int</td><td>
+<a id="getHoldability" href="#getHoldability">getHoldability</a>() throws SQLException
+<div class="methodText">Returns the current result set holdability.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the holdability</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the connection is closed</div>
+</td></tr>
+<tr id="__19" onclick="return on(19)">
+<td class="return">DatabaseMetaData</td><td class="method">
+<a id="getMetaData" href="#getMetaData">getMetaData</a>()
+<div class="methodText">Gets the database meta data for this database.</div>
+</td></tr>
+<tr onclick="return off(19)" class="detail" id="_19">
+<td class="return">DatabaseMetaData</td><td>
+<a id="getMetaData" href="#getMetaData">getMetaData</a>() throws SQLException
+<div class="methodText">Gets the database meta data for this database.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the database meta data</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the connection is closed</div>
+</td></tr>
+<tr id="__20" onclick="return on(20)">
+<td class="return">int</td><td class="method">
+<a id="getTransactionIsolation" href="#getTransactionIsolation">getTransactionIsolation</a>()
+<div class="methodText">Returns the current transaction isolation level.</div>
+</td></tr>
+<tr onclick="return off(20)" class="detail" id="_20">
+<td class="return">int</td><td>
+<a id="getTransactionIsolation" href="#getTransactionIsolation">getTransactionIsolation</a>() throws SQLException
+<div class="methodText">Returns the current transaction isolation level.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the isolation level.</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the connection is closed</div>
+</td></tr>
+<tr id="__21" onclick="return on(21)">
+<td class="return">Map</td><td class="method">
+<a id="getTypeMap" href="#getTypeMap">getTypeMap</a>()
+<div class="methodText">Gets the type map.</div>
+</td></tr>
+<tr onclick="return off(21)" class="detail" id="_21">
+<td class="return">Map</td><td>
+<a id="getTypeMap" href="#getTypeMap">getTypeMap</a>() throws SQLException
+<div class="methodText">Gets the type map.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">null</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the connection is closed</div>
+</td></tr>
+<tr id="__22" onclick="return on(22)">
+<td class="return">SQLWarning</td><td class="method">
+<a id="getWarnings" href="#getWarnings">getWarnings</a>()
+<div class="methodText">Gets the first warning reported by calls on this object.</div>
+</td></tr>
+<tr onclick="return off(22)" class="detail" id="_22">
+<td class="return">SQLWarning</td><td>
+<a id="getWarnings" href="#getWarnings">getWarnings</a>() throws SQLException
+<div class="methodText">Gets the first warning reported by calls on this object.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">null</div>
+</td></tr>
+<tr id="__23" onclick="return on(23)">
+<td class="return">boolean</td><td class="method">
+<a id="isClosed" href="#isClosed">isClosed</a>()
+<div class="methodText">Returns true if this connection has been closed.</div>
+</td></tr>
+<tr onclick="return off(23)" class="detail" id="_23">
+<td class="return">boolean</td><td>
+<a id="isClosed" href="#isClosed">isClosed</a>() throws SQLException
+<div class="methodText">Returns true if this connection has been closed.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">true if close was called</div>
+</td></tr>
+<tr id="__24" onclick="return on(24)">
+<td class="return">boolean</td><td class="method">
+<a id="isReadOnly" href="#isReadOnly">isReadOnly</a>()
+<div class="methodText">Returns true if the database is read-only.</div>
+</td></tr>
+<tr onclick="return off(24)" class="detail" id="_24">
+<td class="return">boolean</td><td>
+<a id="isReadOnly" href="#isReadOnly">isReadOnly</a>() throws SQLException
+<div class="methodText">Returns true if the database is read-only.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">if the database is read-only</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the connection is closed</div>
+</td></tr>
+<tr id="__25" onclick="return on(25)">
+<td class="return">boolean</td><td class="method">
+<a id="isValid_int" href="#isValid_int">isValid</a>(int timeout)
+<div class="methodText">Returns true if this connection is still valid.</div>
+</td></tr>
+<tr onclick="return off(25)" class="detail" id="_25">
+<td class="return">boolean</td><td>
+<a id="isValid_int" href="#isValid_int">isValid</a>(int timeout)
+<div class="methodText">Returns true if this connection is still valid.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">timeout - the number of seconds to wait for the database to respond
+            (ignored)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">true if the connection is valid.</div>
+</td></tr>
+<tr id="__26" onclick="return on(26)">
+<td class="return">boolean</td><td class="method">
+<a id="isWrapperFor_Class" href="#isWrapperFor_Class">isWrapperFor</a>(Class iface)
+<div class="methodText">[Not supported] Checks if unwrap can return an object of this class.</div>
+</td></tr>
+<tr onclick="return off(26)" class="detail" id="_26">
+<td class="return">boolean</td><td>
+<a id="isWrapperFor_Class" href="#isWrapperFor_Class">isWrapperFor</a>(Class iface) throws SQLException
+<div class="methodText">[Not supported] Checks if unwrap can return an object of this class.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">iface - the class</div>
+</td></tr>
+<tr id="__27" onclick="return on(27)">
+<td class="return">String</td><td class="method">
+<a id="nativeSQL_String" href="#nativeSQL_String">nativeSQL</a>(String sql)
+<div class="methodText">Translates a SQL statement into the database grammar.</div>
+</td></tr>
+<tr onclick="return off(27)" class="detail" id="_27">
+<td class="return">String</td><td>
+<a id="nativeSQL_String" href="#nativeSQL_String">nativeSQL</a>(String sql) throws SQLException
+<div class="methodText">Translates a SQL statement into the database grammar.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">sql - the SQL statement with or without JDBC escape sequences</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the translated statement</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the connection is closed</div>
+</td></tr>
+<tr id="__28" onclick="return on(28)">
+<td class="return">CallableStatement</td><td class="method">
+<a id="prepareCall_String" href="#prepareCall_String">prepareCall</a>(String sql)
+<div class="methodText">Creates a new callable statement.</div>
+</td></tr>
+<tr onclick="return off(28)" class="detail" id="_28">
+<td class="return">CallableStatement</td><td>
+<a id="prepareCall_String" href="#prepareCall_String">prepareCall</a>(String sql) throws SQLException
+<div class="methodText">Creates a new callable statement.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">sql - the SQL statement</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the callable statement</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the connection is closed or the statement is not valid</div>
+</td></tr>
+<tr id="__29" onclick="return on(29)">
+<td class="return">CallableStatement</td><td class="method">
+<a id="prepareCall_String_int_int" href="#prepareCall_String_int_int">prepareCall</a>(String sql, int resultSetType, int resultSetConcurrency)
+<div class="methodText">Creates a callable statement with the specified result set type and
+ concurrency.</div>
+</td></tr>
+<tr onclick="return off(29)" class="detail" id="_29">
+<td class="return">CallableStatement</td><td>
+<a id="prepareCall_String_int_int" href="#prepareCall_String_int_int">prepareCall</a>(String sql, int resultSetType, int resultSetConcurrency) throws SQLException
+<div class="methodText">Creates a callable statement with the specified result set type and
+ concurrency.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">sql - the SQL statement</div>
+<div class="item">resultSetType - the result set type (ResultSet.TYPE_*)</div>
+<div class="item">resultSetConcurrency - the concurrency (ResultSet.CONCUR_*)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the callable statement</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the connection is closed or the result set type or
+             concurrency are not supported</div>
+</td></tr>
+<tr id="__30" onclick="return on(30)">
+<td class="return">CallableStatement</td><td class="method">
+<a id="prepareCall_String_int_int_int" href="#prepareCall_String_int_int_int">prepareCall</a>(String sql, int resultSetType, int resultSetConcurrency, int resultSetHoldability)
+<div class="methodText">Creates a callable statement with the specified result set type,
+ concurrency, and holdability.</div>
+</td></tr>
+<tr onclick="return off(30)" class="detail" id="_30">
+<td class="return">CallableStatement</td><td>
+<a id="prepareCall_String_int_int_int" href="#prepareCall_String_int_int_int">prepareCall</a>(String sql, int resultSetType, int resultSetConcurrency, int resultSetHoldability) throws SQLException
+<div class="methodText">Creates a callable statement with the specified result set type,
+ concurrency, and holdability.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">sql - the SQL statement</div>
+<div class="item">resultSetType - the result set type (ResultSet.TYPE_*)</div>
+<div class="item">resultSetConcurrency - the concurrency (ResultSet.CONCUR_*)</div>
+<div class="item">resultSetHoldability - the holdability (ResultSet.HOLD* / CLOSE*)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the callable statement</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the connection is closed or the result set type,
+             concurrency, or holdability are not supported</div>
+</td></tr>
+<tr id="__31" onclick="return on(31)">
+<td class="return">PreparedStatement</td><td class="method">
+<a id="prepareStatement_String" href="#prepareStatement_String">prepareStatement</a>(String sql)
+<div class="methodText">Creates a new prepared statement.</div>
+</td></tr>
+<tr onclick="return off(31)" class="detail" id="_31">
+<td class="return">PreparedStatement</td><td>
+<a id="prepareStatement_String" href="#prepareStatement_String">prepareStatement</a>(String sql) throws SQLException
+<div class="methodText">Creates a new prepared statement.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">sql - the SQL statement</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the prepared statement</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the connection is closed</div>
+</td></tr>
+<tr id="__32" onclick="return on(32)">
+<td class="return">PreparedStatement</td><td class="method">
+<a id="prepareStatement_String_int_int" href="#prepareStatement_String_int_int">prepareStatement</a>(String sql, int resultSetType, int resultSetConcurrency)
+<div class="methodText">Creates a prepared statement with the specified result set type and
+ concurrency.</div>
+</td></tr>
+<tr onclick="return off(32)" class="detail" id="_32">
+<td class="return">PreparedStatement</td><td>
+<a id="prepareStatement_String_int_int" href="#prepareStatement_String_int_int">prepareStatement</a>(String sql, int resultSetType, int resultSetConcurrency) throws SQLException
+<div class="methodText">Creates a prepared statement with the specified result set type and
+ concurrency.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">sql - the SQL statement</div>
+<div class="item">resultSetType - the result set type (ResultSet.TYPE_*)</div>
+<div class="item">resultSetConcurrency - the concurrency (ResultSet.CONCUR_*)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the prepared statement</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the connection is closed or the result set type or
+             concurrency are not supported</div>
+</td></tr>
+<tr id="__33" onclick="return on(33)">
+<td class="return">PreparedStatement</td><td class="method">
+<a id="prepareStatement_String_int_int_int" href="#prepareStatement_String_int_int_int">prepareStatement</a>(String sql, int resultSetType, int resultSetConcurrency, int resultSetHoldability)
+<div class="methodText">Creates a prepared statement with the specified result set type,
+ concurrency, and holdability.</div>
+</td></tr>
+<tr onclick="return off(33)" class="detail" id="_33">
+<td class="return">PreparedStatement</td><td>
+<a id="prepareStatement_String_int_int_int" href="#prepareStatement_String_int_int_int">prepareStatement</a>(String sql, int resultSetType, int resultSetConcurrency, int resultSetHoldability) throws SQLException
+<div class="methodText">Creates a prepared statement with the specified result set type,
+ concurrency, and holdability.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">sql - the SQL statement</div>
+<div class="item">resultSetType - the result set type (ResultSet.TYPE_*)</div>
+<div class="item">resultSetConcurrency - the concurrency (ResultSet.CONCUR_*)</div>
+<div class="item">resultSetHoldability - the holdability (ResultSet.HOLD* / CLOSE*)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the prepared statement</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the connection is closed or the result set type,
+             concurrency, or holdability are not supported</div>
+</td></tr>
+<tr id="__34" onclick="return on(34)">
+<td class="return">PreparedStatement</td><td class="method">
+<a id="prepareStatement_String_int" href="#prepareStatement_String_int">prepareStatement</a>(String sql, int autoGeneratedKeys)
+<div class="methodText">Creates a new prepared statement.</div>
+</td></tr>
+<tr onclick="return off(34)" class="detail" id="_34">
+<td class="return">PreparedStatement</td><td>
+<a id="prepareStatement_String_int" href="#prepareStatement_String_int">prepareStatement</a>(String sql, int autoGeneratedKeys) throws SQLException
+<div class="methodText">Creates a new prepared statement.
+ This method just calls prepareStatement(String sql) internally.
+ The method getGeneratedKeys only supports one column.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">sql - the SQL statement</div>
+<div class="item">autoGeneratedKeys - ignored</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the prepared statement</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the connection is closed</div>
+</td></tr>
+<tr id="__35" onclick="return on(35)">
+<td class="return">PreparedStatement</td><td class="method">
+<a id="prepareStatement_String_int-" href="#prepareStatement_String_int-">prepareStatement</a>(String sql, int[] columnIndexes)
+<div class="methodText">Creates a new prepared statement.</div>
+</td></tr>
+<tr onclick="return off(35)" class="detail" id="_35">
+<td class="return">PreparedStatement</td><td>
+<a id="prepareStatement_String_int-" href="#prepareStatement_String_int-">prepareStatement</a>(String sql, int[] columnIndexes) throws SQLException
+<div class="methodText">Creates a new prepared statement.
+ This method just calls prepareStatement(String sql) internally.
+ The method getGeneratedKeys only supports one column.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">sql - the SQL statement</div>
+<div class="item">columnIndexes - ignored</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the prepared statement</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the connection is closed</div>
+</td></tr>
+<tr id="__36" onclick="return on(36)">
+<td class="return">PreparedStatement</td><td class="method">
+<a id="prepareStatement_String_String-" href="#prepareStatement_String_String-">prepareStatement</a>(String sql, String[] columnNames)
+<div class="methodText">Creates a new prepared statement.</div>
+</td></tr>
+<tr onclick="return off(36)" class="detail" id="_36">
+<td class="return">PreparedStatement</td><td>
+<a id="prepareStatement_String_String-" href="#prepareStatement_String_String-">prepareStatement</a>(String sql, String[] columnNames) throws SQLException
+<div class="methodText">Creates a new prepared statement.
+ This method just calls prepareStatement(String sql) internally.
+ The method getGeneratedKeys only supports one column.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">sql - the SQL statement</div>
+<div class="item">columnNames - ignored</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the prepared statement</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the connection is closed</div>
+</td></tr>
+<tr id="__37" onclick="return on(37)">
+<td class="return">void</td><td class="method">
+<a id="releaseSavepoint_Savepoint" href="#releaseSavepoint_Savepoint">releaseSavepoint</a>(Savepoint savepoint)
+<div class="methodText">Releases a savepoint.</div>
+</td></tr>
+<tr onclick="return off(37)" class="detail" id="_37">
+<td class="return">void</td><td>
+<a id="releaseSavepoint_Savepoint" href="#releaseSavepoint_Savepoint">releaseSavepoint</a>(Savepoint savepoint) throws SQLException
+<div class="methodText">Releases a savepoint.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">savepoint - the savepoint to release</div>
+</td></tr>
+<tr id="__38" onclick="return on(38)">
+<td class="return">void</td><td class="method">
+<a id="rollback" href="#rollback">rollback</a>()
+<div class="methodText">Rolls back the current transaction.</div>
+</td></tr>
+<tr onclick="return off(38)" class="detail" id="_38">
+<td class="return">void</td><td>
+<a id="rollback" href="#rollback">rollback</a>() throws SQLException
+<div class="methodText">Rolls back the current transaction. This call has only an effect if auto
+ commit is switched off.</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the connection is closed</div>
+</td></tr>
+<tr id="__39" onclick="return on(39)">
+<td class="return">void</td><td class="method">
+<a id="rollback_Savepoint" href="#rollback_Savepoint">rollback</a>(Savepoint savepoint)
+<div class="methodText">Rolls back to a savepoint.</div>
+</td></tr>
+<tr onclick="return off(39)" class="detail" id="_39">
+<td class="return">void</td><td>
+<a id="rollback_Savepoint" href="#rollback_Savepoint">rollback</a>(Savepoint savepoint) throws SQLException
+<div class="methodText">Rolls back to a savepoint.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">savepoint - the savepoint</div>
+</td></tr>
+<tr id="__40" onclick="return on(40)">
+<td class="return">void</td><td class="method">
+<a id="setAutoCommit_boolean" href="#setAutoCommit_boolean">setAutoCommit</a>(boolean autoCommit)
+<div class="methodText">Switches auto commit on or off.</div>
+</td></tr>
+<tr onclick="return off(40)" class="detail" id="_40">
+<td class="return">void</td><td>
+<a id="setAutoCommit_boolean" href="#setAutoCommit_boolean">setAutoCommit</a>(boolean autoCommit) throws SQLException
+<div class="methodText">Switches auto commit on or off. Enabling it commits an uncommitted
+ transaction, if there is one.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">autoCommit - true for auto commit on, false for off</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the connection is closed</div>
+</td></tr>
+<tr id="__41" onclick="return on(41)">
+<td class="return">void</td><td class="method">
+<a id="setCatalog_String" href="#setCatalog_String">setCatalog</a>(String catalog)
+<div class="methodText">Set the default catalog name.</div>
+</td></tr>
+<tr onclick="return off(41)" class="detail" id="_41">
+<td class="return">void</td><td>
+<a id="setCatalog_String" href="#setCatalog_String">setCatalog</a>(String catalog) throws SQLException
+<div class="methodText">Set the default catalog name. This call is ignored.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">catalog - ignored</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the connection is closed</div>
+</td></tr>
+<tr id="__42" onclick="return on(42)">
+<td class="return">void</td><td class="method">
+<a id="setClientInfo_String_String" href="#setClientInfo_String_String">setClientInfo</a>(String name, String value)
+<div class="methodText">[Not supported] Set a client property.</div>
+</td></tr>
+<tr onclick="return off(42)" class="detail" id="_42">
+<td class="return">void</td><td>
+<a id="setClientInfo_String_String" href="#setClientInfo_String_String">setClientInfo</a>(String name, String value) throws SQLClientInfoException
+<div class="methodText">[Not supported] Set a client property.</div>
+</td></tr>
+<tr id="__43" onclick="return on(43)">
+<td class="return">void</td><td class="method">
+<a id="setClientInfo_Properties" href="#setClientInfo_Properties">setClientInfo</a>(Properties properties)
+<div class="methodText">[Not supported] Set the client properties.</div>
+</td></tr>
+<tr onclick="return off(43)" class="detail" id="_43">
+<td class="return">void</td><td>
+<a id="setClientInfo_Properties" href="#setClientInfo_Properties">setClientInfo</a>(Properties properties) throws SQLClientInfoException
+<div class="methodText">[Not supported] Set the client properties.</div>
+</td></tr>
+<tr id="__44" onclick="return on(44)">
+<td class="return">void</td><td class="method">
+<a id="setHoldability_int" href="#setHoldability_int">setHoldability</a>(int holdability)
+<div class="methodText">Changes the current result set holdability.</div>
+</td></tr>
+<tr onclick="return off(44)" class="detail" id="_44">
+<td class="return">void</td><td>
+<a id="setHoldability_int" href="#setHoldability_int">setHoldability</a>(int holdability) throws SQLException
+<div class="methodText">Changes the current result set holdability.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">holdability - ResultSet.HOLD_CURSORS_OVER_COMMIT or
+            ResultSet.CLOSE_CURSORS_AT_COMMIT;</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the connection is closed or the holdability is not
+            supported</div>
+</td></tr>
+<tr id="__45" onclick="return on(45)">
+<td class="return">void</td><td class="method">
+<a id="setReadOnly_boolean" href="#setReadOnly_boolean">setReadOnly</a>(boolean readOnly)
+<div class="methodText">According to the JDBC specs, this setting is only a hint to the database
+ to enable optimizations - it does not cause writes to be prohibited.</div>
+</td></tr>
+<tr onclick="return off(45)" class="detail" id="_45">
+<td class="return">void</td><td>
+<a id="setReadOnly_boolean" href="#setReadOnly_boolean">setReadOnly</a>(boolean readOnly) throws SQLException
+<div class="methodText">According to the JDBC specs, this setting is only a hint to the database
+ to enable optimizations - it does not cause writes to be prohibited.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">readOnly - ignored</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the connection is closed</div>
+</td></tr>
+<tr id="__46" onclick="return on(46)">
+<td class="return">Savepoint</td><td class="method">
+<a id="setSavepoint" href="#setSavepoint">setSavepoint</a>()
+<div class="methodText">Creates a new unnamed savepoint.</div>
+</td></tr>
+<tr onclick="return off(46)" class="detail" id="_46">
+<td class="return">Savepoint</td><td>
+<a id="setSavepoint" href="#setSavepoint">setSavepoint</a>() throws SQLException
+<div class="methodText">Creates a new unnamed savepoint.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the new savepoint</div>
+</td></tr>
+<tr id="__47" onclick="return on(47)">
+<td class="return">Savepoint</td><td class="method">
+<a id="setSavepoint_String" href="#setSavepoint_String">setSavepoint</a>(String name)
+<div class="methodText">Creates a new named savepoint.</div>
+</td></tr>
+<tr onclick="return off(47)" class="detail" id="_47">
+<td class="return">Savepoint</td><td>
+<a id="setSavepoint_String" href="#setSavepoint_String">setSavepoint</a>(String name) throws SQLException
+<div class="methodText">Creates a new named savepoint.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">name - the savepoint name</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the new savepoint</div>
+</td></tr>
+<tr id="__48" onclick="return on(48)">
+<td class="return">void</td><td class="method">
+<a id="setTransactionIsolation_int" href="#setTransactionIsolation_int">setTransactionIsolation</a>(int level)
+<div class="methodText">Changes the current transaction isolation level.</div>
+</td></tr>
+<tr onclick="return off(48)" class="detail" id="_48">
+<td class="return">void</td><td>
+<a id="setTransactionIsolation_int" href="#setTransactionIsolation_int">setTransactionIsolation</a>(int level) throws SQLException
+<div class="methodText">Changes the current transaction isolation level. Calling this method will
+ commit an open transaction, even if the new level is the same as the old
+ one, except if the level is not supported. Internally, this method calls
+ SET LOCK_MODE. The following isolation levels are supported:
+ <ul>
+ <li> Connection.TRANSACTION_READ_UNCOMMITTED = SET LOCK_MODE 0: no
+ locking (should only be used for testing). </li>
+ <li>Connection.TRANSACTION_SERIALIZABLE = SET LOCK_MODE 1: table level
+ locking. </li>
+ <li>Connection.TRANSACTION_READ_COMMITTED = SET LOCK_MODE 3: table
+ level locking, but read locks are released immediately (default). </li>
+ </ul>
+ This setting is not persistent. Please note that using
+ TRANSACTION_READ_UNCOMMITTED while at the same time using multiple
+ connections may result in inconsistent transactions.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">level - the new transaction isolation level:
+            Connection.TRANSACTION_READ_UNCOMMITTED,
+            Connection.TRANSACTION_READ_COMMITTED, or
+            Connection.TRANSACTION_SERIALIZABLE</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the connection is closed or the isolation level
+             is not supported</div>
+</td></tr>
+<tr id="__49" onclick="return on(49)">
+<td class="return">void</td><td class="method">
+<a id="setTypeMap_Map" href="#setTypeMap_Map">setTypeMap</a>(Map map)
+<div class="methodText">[Partially supported] Sets the type map.</div>
+</td></tr>
+<tr onclick="return off(49)" class="detail" id="_49">
+<td class="return">void</td><td>
+<a id="setTypeMap_Map" href="#setTypeMap_Map">setTypeMap</a>(Map map) throws SQLException
+<div class="methodText">[Partially supported] Sets the type map. This is only supported if the
+ map is empty or null.</div>
+</td></tr>
+<tr id="__50" onclick="return on(50)">
+<td class="return">T</td><td class="method">
+<a id="unwrap_Class" href="#unwrap_Class">unwrap</a>(Class iface)
+<div class="methodText">[Not supported] Return an object of this class if possible.</div>
+</td></tr>
+<tr onclick="return off(50)" class="detail" id="_50">
+<td class="return">T</td><td>
+<a id="unwrap_Class" href="#unwrap_Class">unwrap</a>(Class iface) throws SQLException
+<div class="methodText">[Not supported] Return an object of this class if possible.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">iface - the class</div>
+</td></tr>
+</table>
+</div></td></tr></table></body></html>

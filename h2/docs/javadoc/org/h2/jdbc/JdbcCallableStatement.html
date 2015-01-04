@@ -1,0 +1,1801 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head><meta http-equiv="Content-Type" content="text/html;charset=utf-8" /><title>
+CallableStatement
+</title><link rel="stylesheet" type="text/css" href="../../../stylesheet.css" />
+<script type="text/javascript" src="../../../animate.js"></script>
+</head><body onload="openLink();">
+<table class="content"><tr class="content"><td class="content"><div class="contentDiv">
+<h1>CallableStatement</h1>
+Represents a callable statement.<br /><br />
+<table class="block"><tr onclick="return allDetails()"><th colspan="2">Methods</th></tr>
+<tr id="__0" onclick="return on(0)">
+<td class="return">int</td><td class="method">
+<a id="executeUpdate" href="#executeUpdate">executeUpdate</a>()
+<div class="methodText">Executes a statement (insert, update, delete, create, drop)
+ and returns the update count.</div>
+</td></tr>
+<tr onclick="return off(0)" class="detail" id="_0">
+<td class="return">int</td><td>
+<a id="executeUpdate" href="#executeUpdate">executeUpdate</a>() throws SQLException
+<div class="methodText">Executes a statement (insert, update, delete, create, drop)
+ and returns the update count.
+ If another result set exists for this statement, this will be closed
+ (even if this statement fails).
+
+ If auto commit is on, this statement will be committed.
+ If the statement is a DDL statement (create, drop, alter) and does not
+ throw an exception, the current transaction (if any) is committed after
+ executing the statement.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the update count (number of row affected by an insert, update or
+         delete, or 0 if no rows or the statement was a create, drop,
+         commit or rollback)</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed or invalid</div>
+</td></tr>
+<tr id="__1" onclick="return on(1)">
+<td class="return">Array</td><td class="method">
+<a id="getArray_int" href="#getArray_int">getArray</a>(int parameterIndex)
+<div class="methodText">Returns the value of the specified column as an Array.</div>
+</td></tr>
+<tr onclick="return off(1)" class="detail" id="_1">
+<td class="return">Array</td><td>
+<a id="getArray_int" href="#getArray_int">getArray</a>(int parameterIndex) throws SQLException
+<div class="methodText">Returns the value of the specified column as an Array.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterIndex - the parameter index (1, 2, ...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__2" onclick="return on(2)">
+<td class="return">Array</td><td class="method">
+<a id="getArray_String" href="#getArray_String">getArray</a>(String parameterName)
+<div class="methodText">Returns the value of the specified column as an Array.</div>
+</td></tr>
+<tr onclick="return off(2)" class="detail" id="_2">
+<td class="return">Array</td><td>
+<a id="getArray_String" href="#getArray_String">getArray</a>(String parameterName) throws SQLException
+<div class="methodText">Returns the value of the specified column as an Array.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterName - the parameter name</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__3" onclick="return on(3)">
+<td class="return">BigDecimal</td><td class="method">
+<a id="getBigDecimal_int_int" href="#getBigDecimal_int_int"><span class="deprecated">getBigDecimal</span></a>(int parameterIndex, int scale)
+<div class="methodText">Returns the value of the specified column as a BigDecimal.</div>
+</td></tr>
+<tr onclick="return off(3)" class="detail" id="_3">
+<td class="return">BigDecimal</td><td>
+<a id="getBigDecimal_int_int" href="#getBigDecimal_int_int"><span class="deprecated">getBigDecimal</span></a>(int parameterIndex, int scale) throws SQLException
+<div class="methodText">Returns the value of the specified column as a BigDecimal.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterIndex - the parameter index (1, 2, ...)</div>
+<div class="item">scale - is ignored</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__4" onclick="return on(4)">
+<td class="return">BigDecimal</td><td class="method">
+<a id="getBigDecimal_int" href="#getBigDecimal_int">getBigDecimal</a>(int parameterIndex)
+<div class="methodText">Returns the value of the specified column as a BigDecimal.</div>
+</td></tr>
+<tr onclick="return off(4)" class="detail" id="_4">
+<td class="return">BigDecimal</td><td>
+<a id="getBigDecimal_int" href="#getBigDecimal_int">getBigDecimal</a>(int parameterIndex) throws SQLException
+<div class="methodText">Returns the value of the specified column as a BigDecimal.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterIndex - the parameter index (1, 2, ...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is closed</div>
+</td></tr>
+<tr id="__5" onclick="return on(5)">
+<td class="return">BigDecimal</td><td class="method">
+<a id="getBigDecimal_String" href="#getBigDecimal_String">getBigDecimal</a>(String parameterName)
+<div class="methodText">Returns the value of the specified column as a BigDecimal.</div>
+</td></tr>
+<tr onclick="return off(5)" class="detail" id="_5">
+<td class="return">BigDecimal</td><td>
+<a id="getBigDecimal_String" href="#getBigDecimal_String">getBigDecimal</a>(String parameterName) throws SQLException
+<div class="methodText">Returns the value of the specified column as a BigDecimal.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterName - the parameter name</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__6" onclick="return on(6)">
+<td class="return">Blob</td><td class="method">
+<a id="getBlob_int" href="#getBlob_int">getBlob</a>(int parameterIndex)
+<div class="methodText">Returns the value of the specified column as a Blob.</div>
+</td></tr>
+<tr onclick="return off(6)" class="detail" id="_6">
+<td class="return">Blob</td><td>
+<a id="getBlob_int" href="#getBlob_int">getBlob</a>(int parameterIndex) throws SQLException
+<div class="methodText">Returns the value of the specified column as a Blob.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterIndex - the parameter index (1, 2, ...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__7" onclick="return on(7)">
+<td class="return">Blob</td><td class="method">
+<a id="getBlob_String" href="#getBlob_String">getBlob</a>(String parameterName)
+<div class="methodText">Returns the value of the specified column as a Blob.</div>
+</td></tr>
+<tr onclick="return off(7)" class="detail" id="_7">
+<td class="return">Blob</td><td>
+<a id="getBlob_String" href="#getBlob_String">getBlob</a>(String parameterName) throws SQLException
+<div class="methodText">Returns the value of the specified column as a Blob.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterName - the parameter name</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__8" onclick="return on(8)">
+<td class="return">boolean</td><td class="method">
+<a id="getBoolean_int" href="#getBoolean_int">getBoolean</a>(int parameterIndex)
+<div class="methodText">Returns the value of the specified column as a boolean.</div>
+</td></tr>
+<tr onclick="return off(8)" class="detail" id="_8">
+<td class="return">boolean</td><td>
+<a id="getBoolean_int" href="#getBoolean_int">getBoolean</a>(int parameterIndex) throws SQLException
+<div class="methodText">Returns the value of the specified column as a boolean.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterIndex - (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__9" onclick="return on(9)">
+<td class="return">boolean</td><td class="method">
+<a id="getBoolean_String" href="#getBoolean_String">getBoolean</a>(String parameterName)
+<div class="methodText">Returns the value of the specified column as a boolean.</div>
+</td></tr>
+<tr onclick="return off(9)" class="detail" id="_9">
+<td class="return">boolean</td><td>
+<a id="getBoolean_String" href="#getBoolean_String">getBoolean</a>(String parameterName) throws SQLException
+<div class="methodText">Returns the value of the specified column as a boolean.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterName - the parameter name</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__10" onclick="return on(10)">
+<td class="return">byte</td><td class="method">
+<a id="getByte_int" href="#getByte_int">getByte</a>(int parameterIndex)
+<div class="methodText">Returns the value of the specified column as a byte.</div>
+</td></tr>
+<tr onclick="return off(10)" class="detail" id="_10">
+<td class="return">byte</td><td>
+<a id="getByte_int" href="#getByte_int">getByte</a>(int parameterIndex) throws SQLException
+<div class="methodText">Returns the value of the specified column as a byte.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterIndex - (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__11" onclick="return on(11)">
+<td class="return">byte</td><td class="method">
+<a id="getByte_String" href="#getByte_String">getByte</a>(String parameterName)
+<div class="methodText">Returns the value of the specified column as a byte.</div>
+</td></tr>
+<tr onclick="return off(11)" class="detail" id="_11">
+<td class="return">byte</td><td>
+<a id="getByte_String" href="#getByte_String">getByte</a>(String parameterName) throws SQLException
+<div class="methodText">Returns the value of the specified column as a byte.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterName - the parameter name</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__12" onclick="return on(12)">
+<td class="return">byte[]</td><td class="method">
+<a id="getBytes_int" href="#getBytes_int">getBytes</a>(int parameterIndex)
+<div class="methodText">Returns the value of the specified column as a byte array.</div>
+</td></tr>
+<tr onclick="return off(12)" class="detail" id="_12">
+<td class="return">byte[]</td><td>
+<a id="getBytes_int" href="#getBytes_int">getBytes</a>(int parameterIndex) throws SQLException
+<div class="methodText">Returns the value of the specified column as a byte array.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterIndex - the parameter index (1, 2, ...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__13" onclick="return on(13)">
+<td class="return">byte[]</td><td class="method">
+<a id="getBytes_String" href="#getBytes_String">getBytes</a>(String parameterName)
+<div class="methodText">Returns the value of the specified column as a byte array.</div>
+</td></tr>
+<tr onclick="return off(13)" class="detail" id="_13">
+<td class="return">byte[]</td><td>
+<a id="getBytes_String" href="#getBytes_String">getBytes</a>(String parameterName) throws SQLException
+<div class="methodText">Returns the value of the specified column as a byte array.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterName - the parameter name</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__14" onclick="return on(14)">
+<td class="return">Reader</td><td class="method">
+<a id="getCharacterStream_int" href="#getCharacterStream_int">getCharacterStream</a>(int parameterIndex)
+<div class="methodText">Returns the value of the specified column as a reader.</div>
+</td></tr>
+<tr onclick="return off(14)" class="detail" id="_14">
+<td class="return">Reader</td><td>
+<a id="getCharacterStream_int" href="#getCharacterStream_int">getCharacterStream</a>(int parameterIndex) throws SQLException
+<div class="methodText">Returns the value of the specified column as a reader.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterIndex - the parameter index (1, 2, ...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__15" onclick="return on(15)">
+<td class="return">Reader</td><td class="method">
+<a id="getCharacterStream_String" href="#getCharacterStream_String">getCharacterStream</a>(String parameterName)
+<div class="methodText">Returns the value of the specified column as a reader.</div>
+</td></tr>
+<tr onclick="return off(15)" class="detail" id="_15">
+<td class="return">Reader</td><td>
+<a id="getCharacterStream_String" href="#getCharacterStream_String">getCharacterStream</a>(String parameterName) throws SQLException
+<div class="methodText">Returns the value of the specified column as a reader.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterName - the parameter name</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__16" onclick="return on(16)">
+<td class="return">Clob</td><td class="method">
+<a id="getClob_int" href="#getClob_int">getClob</a>(int parameterIndex)
+<div class="methodText">Returns the value of the specified column as a Clob.</div>
+</td></tr>
+<tr onclick="return off(16)" class="detail" id="_16">
+<td class="return">Clob</td><td>
+<a id="getClob_int" href="#getClob_int">getClob</a>(int parameterIndex) throws SQLException
+<div class="methodText">Returns the value of the specified column as a Clob.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterIndex - the parameter index (1, 2, ...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__17" onclick="return on(17)">
+<td class="return">Clob</td><td class="method">
+<a id="getClob_String" href="#getClob_String">getClob</a>(String parameterName)
+<div class="methodText">Returns the value of the specified column as a Clob.</div>
+</td></tr>
+<tr onclick="return off(17)" class="detail" id="_17">
+<td class="return">Clob</td><td>
+<a id="getClob_String" href="#getClob_String">getClob</a>(String parameterName) throws SQLException
+<div class="methodText">Returns the value of the specified column as a Clob.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterName - the parameter name</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__18" onclick="return on(18)">
+<td class="return">Date</td><td class="method">
+<a id="getDate_int" href="#getDate_int">getDate</a>(int parameterIndex)
+<div class="methodText">Returns the value of the specified column as a java.sql.Date.</div>
+</td></tr>
+<tr onclick="return off(18)" class="detail" id="_18">
+<td class="return">Date</td><td>
+<a id="getDate_int" href="#getDate_int">getDate</a>(int parameterIndex) throws SQLException
+<div class="methodText">Returns the value of the specified column as a java.sql.Date.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterIndex - the parameter index (1, 2, ...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is closed</div>
+</td></tr>
+<tr id="__19" onclick="return on(19)">
+<td class="return">Date</td><td class="method">
+<a id="getDate_int_Calendar" href="#getDate_int_Calendar">getDate</a>(int parameterIndex, Calendar cal)
+<div class="methodText">Returns the value of the specified column as a java.sql.Date using a
+ specified time zone.</div>
+</td></tr>
+<tr onclick="return off(19)" class="detail" id="_19">
+<td class="return">Date</td><td>
+<a id="getDate_int_Calendar" href="#getDate_int_Calendar">getDate</a>(int parameterIndex, Calendar cal) throws SQLException
+<div class="methodText">Returns the value of the specified column as a java.sql.Date using a
+ specified time zone.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterIndex - the parameter index (1, 2, ...)</div>
+<div class="item">cal - the calendar</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__20" onclick="return on(20)">
+<td class="return">Date</td><td class="method">
+<a id="getDate_String_Calendar" href="#getDate_String_Calendar">getDate</a>(String parameterName, Calendar cal)
+<div class="methodText">Returns the value of the specified column as a java.sql.Date using a
+ specified time zone.</div>
+</td></tr>
+<tr onclick="return off(20)" class="detail" id="_20">
+<td class="return">Date</td><td>
+<a id="getDate_String_Calendar" href="#getDate_String_Calendar">getDate</a>(String parameterName, Calendar cal) throws SQLException
+<div class="methodText">Returns the value of the specified column as a java.sql.Date using a
+ specified time zone.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterName - the parameter name</div>
+<div class="item">cal - the calendar</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is closed</div>
+</td></tr>
+<tr id="__21" onclick="return on(21)">
+<td class="return">Date</td><td class="method">
+<a id="getDate_String" href="#getDate_String">getDate</a>(String parameterName)
+<div class="methodText">Returns the value of the specified column as a java.sql.Date.</div>
+</td></tr>
+<tr onclick="return off(21)" class="detail" id="_21">
+<td class="return">Date</td><td>
+<a id="getDate_String" href="#getDate_String">getDate</a>(String parameterName) throws SQLException
+<div class="methodText">Returns the value of the specified column as a java.sql.Date.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterName - the parameter name</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is closed</div>
+</td></tr>
+<tr id="__22" onclick="return on(22)">
+<td class="return">double</td><td class="method">
+<a id="getDouble_int" href="#getDouble_int">getDouble</a>(int parameterIndex)
+<div class="methodText">Returns the value of the specified column as a double.</div>
+</td></tr>
+<tr onclick="return off(22)" class="detail" id="_22">
+<td class="return">double</td><td>
+<a id="getDouble_int" href="#getDouble_int">getDouble</a>(int parameterIndex) throws SQLException
+<div class="methodText">Returns the value of the specified column as a double.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterIndex - the parameter index (1, 2, ...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__23" onclick="return on(23)">
+<td class="return">double</td><td class="method">
+<a id="getDouble_String" href="#getDouble_String">getDouble</a>(String parameterName)
+<div class="methodText">Returns the value of the specified column as a double.</div>
+</td></tr>
+<tr onclick="return off(23)" class="detail" id="_23">
+<td class="return">double</td><td>
+<a id="getDouble_String" href="#getDouble_String">getDouble</a>(String parameterName) throws SQLException
+<div class="methodText">Returns the value of the specified column as a double.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterName - the parameter name</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__24" onclick="return on(24)">
+<td class="return">float</td><td class="method">
+<a id="getFloat_int" href="#getFloat_int">getFloat</a>(int parameterIndex)
+<div class="methodText">Returns the value of the specified column as a float.</div>
+</td></tr>
+<tr onclick="return off(24)" class="detail" id="_24">
+<td class="return">float</td><td>
+<a id="getFloat_int" href="#getFloat_int">getFloat</a>(int parameterIndex) throws SQLException
+<div class="methodText">Returns the value of the specified column as a float.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterIndex - the parameter index (1, 2, ...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__25" onclick="return on(25)">
+<td class="return">float</td><td class="method">
+<a id="getFloat_String" href="#getFloat_String">getFloat</a>(String parameterName)
+<div class="methodText">Returns the value of the specified column as a float.</div>
+</td></tr>
+<tr onclick="return off(25)" class="detail" id="_25">
+<td class="return">float</td><td>
+<a id="getFloat_String" href="#getFloat_String">getFloat</a>(String parameterName) throws SQLException
+<div class="methodText">Returns the value of the specified column as a float.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterName - the parameter name</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__26" onclick="return on(26)">
+<td class="return">int</td><td class="method">
+<a id="getInt_int" href="#getInt_int">getInt</a>(int parameterIndex)
+<div class="methodText">Returns the value of the specified column as an int.</div>
+</td></tr>
+<tr onclick="return off(26)" class="detail" id="_26">
+<td class="return">int</td><td>
+<a id="getInt_int" href="#getInt_int">getInt</a>(int parameterIndex) throws SQLException
+<div class="methodText">Returns the value of the specified column as an int.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterIndex - the parameter index (1, 2, ...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is closed</div>
+</td></tr>
+<tr id="__27" onclick="return on(27)">
+<td class="return">int</td><td class="method">
+<a id="getInt_String" href="#getInt_String">getInt</a>(String parameterName)
+<div class="methodText">Returns the value of the specified column as an int.</div>
+</td></tr>
+<tr onclick="return off(27)" class="detail" id="_27">
+<td class="return">int</td><td>
+<a id="getInt_String" href="#getInt_String">getInt</a>(String parameterName) throws SQLException
+<div class="methodText">Returns the value of the specified column as an int.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterName - the parameter name</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is closed</div>
+</td></tr>
+<tr id="__28" onclick="return on(28)">
+<td class="return">long</td><td class="method">
+<a id="getLong_int" href="#getLong_int">getLong</a>(int parameterIndex)
+<div class="methodText">Returns the value of the specified column as a long.</div>
+</td></tr>
+<tr onclick="return off(28)" class="detail" id="_28">
+<td class="return">long</td><td>
+<a id="getLong_int" href="#getLong_int">getLong</a>(int parameterIndex) throws SQLException
+<div class="methodText">Returns the value of the specified column as a long.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterIndex - the parameter index (1, 2, ...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__29" onclick="return on(29)">
+<td class="return">long</td><td class="method">
+<a id="getLong_String" href="#getLong_String">getLong</a>(String parameterName)
+<div class="methodText">Returns the value of the specified column as a long.</div>
+</td></tr>
+<tr onclick="return off(29)" class="detail" id="_29">
+<td class="return">long</td><td>
+<a id="getLong_String" href="#getLong_String">getLong</a>(String parameterName) throws SQLException
+<div class="methodText">Returns the value of the specified column as a long.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterName - the parameter name</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__30" onclick="return on(30)">
+<td class="return">Reader</td><td class="method">
+<a id="getNCharacterStream_int" href="#getNCharacterStream_int">getNCharacterStream</a>(int parameterIndex)
+<div class="methodText">Returns the value of the specified column as a reader.</div>
+</td></tr>
+<tr onclick="return off(30)" class="detail" id="_30">
+<td class="return">Reader</td><td>
+<a id="getNCharacterStream_int" href="#getNCharacterStream_int">getNCharacterStream</a>(int parameterIndex) throws SQLException
+<div class="methodText">Returns the value of the specified column as a reader.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterIndex - the parameter index (1, 2, ...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__31" onclick="return on(31)">
+<td class="return">Reader</td><td class="method">
+<a id="getNCharacterStream_String" href="#getNCharacterStream_String">getNCharacterStream</a>(String parameterName)
+<div class="methodText">Returns the value of the specified column as a reader.</div>
+</td></tr>
+<tr onclick="return off(31)" class="detail" id="_31">
+<td class="return">Reader</td><td>
+<a id="getNCharacterStream_String" href="#getNCharacterStream_String">getNCharacterStream</a>(String parameterName) throws SQLException
+<div class="methodText">Returns the value of the specified column as a reader.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterName - the parameter name</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__32" onclick="return on(32)">
+<td class="return">NClob</td><td class="method">
+<a id="getNClob_int" href="#getNClob_int">getNClob</a>(int parameterIndex)
+<div class="methodText">Returns the value of the specified column as a Clob.</div>
+</td></tr>
+<tr onclick="return off(32)" class="detail" id="_32">
+<td class="return">NClob</td><td>
+<a id="getNClob_int" href="#getNClob_int">getNClob</a>(int parameterIndex) throws SQLException
+<div class="methodText">Returns the value of the specified column as a Clob.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterIndex - the parameter index (1, 2, ...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is closed</div>
+</td></tr>
+<tr id="__33" onclick="return on(33)">
+<td class="return">NClob</td><td class="method">
+<a id="getNClob_String" href="#getNClob_String">getNClob</a>(String parameterName)
+<div class="methodText">Returns the value of the specified column as a Clob.</div>
+</td></tr>
+<tr onclick="return off(33)" class="detail" id="_33">
+<td class="return">NClob</td><td>
+<a id="getNClob_String" href="#getNClob_String">getNClob</a>(String parameterName) throws SQLException
+<div class="methodText">Returns the value of the specified column as a Clob.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterName - the parameter name</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is closed</div>
+</td></tr>
+<tr id="__34" onclick="return on(34)">
+<td class="return">String</td><td class="method">
+<a id="getNString_int" href="#getNString_int">getNString</a>(int parameterIndex)
+<div class="methodText">Returns the value of the specified column as a String.</div>
+</td></tr>
+<tr onclick="return off(34)" class="detail" id="_34">
+<td class="return">String</td><td>
+<a id="getNString_int" href="#getNString_int">getNString</a>(int parameterIndex) throws SQLException
+<div class="methodText">Returns the value of the specified column as a String.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterIndex - the parameter index (1, 2, ...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__35" onclick="return on(35)">
+<td class="return">String</td><td class="method">
+<a id="getNString_String" href="#getNString_String">getNString</a>(String parameterName)
+<div class="methodText">Returns the value of the specified column as a String.</div>
+</td></tr>
+<tr onclick="return off(35)" class="detail" id="_35">
+<td class="return">String</td><td>
+<a id="getNString_String" href="#getNString_String">getNString</a>(String parameterName) throws SQLException
+<div class="methodText">Returns the value of the specified column as a String.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterName - the parameter name</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__36" onclick="return on(36)">
+<td class="return">Object</td><td class="method">
+<a id="getObject_int" href="#getObject_int">getObject</a>(int parameterIndex)
+<div class="methodText">Returns a column value as a Java object.</div>
+</td></tr>
+<tr onclick="return off(36)" class="detail" id="_36">
+<td class="return">Object</td><td>
+<a id="getObject_int" href="#getObject_int">getObject</a>(int parameterIndex) throws SQLException
+<div class="methodText">Returns a column value as a Java object. The data is
+ de-serialized into a Java object (on the client side).</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterIndex - the parameter index (1, 2, ...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value or null</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__37" onclick="return on(37)">
+<td class="return">Object</td><td class="method">
+<a id="getObject_int_Map" href="#getObject_int_Map">getObject</a>(int parameterIndex, Map map)
+<div class="methodText">[Not supported] Gets a column as a object using the specified type
+ mapping.</div>
+</td></tr>
+<tr onclick="return off(37)" class="detail" id="_37">
+<td class="return">Object</td><td>
+<a id="getObject_int_Map" href="#getObject_int_Map">getObject</a>(int parameterIndex, Map map) throws SQLException
+<div class="methodText">[Not supported] Gets a column as a object using the specified type
+ mapping.</div>
+</td></tr>
+<tr id="__38" onclick="return on(38)">
+<td class="return">Object</td><td class="method">
+<a id="getObject_String_Map" href="#getObject_String_Map">getObject</a>(String parameterName, Map map)
+<div class="methodText">[Not supported] Gets a column as a object using the specified type
+ mapping.</div>
+</td></tr>
+<tr onclick="return off(38)" class="detail" id="_38">
+<td class="return">Object</td><td>
+<a id="getObject_String_Map" href="#getObject_String_Map">getObject</a>(String parameterName, Map map) throws SQLException
+<div class="methodText">[Not supported] Gets a column as a object using the specified type
+ mapping.</div>
+</td></tr>
+<tr id="__39" onclick="return on(39)">
+<td class="return">Object</td><td class="method">
+<a id="getObject_String" href="#getObject_String">getObject</a>(String parameterName)
+<div class="methodText">Returns a column value as a Java object.</div>
+</td></tr>
+<tr onclick="return off(39)" class="detail" id="_39">
+<td class="return">Object</td><td>
+<a id="getObject_String" href="#getObject_String">getObject</a>(String parameterName) throws SQLException
+<div class="methodText">Returns a column value as a Java object. The data is
+ de-serialized into a Java object (on the client side).</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterName - the parameter name</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value or null</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__40" onclick="return on(40)">
+<td class="return">Ref</td><td class="method">
+<a id="getRef_int" href="#getRef_int">getRef</a>(int parameterIndex)
+<div class="methodText">[Not supported] Gets a column as a reference.</div>
+</td></tr>
+<tr onclick="return off(40)" class="detail" id="_40">
+<td class="return">Ref</td><td>
+<a id="getRef_int" href="#getRef_int">getRef</a>(int parameterIndex) throws SQLException
+<div class="methodText">[Not supported] Gets a column as a reference.</div>
+</td></tr>
+<tr id="__41" onclick="return on(41)">
+<td class="return">Ref</td><td class="method">
+<a id="getRef_String" href="#getRef_String">getRef</a>(String parameterName)
+<div class="methodText">[Not supported] Gets a column as a reference.</div>
+</td></tr>
+<tr onclick="return off(41)" class="detail" id="_41">
+<td class="return">Ref</td><td>
+<a id="getRef_String" href="#getRef_String">getRef</a>(String parameterName) throws SQLException
+<div class="methodText">[Not supported] Gets a column as a reference.</div>
+</td></tr>
+<tr id="__42" onclick="return on(42)">
+<td class="return">RowId</td><td class="method">
+<a id="getRowId_int" href="#getRowId_int">getRowId</a>(int parameterIndex)
+<div class="methodText">[Not supported] Returns the value of the specified column as a row id.</div>
+</td></tr>
+<tr onclick="return off(42)" class="detail" id="_42">
+<td class="return">RowId</td><td>
+<a id="getRowId_int" href="#getRowId_int">getRowId</a>(int parameterIndex) throws SQLException
+<div class="methodText">[Not supported] Returns the value of the specified column as a row id.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterIndex - the parameter index (1, 2, ...)</div>
+</td></tr>
+<tr id="__43" onclick="return on(43)">
+<td class="return">RowId</td><td class="method">
+<a id="getRowId_String" href="#getRowId_String">getRowId</a>(String parameterName)
+<div class="methodText">[Not supported] Returns the value of the specified column as a row id.</div>
+</td></tr>
+<tr onclick="return off(43)" class="detail" id="_43">
+<td class="return">RowId</td><td>
+<a id="getRowId_String" href="#getRowId_String">getRowId</a>(String parameterName) throws SQLException
+<div class="methodText">[Not supported] Returns the value of the specified column as a row id.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterName - the parameter name</div>
+</td></tr>
+<tr id="__44" onclick="return on(44)">
+<td class="return">SQLXML</td><td class="method">
+<a id="getSQLXML_int" href="#getSQLXML_int">getSQLXML</a>(int parameterIndex)
+<div class="methodText">[Not supported] Returns the value of the specified column as a SQLXML object.</div>
+</td></tr>
+<tr onclick="return off(44)" class="detail" id="_44">
+<td class="return">SQLXML</td><td>
+<a id="getSQLXML_int" href="#getSQLXML_int">getSQLXML</a>(int parameterIndex) throws SQLException
+<div class="methodText">[Not supported] Returns the value of the specified column as a SQLXML object.</div>
+</td></tr>
+<tr id="__45" onclick="return on(45)">
+<td class="return">SQLXML</td><td class="method">
+<a id="getSQLXML_String" href="#getSQLXML_String">getSQLXML</a>(String parameterName)
+<div class="methodText">[Not supported] Returns the value of the specified column as a SQLXML object.</div>
+</td></tr>
+<tr onclick="return off(45)" class="detail" id="_45">
+<td class="return">SQLXML</td><td>
+<a id="getSQLXML_String" href="#getSQLXML_String">getSQLXML</a>(String parameterName) throws SQLException
+<div class="methodText">[Not supported] Returns the value of the specified column as a SQLXML object.</div>
+</td></tr>
+<tr id="__46" onclick="return on(46)">
+<td class="return">short</td><td class="method">
+<a id="getShort_int" href="#getShort_int">getShort</a>(int parameterIndex)
+<div class="methodText">Returns the value of the specified column as a short.</div>
+</td></tr>
+<tr onclick="return off(46)" class="detail" id="_46">
+<td class="return">short</td><td>
+<a id="getShort_int" href="#getShort_int">getShort</a>(int parameterIndex) throws SQLException
+<div class="methodText">Returns the value of the specified column as a short.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterIndex - (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__47" onclick="return on(47)">
+<td class="return">short</td><td class="method">
+<a id="getShort_String" href="#getShort_String">getShort</a>(String parameterName)
+<div class="methodText">Returns the value of the specified column as a short.</div>
+</td></tr>
+<tr onclick="return off(47)" class="detail" id="_47">
+<td class="return">short</td><td>
+<a id="getShort_String" href="#getShort_String">getShort</a>(String parameterName) throws SQLException
+<div class="methodText">Returns the value of the specified column as a short.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterName - the parameter name</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__48" onclick="return on(48)">
+<td class="return">String</td><td class="method">
+<a id="getString_int" href="#getString_int">getString</a>(int parameterIndex)
+<div class="methodText">Returns the value of the specified column as a String.</div>
+</td></tr>
+<tr onclick="return off(48)" class="detail" id="_48">
+<td class="return">String</td><td>
+<a id="getString_int" href="#getString_int">getString</a>(int parameterIndex) throws SQLException
+<div class="methodText">Returns the value of the specified column as a String.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterIndex - (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is closed</div>
+</td></tr>
+<tr id="__49" onclick="return on(49)">
+<td class="return">String</td><td class="method">
+<a id="getString_String" href="#getString_String">getString</a>(String parameterName)
+<div class="methodText">Returns the value of the specified column as a String.</div>
+</td></tr>
+<tr onclick="return off(49)" class="detail" id="_49">
+<td class="return">String</td><td>
+<a id="getString_String" href="#getString_String">getString</a>(String parameterName) throws SQLException
+<div class="methodText">Returns the value of the specified column as a String.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterName - the parameter name</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is closed</div>
+</td></tr>
+<tr id="__50" onclick="return on(50)">
+<td class="return">Time</td><td class="method">
+<a id="getTime_int" href="#getTime_int">getTime</a>(int parameterIndex)
+<div class="methodText">Returns the value of the specified column as a java.sql.Time.</div>
+</td></tr>
+<tr onclick="return off(50)" class="detail" id="_50">
+<td class="return">Time</td><td>
+<a id="getTime_int" href="#getTime_int">getTime</a>(int parameterIndex) throws SQLException
+<div class="methodText">Returns the value of the specified column as a java.sql.Time.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterIndex - the parameter index (1, 2, ...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is closed</div>
+</td></tr>
+<tr id="__51" onclick="return on(51)">
+<td class="return">Time</td><td class="method">
+<a id="getTime_int_Calendar" href="#getTime_int_Calendar">getTime</a>(int parameterIndex, Calendar cal)
+<div class="methodText">Returns the value of the specified column as a java.sql.Time using a
+ specified time zone.</div>
+</td></tr>
+<tr onclick="return off(51)" class="detail" id="_51">
+<td class="return">Time</td><td>
+<a id="getTime_int_Calendar" href="#getTime_int_Calendar">getTime</a>(int parameterIndex, Calendar cal) throws SQLException
+<div class="methodText">Returns the value of the specified column as a java.sql.Time using a
+ specified time zone.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterIndex - the parameter index (1, 2, ...)</div>
+<div class="item">cal - the calendar</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__52" onclick="return on(52)">
+<td class="return">Time</td><td class="method">
+<a id="getTime_String_Calendar" href="#getTime_String_Calendar">getTime</a>(String parameterName, Calendar cal)
+<div class="methodText">Returns the value of the specified column as a java.sql.Time using a
+ specified time zone.</div>
+</td></tr>
+<tr onclick="return off(52)" class="detail" id="_52">
+<td class="return">Time</td><td>
+<a id="getTime_String_Calendar" href="#getTime_String_Calendar">getTime</a>(String parameterName, Calendar cal) throws SQLException
+<div class="methodText">Returns the value of the specified column as a java.sql.Time using a
+ specified time zone.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterName - the parameter name</div>
+<div class="item">cal - the calendar</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__53" onclick="return on(53)">
+<td class="return">Time</td><td class="method">
+<a id="getTime_String" href="#getTime_String">getTime</a>(String parameterName)
+<div class="methodText">Returns the value of the specified column as a java.sql.Time.</div>
+</td></tr>
+<tr onclick="return off(53)" class="detail" id="_53">
+<td class="return">Time</td><td>
+<a id="getTime_String" href="#getTime_String">getTime</a>(String parameterName) throws SQLException
+<div class="methodText">Returns the value of the specified column as a java.sql.Time.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterName - the parameter name</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__54" onclick="return on(54)">
+<td class="return">Timestamp</td><td class="method">
+<a id="getTimestamp_int" href="#getTimestamp_int">getTimestamp</a>(int parameterIndex)
+<div class="methodText">Returns the value of the specified column as a java.sql.Timestamp.</div>
+</td></tr>
+<tr onclick="return off(54)" class="detail" id="_54">
+<td class="return">Timestamp</td><td>
+<a id="getTimestamp_int" href="#getTimestamp_int">getTimestamp</a>(int parameterIndex) throws SQLException
+<div class="methodText">Returns the value of the specified column as a java.sql.Timestamp.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterIndex - the parameter index (1, 2, ...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is closed</div>
+</td></tr>
+<tr id="__55" onclick="return on(55)">
+<td class="return">Timestamp</td><td class="method">
+<a id="getTimestamp_int_Calendar" href="#getTimestamp_int_Calendar">getTimestamp</a>(int parameterIndex, Calendar cal)
+<div class="methodText">Returns the value of the specified column as a java.sql.Timestamp using a
+ specified time zone.</div>
+</td></tr>
+<tr onclick="return off(55)" class="detail" id="_55">
+<td class="return">Timestamp</td><td>
+<a id="getTimestamp_int_Calendar" href="#getTimestamp_int_Calendar">getTimestamp</a>(int parameterIndex, Calendar cal) throws SQLException
+<div class="methodText">Returns the value of the specified column as a java.sql.Timestamp using a
+ specified time zone.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterIndex - the parameter index (1, 2, ...)</div>
+<div class="item">cal - the calendar</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__56" onclick="return on(56)">
+<td class="return">Timestamp</td><td class="method">
+<a id="getTimestamp_String_Calendar" href="#getTimestamp_String_Calendar">getTimestamp</a>(String parameterName, Calendar cal)
+<div class="methodText">Returns the value of the specified column as a java.sql.Timestamp using a
+ specified time zone.</div>
+</td></tr>
+<tr onclick="return off(56)" class="detail" id="_56">
+<td class="return">Timestamp</td><td>
+<a id="getTimestamp_String_Calendar" href="#getTimestamp_String_Calendar">getTimestamp</a>(String parameterName, Calendar cal) throws SQLException
+<div class="methodText">Returns the value of the specified column as a java.sql.Timestamp using a
+ specified time zone.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterName - the parameter name</div>
+<div class="item">cal - the calendar</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__57" onclick="return on(57)">
+<td class="return">Timestamp</td><td class="method">
+<a id="getTimestamp_String" href="#getTimestamp_String">getTimestamp</a>(String parameterName)
+<div class="methodText">Returns the value of the specified column as a java.sql.Timestamp.</div>
+</td></tr>
+<tr onclick="return off(57)" class="detail" id="_57">
+<td class="return">Timestamp</td><td>
+<a id="getTimestamp_String" href="#getTimestamp_String">getTimestamp</a>(String parameterName) throws SQLException
+<div class="methodText">Returns the value of the specified column as a java.sql.Timestamp.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterName - the parameter name</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__58" onclick="return on(58)">
+<td class="return">URL</td><td class="method">
+<a id="getURL_int" href="#getURL_int">getURL</a>(int parameterIndex)
+<div class="methodText">[Not supported]</div>
+</td></tr>
+<tr onclick="return off(58)" class="detail" id="_58">
+<td class="return">URL</td><td>
+<a id="getURL_int" href="#getURL_int">getURL</a>(int parameterIndex) throws SQLException
+<div class="methodText">[Not supported]</div>
+</td></tr>
+<tr id="__59" onclick="return on(59)">
+<td class="return">URL</td><td class="method">
+<a id="getURL_String" href="#getURL_String">getURL</a>(String parameterName)
+<div class="methodText">[Not supported]</div>
+</td></tr>
+<tr onclick="return off(59)" class="detail" id="_59">
+<td class="return">URL</td><td>
+<a id="getURL_String" href="#getURL_String">getURL</a>(String parameterName) throws SQLException
+<div class="methodText">[Not supported]</div>
+</td></tr>
+<tr id="__60" onclick="return on(60)">
+<td class="return">void</td><td class="method">
+<a id="registerOutParameter_int_int" href="#registerOutParameter_int_int">registerOutParameter</a>(int parameterIndex, int sqlType)
+<div class="methodText">Registers the given OUT parameter.</div>
+</td></tr>
+<tr onclick="return off(60)" class="detail" id="_60">
+<td class="return">void</td><td>
+<a id="registerOutParameter_int_int" href="#registerOutParameter_int_int">registerOutParameter</a>(int parameterIndex, int sqlType) throws SQLException
+<div class="methodText">Registers the given OUT parameter.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterIndex - the parameter index (1, 2, ...)</div>
+<div class="item">sqlType - the data type (Types.x) - ignored</div>
+</td></tr>
+<tr id="__61" onclick="return on(61)">
+<td class="return">void</td><td class="method">
+<a id="registerOutParameter_int_int_String" href="#registerOutParameter_int_int_String">registerOutParameter</a>(int parameterIndex, int sqlType, String typeName)
+<div class="methodText">Registers the given OUT parameter.</div>
+</td></tr>
+<tr onclick="return off(61)" class="detail" id="_61">
+<td class="return">void</td><td>
+<a id="registerOutParameter_int_int_String" href="#registerOutParameter_int_int_String">registerOutParameter</a>(int parameterIndex, int sqlType, String typeName) throws SQLException
+<div class="methodText">Registers the given OUT parameter.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterIndex - the parameter index (1, 2, ...)</div>
+<div class="item">sqlType - the data type (Types.x) - ignored</div>
+<div class="item">typeName - the SQL type name - ignored</div>
+</td></tr>
+<tr id="__62" onclick="return on(62)">
+<td class="return">void</td><td class="method">
+<a id="registerOutParameter_int_int_int" href="#registerOutParameter_int_int_int">registerOutParameter</a>(int parameterIndex, int sqlType, int scale)
+<div class="methodText">Registers the given OUT parameter.</div>
+</td></tr>
+<tr onclick="return off(62)" class="detail" id="_62">
+<td class="return">void</td><td>
+<a id="registerOutParameter_int_int_int" href="#registerOutParameter_int_int_int">registerOutParameter</a>(int parameterIndex, int sqlType, int scale) throws SQLException
+<div class="methodText">Registers the given OUT parameter.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterIndex - the parameter index (1, 2, ...)</div>
+<div class="item">sqlType - the data type (Types.x)</div>
+<div class="item">scale - is ignored</div>
+</td></tr>
+<tr id="__63" onclick="return on(63)">
+<td class="return">void</td><td class="method">
+<a id="registerOutParameter_String_int_String" href="#registerOutParameter_String_int_String">registerOutParameter</a>(String parameterName, int sqlType, String typeName)
+<div class="methodText">Registers the given OUT parameter.</div>
+</td></tr>
+<tr onclick="return off(63)" class="detail" id="_63">
+<td class="return">void</td><td>
+<a id="registerOutParameter_String_int_String" href="#registerOutParameter_String_int_String">registerOutParameter</a>(String parameterName, int sqlType, String typeName) throws SQLException
+<div class="methodText">Registers the given OUT parameter.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterName - the parameter name</div>
+<div class="item">sqlType - the data type (Types.x) - ignored</div>
+<div class="item">typeName - the SQL type name - ignored</div>
+</td></tr>
+<tr id="__64" onclick="return on(64)">
+<td class="return">void</td><td class="method">
+<a id="registerOutParameter_String_int_int" href="#registerOutParameter_String_int_int">registerOutParameter</a>(String parameterName, int sqlType, int scale)
+<div class="methodText">Registers the given OUT parameter.</div>
+</td></tr>
+<tr onclick="return off(64)" class="detail" id="_64">
+<td class="return">void</td><td>
+<a id="registerOutParameter_String_int_int" href="#registerOutParameter_String_int_int">registerOutParameter</a>(String parameterName, int sqlType, int scale) throws SQLException
+<div class="methodText">Registers the given OUT parameter.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterName - the parameter name</div>
+<div class="item">sqlType - the data type (Types.x) - ignored</div>
+<div class="item">scale - is ignored</div>
+</td></tr>
+<tr id="__65" onclick="return on(65)">
+<td class="return">void</td><td class="method">
+<a id="registerOutParameter_String_int" href="#registerOutParameter_String_int">registerOutParameter</a>(String parameterName, int sqlType)
+<div class="methodText">Registers the given OUT parameter.</div>
+</td></tr>
+<tr onclick="return off(65)" class="detail" id="_65">
+<td class="return">void</td><td>
+<a id="registerOutParameter_String_int" href="#registerOutParameter_String_int">registerOutParameter</a>(String parameterName, int sqlType) throws SQLException
+<div class="methodText">Registers the given OUT parameter.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterName - the parameter name</div>
+<div class="item">sqlType - the data type (Types.x) - ignored</div>
+</td></tr>
+<tr id="__66" onclick="return on(66)">
+<td class="return">void</td><td class="method">
+<a id="setAsciiStream_String_InputStream_long" href="#setAsciiStream_String_InputStream_long">setAsciiStream</a>(String parameterName, InputStream x, long length)
+<div class="methodText">Sets the value of a parameter as an ASCII stream.</div>
+</td></tr>
+<tr onclick="return off(66)" class="detail" id="_66">
+<td class="return">void</td><td>
+<a id="setAsciiStream_String_InputStream_long" href="#setAsciiStream_String_InputStream_long">setAsciiStream</a>(String parameterName, InputStream x, long length) throws SQLException
+<div class="methodText">Sets the value of a parameter as an ASCII stream.
+ This method does not close the stream.
+ The stream may be closed after executing the statement.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterName - the parameter name</div>
+<div class="item">x - the value</div>
+<div class="item">length - the maximum number of bytes</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__67" onclick="return on(67)">
+<td class="return">void</td><td class="method">
+<a id="setAsciiStream_String_InputStream" href="#setAsciiStream_String_InputStream">setAsciiStream</a>(String parameterName, InputStream x)
+<div class="methodText">Sets the value of a parameter as an ASCII stream.</div>
+</td></tr>
+<tr onclick="return off(67)" class="detail" id="_67">
+<td class="return">void</td><td>
+<a id="setAsciiStream_String_InputStream" href="#setAsciiStream_String_InputStream">setAsciiStream</a>(String parameterName, InputStream x) throws SQLException
+<div class="methodText">Sets the value of a parameter as an ASCII stream.
+ This method does not close the stream.
+ The stream may be closed after executing the statement.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterName - the parameter name</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__68" onclick="return on(68)">
+<td class="return">void</td><td class="method">
+<a id="setAsciiStream_String_InputStream_int" href="#setAsciiStream_String_InputStream_int">setAsciiStream</a>(String parameterName, InputStream x, int length)
+<div class="methodText">Sets the value of a parameter as an ASCII stream.</div>
+</td></tr>
+<tr onclick="return off(68)" class="detail" id="_68">
+<td class="return">void</td><td>
+<a id="setAsciiStream_String_InputStream_int" href="#setAsciiStream_String_InputStream_int">setAsciiStream</a>(String parameterName, InputStream x, int length) throws SQLException
+<div class="methodText">Sets the value of a parameter as an ASCII stream.
+ This method does not close the stream.
+ The stream may be closed after executing the statement.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterName - the parameter name</div>
+<div class="item">x - the value</div>
+<div class="item">length - the maximum number of bytes</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__69" onclick="return on(69)">
+<td class="return">void</td><td class="method">
+<a id="setBigDecimal_String_BigDecimal" href="#setBigDecimal_String_BigDecimal">setBigDecimal</a>(String parameterName, BigDecimal x)
+<div class="methodText">Sets the value of a parameter.</div>
+</td></tr>
+<tr onclick="return off(69)" class="detail" id="_69">
+<td class="return">void</td><td>
+<a id="setBigDecimal_String_BigDecimal" href="#setBigDecimal_String_BigDecimal">setBigDecimal</a>(String parameterName, BigDecimal x) throws SQLException
+<div class="methodText">Sets the value of a parameter.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterName - the parameter name</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__70" onclick="return on(70)">
+<td class="return">void</td><td class="method">
+<a id="setBinaryStream_String_InputStream_int" href="#setBinaryStream_String_InputStream_int">setBinaryStream</a>(String parameterName, InputStream x, int length)
+<div class="methodText">Sets the value of a parameter as an input stream.</div>
+</td></tr>
+<tr onclick="return off(70)" class="detail" id="_70">
+<td class="return">void</td><td>
+<a id="setBinaryStream_String_InputStream_int" href="#setBinaryStream_String_InputStream_int">setBinaryStream</a>(String parameterName, InputStream x, int length) throws SQLException
+<div class="methodText">Sets the value of a parameter as an input stream.
+ This method does not close the stream.
+ The stream may be closed after executing the statement.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterName - the parameter name</div>
+<div class="item">x - the value</div>
+<div class="item">length - the maximum number of bytes</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__71" onclick="return on(71)">
+<td class="return">void</td><td class="method">
+<a id="setBinaryStream_String_InputStream" href="#setBinaryStream_String_InputStream">setBinaryStream</a>(String parameterName, InputStream x)
+<div class="methodText">Sets the value of a parameter as an input stream.</div>
+</td></tr>
+<tr onclick="return off(71)" class="detail" id="_71">
+<td class="return">void</td><td>
+<a id="setBinaryStream_String_InputStream" href="#setBinaryStream_String_InputStream">setBinaryStream</a>(String parameterName, InputStream x) throws SQLException
+<div class="methodText">Sets the value of a parameter as an input stream.
+ This method does not close the stream.
+ The stream may be closed after executing the statement.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterName - the parameter name</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__72" onclick="return on(72)">
+<td class="return">void</td><td class="method">
+<a id="setBinaryStream_String_InputStream_long" href="#setBinaryStream_String_InputStream_long">setBinaryStream</a>(String parameterName, InputStream x, long length)
+<div class="methodText">Sets the value of a parameter as an input stream.</div>
+</td></tr>
+<tr onclick="return off(72)" class="detail" id="_72">
+<td class="return">void</td><td>
+<a id="setBinaryStream_String_InputStream_long" href="#setBinaryStream_String_InputStream_long">setBinaryStream</a>(String parameterName, InputStream x, long length) throws SQLException
+<div class="methodText">Sets the value of a parameter as an input stream.
+ This method does not close the stream.
+ The stream may be closed after executing the statement.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterName - the parameter name</div>
+<div class="item">x - the value</div>
+<div class="item">length - the maximum number of bytes</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__73" onclick="return on(73)">
+<td class="return">void</td><td class="method">
+<a id="setBlob_String_InputStream_long" href="#setBlob_String_InputStream_long">setBlob</a>(String parameterName, InputStream x, long length)
+<div class="methodText">Sets the value of a parameter as a Blob.</div>
+</td></tr>
+<tr onclick="return off(73)" class="detail" id="_73">
+<td class="return">void</td><td>
+<a id="setBlob_String_InputStream_long" href="#setBlob_String_InputStream_long">setBlob</a>(String parameterName, InputStream x, long length) throws SQLException
+<div class="methodText">Sets the value of a parameter as a Blob.
+ This method does not close the stream.
+ The stream may be closed after executing the statement.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterName - the parameter name</div>
+<div class="item">x - the value</div>
+<div class="item">length - the maximum number of bytes</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__74" onclick="return on(74)">
+<td class="return">void</td><td class="method">
+<a id="setBlob_String_Blob" href="#setBlob_String_Blob">setBlob</a>(String parameterName, Blob x)
+<div class="methodText">Sets the value of a parameter as a Blob.</div>
+</td></tr>
+<tr onclick="return off(74)" class="detail" id="_74">
+<td class="return">void</td><td>
+<a id="setBlob_String_Blob" href="#setBlob_String_Blob">setBlob</a>(String parameterName, Blob x) throws SQLException
+<div class="methodText">Sets the value of a parameter as a Blob.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterName - the parameter name</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__75" onclick="return on(75)">
+<td class="return">void</td><td class="method">
+<a id="setBlob_String_InputStream" href="#setBlob_String_InputStream">setBlob</a>(String parameterName, InputStream x)
+<div class="methodText">Sets the value of a parameter as a Blob.</div>
+</td></tr>
+<tr onclick="return off(75)" class="detail" id="_75">
+<td class="return">void</td><td>
+<a id="setBlob_String_InputStream" href="#setBlob_String_InputStream">setBlob</a>(String parameterName, InputStream x) throws SQLException
+<div class="methodText">Sets the value of a parameter as a Blob.
+ This method does not close the stream.
+ The stream may be closed after executing the statement.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterName - the parameter name</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__76" onclick="return on(76)">
+<td class="return">void</td><td class="method">
+<a id="setBoolean_String_boolean" href="#setBoolean_String_boolean">setBoolean</a>(String parameterName, boolean x)
+<div class="methodText">Sets the value of a parameter.</div>
+</td></tr>
+<tr onclick="return off(76)" class="detail" id="_76">
+<td class="return">void</td><td>
+<a id="setBoolean_String_boolean" href="#setBoolean_String_boolean">setBoolean</a>(String parameterName, boolean x) throws SQLException
+<div class="methodText">Sets the value of a parameter.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterName - the parameter name</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__77" onclick="return on(77)">
+<td class="return">void</td><td class="method">
+<a id="setByte_String_byte" href="#setByte_String_byte">setByte</a>(String parameterName, byte x)
+<div class="methodText">Sets the value of a parameter.</div>
+</td></tr>
+<tr onclick="return off(77)" class="detail" id="_77">
+<td class="return">void</td><td>
+<a id="setByte_String_byte" href="#setByte_String_byte">setByte</a>(String parameterName, byte x) throws SQLException
+<div class="methodText">Sets the value of a parameter.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterName - the parameter name</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__78" onclick="return on(78)">
+<td class="return">void</td><td class="method">
+<a id="setBytes_String_byte-" href="#setBytes_String_byte-">setBytes</a>(String parameterName, byte[] x)
+<div class="methodText">Sets the value of a parameter as a byte array.</div>
+</td></tr>
+<tr onclick="return off(78)" class="detail" id="_78">
+<td class="return">void</td><td>
+<a id="setBytes_String_byte-" href="#setBytes_String_byte-">setBytes</a>(String parameterName, byte[] x) throws SQLException
+<div class="methodText">Sets the value of a parameter as a byte array.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterName - the parameter name</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__79" onclick="return on(79)">
+<td class="return">void</td><td class="method">
+<a id="setCharacterStream_String_Reader_int" href="#setCharacterStream_String_Reader_int">setCharacterStream</a>(String parameterName, Reader x, int length)
+<div class="methodText">Sets the value of a parameter as a character stream.</div>
+</td></tr>
+<tr onclick="return off(79)" class="detail" id="_79">
+<td class="return">void</td><td>
+<a id="setCharacterStream_String_Reader_int" href="#setCharacterStream_String_Reader_int">setCharacterStream</a>(String parameterName, Reader x, int length) throws SQLException
+<div class="methodText">Sets the value of a parameter as a character stream.
+ This method does not close the reader.
+ The reader may be closed after executing the statement.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterName - the parameter name</div>
+<div class="item">x - the value</div>
+<div class="item">length - the maximum number of characters</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__80" onclick="return on(80)">
+<td class="return">void</td><td class="method">
+<a id="setCharacterStream_String_Reader" href="#setCharacterStream_String_Reader">setCharacterStream</a>(String parameterName, Reader x)
+<div class="methodText">Sets the value of a parameter as a character stream.</div>
+</td></tr>
+<tr onclick="return off(80)" class="detail" id="_80">
+<td class="return">void</td><td>
+<a id="setCharacterStream_String_Reader" href="#setCharacterStream_String_Reader">setCharacterStream</a>(String parameterName, Reader x) throws SQLException
+<div class="methodText">Sets the value of a parameter as a character stream.
+ This method does not close the reader.
+ The reader may be closed after executing the statement.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterName - the parameter name</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__81" onclick="return on(81)">
+<td class="return">void</td><td class="method">
+<a id="setCharacterStream_String_Reader_long" href="#setCharacterStream_String_Reader_long">setCharacterStream</a>(String parameterName, Reader x, long length)
+<div class="methodText">Sets the value of a parameter as a character stream.</div>
+</td></tr>
+<tr onclick="return off(81)" class="detail" id="_81">
+<td class="return">void</td><td>
+<a id="setCharacterStream_String_Reader_long" href="#setCharacterStream_String_Reader_long">setCharacterStream</a>(String parameterName, Reader x, long length) throws SQLException
+<div class="methodText">Sets the value of a parameter as a character stream.
+ This method does not close the reader.
+ The reader may be closed after executing the statement.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterName - the parameter name</div>
+<div class="item">x - the value</div>
+<div class="item">length - the maximum number of characters</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__82" onclick="return on(82)">
+<td class="return">void</td><td class="method">
+<a id="setClob_String_Reader_long" href="#setClob_String_Reader_long">setClob</a>(String parameterName, Reader x, long length)
+<div class="methodText">Sets the value of a parameter as a Clob.</div>
+</td></tr>
+<tr onclick="return off(82)" class="detail" id="_82">
+<td class="return">void</td><td>
+<a id="setClob_String_Reader_long" href="#setClob_String_Reader_long">setClob</a>(String parameterName, Reader x, long length) throws SQLException
+<div class="methodText">Sets the value of a parameter as a Clob.
+ This method does not close the reader.
+ The reader may be closed after executing the statement.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterName - the parameter name</div>
+<div class="item">x - the value</div>
+<div class="item">length - the maximum number of characters</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__83" onclick="return on(83)">
+<td class="return">void</td><td class="method">
+<a id="setClob_String_Clob" href="#setClob_String_Clob">setClob</a>(String parameterName, Clob x)
+<div class="methodText">Sets the value of a parameter as a Clob.</div>
+</td></tr>
+<tr onclick="return off(83)" class="detail" id="_83">
+<td class="return">void</td><td>
+<a id="setClob_String_Clob" href="#setClob_String_Clob">setClob</a>(String parameterName, Clob x) throws SQLException
+<div class="methodText">Sets the value of a parameter as a Clob.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterName - the parameter name</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__84" onclick="return on(84)">
+<td class="return">void</td><td class="method">
+<a id="setClob_String_Reader" href="#setClob_String_Reader">setClob</a>(String parameterName, Reader x)
+<div class="methodText">Sets the value of a parameter as a character stream.</div>
+</td></tr>
+<tr onclick="return off(84)" class="detail" id="_84">
+<td class="return">void</td><td>
+<a id="setClob_String_Reader" href="#setClob_String_Reader">setClob</a>(String parameterName, Reader x) throws SQLException
+<div class="methodText">Sets the value of a parameter as a character stream.
+ This method does not close the reader.
+ The reader may be closed after executing the statement.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterName - the parameter name</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__85" onclick="return on(85)">
+<td class="return">void</td><td class="method">
+<a id="setDate_String_Date_Calendar" href="#setDate_String_Date_Calendar">setDate</a>(String parameterName, Date x, Calendar cal)
+<div class="methodText">Sets the date using a specified time zone.</div>
+</td></tr>
+<tr onclick="return off(85)" class="detail" id="_85">
+<td class="return">void</td><td>
+<a id="setDate_String_Date_Calendar" href="#setDate_String_Date_Calendar">setDate</a>(String parameterName, Date x, Calendar cal) throws SQLException
+<div class="methodText">Sets the date using a specified time zone. The value will be converted to
+ the local time zone.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterName - the parameter name</div>
+<div class="item">x - the value</div>
+<div class="item">cal - the calendar</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__86" onclick="return on(86)">
+<td class="return">void</td><td class="method">
+<a id="setDate_String_Date" href="#setDate_String_Date">setDate</a>(String parameterName, Date x)
+<div class="methodText">Sets the value of a parameter.</div>
+</td></tr>
+<tr onclick="return off(86)" class="detail" id="_86">
+<td class="return">void</td><td>
+<a id="setDate_String_Date" href="#setDate_String_Date">setDate</a>(String parameterName, Date x) throws SQLException
+<div class="methodText">Sets the value of a parameter.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterName - the parameter name</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__87" onclick="return on(87)">
+<td class="return">void</td><td class="method">
+<a id="setDouble_String_double" href="#setDouble_String_double">setDouble</a>(String parameterName, double x)
+<div class="methodText">Sets the value of a parameter.</div>
+</td></tr>
+<tr onclick="return off(87)" class="detail" id="_87">
+<td class="return">void</td><td>
+<a id="setDouble_String_double" href="#setDouble_String_double">setDouble</a>(String parameterName, double x) throws SQLException
+<div class="methodText">Sets the value of a parameter.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterName - the parameter name</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__88" onclick="return on(88)">
+<td class="return">void</td><td class="method">
+<a id="setFloat_String_float" href="#setFloat_String_float">setFloat</a>(String parameterName, float x)
+<div class="methodText">Sets the value of a parameter.</div>
+</td></tr>
+<tr onclick="return off(88)" class="detail" id="_88">
+<td class="return">void</td><td>
+<a id="setFloat_String_float" href="#setFloat_String_float">setFloat</a>(String parameterName, float x) throws SQLException
+<div class="methodText">Sets the value of a parameter.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterName - the parameter name</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__89" onclick="return on(89)">
+<td class="return">void</td><td class="method">
+<a id="setInt_String_int" href="#setInt_String_int">setInt</a>(String parameterName, int x)
+<div class="methodText">Sets the value of a parameter.</div>
+</td></tr>
+<tr onclick="return off(89)" class="detail" id="_89">
+<td class="return">void</td><td>
+<a id="setInt_String_int" href="#setInt_String_int">setInt</a>(String parameterName, int x) throws SQLException
+<div class="methodText">Sets the value of a parameter.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterName - the parameter name</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__90" onclick="return on(90)">
+<td class="return">void</td><td class="method">
+<a id="setLong_String_long" href="#setLong_String_long">setLong</a>(String parameterName, long x)
+<div class="methodText">Sets the value of a parameter.</div>
+</td></tr>
+<tr onclick="return off(90)" class="detail" id="_90">
+<td class="return">void</td><td>
+<a id="setLong_String_long" href="#setLong_String_long">setLong</a>(String parameterName, long x) throws SQLException
+<div class="methodText">Sets the value of a parameter.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterName - the parameter name</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__91" onclick="return on(91)">
+<td class="return">void</td><td class="method">
+<a id="setNCharacterStream_String_Reader_long" href="#setNCharacterStream_String_Reader_long">setNCharacterStream</a>(String parameterName, Reader x, long length)
+<div class="methodText">Sets the value of a parameter as a character stream.</div>
+</td></tr>
+<tr onclick="return off(91)" class="detail" id="_91">
+<td class="return">void</td><td>
+<a id="setNCharacterStream_String_Reader_long" href="#setNCharacterStream_String_Reader_long">setNCharacterStream</a>(String parameterName, Reader x, long length) throws SQLException
+<div class="methodText">Sets the value of a parameter as a character stream.
+ This method does not close the reader.
+ The reader may be closed after executing the statement.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterName - the parameter name</div>
+<div class="item">x - the value</div>
+<div class="item">length - the maximum number of characters</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__92" onclick="return on(92)">
+<td class="return">void</td><td class="method">
+<a id="setNCharacterStream_String_Reader" href="#setNCharacterStream_String_Reader">setNCharacterStream</a>(String parameterName, Reader x)
+<div class="methodText">Sets the value of a parameter as a character stream.</div>
+</td></tr>
+<tr onclick="return off(92)" class="detail" id="_92">
+<td class="return">void</td><td>
+<a id="setNCharacterStream_String_Reader" href="#setNCharacterStream_String_Reader">setNCharacterStream</a>(String parameterName, Reader x) throws SQLException
+<div class="methodText">Sets the value of a parameter as a character stream.
+ This method does not close the reader.
+ The reader may be closed after executing the statement.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterName - the parameter name</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__93" onclick="return on(93)">
+<td class="return">void</td><td class="method">
+<a id="setNClob_String_NClob" href="#setNClob_String_NClob">setNClob</a>(String parameterName, NClob x)
+<div class="methodText">Sets the value of a parameter as a Clob.</div>
+</td></tr>
+<tr onclick="return off(93)" class="detail" id="_93">
+<td class="return">void</td><td>
+<a id="setNClob_String_NClob" href="#setNClob_String_NClob">setNClob</a>(String parameterName, NClob x) throws SQLException
+<div class="methodText">Sets the value of a parameter as a Clob.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterName - the parameter name</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__94" onclick="return on(94)">
+<td class="return">void</td><td class="method">
+<a id="setNClob_String_Reader_long" href="#setNClob_String_Reader_long">setNClob</a>(String parameterName, Reader x, long length)
+<div class="methodText">Sets the value of a parameter as a Clob.</div>
+</td></tr>
+<tr onclick="return off(94)" class="detail" id="_94">
+<td class="return">void</td><td>
+<a id="setNClob_String_Reader_long" href="#setNClob_String_Reader_long">setNClob</a>(String parameterName, Reader x, long length) throws SQLException
+<div class="methodText">Sets the value of a parameter as a Clob.
+ This method does not close the reader.
+ The reader may be closed after executing the statement.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterName - the parameter name</div>
+<div class="item">x - the value</div>
+<div class="item">length - the maximum number of characters</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__95" onclick="return on(95)">
+<td class="return">void</td><td class="method">
+<a id="setNClob_String_Reader" href="#setNClob_String_Reader">setNClob</a>(String parameterName, Reader x)
+<div class="methodText">Sets the value of a parameter as a Clob.</div>
+</td></tr>
+<tr onclick="return off(95)" class="detail" id="_95">
+<td class="return">void</td><td>
+<a id="setNClob_String_Reader" href="#setNClob_String_Reader">setNClob</a>(String parameterName, Reader x) throws SQLException
+<div class="methodText">Sets the value of a parameter as a Clob.
+ This method does not close the reader.
+ The reader may be closed after executing the statement.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterName - the parameter name</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__96" onclick="return on(96)">
+<td class="return">void</td><td class="method">
+<a id="setNString_String_String" href="#setNString_String_String">setNString</a>(String parameterName, String x)
+<div class="methodText">Sets the value of a parameter.</div>
+</td></tr>
+<tr onclick="return off(96)" class="detail" id="_96">
+<td class="return">void</td><td>
+<a id="setNString_String_String" href="#setNString_String_String">setNString</a>(String parameterName, String x) throws SQLException
+<div class="methodText">Sets the value of a parameter.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterName - the parameter name</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__97" onclick="return on(97)">
+<td class="return">void</td><td class="method">
+<a id="setNull_String_int_String" href="#setNull_String_int_String">setNull</a>(String parameterName, int sqlType, String typeName)
+<div class="methodText">Sets a parameter to null.</div>
+</td></tr>
+<tr onclick="return off(97)" class="detail" id="_97">
+<td class="return">void</td><td>
+<a id="setNull_String_int_String" href="#setNull_String_int_String">setNull</a>(String parameterName, int sqlType, String typeName) throws SQLException
+<div class="methodText">Sets a parameter to null.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterName - the parameter name</div>
+<div class="item">sqlType - the data type (Types.x)</div>
+<div class="item">typeName - this parameter is ignored</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__98" onclick="return on(98)">
+<td class="return">void</td><td class="method">
+<a id="setNull_String_int" href="#setNull_String_int">setNull</a>(String parameterName, int sqlType)
+<div class="methodText">Sets a parameter to null.</div>
+</td></tr>
+<tr onclick="return off(98)" class="detail" id="_98">
+<td class="return">void</td><td>
+<a id="setNull_String_int" href="#setNull_String_int">setNull</a>(String parameterName, int sqlType) throws SQLException
+<div class="methodText">Sets a parameter to null.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterName - the parameter name</div>
+<div class="item">sqlType - the data type (Types.x)</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__99" onclick="return on(99)">
+<td class="return">void</td><td class="method">
+<a id="setObject_String_Object" href="#setObject_String_Object">setObject</a>(String parameterName, Object x)
+<div class="methodText">Sets the value of a parameter.</div>
+</td></tr>
+<tr onclick="return off(99)" class="detail" id="_99">
+<td class="return">void</td><td>
+<a id="setObject_String_Object" href="#setObject_String_Object">setObject</a>(String parameterName, Object x) throws SQLException
+<div class="methodText">Sets the value of a parameter.
+ Objects of unknown classes are serialized (on the client side).</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterName - the parameter name</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__100" onclick="return on(100)">
+<td class="return">void</td><td class="method">
+<a id="setObject_String_Object_int" href="#setObject_String_Object_int">setObject</a>(String parameterName, Object x, int targetSqlType)
+<div class="methodText">Sets the value of a parameter.</div>
+</td></tr>
+<tr onclick="return off(100)" class="detail" id="_100">
+<td class="return">void</td><td>
+<a id="setObject_String_Object_int" href="#setObject_String_Object_int">setObject</a>(String parameterName, Object x, int targetSqlType) throws SQLException
+<div class="methodText">Sets the value of a parameter. The object is converted, if required, to
+ the specified data type before sending to the database.
+ Objects of unknown classes are serialized (on the client side).</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterName - the parameter name</div>
+<div class="item">x - the value, null is allowed</div>
+<div class="item">targetSqlType - the type as defined in java.sql.Types</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__101" onclick="return on(101)">
+<td class="return">void</td><td class="method">
+<a id="setObject_String_Object_int_int" href="#setObject_String_Object_int_int">setObject</a>(String parameterName, Object x, int targetSqlType, int scale)
+<div class="methodText">Sets the value of a parameter.</div>
+</td></tr>
+<tr onclick="return off(101)" class="detail" id="_101">
+<td class="return">void</td><td>
+<a id="setObject_String_Object_int_int" href="#setObject_String_Object_int_int">setObject</a>(String parameterName, Object x, int targetSqlType, int scale) throws SQLException
+<div class="methodText">Sets the value of a parameter. The object is converted, if required, to
+ the specified data type before sending to the database.
+ Objects of unknown classes are serialized (on the client side).</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterName - the parameter name</div>
+<div class="item">x - the value, null is allowed</div>
+<div class="item">targetSqlType - the type as defined in java.sql.Types</div>
+<div class="item">scale - is ignored</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__102" onclick="return on(102)">
+<td class="return">void</td><td class="method">
+<a id="setRowId_String_RowId" href="#setRowId_String_RowId">setRowId</a>(String parameterName, RowId x)
+<div class="methodText">[Not supported] Sets the value of a parameter as a row id.</div>
+</td></tr>
+<tr onclick="return off(102)" class="detail" id="_102">
+<td class="return">void</td><td>
+<a id="setRowId_String_RowId" href="#setRowId_String_RowId">setRowId</a>(String parameterName, RowId x) throws SQLException
+<div class="methodText">[Not supported] Sets the value of a parameter as a row id.</div>
+</td></tr>
+<tr id="__103" onclick="return on(103)">
+<td class="return">void</td><td class="method">
+<a id="setSQLXML_String_SQLXML" href="#setSQLXML_String_SQLXML">setSQLXML</a>(String parameterName, SQLXML x)
+<div class="methodText">[Not supported] Sets the value of a parameter as a SQLXML object.</div>
+</td></tr>
+<tr onclick="return off(103)" class="detail" id="_103">
+<td class="return">void</td><td>
+<a id="setSQLXML_String_SQLXML" href="#setSQLXML_String_SQLXML">setSQLXML</a>(String parameterName, SQLXML x) throws SQLException
+<div class="methodText">[Not supported] Sets the value of a parameter as a SQLXML object.</div>
+</td></tr>
+<tr id="__104" onclick="return on(104)">
+<td class="return">void</td><td class="method">
+<a id="setShort_String_short" href="#setShort_String_short">setShort</a>(String parameterName, short x)
+<div class="methodText">Sets the value of a parameter.</div>
+</td></tr>
+<tr onclick="return off(104)" class="detail" id="_104">
+<td class="return">void</td><td>
+<a id="setShort_String_short" href="#setShort_String_short">setShort</a>(String parameterName, short x) throws SQLException
+<div class="methodText">Sets the value of a parameter.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterName - the parameter name</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__105" onclick="return on(105)">
+<td class="return">void</td><td class="method">
+<a id="setString_String_String" href="#setString_String_String">setString</a>(String parameterName, String x)
+<div class="methodText">Sets the value of a parameter.</div>
+</td></tr>
+<tr onclick="return off(105)" class="detail" id="_105">
+<td class="return">void</td><td>
+<a id="setString_String_String" href="#setString_String_String">setString</a>(String parameterName, String x) throws SQLException
+<div class="methodText">Sets the value of a parameter.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterName - the parameter name</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__106" onclick="return on(106)">
+<td class="return">void</td><td class="method">
+<a id="setTime_String_Time_Calendar" href="#setTime_String_Time_Calendar">setTime</a>(String parameterName, Time x, Calendar cal)
+<div class="methodText">Sets the time using a specified time zone.</div>
+</td></tr>
+<tr onclick="return off(106)" class="detail" id="_106">
+<td class="return">void</td><td>
+<a id="setTime_String_Time_Calendar" href="#setTime_String_Time_Calendar">setTime</a>(String parameterName, Time x, Calendar cal) throws SQLException
+<div class="methodText">Sets the time using a specified time zone. The value will be converted to
+ the local time zone.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterName - the parameter name</div>
+<div class="item">x - the value</div>
+<div class="item">cal - the calendar</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__107" onclick="return on(107)">
+<td class="return">void</td><td class="method">
+<a id="setTime_String_Time" href="#setTime_String_Time">setTime</a>(String parameterName, Time x)
+<div class="methodText">Sets the time using a specified time zone.</div>
+</td></tr>
+<tr onclick="return off(107)" class="detail" id="_107">
+<td class="return">void</td><td>
+<a id="setTime_String_Time" href="#setTime_String_Time">setTime</a>(String parameterName, Time x) throws SQLException
+<div class="methodText">Sets the time using a specified time zone.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterName - the parameter name</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__108" onclick="return on(108)">
+<td class="return">void</td><td class="method">
+<a id="setTimestamp_String_Timestamp_Calendar" href="#setTimestamp_String_Timestamp_Calendar">setTimestamp</a>(String parameterName, Timestamp x, Calendar cal)
+<div class="methodText">Sets the timestamp using a specified time zone.</div>
+</td></tr>
+<tr onclick="return off(108)" class="detail" id="_108">
+<td class="return">void</td><td>
+<a id="setTimestamp_String_Timestamp_Calendar" href="#setTimestamp_String_Timestamp_Calendar">setTimestamp</a>(String parameterName, Timestamp x, Calendar cal) throws SQLException
+<div class="methodText">Sets the timestamp using a specified time zone. The value will be
+ converted to the local time zone.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterName - the parameter name</div>
+<div class="item">x - the value</div>
+<div class="item">cal - the calendar</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__109" onclick="return on(109)">
+<td class="return">void</td><td class="method">
+<a id="setTimestamp_String_Timestamp" href="#setTimestamp_String_Timestamp">setTimestamp</a>(String parameterName, Timestamp x)
+<div class="methodText">Sets the value of a parameter.</div>
+</td></tr>
+<tr onclick="return off(109)" class="detail" id="_109">
+<td class="return">void</td><td>
+<a id="setTimestamp_String_Timestamp" href="#setTimestamp_String_Timestamp">setTimestamp</a>(String parameterName, Timestamp x) throws SQLException
+<div class="methodText">Sets the value of a parameter.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">parameterName - the parameter name</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if this object is closed</div>
+</td></tr>
+<tr id="__110" onclick="return on(110)">
+<td class="return">void</td><td class="method">
+<a id="setURL_String_URL" href="#setURL_String_URL">setURL</a>(String parameterName, URL val)
+<div class="methodText">[Not supported]</div>
+</td></tr>
+<tr onclick="return off(110)" class="detail" id="_110">
+<td class="return">void</td><td>
+<a id="setURL_String_URL" href="#setURL_String_URL">setURL</a>(String parameterName, URL val) throws SQLException
+<div class="methodText">[Not supported]</div>
+</td></tr>
+<tr id="__111" onclick="return on(111)">
+<td class="return">boolean</td><td class="method">
+<a id="wasNull" href="#wasNull">wasNull</a>()
+<div class="methodText">Returns whether the last column accessed was null.</div>
+</td></tr>
+<tr onclick="return off(111)" class="detail" id="_111">
+<td class="return">boolean</td><td>
+<a id="wasNull" href="#wasNull">wasNull</a>() throws SQLException
+<div class="methodText">Returns whether the last column accessed was null.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">true if the last column accessed was null</div>
+</td></tr>
+</table>
+</div></td></tr></table></body></html>

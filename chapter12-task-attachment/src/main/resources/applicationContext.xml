@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans      http://www.springframework.org/schema/beans/spring-beans.xsd
+						 http://www.springframework.org/schema/context   http://www.springframework.org/schema/context/spring-context-3.1.xsd
+                           http://www.springframework.org/schema/tx      http://www.springframework.org/schema/tx/spring-tx-3.1.xsd">
+
+	<!-- 读取资源文件替换spring配置文件中的占位符 -->
+	<context:property-placeholder ignore-unresolvable="true" location="classpath*:/application.properties" />
+
+	<!-- 使用annotation 自动注册bean, 并保证@Required、@Autowired的属性被注入 -->
+	<context:component-scan base-package="me.kafeitu.activiti">
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>
+
+	<!-- 数据源 -->
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
+		<property name="driverClass" value="${jdbc.driver}" />
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+	</bean>
+
+	<!-- SessionFactory -->
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="namingStrategy">
+			<bean class="org.hibernate.cfg.ImprovedNamingStrategy" />
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.H2Dialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">true</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+			</props>
+		</property>
+		<property name="packagesToScan" value="me.kafeitu.activiti.chapter7.entity" />
+	</bean>
+
+	<!-- 事务管理 -->
+	<bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true" />
+
+	<!-- Activiti引擎配置 -->
+	<bean id="processEngineConfiguration" class="org.activiti.spring.SpringProcessEngineConfiguration">
+		<property name="processEngineName" value="spring"></property>
+		<property name="dataSource" ref="dataSource" />
+		<property name="transactionManager" ref="transactionManager" />
+		<property name="databaseSchemaUpdate" value="true" />
+		<property name="jobExecutorActivate" value="false" />
+		<property name="deploymentResources">
+			<list>
+				<!-- <value>classpath*:/chapter8/leave-mail*.zip</value>
+				<value>classpath*:/chapter9/leave-countersign.zip</value> -->
+				<value>classpath*:/chapter10/purchase*.zip</value>
+				<value>classpath*:/chapter10/payment.zip</value>
+			</list>
+		</property>
+		<property name="mailServerPort" value="2025" />
+
+		<!-- 自定义表单字段类型 -->
+		<property name="customFormTypes">
+			<list>
+				<bean class="me.kafeitu.activiti.chapter6.form.JavascriptFormType" />
+				<bean class="me.kafeitu.activiti.chapter9.form.UsersFormType" />
+				<bean class="me.kafeitu.activiti.chapter10.form.DoubleFormType" />
+				<bean class="me.kafeitu.activiti.chapter10.form.BigtextFormType" />
+			</list>
+		</property>
+
+		<!-- 自定义表单引擎 -->
+		<property name="customFormEngines">
+			<list>
+				<bean class="me.kafeitu.activiti.chapter6.form.MyFormEngine" />
+			</list>
+		</property>
+	</bean>
+
+	<!-- Activiti引擎工厂 -->
+	<bean id="processEngineFactory" class="org.activiti.spring.ProcessEngineFactoryBean">
+		<property name="processEngineConfiguration" ref="processEngineConfiguration" />
+	</bean>
+
+	<!-- Activiti的Service -->
+	<bean id="repositoryService" factory-bean="processEngineFactory" factory-method="getRepositoryService" />
+	<bean id="runtimeService" factory-bean="processEngineFactory" factory-method="getRuntimeService" />
+	<bean id="formService" factory-bean="processEngineFactory" factory-method="getFormService" />
+	<bean id="identityService" factory-bean="processEngineFactory" factory-method="getIdentityService" />
+	<bean id="taskService" factory-bean="processEngineFactory" factory-method="getTaskService" />
+	<bean id="historyService" factory-bean="processEngineFactory" factory-method="getHistoryService" />
+	<bean id="managementService" factory-bean="processEngineFactory" factory-method="getManagementService" />
+
+</beans>

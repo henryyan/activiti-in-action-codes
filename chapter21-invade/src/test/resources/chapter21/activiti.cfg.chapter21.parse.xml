@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans
+				http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="processEngineConfiguration" class="org.activiti.engine.impl.cfg.StandaloneInMemProcessEngineConfiguration">
+		<property name="databaseSchemaUpdate" value="true"/>
+		<property name="history" value="full"/>
+		
+		<!-- 自定义表单字段类型 -->
+		<property name="customFormTypes">
+			<list>
+				<bean class="me.kafeitu.activiti.chapter6.form.JavascriptFormType" />
+				<bean class="me.kafeitu.activiti.chapter9.form.UsersFormType" />
+				<bean class="me.kafeitu.activiti.chapter10.form.DoubleFormType" />
+				<bean class="me.kafeitu.activiti.chapter10.form.BigtextFormType" />
+			</list>
+		</property>
+		
+		<!-- 自定义表单引擎 -->
+		<property name="customFormEngines">
+			<list>
+				<bean class="me.kafeitu.activiti.chapter6.form.MyFormEngine" />
+			</list>
+		</property>
+
+        <!-- PRE BPMN解析器 -->
+        <property name="preBpmnParseHandlers">
+            <list>
+                <bean class="me.kafeitu.activiti.chapter21.bpmn.MyPreParseHandler" />
+            </list>
+        </property>
+
+        <!-- POST BPMN解析器 -->
+        <property name="postBpmnParseHandlers">
+            <list>
+                <bean class="me.kafeitu.activiti.chapter21.bpmn.MyPostParseHandler" />
+            </list>
+        </property>
+
+        <property name="customDefaultBpmnParseHandlers">
+            <list>
+                <bean class="me.kafeitu.activiti.chapter21.parse.CustomServiceTaskBpmnParseHandler" />
+                <bean class="me.kafeitu.activiti.chapter21.parse.CustomUserTaskBpmnParseHandler" />
+            </list>
+        </property>
+	</bean>
+</beans>

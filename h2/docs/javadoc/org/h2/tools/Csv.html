@@ -1,0 +1,426 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head><meta http-equiv="Content-Type" content="text/html;charset=utf-8" /><title>
+Csv
+</title><link rel="stylesheet" type="text/css" href="../../../stylesheet.css" />
+<script type="text/javascript" src="../../../animate.js"></script>
+</head><body onload="openLink();">
+<table class="content"><tr class="content"><td class="content"><div class="contentDiv">
+<h1>Csv</h1>
+A facility to read from and write to CSV (comma separated values) files. When
+ reading, the BOM (the byte-order-mark) character 0xfeff at the beginning of
+ the file is ignored.<br /><br />
+<table class="block"><tr onclick="return allDetails()"><th colspan="2">Methods</th></tr>
+<tr id="__0" onclick="return on(0)">
+<td class="return">static Csv</td><td class="method">
+<a id="getInstance" href="#getInstance"><span class="deprecated">getInstance</span></a>()
+<div class="methodText">Get a new object of this class.</div>
+</td></tr>
+<tr onclick="return off(0)" class="detail" id="_0">
+<td class="return">static Csv</td><td>
+<a id="getInstance" href="#getInstance"><span class="deprecated">getInstance</span></a>()
+<div class="methodText">Get a new object of this class.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the new instance</div>
+</td></tr>
+<tr id="__1" onclick="return on(1)">
+<td class="return">boolean</td><td class="method">
+<a id="getCaseSensitiveColumnNames" href="#getCaseSensitiveColumnNames">getCaseSensitiveColumnNames</a>()
+<div class="methodText">Get the current case sensitive column names setting.</div>
+</td></tr>
+<tr onclick="return off(1)" class="detail" id="_1">
+<td class="return">boolean</td><td>
+<a id="getCaseSensitiveColumnNames" href="#getCaseSensitiveColumnNames">getCaseSensitiveColumnNames</a>()
+<div class="methodText">Get the current case sensitive column names setting.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">whether column names are case sensitive</div>
+</td></tr>
+<tr id="__2" onclick="return on(2)">
+<td class="return">char</td><td class="method">
+<a id="getEscapeCharacter" href="#getEscapeCharacter">getEscapeCharacter</a>()
+<div class="methodText">Get the current escape character.</div>
+</td></tr>
+<tr onclick="return off(2)" class="detail" id="_2">
+<td class="return">char</td><td>
+<a id="getEscapeCharacter" href="#getEscapeCharacter">getEscapeCharacter</a>()
+<div class="methodText">Get the current escape character.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the escape character</div>
+</td></tr>
+<tr id="__3" onclick="return on(3)">
+<td class="return">char</td><td class="method">
+<a id="getFieldDelimiter" href="#getFieldDelimiter">getFieldDelimiter</a>()
+<div class="methodText">Get the current field delimiter.</div>
+</td></tr>
+<tr onclick="return off(3)" class="detail" id="_3">
+<td class="return">char</td><td>
+<a id="getFieldDelimiter" href="#getFieldDelimiter">getFieldDelimiter</a>()
+<div class="methodText">Get the current field delimiter.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the field delimiter</div>
+</td></tr>
+<tr id="__4" onclick="return on(4)">
+<td class="return">char</td><td class="method">
+<a id="getFieldSeparatorRead" href="#getFieldSeparatorRead">getFieldSeparatorRead</a>()
+<div class="methodText">Get the current field separator for reading.</div>
+</td></tr>
+<tr onclick="return off(4)" class="detail" id="_4">
+<td class="return">char</td><td>
+<a id="getFieldSeparatorRead" href="#getFieldSeparatorRead">getFieldSeparatorRead</a>()
+<div class="methodText">Get the current field separator for reading.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the field separator</div>
+</td></tr>
+<tr id="__5" onclick="return on(5)">
+<td class="return">String</td><td class="method">
+<a id="getFieldSeparatorWrite" href="#getFieldSeparatorWrite">getFieldSeparatorWrite</a>()
+<div class="methodText">Get the current field separator for writing.</div>
+</td></tr>
+<tr onclick="return off(5)" class="detail" id="_5">
+<td class="return">String</td><td>
+<a id="getFieldSeparatorWrite" href="#getFieldSeparatorWrite">getFieldSeparatorWrite</a>()
+<div class="methodText">Get the current field separator for writing.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the field separator</div>
+</td></tr>
+<tr id="__6" onclick="return on(6)">
+<td class="return">char</td><td class="method">
+<a id="getLineCommentCharacter" href="#getLineCommentCharacter">getLineCommentCharacter</a>()
+<div class="methodText">Get the line comment character.</div>
+</td></tr>
+<tr onclick="return off(6)" class="detail" id="_6">
+<td class="return">char</td><td>
+<a id="getLineCommentCharacter" href="#getLineCommentCharacter">getLineCommentCharacter</a>()
+<div class="methodText">Get the line comment character.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the line comment character, or 0 if disabled</div>
+</td></tr>
+<tr id="__7" onclick="return on(7)">
+<td class="return">String</td><td class="method">
+<a id="getLineSeparator" href="#getLineSeparator">getLineSeparator</a>()
+<div class="methodText">Get the current line separator.</div>
+</td></tr>
+<tr onclick="return off(7)" class="detail" id="_7">
+<td class="return">String</td><td>
+<a id="getLineSeparator" href="#getLineSeparator">getLineSeparator</a>()
+<div class="methodText">Get the current line separator.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the line separator</div>
+</td></tr>
+<tr id="__8" onclick="return on(8)">
+<td class="return">String</td><td class="method">
+<a id="getNullString" href="#getNullString">getNullString</a>()
+<div class="methodText">Get the current null string.</div>
+</td></tr>
+<tr onclick="return off(8)" class="detail" id="_8">
+<td class="return">String</td><td>
+<a id="getNullString" href="#getNullString">getNullString</a>()
+<div class="methodText">Get the current null string.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the null string.</div>
+</td></tr>
+<tr id="__9" onclick="return on(9)">
+<td class="return">boolean</td><td class="method">
+<a id="getPreserveWhitespace" href="#getPreserveWhitespace">getPreserveWhitespace</a>()
+<div class="methodText">Whether whitespace in unquoted text is preserved.</div>
+</td></tr>
+<tr onclick="return off(9)" class="detail" id="_9">
+<td class="return">boolean</td><td>
+<a id="getPreserveWhitespace" href="#getPreserveWhitespace">getPreserveWhitespace</a>()
+<div class="methodText">Whether whitespace in unquoted text is preserved.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the current value for the setting</div>
+</td></tr>
+<tr id="__10" onclick="return on(10)">
+<td class="return">String</td><td class="method">
+<a id="getRowSeparatorWrite" href="#getRowSeparatorWrite">getRowSeparatorWrite</a>()
+<div class="methodText">Get the current row separator for writing.</div>
+</td></tr>
+<tr onclick="return off(10)" class="detail" id="_10">
+<td class="return">String</td><td>
+<a id="getRowSeparatorWrite" href="#getRowSeparatorWrite">getRowSeparatorWrite</a>()
+<div class="methodText">Get the current row separator for writing.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the row separator</div>
+</td></tr>
+<tr id="__11" onclick="return on(11)">
+<td class="return">boolean</td><td class="method">
+<a id="getWriteColumnHeader" href="#getWriteColumnHeader">getWriteColumnHeader</a>()
+<div class="methodText">Whether the column header is written.</div>
+</td></tr>
+<tr onclick="return off(11)" class="detail" id="_11">
+<td class="return">boolean</td><td>
+<a id="getWriteColumnHeader" href="#getWriteColumnHeader">getWriteColumnHeader</a>()
+<div class="methodText">Whether the column header is written.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the current value for the setting</div>
+</td></tr>
+<tr id="__12" onclick="return on(12)">
+<td class="return">ResultSet</td><td class="method">
+<a id="read_String_String-_String" href="#read_String_String-_String">read</a>(String inputFileName, String[] colNames, String charset)
+<div class="methodText">Reads from the CSV file and returns a result set.</div>
+</td></tr>
+<tr onclick="return off(12)" class="detail" id="_12">
+<td class="return">ResultSet</td><td>
+<a id="read_String_String-_String" href="#read_String_String-_String">read</a>(String inputFileName, String[] colNames, String charset) throws SQLException
+<div class="methodText">Reads from the CSV file and returns a result set. The rows in the result
+ set are created on demand, that means the file is kept open until all
+ rows are read or the result set is closed.
+ <br />
+ If the columns are read from the CSV file, then the following rules are
+ used: columns names that start with a letter or '_', and only
+ contain letters, '_', and digits, are considered case insensitive
+ and are converted to uppercase. Other column names are considered
+ case sensitive (that means they need to be quoted when accessed).</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">inputFileName - the file name</div>
+<div class="item">colNames - or null if the column names should be read from the CSV
+          file</div>
+<div class="item">charset - the charset or null to use the system default charset
+          (see system property file.encoding)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the result set</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException</div>
+</td></tr>
+<tr id="__13" onclick="return on(13)">
+<td class="return">ResultSet</td><td class="method">
+<a id="read_Reader_String-" href="#read_Reader_String-">read</a>(Reader reader, String[] colNames)
+<div class="methodText">Reads CSV data from a reader and returns a result set.</div>
+</td></tr>
+<tr onclick="return off(13)" class="detail" id="_13">
+<td class="return">ResultSet</td><td>
+<a id="read_Reader_String-" href="#read_Reader_String-">read</a>(Reader reader, String[] colNames) throws IOException
+<div class="methodText">Reads CSV data from a reader and returns a result set. The rows in the
+ result set are created on demand, that means the reader is kept open
+ until all rows are read or the result set is closed.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">reader - the reader</div>
+<div class="item">colNames - or null if the column names should be read from the CSV file</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the result set</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">IOException</div>
+</td></tr>
+<tr id="__14" onclick="return on(14)">
+<td class="return">void</td><td class="method">
+<a id="setCaseSensitiveColumnNames_boolean" href="#setCaseSensitiveColumnNames_boolean">setCaseSensitiveColumnNames</a>(boolean caseSensitiveColumnNames)
+<div class="methodText">Override the case sensitive column names setting.</div>
+</td></tr>
+<tr onclick="return off(14)" class="detail" id="_14">
+<td class="return">void</td><td>
+<a id="setCaseSensitiveColumnNames_boolean" href="#setCaseSensitiveColumnNames_boolean">setCaseSensitiveColumnNames</a>(boolean caseSensitiveColumnNames)
+<div class="methodText">Override the case sensitive column names setting. The default is false.
+ If enabled, the case of all column names is always preserved.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">caseSensitiveColumnNames - whether column names are case sensitive</div>
+</td></tr>
+<tr id="__15" onclick="return on(15)">
+<td class="return">void</td><td class="method">
+<a id="setEscapeCharacter_char" href="#setEscapeCharacter_char">setEscapeCharacter</a>(char escapeCharacter)
+<div class="methodText">Set the escape character.</div>
+</td></tr>
+<tr onclick="return off(15)" class="detail" id="_15">
+<td class="return">void</td><td>
+<a id="setEscapeCharacter_char" href="#setEscapeCharacter_char">setEscapeCharacter</a>(char escapeCharacter)
+<div class="methodText">Set the escape character. The escape character is used to escape the
+ field delimiter. This is needed if the data contains the field delimiter.
+ The default escape character is " (a double quote), which is the same as
+ the field delimiter. If the field delimiter and the escape character are
+ both " (double quote), and the data contains a double quote, then an
+ additional double quote is added. Example:
+ <pre>
+ Data: He said "Hello".
+ Escape character: "
+ Field delimiter: "
+ CSV file: "He said ""Hello""."</pre>
+ If the field delimiter is a double quote and the escape character is a
+ backslash, then escaping is done similar to Java (however, only the field
+ delimiter is escaped). Example:
+ <pre>
+ Data: He said "Hello".
+ Escape character: \
+ Field delimiter: "
+ CSV file: "He said \"Hello\"."</pre>
+ The value 0 means no escape character is used.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">escapeCharacter - the escape character</div>
+</td></tr>
+<tr id="__16" onclick="return on(16)">
+<td class="return">void</td><td class="method">
+<a id="setFieldDelimiter_char" href="#setFieldDelimiter_char">setFieldDelimiter</a>(char fieldDelimiter)
+<div class="methodText">Set the field delimiter.</div>
+</td></tr>
+<tr onclick="return off(16)" class="detail" id="_16">
+<td class="return">void</td><td>
+<a id="setFieldDelimiter_char" href="#setFieldDelimiter_char">setFieldDelimiter</a>(char fieldDelimiter)
+<div class="methodText">Set the field delimiter. The default is " (a double quote).
+ The value 0 means no field delimiter is used.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">fieldDelimiter - the field delimiter</div>
+</td></tr>
+<tr id="__17" onclick="return on(17)">
+<td class="return">void</td><td class="method">
+<a id="setFieldSeparatorRead_char" href="#setFieldSeparatorRead_char">setFieldSeparatorRead</a>(char fieldSeparatorRead)
+<div class="methodText">Override the field separator for reading.</div>
+</td></tr>
+<tr onclick="return off(17)" class="detail" id="_17">
+<td class="return">void</td><td>
+<a id="setFieldSeparatorRead_char" href="#setFieldSeparatorRead_char">setFieldSeparatorRead</a>(char fieldSeparatorRead)
+<div class="methodText">Override the field separator for reading. The default is ','.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">fieldSeparatorRead - the field separator</div>
+</td></tr>
+<tr id="__18" onclick="return on(18)">
+<td class="return">void</td><td class="method">
+<a id="setFieldSeparatorWrite_String" href="#setFieldSeparatorWrite_String">setFieldSeparatorWrite</a>(String fieldSeparatorWrite)
+<div class="methodText">Override the field separator for writing.</div>
+</td></tr>
+<tr onclick="return off(18)" class="detail" id="_18">
+<td class="return">void</td><td>
+<a id="setFieldSeparatorWrite_String" href="#setFieldSeparatorWrite_String">setFieldSeparatorWrite</a>(String fieldSeparatorWrite)
+<div class="methodText">Override the field separator for writing. The default is ",".</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">fieldSeparatorWrite - the field separator</div>
+</td></tr>
+<tr id="__19" onclick="return on(19)">
+<td class="return">void</td><td class="method">
+<a id="setLineCommentCharacter_char" href="#setLineCommentCharacter_char">setLineCommentCharacter</a>(char lineCommentCharacter)
+<div class="methodText">Set the line comment character.</div>
+</td></tr>
+<tr onclick="return off(19)" class="detail" id="_19">
+<td class="return">void</td><td>
+<a id="setLineCommentCharacter_char" href="#setLineCommentCharacter_char">setLineCommentCharacter</a>(char lineCommentCharacter)
+<div class="methodText">Set the line comment character. The default is character code 0 (line
+ comments are disabled).</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">lineCommentCharacter - the line comment character</div>
+</td></tr>
+<tr id="__20" onclick="return on(20)">
+<td class="return">void</td><td class="method">
+<a id="setLineSeparator_String" href="#setLineSeparator_String">setLineSeparator</a>(String lineSeparator)
+<div class="methodText">Set the line separator.</div>
+</td></tr>
+<tr onclick="return off(20)" class="detail" id="_20">
+<td class="return">void</td><td>
+<a id="setLineSeparator_String" href="#setLineSeparator_String">setLineSeparator</a>(String lineSeparator)
+<div class="methodText">Set the line separator.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">lineSeparator - the line separator</div>
+</td></tr>
+<tr id="__21" onclick="return on(21)">
+<td class="return">void</td><td class="method">
+<a id="setNullString_String" href="#setNullString_String">setNullString</a>(String nullString)
+<div class="methodText">Set the value that represents NULL.</div>
+</td></tr>
+<tr onclick="return off(21)" class="detail" id="_21">
+<td class="return">void</td><td>
+<a id="setNullString_String" href="#setNullString_String">setNullString</a>(String nullString)
+<div class="methodText">Set the value that represents NULL. It is only used for non-delimited
+ values.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">nullString - the null</div>
+</td></tr>
+<tr id="__22" onclick="return on(22)">
+<td class="return">void</td><td class="method">
+<a id="setPreserveWhitespace_boolean" href="#setPreserveWhitespace_boolean">setPreserveWhitespace</a>(boolean value)
+<div class="methodText">Enable or disable preserving whitespace in unquoted text.</div>
+</td></tr>
+<tr onclick="return off(22)" class="detail" id="_22">
+<td class="return">void</td><td>
+<a id="setPreserveWhitespace_boolean" href="#setPreserveWhitespace_boolean">setPreserveWhitespace</a>(boolean value)
+<div class="methodText">Enable or disable preserving whitespace in unquoted text.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">value - the new value for the setting</div>
+</td></tr>
+<tr id="__23" onclick="return on(23)">
+<td class="return">void</td><td class="method">
+<a id="setRowSeparatorWrite_String" href="#setRowSeparatorWrite_String">setRowSeparatorWrite</a>(String rowSeparatorWrite)
+<div class="methodText">Override the end-of-row marker for writing.</div>
+</td></tr>
+<tr onclick="return off(23)" class="detail" id="_23">
+<td class="return">void</td><td>
+<a id="setRowSeparatorWrite_String" href="#setRowSeparatorWrite_String">setRowSeparatorWrite</a>(String rowSeparatorWrite)
+<div class="methodText">Override the end-of-row marker for writing. The default is null. After
+ writing the end-of-row marker, a line feed is written (\n or \r\n
+ depending on the system settings).</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">rowSeparatorWrite - the row separator</div>
+</td></tr>
+<tr id="__24" onclick="return on(24)">
+<td class="return">void</td><td class="method">
+<a id="setWriteColumnHeader_boolean" href="#setWriteColumnHeader_boolean">setWriteColumnHeader</a>(boolean value)
+<div class="methodText">Enable or disable writing the column header.</div>
+</td></tr>
+<tr onclick="return off(24)" class="detail" id="_24">
+<td class="return">void</td><td>
+<a id="setWriteColumnHeader_boolean" href="#setWriteColumnHeader_boolean">setWriteColumnHeader</a>(boolean value)
+<div class="methodText">Enable or disable writing the column header.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">value - the new value for the setting</div>
+</td></tr>
+<tr id="__25" onclick="return on(25)">
+<td class="return">int</td><td class="method">
+<a id="write_Writer_ResultSet" href="#write_Writer_ResultSet">write</a>(Writer writer, ResultSet rs)
+<div class="methodText">Writes the result set to a file in the CSV format.</div>
+</td></tr>
+<tr onclick="return off(25)" class="detail" id="_25">
+<td class="return">int</td><td>
+<a id="write_Writer_ResultSet" href="#write_Writer_ResultSet">write</a>(Writer writer, ResultSet rs) throws SQLException
+<div class="methodText">Writes the result set to a file in the CSV format.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">writer - the writer</div>
+<div class="item">rs - the result set</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the number of rows written</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException</div>
+</td></tr>
+<tr id="__26" onclick="return on(26)">
+<td class="return">int</td><td class="method">
+<a id="write_String_ResultSet_String" href="#write_String_ResultSet_String">write</a>(String outputFileName, ResultSet rs, String charset)
+<div class="methodText">Writes the result set to a file in the CSV format.</div>
+</td></tr>
+<tr onclick="return off(26)" class="detail" id="_26">
+<td class="return">int</td><td>
+<a id="write_String_ResultSet_String" href="#write_String_ResultSet_String">write</a>(String outputFileName, ResultSet rs, String charset) throws SQLException
+<div class="methodText">Writes the result set to a file in the CSV format. The result set is read
+ using the following loop:
+
+ <pre>
+ while (rs.next()) {
+     writeRow(row);
+ }</pre></div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">outputFileName - the name of the csv file</div>
+<div class="item">rs - the result set - the result set must be positioned before the
+          first row.</div>
+<div class="item">charset - the charset or null to use the system default charset
+          (see system property file.encoding)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the number of rows written</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException</div>
+</td></tr>
+<tr id="__27" onclick="return on(27)">
+<td class="return">int</td><td class="method">
+<a id="write_Connection_String_String_String" href="#write_Connection_String_String_String">write</a>(Connection conn, String outputFileName, String sql, String charset)
+<div class="methodText">Writes the result set of a query to a file in the CSV format.</div>
+</td></tr>
+<tr onclick="return off(27)" class="detail" id="_27">
+<td class="return">int</td><td>
+<a id="write_Connection_String_String_String" href="#write_Connection_String_String_String">write</a>(Connection conn, String outputFileName, String sql, String charset) throws SQLException
+<div class="methodText">Writes the result set of a query to a file in the CSV format.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">conn - the connection</div>
+<div class="item">outputFileName - the file name</div>
+<div class="item">sql - the query</div>
+<div class="item">charset - the charset or null to use the system default charset
+          (see system property file.encoding)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the number of rows written</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException</div>
+</td></tr>
+</table>
+</div></td></tr></table></body></html>

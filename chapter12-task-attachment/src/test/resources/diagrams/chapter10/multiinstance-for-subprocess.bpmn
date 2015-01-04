@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.kafeitu.me/activiti">
+  <process id="multiinstance-for-subprocess" name="子流程的多实例应用" isExecutable="true">
+    <startEvent id="startevent1" name="Start"></startEvent>
+    <userTask id="issueTask" name="领导分发任务" activiti:exclusive="false" activiti:candidateGroups="deptLeader"></userTask>
+    <sequenceFlow id="flow1" sourceRef="startevent1" targetRef="issueTask"></sequenceFlow>
+    <subProcess id="subprocess1" name="员工子任务">
+      <multiInstanceLoopCharacteristics isSequential="false" activiti:collection="${users}" activiti:elementVariable="user"></multiInstanceLoopCharacteristics>
+      <startEvent id="startevent2" name="Start" activiti:initiator="subProcessStartUser"></startEvent>
+      <userTask id="usertask1" name="员工处理任务" activiti:assignee="${user}"></userTask>
+      <sequenceFlow id="flow3" sourceRef="startevent2" targetRef="usertask1"></sequenceFlow>
+    </subProcess>
+    <sequenceFlow id="flow2" sourceRef="issueTask" targetRef="subprocess1"></sequenceFlow>
+    <userTask id="usertask3" name="收集结果" activiti:candidateGroups="deptLeader"></userTask>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_multiinstance-for-subprocess">
+    <bpmndi:BPMNPlane bpmnElement="multiinstance-for-subprocess" id="BPMNPlane_multiinstance-for-subprocess">
+      <bpmndi:BPMNShape bpmnElement="startevent1" id="BPMNShape_startevent1">
+        <omgdc:Bounds height="35.0" width="35.0" x="30.0" y="68.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="issueTask" id="BPMNShape_issueTask">
+        <omgdc:Bounds height="55.0" width="105.0" x="110.0" y="58.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="subprocess1" id="BPMNShape_subprocess1">
+        <omgdc:Bounds height="111.0" width="221.0" x="260.0" y="30.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="startevent2" id="BPMNShape_startevent2">
+        <omgdc:Bounds height="35.0" width="35.0" x="270.0" y="78.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="usertask1" id="BPMNShape_usertask1">
+        <omgdc:Bounds height="55.0" width="105.0" x="350.0" y="68.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="usertask3" id="BPMNShape_usertask3">
+        <omgdc:Bounds height="55.0" width="105.0" x="530.0" y="58.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="flow1" id="BPMNEdge_flow1">
+        <omgdi:waypoint x="65.0" y="85.0"></omgdi:waypoint>
+        <omgdi:waypoint x="110.0" y="85.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow3" id="BPMNEdge_flow3">
+        <omgdi:waypoint x="305.0" y="95.0"></omgdi:waypoint>
+        <omgdi:waypoint x="350.0" y="95.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow2" id="BPMNEdge_flow2">
+        <omgdi:waypoint x="215.0" y="85.0"></omgdi:waypoint>
+        <omgdi:waypoint x="260.0" y="85.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

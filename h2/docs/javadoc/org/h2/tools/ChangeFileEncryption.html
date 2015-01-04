@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head><meta http-equiv="Content-Type" content="text/html;charset=utf-8" /><title>
+ChangeFileEncryption
+</title><link rel="stylesheet" type="text/css" href="../../../stylesheet.css" />
+<script type="text/javascript" src="../../../animate.js"></script>
+</head><body onload="openLink();">
+<table class="content"><tr class="content"><td class="content"><div class="contentDiv">
+<h1>ChangeFileEncryption</h1>
+Allows changing the database file encryption password or algorithm.
+ <br />
+ This tool can not be used to change a password of a user.
+ The database must be closed before using this tool.<br /><br />
+<table class="block"><tr onclick="return allDetails()"><th colspan="2">Methods</th></tr>
+<tr id="__0" onclick="return on(0)">
+<td class="return">static void</td><td class="method">
+<a id="execute_String_String_String_char-_char-_boolean" href="#execute_String_String_String_char-_char-_boolean">execute</a>(String dir, String db, String cipher, char[] decryptPassword, char[] encryptPassword, boolean quiet)
+<div class="methodText">Changes the password for a database.</div>
+</td></tr>
+<tr onclick="return off(0)" class="detail" id="_0">
+<td class="return">static void</td><td>
+<a id="execute_String_String_String_char-_char-_boolean" href="#execute_String_String_String_char-_char-_boolean">execute</a>(String dir, String db, String cipher, char[] decryptPassword, char[] encryptPassword, boolean quiet) throws SQLException
+<div class="methodText">Changes the password for a database.
+ The passwords must be supplied as char arrays and are cleaned in this method.
+ The database must be closed before calling this method.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">dir - the directory (. for the current directory)</div>
+<div class="item">db - the database name (null for all databases)</div>
+<div class="item">cipher - the cipher (AES, XTEA)</div>
+<div class="item">decryptPassword - the decryption password as a char array</div>
+<div class="item">encryptPassword - the encryption password as a char array</div>
+<div class="item">quiet - don't print progress information</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException</div>
+</td></tr>
+<tr id="__1" onclick="return on(1)">
+<td class="return">static void</td><td class="method">
+<a id="main_String..." href="#main_String...">main</a>(String... args)
+<div class="methodText">Options are case sensitive.</div>
+</td></tr>
+<tr onclick="return off(1)" class="detail" id="_1">
+<td class="return">static void</td><td>
+<a id="main_String..." href="#main_String...">main</a>(String... args) throws SQLException
+<div class="methodText">Options are case sensitive. Supported options are:
+ <table>
+ <tr><td>[-help] or [-?]</td>
+ <td>Print the list of options</td></tr>
+ <tr><td>[-cipher type]</td>
+ <td>The encryption type (AES or XTEA)</td></tr>
+ <tr><td>[-dir &lt;dir&gt;]</td>
+ <td>The database directory (default: .)</td></tr>
+ <tr><td>[-db &lt;database&gt;]</td>
+ <td>Database name (all databases if not set)</td></tr>
+ <tr><td>[-decrypt &lt;pwd&gt;]</td>
+ <td>The decryption password (if not set: not yet encrypted)</td></tr>
+ <tr><td>[-encrypt &lt;pwd&gt;]</td>
+ <td>The encryption password (if not set: do not encrypt)</td></tr>
+ <tr><td>[-quiet]</td>
+ <td>Do not print progress information</td></tr>
+ </table></div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">args - the command line arguments</div>
+</td></tr>
+<tr id="__2" onclick="return on(2)">
+<td class="return">void</td><td class="method">
+<a id="runTool_String..." href="#runTool_String...">runTool</a>(String... args)
+</td></tr>
+<tr onclick="return off(2)" class="detail" id="_2">
+<td class="return">void</td><td>
+<a id="runTool_String..." href="#runTool_String...">runTool</a>(String... args) throws SQLException
+<div class="methodText"></div>
+</td></tr>
+</table>
+</div></td></tr></table></body></html>

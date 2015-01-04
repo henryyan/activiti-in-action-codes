@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="layout">
+<head>
+    <title>流程定义列表</title>
+</head>
+<body>
+<h1 layout:fragment="header">流程定义列表</h1>
+<div layout:fragment="content" class="container">
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <td>ID</td>
+            <td>KEY</td>
+            <td>NAME</td>
+            <td>OPTS</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:if="${processes.empty}">
+            <td colspan="3">
+                No messages
+            </td>
+        </tr>
+        <tr th:each="process : ${processes}">
+            <td th:text="${process.id}"></td>
+            <td th:text="${process.key}"></td>
+            <td th:text="${process.name}"></td>
+            <td>
+                <a th:href="@{'/activiti/process/start/' + ${process.id}}">启动</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

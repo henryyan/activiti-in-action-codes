@@ -1,0 +1,1124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head><meta http-equiv="Content-Type" content="text/html;charset=utf-8" /><title>
+SimpleResultSet
+</title><link rel="stylesheet" type="text/css" href="../../../stylesheet.css" />
+<script type="text/javascript" src="../../../animate.js"></script>
+</head><body onload="openLink();">
+<table class="content"><tr class="content"><td class="content"><div class="contentDiv">
+<h1>SimpleResultSet</h1>
+This class is a simple result set and meta data implementation.
+ It can be used in Java functions that return a result set.
+ Only the most basic methods are implemented, the others throw an exception.
+ This implementation is standalone, and only relies on standard classes.
+ It can be extended easily if required.
+
+ An application can create a result set using the following code:
+
+ <pre>
+ SimpleResultSet rs = new SimpleResultSet();
+ rs.addColumn(&quot;ID&quot;, Types.INTEGER, 10, 0);
+ rs.addColumn(&quot;NAME&quot;, Types.VARCHAR, 255, 0);
+ rs.addRow(0, &quot;Hello&quot; });
+ rs.addRow(1, &quot;World&quot; });</pre><br /><br />
+<table class="block"><tr onclick="return allDetails()"><th colspan="2">Methods</th></tr>
+<tr id="__0" onclick="return on(0)">
+<td class="return"></td><td class="method">
+<a id="SimpleResultSet" href="#SimpleResultSet">SimpleResultSet</a>()
+<div class="methodText">This constructor is used if the result set is later populated with addRow.</div>
+</td></tr>
+<tr onclick="return off(0)" class="detail" id="_0">
+<td class="return"></td><td>
+<a id="SimpleResultSet" href="#SimpleResultSet">SimpleResultSet</a>()
+<div class="methodText">This constructor is used if the result set is later populated with addRow.</div>
+</td></tr>
+<tr id="__1" onclick="return on(1)">
+<td class="return"></td><td class="method">
+<a id="SimpleResultSet_SimpleRowSource" href="#SimpleResultSet_SimpleRowSource">SimpleResultSet</a>(SimpleRowSource source)
+<div class="methodText">This constructor is used if the result set should retrieve the rows using
+ the specified row source object.</div>
+</td></tr>
+<tr onclick="return off(1)" class="detail" id="_1">
+<td class="return"></td><td>
+<a id="SimpleResultSet_SimpleRowSource" href="#SimpleResultSet_SimpleRowSource">SimpleResultSet</a>(SimpleRowSource source)
+<div class="methodText">This constructor is used if the result set should retrieve the rows using
+ the specified row source object.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">source - the row source</div>
+</td></tr>
+<tr id="__2" onclick="return on(2)">
+<td class="return">void</td><td class="method">
+<a id="addColumn_String_int_int_int" href="#addColumn_String_int_int_int">addColumn</a>(String name, int sqlType, int precision, int scale)
+<div class="methodText">Adds a column to the result set.</div>
+</td></tr>
+<tr onclick="return off(2)" class="detail" id="_2">
+<td class="return">void</td><td>
+<a id="addColumn_String_int_int_int" href="#addColumn_String_int_int_int">addColumn</a>(String name, int sqlType, int precision, int scale)
+<div class="methodText">Adds a column to the result set.
+ All columns must be added before adding rows.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">name - null is replaced with C1, C2,...</div>
+<div class="item">sqlType - the value returned in getColumnType(..) (ignored internally)</div>
+<div class="item">precision - the precision</div>
+<div class="item">scale - the scale</div>
+</td></tr>
+<tr id="__3" onclick="return on(3)">
+<td class="return">void</td><td class="method">
+<a id="addRow_Object..." href="#addRow_Object...">addRow</a>(Object... row)
+<div class="methodText">Add a new row to the result set.</div>
+</td></tr>
+<tr onclick="return off(3)" class="detail" id="_3">
+<td class="return">void</td><td>
+<a id="addRow_Object..." href="#addRow_Object...">addRow</a>(Object... row)
+<div class="methodText">Add a new row to the result set.
+ Do not use this method when using a RowSource.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">row - the row as an array of objects</div>
+</td></tr>
+<tr id="__4" onclick="return on(4)">
+<td class="return">void</td><td class="method">
+<a id="beforeFirst" href="#beforeFirst">beforeFirst</a>()
+<div class="methodText">Moves the current position to before the first row, that means resets the
+ result set.</div>
+</td></tr>
+<tr onclick="return off(4)" class="detail" id="_4">
+<td class="return">void</td><td>
+<a id="beforeFirst" href="#beforeFirst">beforeFirst</a>() throws SQLException
+<div class="methodText">Moves the current position to before the first row, that means resets the
+ result set.</div>
+</td></tr>
+<tr id="__5" onclick="return on(5)">
+<td class="return">void</td><td class="method">
+<a id="close" href="#close">close</a>()
+<div class="methodText">Closes the result set and releases the resources.</div>
+</td></tr>
+<tr onclick="return off(5)" class="detail" id="_5">
+<td class="return">void</td><td>
+<a id="close" href="#close">close</a>()
+<div class="methodText">Closes the result set and releases the resources.</div>
+</td></tr>
+<tr id="__6" onclick="return on(6)">
+<td class="return">int</td><td class="method">
+<a id="findColumn_String" href="#findColumn_String">findColumn</a>(String columnLabel)
+<div class="methodText">Searches for a specific column in the result set.</div>
+</td></tr>
+<tr onclick="return off(6)" class="detail" id="_6">
+<td class="return">int</td><td>
+<a id="findColumn_String" href="#findColumn_String">findColumn</a>(String columnLabel) throws SQLException
+<div class="methodText">Searches for a specific column in the result set. A case-insensitive
+ search is made.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the column index (1,2,...)</div>
+<div class="itemTitle">Throws:</div>
+<div class="item">SQLException - if the column is not found or if the result set is
+             closed</div>
+</td></tr>
+<tr id="__7" onclick="return on(7)">
+<td class="return">Array</td><td class="method">
+<a id="getArray_int" href="#getArray_int">getArray</a>(int columnIndex)
+<div class="methodText">Returns the value as a java.sql.Array.</div>
+</td></tr>
+<tr onclick="return off(7)" class="detail" id="_7">
+<td class="return">Array</td><td>
+<a id="getArray_int" href="#getArray_int">getArray</a>(int columnIndex) throws SQLException
+<div class="methodText">Returns the value as a java.sql.Array.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+</td></tr>
+<tr id="__8" onclick="return on(8)">
+<td class="return">Array</td><td class="method">
+<a id="getArray_String" href="#getArray_String">getArray</a>(String columnLabel)
+<div class="methodText">Returns the value as a java.sql.Array.</div>
+</td></tr>
+<tr onclick="return off(8)" class="detail" id="_8">
+<td class="return">Array</td><td>
+<a id="getArray_String" href="#getArray_String">getArray</a>(String columnLabel) throws SQLException
+<div class="methodText">Returns the value as a java.sql.Array.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+</td></tr>
+<tr id="__9" onclick="return on(9)">
+<td class="return">boolean</td><td class="method">
+<a id="getAutoClose" href="#getAutoClose">getAutoClose</a>()
+<div class="methodText">Get the current auto-close behavior.</div>
+</td></tr>
+<tr onclick="return off(9)" class="detail" id="_9">
+<td class="return">boolean</td><td>
+<a id="getAutoClose" href="#getAutoClose">getAutoClose</a>()
+<div class="methodText">Get the current auto-close behavior.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the auto-close value</div>
+</td></tr>
+<tr id="__10" onclick="return on(10)">
+<td class="return">BigDecimal</td><td class="method">
+<a id="getBigDecimal_int" href="#getBigDecimal_int">getBigDecimal</a>(int columnIndex)
+<div class="methodText">Returns the value as a java.math.BigDecimal.</div>
+</td></tr>
+<tr onclick="return off(10)" class="detail" id="_10">
+<td class="return">BigDecimal</td><td>
+<a id="getBigDecimal_int" href="#getBigDecimal_int">getBigDecimal</a>(int columnIndex) throws SQLException
+<div class="methodText">Returns the value as a java.math.BigDecimal.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+</td></tr>
+<tr id="__11" onclick="return on(11)">
+<td class="return">BigDecimal</td><td class="method">
+<a id="getBigDecimal_String" href="#getBigDecimal_String">getBigDecimal</a>(String columnLabel)
+<div class="methodText">Returns the value as a java.math.BigDecimal.</div>
+</td></tr>
+<tr onclick="return off(11)" class="detail" id="_11">
+<td class="return">BigDecimal</td><td>
+<a id="getBigDecimal_String" href="#getBigDecimal_String">getBigDecimal</a>(String columnLabel) throws SQLException
+<div class="methodText">Returns the value as a java.math.BigDecimal.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+</td></tr>
+<tr id="__12" onclick="return on(12)">
+<td class="return">InputStream</td><td class="method">
+<a id="getBinaryStream_int" href="#getBinaryStream_int">getBinaryStream</a>(int columnIndex)
+<div class="methodText">Returns the value as a java.io.InputStream.</div>
+</td></tr>
+<tr onclick="return off(12)" class="detail" id="_12">
+<td class="return">InputStream</td><td>
+<a id="getBinaryStream_int" href="#getBinaryStream_int">getBinaryStream</a>(int columnIndex) throws SQLException
+<div class="methodText">Returns the value as a java.io.InputStream.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+</td></tr>
+<tr id="__13" onclick="return on(13)">
+<td class="return">InputStream</td><td class="method">
+<a id="getBinaryStream_String" href="#getBinaryStream_String">getBinaryStream</a>(String columnLabel)
+<div class="methodText">Returns the value as a java.io.InputStream.</div>
+</td></tr>
+<tr onclick="return off(13)" class="detail" id="_13">
+<td class="return">InputStream</td><td>
+<a id="getBinaryStream_String" href="#getBinaryStream_String">getBinaryStream</a>(String columnLabel) throws SQLException
+<div class="methodText">Returns the value as a java.io.InputStream.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+</td></tr>
+<tr id="__14" onclick="return on(14)">
+<td class="return">Blob</td><td class="method">
+<a id="getBlob_int" href="#getBlob_int">getBlob</a>(int columnIndex)
+<div class="methodText">Returns the value as a java.sql.Blob.</div>
+</td></tr>
+<tr onclick="return off(14)" class="detail" id="_14">
+<td class="return">Blob</td><td>
+<a id="getBlob_int" href="#getBlob_int">getBlob</a>(int columnIndex) throws SQLException
+<div class="methodText">Returns the value as a java.sql.Blob.
+ This is only supported if the
+ result set was created using a Blob object.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+</td></tr>
+<tr id="__15" onclick="return on(15)">
+<td class="return">Blob</td><td class="method">
+<a id="getBlob_String" href="#getBlob_String">getBlob</a>(String columnLabel)
+<div class="methodText">Returns the value as a java.sql.Blob.</div>
+</td></tr>
+<tr onclick="return off(15)" class="detail" id="_15">
+<td class="return">Blob</td><td>
+<a id="getBlob_String" href="#getBlob_String">getBlob</a>(String columnLabel) throws SQLException
+<div class="methodText">Returns the value as a java.sql.Blob.
+ This is only supported if the
+ result set was created using a Blob object.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+</td></tr>
+<tr id="__16" onclick="return on(16)">
+<td class="return">boolean</td><td class="method">
+<a id="getBoolean_int" href="#getBoolean_int">getBoolean</a>(int columnIndex)
+<div class="methodText">Returns the value as a boolean.</div>
+</td></tr>
+<tr onclick="return off(16)" class="detail" id="_16">
+<td class="return">boolean</td><td>
+<a id="getBoolean_int" href="#getBoolean_int">getBoolean</a>(int columnIndex) throws SQLException
+<div class="methodText">Returns the value as a boolean.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+</td></tr>
+<tr id="__17" onclick="return on(17)">
+<td class="return">boolean</td><td class="method">
+<a id="getBoolean_String" href="#getBoolean_String">getBoolean</a>(String columnLabel)
+<div class="methodText">Returns the value as a boolean.</div>
+</td></tr>
+<tr onclick="return off(17)" class="detail" id="_17">
+<td class="return">boolean</td><td>
+<a id="getBoolean_String" href="#getBoolean_String">getBoolean</a>(String columnLabel) throws SQLException
+<div class="methodText">Returns the value as a boolean.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+</td></tr>
+<tr id="__18" onclick="return on(18)">
+<td class="return">byte</td><td class="method">
+<a id="getByte_int" href="#getByte_int">getByte</a>(int columnIndex)
+<div class="methodText">Returns the value as a byte.</div>
+</td></tr>
+<tr onclick="return off(18)" class="detail" id="_18">
+<td class="return">byte</td><td>
+<a id="getByte_int" href="#getByte_int">getByte</a>(int columnIndex) throws SQLException
+<div class="methodText">Returns the value as a byte.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+</td></tr>
+<tr id="__19" onclick="return on(19)">
+<td class="return">byte</td><td class="method">
+<a id="getByte_String" href="#getByte_String">getByte</a>(String columnLabel)
+<div class="methodText">Returns the value as a byte.</div>
+</td></tr>
+<tr onclick="return off(19)" class="detail" id="_19">
+<td class="return">byte</td><td>
+<a id="getByte_String" href="#getByte_String">getByte</a>(String columnLabel) throws SQLException
+<div class="methodText">Returns the value as a byte.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+</td></tr>
+<tr id="__20" onclick="return on(20)">
+<td class="return">byte[]</td><td class="method">
+<a id="getBytes_int" href="#getBytes_int">getBytes</a>(int columnIndex)
+<div class="methodText">Returns the value as a byte array.</div>
+</td></tr>
+<tr onclick="return off(20)" class="detail" id="_20">
+<td class="return">byte[]</td><td>
+<a id="getBytes_int" href="#getBytes_int">getBytes</a>(int columnIndex) throws SQLException
+<div class="methodText">Returns the value as a byte array.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+</td></tr>
+<tr id="__21" onclick="return on(21)">
+<td class="return">byte[]</td><td class="method">
+<a id="getBytes_String" href="#getBytes_String">getBytes</a>(String columnLabel)
+<div class="methodText">Returns the value as a byte array.</div>
+</td></tr>
+<tr onclick="return off(21)" class="detail" id="_21">
+<td class="return">byte[]</td><td>
+<a id="getBytes_String" href="#getBytes_String">getBytes</a>(String columnLabel) throws SQLException
+<div class="methodText">Returns the value as a byte array.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+</td></tr>
+<tr id="__22" onclick="return on(22)">
+<td class="return">String</td><td class="method">
+<a id="getCatalogName_int" href="#getCatalogName_int">getCatalogName</a>(int columnIndex)
+<div class="methodText">Returns null.</div>
+</td></tr>
+<tr onclick="return off(22)" class="detail" id="_22">
+<td class="return">String</td><td>
+<a id="getCatalogName_int" href="#getCatalogName_int">getCatalogName</a>(int columnIndex)
+<div class="methodText">Returns null.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">null</div>
+</td></tr>
+<tr id="__23" onclick="return on(23)">
+<td class="return">Reader</td><td class="method">
+<a id="getCharacterStream_int" href="#getCharacterStream_int">getCharacterStream</a>(int columnIndex)
+<div class="methodText">Returns the value as a java.io.Reader.</div>
+</td></tr>
+<tr onclick="return off(23)" class="detail" id="_23">
+<td class="return">Reader</td><td>
+<a id="getCharacterStream_int" href="#getCharacterStream_int">getCharacterStream</a>(int columnIndex) throws SQLException
+<div class="methodText">Returns the value as a java.io.Reader.
+ This is only supported if the
+ result set was created using a Clob or Reader object.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+</td></tr>
+<tr id="__24" onclick="return on(24)">
+<td class="return">Reader</td><td class="method">
+<a id="getCharacterStream_String" href="#getCharacterStream_String">getCharacterStream</a>(String columnLabel)
+<div class="methodText">Returns the value as a java.io.Reader.</div>
+</td></tr>
+<tr onclick="return off(24)" class="detail" id="_24">
+<td class="return">Reader</td><td>
+<a id="getCharacterStream_String" href="#getCharacterStream_String">getCharacterStream</a>(String columnLabel) throws SQLException
+<div class="methodText">Returns the value as a java.io.Reader.
+ This is only supported if the
+ result set was created using a Clob or Reader object.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+</td></tr>
+<tr id="__25" onclick="return on(25)">
+<td class="return">Clob</td><td class="method">
+<a id="getClob_int" href="#getClob_int">getClob</a>(int columnIndex)
+<div class="methodText">Returns the value as a java.sql.Clob.</div>
+</td></tr>
+<tr onclick="return off(25)" class="detail" id="_25">
+<td class="return">Clob</td><td>
+<a id="getClob_int" href="#getClob_int">getClob</a>(int columnIndex) throws SQLException
+<div class="methodText">Returns the value as a java.sql.Clob.
+ This is only supported if the
+ result set was created using a Clob object.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+</td></tr>
+<tr id="__26" onclick="return on(26)">
+<td class="return">Clob</td><td class="method">
+<a id="getClob_String" href="#getClob_String">getClob</a>(String columnLabel)
+<div class="methodText">Returns the value as a java.sql.Clob.</div>
+</td></tr>
+<tr onclick="return off(26)" class="detail" id="_26">
+<td class="return">Clob</td><td>
+<a id="getClob_String" href="#getClob_String">getClob</a>(String columnLabel) throws SQLException
+<div class="methodText">Returns the value as a java.sql.Clob.
+ This is only supported if the
+ result set was created using a Clob object.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+</td></tr>
+<tr id="__27" onclick="return on(27)">
+<td class="return">String</td><td class="method">
+<a id="getColumnClassName_int" href="#getColumnClassName_int">getColumnClassName</a>(int columnIndex)
+<div class="methodText">Returns the Java class name if this column.</div>
+</td></tr>
+<tr onclick="return off(27)" class="detail" id="_27">
+<td class="return">String</td><td>
+<a id="getColumnClassName_int" href="#getColumnClassName_int">getColumnClassName</a>(int columnIndex) throws SQLException
+<div class="methodText">Returns the Java class name if this column.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the class name</div>
+</td></tr>
+<tr id="__28" onclick="return on(28)">
+<td class="return">int</td><td class="method">
+<a id="getColumnCount" href="#getColumnCount">getColumnCount</a>()
+<div class="methodText">Returns the column count.</div>
+</td></tr>
+<tr onclick="return off(28)" class="detail" id="_28">
+<td class="return">int</td><td>
+<a id="getColumnCount" href="#getColumnCount">getColumnCount</a>()
+<div class="methodText">Returns the column count.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the column count</div>
+</td></tr>
+<tr id="__29" onclick="return on(29)">
+<td class="return">int</td><td class="method">
+<a id="getColumnDisplaySize_int" href="#getColumnDisplaySize_int">getColumnDisplaySize</a>(int columnIndex)
+<div class="methodText">Returns 15.</div>
+</td></tr>
+<tr onclick="return off(29)" class="detail" id="_29">
+<td class="return">int</td><td>
+<a id="getColumnDisplaySize_int" href="#getColumnDisplaySize_int">getColumnDisplaySize</a>(int columnIndex)
+<div class="methodText">Returns 15.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">15</div>
+</td></tr>
+<tr id="__30" onclick="return on(30)">
+<td class="return">String</td><td class="method">
+<a id="getColumnLabel_int" href="#getColumnLabel_int">getColumnLabel</a>(int columnIndex)
+<div class="methodText">Returns the column label.</div>
+</td></tr>
+<tr onclick="return off(30)" class="detail" id="_30">
+<td class="return">String</td><td>
+<a id="getColumnLabel_int" href="#getColumnLabel_int">getColumnLabel</a>(int columnIndex) throws SQLException
+<div class="methodText">Returns the column label.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the column label</div>
+</td></tr>
+<tr id="__31" onclick="return on(31)">
+<td class="return">String</td><td class="method">
+<a id="getColumnName_int" href="#getColumnName_int">getColumnName</a>(int columnIndex)
+<div class="methodText">Returns the column name.</div>
+</td></tr>
+<tr onclick="return off(31)" class="detail" id="_31">
+<td class="return">String</td><td>
+<a id="getColumnName_int" href="#getColumnName_int">getColumnName</a>(int columnIndex) throws SQLException
+<div class="methodText">Returns the column name.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the column name</div>
+</td></tr>
+<tr id="__32" onclick="return on(32)">
+<td class="return">int</td><td class="method">
+<a id="getColumnType_int" href="#getColumnType_int">getColumnType</a>(int columnIndex)
+<div class="methodText">Returns the SQL type.</div>
+</td></tr>
+<tr onclick="return off(32)" class="detail" id="_32">
+<td class="return">int</td><td>
+<a id="getColumnType_int" href="#getColumnType_int">getColumnType</a>(int columnIndex) throws SQLException
+<div class="methodText">Returns the SQL type.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the SQL type</div>
+</td></tr>
+<tr id="__33" onclick="return on(33)">
+<td class="return">String</td><td class="method">
+<a id="getColumnTypeName_int" href="#getColumnTypeName_int">getColumnTypeName</a>(int columnIndex)
+<div class="methodText">Returns the data type name of a column.</div>
+</td></tr>
+<tr onclick="return off(33)" class="detail" id="_33">
+<td class="return">String</td><td>
+<a id="getColumnTypeName_int" href="#getColumnTypeName_int">getColumnTypeName</a>(int columnIndex) throws SQLException
+<div class="methodText">Returns the data type name of a column.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the type name</div>
+</td></tr>
+<tr id="__34" onclick="return on(34)">
+<td class="return">int</td><td class="method">
+<a id="getConcurrency" href="#getConcurrency">getConcurrency</a>()
+<div class="methodText">Returns ResultSet.CONCUR_READ_ONLY.</div>
+</td></tr>
+<tr onclick="return off(34)" class="detail" id="_34">
+<td class="return">int</td><td>
+<a id="getConcurrency" href="#getConcurrency">getConcurrency</a>()
+<div class="methodText">Returns ResultSet.CONCUR_READ_ONLY.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">CONCUR_READ_ONLY</div>
+</td></tr>
+<tr id="__35" onclick="return on(35)">
+<td class="return">Date</td><td class="method">
+<a id="getDate_int" href="#getDate_int">getDate</a>(int columnIndex)
+<div class="methodText">Returns the value as an java.sql.Date.</div>
+</td></tr>
+<tr onclick="return off(35)" class="detail" id="_35">
+<td class="return">Date</td><td>
+<a id="getDate_int" href="#getDate_int">getDate</a>(int columnIndex) throws SQLException
+<div class="methodText">Returns the value as an java.sql.Date.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+</td></tr>
+<tr id="__36" onclick="return on(36)">
+<td class="return">Date</td><td class="method">
+<a id="getDate_String" href="#getDate_String">getDate</a>(String columnLabel)
+<div class="methodText">Returns the value as a java.sql.Date.</div>
+</td></tr>
+<tr onclick="return off(36)" class="detail" id="_36">
+<td class="return">Date</td><td>
+<a id="getDate_String" href="#getDate_String">getDate</a>(String columnLabel) throws SQLException
+<div class="methodText">Returns the value as a java.sql.Date.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+</td></tr>
+<tr id="__37" onclick="return on(37)">
+<td class="return">double</td><td class="method">
+<a id="getDouble_int" href="#getDouble_int">getDouble</a>(int columnIndex)
+<div class="methodText">Returns the value as an double.</div>
+</td></tr>
+<tr onclick="return off(37)" class="detail" id="_37">
+<td class="return">double</td><td>
+<a id="getDouble_int" href="#getDouble_int">getDouble</a>(int columnIndex) throws SQLException
+<div class="methodText">Returns the value as an double.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+</td></tr>
+<tr id="__38" onclick="return on(38)">
+<td class="return">double</td><td class="method">
+<a id="getDouble_String" href="#getDouble_String">getDouble</a>(String columnLabel)
+<div class="methodText">Returns the value as a double.</div>
+</td></tr>
+<tr onclick="return off(38)" class="detail" id="_38">
+<td class="return">double</td><td>
+<a id="getDouble_String" href="#getDouble_String">getDouble</a>(String columnLabel) throws SQLException
+<div class="methodText">Returns the value as a double.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+</td></tr>
+<tr id="__39" onclick="return on(39)">
+<td class="return">int</td><td class="method">
+<a id="getFetchDirection" href="#getFetchDirection">getFetchDirection</a>()
+<div class="methodText">Returns ResultSet.FETCH_FORWARD.</div>
+</td></tr>
+<tr onclick="return off(39)" class="detail" id="_39">
+<td class="return">int</td><td>
+<a id="getFetchDirection" href="#getFetchDirection">getFetchDirection</a>()
+<div class="methodText">Returns ResultSet.FETCH_FORWARD.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">FETCH_FORWARD</div>
+</td></tr>
+<tr id="__40" onclick="return on(40)">
+<td class="return">int</td><td class="method">
+<a id="getFetchSize" href="#getFetchSize">getFetchSize</a>()
+<div class="methodText">Returns 0.</div>
+</td></tr>
+<tr onclick="return off(40)" class="detail" id="_40">
+<td class="return">int</td><td>
+<a id="getFetchSize" href="#getFetchSize">getFetchSize</a>()
+<div class="methodText">Returns 0.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">0</div>
+</td></tr>
+<tr id="__41" onclick="return on(41)">
+<td class="return">float</td><td class="method">
+<a id="getFloat_int" href="#getFloat_int">getFloat</a>(int columnIndex)
+<div class="methodText">Returns the value as a float.</div>
+</td></tr>
+<tr onclick="return off(41)" class="detail" id="_41">
+<td class="return">float</td><td>
+<a id="getFloat_int" href="#getFloat_int">getFloat</a>(int columnIndex) throws SQLException
+<div class="methodText">Returns the value as a float.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+</td></tr>
+<tr id="__42" onclick="return on(42)">
+<td class="return">float</td><td class="method">
+<a id="getFloat_String" href="#getFloat_String">getFloat</a>(String columnLabel)
+<div class="methodText">Returns the value as a float.</div>
+</td></tr>
+<tr onclick="return off(42)" class="detail" id="_42">
+<td class="return">float</td><td>
+<a id="getFloat_String" href="#getFloat_String">getFloat</a>(String columnLabel) throws SQLException
+<div class="methodText">Returns the value as a float.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+</td></tr>
+<tr id="__43" onclick="return on(43)">
+<td class="return">int</td><td class="method">
+<a id="getHoldability" href="#getHoldability">getHoldability</a>()
+<div class="methodText">Returns the current result set holdability.</div>
+</td></tr>
+<tr onclick="return off(43)" class="detail" id="_43">
+<td class="return">int</td><td>
+<a id="getHoldability" href="#getHoldability">getHoldability</a>()
+<div class="methodText">Returns the current result set holdability.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the holdability</div>
+</td></tr>
+<tr id="__44" onclick="return on(44)">
+<td class="return">int</td><td class="method">
+<a id="getInt_int" href="#getInt_int">getInt</a>(int columnIndex)
+<div class="methodText">Returns the value as an int.</div>
+</td></tr>
+<tr onclick="return off(44)" class="detail" id="_44">
+<td class="return">int</td><td>
+<a id="getInt_int" href="#getInt_int">getInt</a>(int columnIndex) throws SQLException
+<div class="methodText">Returns the value as an int.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+</td></tr>
+<tr id="__45" onclick="return on(45)">
+<td class="return">int</td><td class="method">
+<a id="getInt_String" href="#getInt_String">getInt</a>(String columnLabel)
+<div class="methodText">Returns the value as an int.</div>
+</td></tr>
+<tr onclick="return off(45)" class="detail" id="_45">
+<td class="return">int</td><td>
+<a id="getInt_String" href="#getInt_String">getInt</a>(String columnLabel) throws SQLException
+<div class="methodText">Returns the value as an int.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+</td></tr>
+<tr id="__46" onclick="return on(46)">
+<td class="return">long</td><td class="method">
+<a id="getLong_int" href="#getLong_int">getLong</a>(int columnIndex)
+<div class="methodText">Returns the value as a long.</div>
+</td></tr>
+<tr onclick="return off(46)" class="detail" id="_46">
+<td class="return">long</td><td>
+<a id="getLong_int" href="#getLong_int">getLong</a>(int columnIndex) throws SQLException
+<div class="methodText">Returns the value as a long.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+</td></tr>
+<tr id="__47" onclick="return on(47)">
+<td class="return">long</td><td class="method">
+<a id="getLong_String" href="#getLong_String">getLong</a>(String columnLabel)
+<div class="methodText">Returns the value as a long.</div>
+</td></tr>
+<tr onclick="return off(47)" class="detail" id="_47">
+<td class="return">long</td><td>
+<a id="getLong_String" href="#getLong_String">getLong</a>(String columnLabel) throws SQLException
+<div class="methodText">Returns the value as a long.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+</td></tr>
+<tr id="__48" onclick="return on(48)">
+<td class="return">ResultSetMetaData</td><td class="method">
+<a id="getMetaData" href="#getMetaData">getMetaData</a>()
+<div class="methodText">Returns a reference to itself.</div>
+</td></tr>
+<tr onclick="return off(48)" class="detail" id="_48">
+<td class="return">ResultSetMetaData</td><td>
+<a id="getMetaData" href="#getMetaData">getMetaData</a>()
+<div class="methodText">Returns a reference to itself.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">this</div>
+</td></tr>
+<tr id="__49" onclick="return on(49)">
+<td class="return">Object</td><td class="method">
+<a id="getObject_int" href="#getObject_int">getObject</a>(int columnIndex)
+<div class="methodText">Returns the value as an Object.</div>
+</td></tr>
+<tr onclick="return off(49)" class="detail" id="_49">
+<td class="return">Object</td><td>
+<a id="getObject_int" href="#getObject_int">getObject</a>(int columnIndex) throws SQLException
+<div class="methodText">Returns the value as an Object.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+</td></tr>
+<tr id="__50" onclick="return on(50)">
+<td class="return">Object</td><td class="method">
+<a id="getObject_String" href="#getObject_String">getObject</a>(String columnLabel)
+<div class="methodText">Returns the value as an Object.</div>
+</td></tr>
+<tr onclick="return off(50)" class="detail" id="_50">
+<td class="return">Object</td><td>
+<a id="getObject_String" href="#getObject_String">getObject</a>(String columnLabel) throws SQLException
+<div class="methodText">Returns the value as an Object.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+</td></tr>
+<tr id="__51" onclick="return on(51)">
+<td class="return">int</td><td class="method">
+<a id="getPrecision_int" href="#getPrecision_int">getPrecision</a>(int columnIndex)
+<div class="methodText">Returns the precision.</div>
+</td></tr>
+<tr onclick="return off(51)" class="detail" id="_51">
+<td class="return">int</td><td>
+<a id="getPrecision_int" href="#getPrecision_int">getPrecision</a>(int columnIndex) throws SQLException
+<div class="methodText">Returns the precision.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the precision</div>
+</td></tr>
+<tr id="__52" onclick="return on(52)">
+<td class="return">int</td><td class="method">
+<a id="getRow" href="#getRow">getRow</a>()
+<div class="methodText">Returns the row number (1, 2,...) or 0 for no row.</div>
+</td></tr>
+<tr onclick="return off(52)" class="detail" id="_52">
+<td class="return">int</td><td>
+<a id="getRow" href="#getRow">getRow</a>()
+<div class="methodText">Returns the row number (1, 2,...) or 0 for no row.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">0</div>
+</td></tr>
+<tr id="__53" onclick="return on(53)">
+<td class="return">int</td><td class="method">
+<a id="getScale_int" href="#getScale_int">getScale</a>(int columnIndex)
+<div class="methodText">Returns the scale.</div>
+</td></tr>
+<tr onclick="return off(53)" class="detail" id="_53">
+<td class="return">int</td><td>
+<a id="getScale_int" href="#getScale_int">getScale</a>(int columnIndex) throws SQLException
+<div class="methodText">Returns the scale.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the scale</div>
+</td></tr>
+<tr id="__54" onclick="return on(54)">
+<td class="return">String</td><td class="method">
+<a id="getSchemaName_int" href="#getSchemaName_int">getSchemaName</a>(int columnIndex)
+<div class="methodText">Returns null.</div>
+</td></tr>
+<tr onclick="return off(54)" class="detail" id="_54">
+<td class="return">String</td><td>
+<a id="getSchemaName_int" href="#getSchemaName_int">getSchemaName</a>(int columnIndex)
+<div class="methodText">Returns null.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">null</div>
+</td></tr>
+<tr id="__55" onclick="return on(55)">
+<td class="return">short</td><td class="method">
+<a id="getShort_int" href="#getShort_int">getShort</a>(int columnIndex)
+<div class="methodText">Returns the value as a short.</div>
+</td></tr>
+<tr onclick="return off(55)" class="detail" id="_55">
+<td class="return">short</td><td>
+<a id="getShort_int" href="#getShort_int">getShort</a>(int columnIndex) throws SQLException
+<div class="methodText">Returns the value as a short.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+</td></tr>
+<tr id="__56" onclick="return on(56)">
+<td class="return">short</td><td class="method">
+<a id="getShort_String" href="#getShort_String">getShort</a>(String columnLabel)
+<div class="methodText">Returns the value as a short.</div>
+</td></tr>
+<tr onclick="return off(56)" class="detail" id="_56">
+<td class="return">short</td><td>
+<a id="getShort_String" href="#getShort_String">getShort</a>(String columnLabel) throws SQLException
+<div class="methodText">Returns the value as a short.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+</td></tr>
+<tr id="__57" onclick="return on(57)">
+<td class="return">Statement</td><td class="method">
+<a id="getStatement" href="#getStatement">getStatement</a>()
+<div class="methodText">Returns null.</div>
+</td></tr>
+<tr onclick="return off(57)" class="detail" id="_57">
+<td class="return">Statement</td><td>
+<a id="getStatement" href="#getStatement">getStatement</a>()
+<div class="methodText">Returns null.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">null</div>
+</td></tr>
+<tr id="__58" onclick="return on(58)">
+<td class="return">String</td><td class="method">
+<a id="getString_int" href="#getString_int">getString</a>(int columnIndex)
+<div class="methodText">Returns the value as a String.</div>
+</td></tr>
+<tr onclick="return off(58)" class="detail" id="_58">
+<td class="return">String</td><td>
+<a id="getString_int" href="#getString_int">getString</a>(int columnIndex) throws SQLException
+<div class="methodText">Returns the value as a String.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+</td></tr>
+<tr id="__59" onclick="return on(59)">
+<td class="return">String</td><td class="method">
+<a id="getString_String" href="#getString_String">getString</a>(String columnLabel)
+<div class="methodText">Returns the value as a String.</div>
+</td></tr>
+<tr onclick="return off(59)" class="detail" id="_59">
+<td class="return">String</td><td>
+<a id="getString_String" href="#getString_String">getString</a>(String columnLabel) throws SQLException
+<div class="methodText">Returns the value as a String.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+</td></tr>
+<tr id="__60" onclick="return on(60)">
+<td class="return">String</td><td class="method">
+<a id="getTableName_int" href="#getTableName_int">getTableName</a>(int columnIndex)
+<div class="methodText">Returns null.</div>
+</td></tr>
+<tr onclick="return off(60)" class="detail" id="_60">
+<td class="return">String</td><td>
+<a id="getTableName_int" href="#getTableName_int">getTableName</a>(int columnIndex)
+<div class="methodText">Returns null.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">null</div>
+</td></tr>
+<tr id="__61" onclick="return on(61)">
+<td class="return">Time</td><td class="method">
+<a id="getTime_int" href="#getTime_int">getTime</a>(int columnIndex)
+<div class="methodText">Returns the value as an java.sql.Time.</div>
+</td></tr>
+<tr onclick="return off(61)" class="detail" id="_61">
+<td class="return">Time</td><td>
+<a id="getTime_int" href="#getTime_int">getTime</a>(int columnIndex) throws SQLException
+<div class="methodText">Returns the value as an java.sql.Time.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+</td></tr>
+<tr id="__62" onclick="return on(62)">
+<td class="return">Time</td><td class="method">
+<a id="getTime_String" href="#getTime_String">getTime</a>(String columnLabel)
+<div class="methodText">Returns the value as a java.sql.Time.</div>
+</td></tr>
+<tr onclick="return off(62)" class="detail" id="_62">
+<td class="return">Time</td><td>
+<a id="getTime_String" href="#getTime_String">getTime</a>(String columnLabel) throws SQLException
+<div class="methodText">Returns the value as a java.sql.Time.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+</td></tr>
+<tr id="__63" onclick="return on(63)">
+<td class="return">Timestamp</td><td class="method">
+<a id="getTimestamp_int" href="#getTimestamp_int">getTimestamp</a>(int columnIndex)
+<div class="methodText">Returns the value as an java.sql.Timestamp.</div>
+</td></tr>
+<tr onclick="return off(63)" class="detail" id="_63">
+<td class="return">Timestamp</td><td>
+<a id="getTimestamp_int" href="#getTimestamp_int">getTimestamp</a>(int columnIndex) throws SQLException
+<div class="methodText">Returns the value as an java.sql.Timestamp.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+</td></tr>
+<tr id="__64" onclick="return on(64)">
+<td class="return">Timestamp</td><td class="method">
+<a id="getTimestamp_String" href="#getTimestamp_String">getTimestamp</a>(String columnLabel)
+<div class="methodText">Returns the value as a java.sql.Timestamp.</div>
+</td></tr>
+<tr onclick="return off(64)" class="detail" id="_64">
+<td class="return">Timestamp</td><td>
+<a id="getTimestamp_String" href="#getTimestamp_String">getTimestamp</a>(String columnLabel) throws SQLException
+<div class="methodText">Returns the value as a java.sql.Timestamp.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnLabel - the column label</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the value</div>
+</td></tr>
+<tr id="__65" onclick="return on(65)">
+<td class="return">int</td><td class="method">
+<a id="getType" href="#getType">getType</a>()
+<div class="methodText">Returns ResultSet.TYPE_FORWARD_ONLY.</div>
+</td></tr>
+<tr onclick="return off(65)" class="detail" id="_65">
+<td class="return">int</td><td>
+<a id="getType" href="#getType">getType</a>()
+<div class="methodText">Returns ResultSet.TYPE_FORWARD_ONLY.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">TYPE_FORWARD_ONLY</div>
+</td></tr>
+<tr id="__66" onclick="return on(66)">
+<td class="return">SQLWarning</td><td class="method">
+<a id="getWarnings" href="#getWarnings">getWarnings</a>()
+<div class="methodText">Returns null.</div>
+</td></tr>
+<tr onclick="return off(66)" class="detail" id="_66">
+<td class="return">SQLWarning</td><td>
+<a id="getWarnings" href="#getWarnings">getWarnings</a>()
+<div class="methodText">Returns null.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">null</div>
+</td></tr>
+<tr id="__67" onclick="return on(67)">
+<td class="return">boolean</td><td class="method">
+<a id="isAutoIncrement_int" href="#isAutoIncrement_int">isAutoIncrement</a>(int columnIndex)
+<div class="methodText">Returns false.</div>
+</td></tr>
+<tr onclick="return off(67)" class="detail" id="_67">
+<td class="return">boolean</td><td>
+<a id="isAutoIncrement_int" href="#isAutoIncrement_int">isAutoIncrement</a>(int columnIndex)
+<div class="methodText">Returns false.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">false</div>
+</td></tr>
+<tr id="__68" onclick="return on(68)">
+<td class="return">boolean</td><td class="method">
+<a id="isCaseSensitive_int" href="#isCaseSensitive_int">isCaseSensitive</a>(int columnIndex)
+<div class="methodText">Returns true.</div>
+</td></tr>
+<tr onclick="return off(68)" class="detail" id="_68">
+<td class="return">boolean</td><td>
+<a id="isCaseSensitive_int" href="#isCaseSensitive_int">isCaseSensitive</a>(int columnIndex)
+<div class="methodText">Returns true.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">true</div>
+</td></tr>
+<tr id="__69" onclick="return on(69)">
+<td class="return">boolean</td><td class="method">
+<a id="isClosed" href="#isClosed">isClosed</a>()
+<div class="methodText">Returns whether this result set has been closed.</div>
+</td></tr>
+<tr onclick="return off(69)" class="detail" id="_69">
+<td class="return">boolean</td><td>
+<a id="isClosed" href="#isClosed">isClosed</a>()
+<div class="methodText">Returns whether this result set has been closed.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">true if the result set was closed</div>
+</td></tr>
+<tr id="__70" onclick="return on(70)">
+<td class="return">boolean</td><td class="method">
+<a id="isCurrency_int" href="#isCurrency_int">isCurrency</a>(int columnIndex)
+<div class="methodText">Returns false.</div>
+</td></tr>
+<tr onclick="return off(70)" class="detail" id="_70">
+<td class="return">boolean</td><td>
+<a id="isCurrency_int" href="#isCurrency_int">isCurrency</a>(int columnIndex)
+<div class="methodText">Returns false.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">false</div>
+</td></tr>
+<tr id="__71" onclick="return on(71)">
+<td class="return">boolean</td><td class="method">
+<a id="isDefinitelyWritable_int" href="#isDefinitelyWritable_int">isDefinitelyWritable</a>(int columnIndex)
+<div class="methodText">Returns false.</div>
+</td></tr>
+<tr onclick="return off(71)" class="detail" id="_71">
+<td class="return">boolean</td><td>
+<a id="isDefinitelyWritable_int" href="#isDefinitelyWritable_int">isDefinitelyWritable</a>(int columnIndex)
+<div class="methodText">Returns false.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">false</div>
+</td></tr>
+<tr id="__72" onclick="return on(72)">
+<td class="return">int</td><td class="method">
+<a id="isNullable_int" href="#isNullable_int">isNullable</a>(int columnIndex)
+<div class="methodText">Returns ResultSetMetaData.columnNullableUnknown.</div>
+</td></tr>
+<tr onclick="return off(72)" class="detail" id="_72">
+<td class="return">int</td><td>
+<a id="isNullable_int" href="#isNullable_int">isNullable</a>(int columnIndex)
+<div class="methodText">Returns ResultSetMetaData.columnNullableUnknown.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">columnNullableUnknown</div>
+</td></tr>
+<tr id="__73" onclick="return on(73)">
+<td class="return">boolean</td><td class="method">
+<a id="isReadOnly_int" href="#isReadOnly_int">isReadOnly</a>(int columnIndex)
+<div class="methodText">Returns true.</div>
+</td></tr>
+<tr onclick="return off(73)" class="detail" id="_73">
+<td class="return">boolean</td><td>
+<a id="isReadOnly_int" href="#isReadOnly_int">isReadOnly</a>(int columnIndex)
+<div class="methodText">Returns true.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">true</div>
+</td></tr>
+<tr id="__74" onclick="return on(74)">
+<td class="return">boolean</td><td class="method">
+<a id="isSearchable_int" href="#isSearchable_int">isSearchable</a>(int columnIndex)
+<div class="methodText">Returns true.</div>
+</td></tr>
+<tr onclick="return off(74)" class="detail" id="_74">
+<td class="return">boolean</td><td>
+<a id="isSearchable_int" href="#isSearchable_int">isSearchable</a>(int columnIndex)
+<div class="methodText">Returns true.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">true</div>
+</td></tr>
+<tr id="__75" onclick="return on(75)">
+<td class="return">boolean</td><td class="method">
+<a id="isSigned_int" href="#isSigned_int">isSigned</a>(int columnIndex)
+<div class="methodText">Returns true.</div>
+</td></tr>
+<tr onclick="return off(75)" class="detail" id="_75">
+<td class="return">boolean</td><td>
+<a id="isSigned_int" href="#isSigned_int">isSigned</a>(int columnIndex)
+<div class="methodText">Returns true.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">true</div>
+</td></tr>
+<tr id="__76" onclick="return on(76)">
+<td class="return">boolean</td><td class="method">
+<a id="isWritable_int" href="#isWritable_int">isWritable</a>(int columnIndex)
+<div class="methodText">Returns false.</div>
+</td></tr>
+<tr onclick="return off(76)" class="detail" id="_76">
+<td class="return">boolean</td><td>
+<a id="isWritable_int" href="#isWritable_int">isWritable</a>(int columnIndex)
+<div class="methodText">Returns false.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">columnIndex - (1,2,...)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">false</div>
+</td></tr>
+<tr id="__77" onclick="return on(77)">
+<td class="return">boolean</td><td class="method">
+<a id="next" href="#next">next</a>()
+<div class="methodText">Moves the cursor to the next row of the result set.</div>
+</td></tr>
+<tr onclick="return off(77)" class="detail" id="_77">
+<td class="return">boolean</td><td>
+<a id="next" href="#next">next</a>() throws SQLException
+<div class="methodText">Moves the cursor to the next row of the result set.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">true if successful, false if there are no more rows</div>
+</td></tr>
+<tr id="__78" onclick="return on(78)">
+<td class="return">void</td><td class="method">
+<a id="setAutoClose_boolean" href="#setAutoClose_boolean">setAutoClose</a>(boolean autoClose)
+<div class="methodText">Set the auto-close behavior.</div>
+</td></tr>
+<tr onclick="return off(78)" class="detail" id="_78">
+<td class="return">void</td><td>
+<a id="setAutoClose_boolean" href="#setAutoClose_boolean">setAutoClose</a>(boolean autoClose)
+<div class="methodText">Set the auto-close behavior. If enabled (the default), the result set is
+ closed after reading the last row.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">autoClose - the new value</div>
+</td></tr>
+<tr id="__79" onclick="return on(79)">
+<td class="return">boolean</td><td class="method">
+<a id="wasNull" href="#wasNull">wasNull</a>()
+<div class="methodText">Returns whether the last column accessed was null.</div>
+</td></tr>
+<tr onclick="return off(79)" class="detail" id="_79">
+<td class="return">boolean</td><td>
+<a id="wasNull" href="#wasNull">wasNull</a>()
+<div class="methodText">Returns whether the last column accessed was null.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">true if the last column accessed was null</div>
+</td></tr>
+</table>
+</div></td></tr></table></body></html>

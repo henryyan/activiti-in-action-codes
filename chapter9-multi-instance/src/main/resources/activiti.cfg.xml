@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+				http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="processEngineConfiguration" class="org.activiti.engine.impl.cfg.StandaloneProcessEngineConfiguration">
+		<property name="jdbcUrl" value="jdbc:h2:file:~/activiti-in-action-chapter9;AUTO_SERVER=TRUE" />
+		<property name="jdbcDriver" value="org.h2.Driver" />
+		<property name="jdbcUsername" value="sa" />
+		<property name="jdbcPassword" value="" />
+		<property name="mailServerPort" value="2025"/>
+
+		<property name="databaseSchemaUpdate" value="true" />
+		<property name="jobExecutorActivate" value="true" />
+
+		<!-- 自定义表单字段类型 -->
+		<property name="customFormTypes">
+			<list>
+				<bean class="me.kafeitu.activiti.chapter6.form.JavascriptFormType" />
+				<bean class="me.kafeitu.activiti.chapter9.form.UsersFormType" />
+			</list>
+		</property>
+		
+		<!-- 自定义表单引擎 -->
+		<property name="customFormEngines">
+			<list>
+				<bean class="me.kafeitu.activiti.chapter6.form.MyFormEngine" />
+			</list>
+		</property>
+	</bean>
+</beans>

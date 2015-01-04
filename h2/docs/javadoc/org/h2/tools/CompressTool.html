@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head><meta http-equiv="Content-Type" content="text/html;charset=utf-8" /><title>
+CompressTool
+</title><link rel="stylesheet" type="text/css" href="../../../stylesheet.css" />
+<script type="text/javascript" src="../../../animate.js"></script>
+</head><body onload="openLink();">
+<table class="content"><tr class="content"><td class="content"><div class="contentDiv">
+<h1>CompressTool</h1>
+A tool to losslessly compress data, and expand the compressed data again.<br /><br />
+<table class="block"><tr onclick="return allDetails()"><th colspan="2">Methods</th></tr>
+<tr id="__0" onclick="return on(0)">
+<td class="return">static CompressTool</td><td class="method">
+<a id="getInstance" href="#getInstance">getInstance</a>()
+<div class="methodText">Get a new instance.</div>
+</td></tr>
+<tr onclick="return off(0)" class="detail" id="_0">
+<td class="return">static CompressTool</td><td>
+<a id="getInstance" href="#getInstance">getInstance</a>()
+<div class="methodText">Get a new instance. Each instance uses a separate buffer, so multiple
+ instances can be used concurrently. However each instance alone is not
+ multithreading safe.</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">a new instance</div>
+</td></tr>
+<tr id="__1" onclick="return on(1)">
+<td class="return">static int</td><td class="method">
+<a id="getVariableIntLength_int" href="#getVariableIntLength_int">getVariableIntLength</a>(int x)
+<div class="methodText">Get a variable size integer length using Rice coding.</div>
+</td></tr>
+<tr onclick="return off(1)" class="detail" id="_1">
+<td class="return">static int</td><td>
+<a id="getVariableIntLength_int" href="#getVariableIntLength_int">getVariableIntLength</a>(int x)
+<div class="methodText">Get a variable size integer length using Rice coding.
+ Negative values need 5 bytes.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the number of bytes needed (0-5)</div>
+</td></tr>
+<tr id="__2" onclick="return on(2)">
+<td class="return">static int</td><td class="method">
+<a id="readVariableInt_byte-_int" href="#readVariableInt_byte-_int">readVariableInt</a>(byte[] buff, int pos)
+<div class="methodText">Read a variable size integer using Rice coding.</div>
+</td></tr>
+<tr onclick="return off(2)" class="detail" id="_2">
+<td class="return">static int</td><td>
+<a id="readVariableInt_byte-_int" href="#readVariableInt_byte-_int">readVariableInt</a>(byte[] buff, int pos)
+<div class="methodText">Read a variable size integer using Rice coding.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">buff - the buffer</div>
+<div class="item">pos - the position</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the integer</div>
+</td></tr>
+<tr id="__3" onclick="return on(3)">
+<td class="return">static int</td><td class="method">
+<a id="writeVariableInt_byte-_int_int" href="#writeVariableInt_byte-_int_int">writeVariableInt</a>(byte[] buff, int pos, int x)
+<div class="methodText">Write a variable size integer using Rice coding.</div>
+</td></tr>
+<tr onclick="return off(3)" class="detail" id="_3">
+<td class="return">static int</td><td>
+<a id="writeVariableInt_byte-_int_int" href="#writeVariableInt_byte-_int_int">writeVariableInt</a>(byte[] buff, int pos, int x)
+<div class="methodText">Write a variable size integer using Rice coding.
+ Negative values need 5 bytes.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">buff - the buffer</div>
+<div class="item">pos - the position</div>
+<div class="item">x - the value</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the number of bytes written (0-5)</div>
+</td></tr>
+<tr id="__4" onclick="return on(4)">
+<td class="return">byte[]</td><td class="method">
+<a id="compress_byte-_String" href="#compress_byte-_String">compress</a>(byte[] in, String algorithm)
+<div class="methodText">Compressed the data using the specified algorithm.</div>
+</td></tr>
+<tr onclick="return off(4)" class="detail" id="_4">
+<td class="return">byte[]</td><td>
+<a id="compress_byte-_String" href="#compress_byte-_String">compress</a>(byte[] in, String algorithm)
+<div class="methodText">Compressed the data using the specified algorithm. If no algorithm is
+ supplied, LZF is used</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">in - the byte array with the original data</div>
+<div class="item">algorithm - the algorithm (LZF, DEFLATE)</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the compressed data</div>
+</td></tr>
+<tr id="__5" onclick="return on(5)">
+<td class="return">byte[]</td><td class="method">
+<a id="expand_byte-" href="#expand_byte-">expand</a>(byte[] in)
+<div class="methodText">Expands the compressed  data.</div>
+</td></tr>
+<tr onclick="return off(5)" class="detail" id="_5">
+<td class="return">byte[]</td><td>
+<a id="expand_byte-" href="#expand_byte-">expand</a>(byte[] in)
+<div class="methodText">Expands the compressed  data.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">in - the byte array with the compressed data</div>
+<div class="itemTitle">Returns:</div>
+<div class="item">the uncompressed data</div>
+</td></tr>
+</table>
+</div></td></tr></table></body></html>

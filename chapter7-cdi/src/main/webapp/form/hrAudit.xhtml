@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                template="/WEB-INF/templates/template.xhtml">
+    <ui:define name="content">
+        <f:metadata>
+            <f:viewParam name="taskId" />
+
+            <!-- 办理任务时读取Task对象并开始一个新的会话 -->
+            <f:event type="preRenderView" listener="#{businessProcess.startTask(taskId, true)}" />
+        </f:metadata>
+
+        <h1>#{task.name}</h1>
+        <p><em>#{task.description}</em></p>
+        <h:form>
+            <table>
+                <tr>
+                    <td>请假开始日期:</td>
+                    <td><h:outputText value="#{leave.startTime}" /></td>
+                </tr>
+                <tr>
+                    <td>请假结束日期:</td>
+                    <td><h:outputText value="#{leave.endTime}" /></td>
+                </tr>
+                <tr>
+                    <td>请假原因:</td>
+                    <td><h:outputText value="#{leave.reason}" /></td>
+                </tr>
+
+                <tr>
+                    <td>同意？</td>
+                    <td>
+                        <h:selectBooleanCheckbox value="#{leave.hrApproved}" /></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <!-- 可以直接调用activiti-cdi模块的方法，也可以自己写方法实现 -->
+                        <h:commandButton value="完成任务" action="#{businessProcess.completeTask(true)}" />
+                    </td>
+                </tr>
+            </table>
+        </h:form>
+    </ui:define>
+
+</ui:composition>

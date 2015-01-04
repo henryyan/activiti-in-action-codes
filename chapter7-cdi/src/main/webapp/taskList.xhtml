@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                template="/WEB-INF/templates/template.xhtml">
+    <ui:define name="content">
+
+        <h2>待办任务列表</h2>
+
+        <h:form>
+            <p>
+                根据用户ID查询待办任务:<br/>
+                (可选：kafeitu、deptLeader、hr)
+                <h:inputText value="#{systemUser.userId}">
+                    <f:ajax render="taskList" event="keyup" />
+                </h:inputText>
+            </p>
+
+            <h:dataTable value="#{todoTaskList}" var="v_task" id="taskList" class="data-table">
+                <h:column >
+                    <f:facet name="header">任务名称</f:facet>
+                    #{v_task.name}
+                </h:column>
+                <h:column >
+                    <f:facet name="header">创建时间</f:facet>
+                    <h:outputText value="#{v_task.createTime}" >
+                        <f:convertDateTime pattern="yyyy-MM-dd hh:mm" />
+                    </h:outputText>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">描述</f:facet>
+                    #{v_task.description}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">操作</f:facet>
+                    <h:outputLink value="#{request.contextPath}/#{formService.getTaskFormData(v_task.id).formKey}">
+                        办理
+                        <f:param name="taskId" value="#{v_task.id}"></f:param>
+                    </h:outputLink>
+                </h:column>
+            </h:dataTable>
+
+        </h:form>
+
+    </ui:define>
+</ui:composition>

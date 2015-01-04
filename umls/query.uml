@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>org.activiti.engine.runtime</OriginalElement>
+  <nodes>
+    <node x="2101.0" y="130.0">org.activiti.engine.history.HistoricTaskInstanceQuery</node>
+    <node x="322.0" y="130.0">org.activiti.engine.task.TaskQuery</node>
+    <node x="1846.0" y="130.0">org.activiti.engine.history.HistoricProcessInstanceQuery</node>
+    <node x="2337.0" y="130.0">org.activiti.engine.history.HistoricVariableInstanceQuery</node>
+    <node x="1227.0" y="130.0">org.activiti.engine.repository.DeploymentQuery</node>
+    <node x="921.0" y="295.0">org.activiti.engine.history.NativeHistoricTaskInstanceQuery</node>
+    <node x="570.75" y="205.0">org.activiti.engine.query.NativeQuery</node>
+    <node x="1200.0" y="295.0">org.activiti.engine.history.NativeHistoricActivityInstanceQuery</node>
+    <node x="0.0" y="130.0">org.activiti.engine.runtime.JobQuery</node>
+    <node x="1660.0" y="130.0">org.activiti.engine.history.HistoricDetailQuery</node>
+    <node x="739.0" y="130.0">org.activiti.engine.repository.ProcessDefinitionQuery</node>
+    <node x="1405.0" y="130.0">org.activiti.engine.history.HistoricActivityInstanceQuery</node>
+    <node x="1026.75" y="0.0">org.activiti.engine.query.Query</node>
+    <node x="118.0" y="130.0">org.activiti.engine.runtime.ProcessInstanceQuery</node>
+    <node x="0.0" y="295.0">org.activiti.engine.runtime.NativeExecutionQuery</node>
+    <node x="952.0" y="130.0">org.activiti.engine.repository.ModelQuery</node>
+    <node x="1089.0" y="130.0">org.activiti.engine.identity.GroupQuery</node>
+    <node x="612.0" y="130.0">org.activiti.engine.identity.UserQuery</node>
+    <node x="452.0" y="295.0">org.activiti.engine.task.NativeTaskQuery</node>
+    <node x="450.0" y="130.0">org.activiti.engine.runtime.ExecutionQuery</node>
+    <node x="205.0" y="295.0">org.activiti.engine.runtime.NativeProcessInstanceQuery</node>
+    <node x="623.0" y="295.0">org.activiti.engine.history.NativeHistoricProcessInstanceQuery</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="org.activiti.engine.repository.ProcessDefinitionQuery" target="org.activiti.engine.query.Query">
+      <point x="0.0" y="-15.0" />
+      <point x="835.5" y="100.0" />
+      <point x="1068.0" y="100.0" />
+      <point x="-11.25" y="15.0" />
+    </edge>
+    <edge source="org.activiti.engine.identity.GroupQuery" target="org.activiti.engine.query.Query">
+      <point x="0.0" y="-15.0" />
+      <point x="1148.0" y="110.0" />
+      <point x="1083.0" y="110.0" />
+      <point x="3.75" y="15.0" />
+    </edge>
+    <edge source="org.activiti.engine.runtime.ExecutionQuery" target="org.activiti.engine.query.Query">
+      <point x="0.0" y="-15.0" />
+      <point x="521.0" y="80.0" />
+      <point x="1053.0" y="80.0" />
+      <point x="-26.25" y="15.0" />
+    </edge>
+    <edge source="org.activiti.engine.repository.DeploymentQuery" target="org.activiti.engine.query.Query">
+      <point x="0.0" y="-15.0" />
+      <point x="1306.0" y="100.0" />
+      <point x="1090.5" y="100.0" />
+      <point x="11.25" y="15.0" />
+    </edge>
+    <edge source="org.activiti.engine.runtime.NativeExecutionQuery" target="org.activiti.engine.query.NativeQuery">
+      <point x="0.0" y="-15.0" />
+      <point x="92.5" y="255.0" />
+      <point x="583.0833333333334" y="255.0" />
+      <point x="-61.66666666666663" y="15.0" />
+    </edge>
+    <edge source="org.activiti.engine.history.NativeHistoricProcessInstanceQuery" target="org.activiti.engine.query.NativeQuery">
+      <point x="0.0" y="-15.0" />
+      <point x="762.0" y="275.0" />
+      <point x="657.0833333333334" y="275.0" />
+      <point x="12.333333333333371" y="15.0" />
+    </edge>
+    <edge source="org.activiti.engine.history.HistoricDetailQuery" target="org.activiti.engine.query.Query">
+      <point x="0.0" y="-15.0" />
+      <point x="1743.0" y="80.0" />
+      <point x="1105.5" y="80.0" />
+      <point x="26.25" y="15.0" />
+    </edge>
+    <edge source="org.activiti.engine.history.HistoricProcessInstanceQuery" target="org.activiti.engine.query.Query">
+      <point x="0.0" y="-15.0" />
+      <point x="1963.5" y="70.0" />
+      <point x="1113.0" y="70.0" />
+      <point x="33.75" y="15.0" />
+    </edge>
+    <edge source="org.activiti.engine.task.NativeTaskQuery" target="org.activiti.engine.query.NativeQuery">
+      <point x="0.0" y="-15.0" />
+      <point x="527.5" y="275.0" />
+      <point x="632.4166666666666" y="275.0" />
+      <point x="-12.333333333333371" y="15.0" />
+    </edge>
+    <edge source="org.activiti.engine.history.NativeHistoricActivityInstanceQuery" target="org.activiti.engine.query.NativeQuery">
+      <point x="0.0" y="-15.0" />
+      <point x="1339.0" y="255.0" />
+      <point x="706.4166666666667" y="255.0" />
+      <point x="61.66666666666674" y="15.0" />
+    </edge>
+    <edge source="org.activiti.engine.runtime.JobQuery" target="org.activiti.engine.query.Query">
+      <point x="0.0" y="-15.0" />
+      <point x="49.0" y="50.0" />
+      <point x="1030.5" y="50.0" />
+      <point x="-48.75" y="15.0" />
+    </edge>
+    <edge source="org.activiti.engine.history.NativeHistoricTaskInstanceQuery" target="org.activiti.engine.query.NativeQuery">
+      <point x="0.0" y="-15.0" />
+      <point x="1050.5" y="265.0" />
+      <point x="681.75" y="265.0" />
+      <point x="37.0" y="15.0" />
+    </edge>
+    <edge source="org.activiti.engine.task.TaskQuery" target="org.activiti.engine.query.Query">
+      <point x="0.0" y="-15.0" />
+      <point x="376.0" y="70.0" />
+      <point x="1045.5" y="70.0" />
+      <point x="-33.75" y="15.0" />
+    </edge>
+    <edge source="org.activiti.engine.runtime.NativeProcessInstanceQuery" target="org.activiti.engine.query.NativeQuery">
+      <point x="0.0" y="-15.0" />
+      <point x="318.5" y="265.0" />
+      <point x="607.75" y="265.0" />
+      <point x="-37.0" y="15.0" />
+    </edge>
+    <edge source="org.activiti.engine.history.HistoricTaskInstanceQuery" target="org.activiti.engine.query.Query">
+      <point x="0.0" y="-15.0" />
+      <point x="2209.0" y="60.0" />
+      <point x="1120.5" y="60.0" />
+      <point x="41.25" y="15.0" />
+    </edge>
+    <edge source="org.activiti.engine.repository.ModelQuery" target="org.activiti.engine.query.Query">
+      <point x="0.0" y="-15.0" />
+      <point x="1010.5" y="110.0" />
+      <point x="1075.5" y="110.0" />
+      <point x="-3.75" y="15.0" />
+    </edge>
+    <edge source="org.activiti.engine.history.HistoricVariableInstanceQuery" target="org.activiti.engine.query.Query">
+      <point x="0.0" y="-15.0" />
+      <point x="2457.0" y="50.0" />
+      <point x="1128.0" y="50.0" />
+      <point x="48.75" y="15.0" />
+    </edge>
+    <edge source="org.activiti.engine.history.HistoricActivityInstanceQuery" target="org.activiti.engine.query.Query">
+      <point x="0.0" y="-15.0" />
+      <point x="1522.5" y="90.0" />
+      <point x="1098.0" y="90.0" />
+      <point x="18.75" y="15.0" />
+    </edge>
+    <edge source="org.activiti.engine.identity.UserQuery" target="org.activiti.engine.query.Query">
+      <point x="0.0" y="-15.0" />
+      <point x="665.5" y="90.0" />
+      <point x="1060.5" y="90.0" />
+      <point x="-18.75" y="15.0" />
+    </edge>
+    <edge source="org.activiti.engine.runtime.ProcessInstanceQuery" target="org.activiti.engine.query.Query">
+      <point x="0.0" y="-15.0" />
+      <point x="210.0" y="60.0" />
+      <point x="1038.0" y="60.0" />
+      <point x="-41.25" y="15.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="807.0" y="142.5" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>public</VISIBILITY>
+</Diagram>
+

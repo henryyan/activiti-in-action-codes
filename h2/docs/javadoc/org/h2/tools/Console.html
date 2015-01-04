@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head><meta http-equiv="Content-Type" content="text/html;charset=utf-8" /><title>
+Console
+</title><link rel="stylesheet" type="text/css" href="../../../stylesheet.css" />
+<script type="text/javascript" src="../../../animate.js"></script>
+</head><body onload="openLink();">
+<table class="content"><tr class="content"><td class="content"><div class="contentDiv">
+<h1>Console</h1>
+Starts the H2 Console (web-) server, as well as the TCP and PG server.<br /><br />
+<table class="block"><tr onclick="return allDetails()"><th colspan="2">Methods</th></tr>
+<tr id="__0" onclick="return on(0)">
+<td class="return">static void</td><td class="method">
+<a id="main_String..." href="#main_String...">main</a>(String... args)
+<div class="methodText">When running without options, -tcp, -web, -browser and -pg are started.</div>
+</td></tr>
+<tr onclick="return off(0)" class="detail" id="_0">
+<td class="return">static void</td><td>
+<a id="main_String..." href="#main_String...">main</a>(String... args) throws SQLException
+<div class="methodText">When running without options, -tcp, -web, -browser and -pg are started.
+ <br />
+ Options are case sensitive. Supported options are:
+ <table>
+ <tr><td>[-help] or [-?]</td>
+ <td>Print the list of options</td></tr>
+ <tr><td>[-url]</td>
+ <td>Start a browser and connect to this URL</td></tr>
+ <tr><td>[-driver]</td>
+ <td>Used together with -url: the driver</td></tr>
+ <tr><td>[-user]</td>
+ <td>Used together with -url: the user name</td></tr>
+ <tr><td>[-password]</td>
+ <td>Used together with -url: the password</td></tr>
+ <tr><td>[-web]</td>
+ <td>Start the web server with the H2 Console</td></tr>
+ <tr><td>[-tool]</td>
+ <td>Start the icon or window that allows to start a browser</td></tr>
+ <tr><td>[-browser]</td>
+ <td>Start a browser connecting to the web server</td></tr>
+ <tr><td>[-tcp]</td>
+ <td>Start the TCP server</td></tr>
+ <tr><td>[-pg]</td>
+ <td>Start the PG server</td></tr>
+ </table>
+ For each Server, additional options are available;
+ for details, see the Server tool.<br />
+ If a service can not be started, the program
+ terminates with an exit code of 1.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">args - the command line arguments</div>
+</td></tr>
+<tr id="__1" onclick="return on(1)">
+<td class="return">void</td><td class="method">
+<a id="runTool_String..." href="#runTool_String...">runTool</a>(String... args)
+<div class="methodText">This tool starts the H2 Console (web-) server, as well as the TCP and PG
+ server.</div>
+</td></tr>
+<tr onclick="return off(1)" class="detail" id="_1">
+<td class="return">void</td><td>
+<a id="runTool_String..." href="#runTool_String...">runTool</a>(String... args) throws SQLException
+<div class="methodText">This tool starts the H2 Console (web-) server, as well as the TCP and PG
+ server. For JDK 1.6, a system tray icon is created, for platforms that
+ support it. Otherwise, a small window opens.</div>
+<div class="itemTitle">Parameters:</div>
+<div class="item">args - the command line arguments</div>
+</td></tr>
+</table>
+</div></td></tr></table></body></html>

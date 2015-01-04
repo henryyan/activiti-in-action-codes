@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+	<!-- 定义角色 -->
+	<ACT_ID_GROUP ID_="admin" NAME_="管理员" />
+	<ACT_ID_GROUP ID_="generalManager" NAME_="总经理" />
+	<ACT_ID_GROUP ID_="deptLeader" NAME_="部门经理" />
+	<ACT_ID_GROUP ID_="hr" NAME_="人事经理" />
+	<ACT_ID_GROUP ID_="treasurer" NAME_="财务人员" />
+	<ACT_ID_GROUP ID_="cashier" NAME_="出纳员" />
+	<ACT_ID_GROUP ID_="supportCrew" NAME_="后勤人员" />
+
+	<!-- 管理员 -->
+	<ACT_ID_USER ID_="henry" EMAIL_="admin@localhost" FIRST_="Henry" LAST_="Yan" PWD_="000000" />
+	<ACT_ID_MEMBERSHIP USER_ID_="henry" GROUP_ID_="admin" />
+	
+	<!-- 总经理 -->
+	<ACT_ID_USER ID_="bill" EMAIL_="bill@localhost" FIRST_="Bill" LAST_="Zheng" PWD_="000000" />
+	<ACT_ID_MEMBERSHIP USER_ID_="bill" GROUP_ID_="generalManager" />
+	
+	<!-- 人事经理 -->
+	<ACT_ID_USER ID_="jenny" EMAIL_="hr@localhost" FIRST_="Jenny" LAST_="Luo" PWD_="000000" />
+	<ACT_ID_MEMBERSHIP USER_ID_="jenny" GROUP_ID_="hr" />
+	
+	<!-- 市场部 -->
+	<ACT_ID_USER ID_="eric" EMAIL_="eric@localhost" FIRST_="Eric" LAST_="Li" PWD_="000000" />
+	<ACT_ID_USER ID_="tom" EMAIL_="tom@localhost" FIRST_="Tom" LAST_="Wang" PWD_="000000" />
+	<ACT_ID_USER ID_="kermit" EMAIL_="kermit@localhost" FIRST_="Kermit" LAST_="Miao" PWD_="000000" />
+	<ACT_ID_MEMBERSHIP USER_ID_="kermit" GROUP_ID_="deptLeader" />
+	
+	<!-- 业务部 -->
+	<ACT_ID_USER ID_="amy" EMAIL_="amy@localhost" FIRST_="Amy" LAST_="Zhang" PWD_="000000" />
+	<ACT_ID_USER ID_="andy" EMAIL_="andy@localhost" FIRST_="Andy" LAST_="Zhao" PWD_="000000" />
+	<ACT_ID_MEMBERSHIP USER_ID_="andy" GROUP_ID_="deptLeader" />
+
+	<!-- 财务 -->
+	<ACT_ID_USER ID_="tony" EMAIL_="tony@localhost" FIRST_="Tony" LAST_="Zhang" PWD_="000000" />
+	<ACT_ID_MEMBERSHIP USER_ID_="tony" GROUP_ID_="treasurer" />
+	<ACT_ID_MEMBERSHIP USER_ID_="tony" GROUP_ID_="cashier" />
+
+	<!-- 后勤 -->
+	<ACT_ID_USER ID_="thomas" EMAIL_="thomas@localhost" FIRST_="Thomas" LAST_="Wang" PWD_="000000" />
+	<ACT_ID_MEMBERSHIP USER_ID_="thomas" GROUP_ID_="supportCrew" />
+</dataset>
