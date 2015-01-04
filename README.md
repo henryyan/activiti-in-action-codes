@@ -1,9 +1,11 @@
-activiti-in-action-codes
+《Activiti实战》示例源码
 ========================
 
 Activiti官方唯一推荐中文书籍——《Activiti实战》示例源码
 
 Activiti项目负责人Tijs Rademakers高度认可并推荐，根据Activiti新版本系统、深度讲解了BPMN2.0规范，以及Activiti功能、用法、技巧、实践和源代码分析。
+
+<img src="http://www.kafeitu.me/images/activiti-in-action.jpg" width="510" />
 
 # 编辑推荐
 
@@ -22,9 +24,25 @@ Activiti项目负责人Tijs Rademakers高度认可并推荐，根据Activiti新�
 
 # 精彩书评
 
->Tijs Rademakers，Activiti 项目负责人
+>Tijs Rademakers——Activiti 项目负责人
 
 长期以来，Henry Yan通过他的社区及博客一直致力于在中国广泛推广Activiti，为Activiti项目做出了巨大(或宝贵)贡献。很高兴看到他的《Activiti实战》一书将为Activiti 的中国使用者及开发者提供非常多的重要价值。在Activiti项目方面，Henry Yan具有非常专业的背景经验，在此，我向各位包括已经在使用Activiti的开发者及Activiti新手极力推荐此书。
+
+>徐会生（临远）——jBPM国内推广者，Activiti国内推广者
+
+咖啡兔同学的《Activiti实战》终于出炉，欣喜之情溢于言表。国内的工作流行业虽然产品繁多，但是开源一直为Activiti和jBPM垄断，相对来言Activiti延续了一贯方便灵活的特性，又不会在功能上有半分折损，在国内拥有大量的粉丝。咖啡兔同学此前一直致力于Activiti在国内的推广与传播，先后开辟了专栏博客、Activiti论坛网站、QQ群组，并积极参与Activiti的官方开发，可以说Activiti在国内能达到当前的认知程度，他是功不可没的。可惜，国内尚缺一本可以为Activiti新手答疑解惑，带初阶者更上一层楼的实体书籍。那么我觉得，这个任务由一直积极活跃于Activiti开源社区，既拥有实际流程项目设计研发经验，又为Activiti官方内核提交过代码的人是再合适不过了。
+
+全书由浅入深的引导读者进入工作流的殿堂，不仅覆盖常见的流程功能与实现方法，还专门提供了作者实践中总结的经验方法，这本书必将成为学习流程道路上的得力助手。
+
+>袁启勋（北京信舟科技创始人）
+
+在开源BPM领域，你或许不知道“闫洪磊”是谁，但你必须听说过“咖啡兔”，否则，你不能说你曾经玩过开源BPM！
+
+咖啡兔是我从事BPM工作几年来，少有的一位对BPM领域有较深认识的人，同时他对于开源界热情的、积极的、无私的贡献精神，让我感动。我们信舟科技SuperBPM平台的诞生，离不开咖啡兔提供的巨大	帮助，在此表示感谢。Activiti是一个优秀的项目，让我们能够很容易的将BPM引入我们的企业级应用中，但Activiti毕竟是国外的开源产品，她与国内很多BPM应用还是有些差异，我们还需要对其做一些必要的个性化扩展和补充，才能用于我们实际的企业应用。目前国内关于Activiti的专业资料，几乎没有，而《Activiti实战》无疑是目前最佳的入门宝典，书中介绍了很多案例，都是实际BPM应用中总结的宝贵经验，相信你们将与我一样从中受益，并快速的将Activiti集成到自己的企业应用中，让Activiti绽放光芒。
+
+>Robinson（edoc2 CTO ）
+
+自2010年Tom Bayen离开jBoss加入Afresco公司开发出Activit5，在短短几年时间内，国内有着大批企事业单位和大型金融机构基于Activiti5来构建各类业务流程系统，那是因为 Activiti功能稳定、性能良好、对BPMN2规范的完全支持、API应用友好性和扩展性方面都有 着卓越的表现。个人从2010年接触工作流至今已15年，认为Activti5是完全可以与Ultimus 、K2等大型商用工作流引擎相媲美的大型开源产品，加上国内有着咖啡兔等众多开源奉献者和非常活跃地社区支持，相信Activiti在国内BPM界会发挥更大地作用和价值，也希望这本汇集的各种实战经验能帮助读者深入了解Activiti。
 
 # 立即购买
 
@@ -33,3 +51,7 @@ Activiti项目负责人Tijs Rademakers高度认可并推荐，根据Activiti新�
 * 当当（有点贵）：http://product.dangdang.com/23622065.html
 * 亚马逊（还未上架）。。。
 * X宝：自己搜索吧，但请支持正版
+
+# 那啥
+
+没有买书？觉得源码有料？买本书吧，也就少喝两杯咖啡而已~~~
