@@ -54,6 +54,10 @@ Activiti项目负责人Tijs Rademakers高度认可并推荐，根据Activiti新�
 * 亚马逊（还未上架）。。。
 * X宝：自己搜索吧，但请支持正版
 
+# 下载依赖失败解决办法
+
+鉴于国内网络特殊问题，`建议`使用**开源中国**提供的Maven仓库代理中央仓库，参考 [http://maven.oschina.net/help.html](http://maven.oschina.net/help.html)
+
 # 那啥
 
 没有买书？觉得源码有料？买本书吧，也就少喝两杯咖啡而已~~~
