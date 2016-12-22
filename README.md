@@ -28,6 +28,9 @@ Activiti项目负责人Tijs Rademakers高度认可并推荐，根据Activiti新�
 
 >Tijs Rademakers——Activiti 项目负责人
 
+Henry Yan has been a longtime valued contributor to the Activiti project, both for his commits and for promoting Activiti in China through his community and blog site (http://www.kafeitu.me/activiti.html).
+It’s great to see his Activiti book as it brings a lot of value for Activiti users and developers in China. With Henry Yan’s background in the Activiti project I highly recommend this book for new Activiti users as well as developers already using Activiti.
+
 长期以来，Henry Yan通过他的社区及博客一直致力于在中国广泛推广Activiti，为Activiti项目做出了巨大(或宝贵)贡献。很高兴看到他的《Activiti实战》一书将为Activiti 的中国使用者及开发者提供非常多的重要价值。在Activiti项目方面，Henry Yan具有非常专业的背景经验，在此，我向各位包括已经在使用Activiti的开发者及Activiti新手极力推荐此书。
 
 >徐会生（临远）——jBPM国内推广者，Activiti国内推广者
