@@ -132,7 +132,7 @@ public class LeaveDynamicFormTest extends AbstractTest {
         ProcessInstance processInstance = formService.submitStartFormData(processDefinition.getId(), variables);
         assertNotNull(processInstance);
 
-        // 部门领导审批通过
+        // 部门领导驳回申请
         Task deptLeaderTask = taskService.createTaskQuery().taskCandidateGroup("deptLeader").singleResult();
         variables = new HashMap<String, String>();
         variables.put("deptLeaderApproved", "false");
