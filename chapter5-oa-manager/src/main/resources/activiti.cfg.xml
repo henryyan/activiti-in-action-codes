@@ -4,7 +4,13 @@
 		xsi:schemaLocation="http://www.springframework.org/schema/beans
 				http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<bean id="processEngineConfiguration" class="org.activiti.engine.impl.cfg.StandaloneInMemProcessEngineConfiguration">
+	<!--<bean id="processEngineConfiguration" class="org.activiti.engine.impl.cfg.StandaloneInMemProcessEngineConfiguration">
 		<property name="databaseSchemaUpdate" value="true"/>
+	</bean>-->
+
+	<bean id="processEngineConfiguration" class="org.activiti.engine.impl.cfg.StandaloneProcessEngineConfiguration">
+		<!--<property name="jdbcUrl" value="jdbc:h2:mem:activiti"/>-->
+		<property name="databaseSchemaUpdate" value="true"/>
+		<property name="jdbcUrl" value="jdbc:h2:file://c:/tmp/h2/activiti"/>
 	</bean>
 </beans>
