@@ -17,7 +17,7 @@
 	<mvc:default-servlet-handler />
 
 	<!-- 定义首页 -->
-	<mvc:view-controller path="/" view-name="redirect:/login/" />
+	<mvc:view-controller path="/" view-name="redirect:/chapter5/process-list/" />
 
 	<!-- 定义JSP -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
