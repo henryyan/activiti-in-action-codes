@@ -17,6 +17,7 @@
 		create
 		false, schema check version
 		true, schema update
+		详见org.activiti.engine.impl.db.DbSqlSession.dbSchemaUpdate
 		-->
 		<property name="databaseSchemaUpdate" value="drop-create"/>
 		<property name="jdbcUrl" value="jdbc:h2:file://c:/tmp/h2/activiti/chapter5"/>
