@@ -11,6 +11,6 @@
 	<bean id="processEngineConfiguration" class="org.activiti.engine.impl.cfg.StandaloneProcessEngineConfiguration">
 		<!--<property name="jdbcUrl" value="jdbc:h2:mem:activiti"/>-->
 		<property name="databaseSchemaUpdate" value="true"/>
-		<property name="jdbcUrl" value="jdbc:h2:file://c:/tmp/h2/activiti"/>
+		<property name="jdbcUrl" value="jdbc:h2:file://c:/tmp/h2/activiti/chapter5"/>
 	</bean>
 </beans>

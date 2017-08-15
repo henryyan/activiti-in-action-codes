@@ -28,17 +28,17 @@
 
 	<!-- Maven仓库定义 -->
 	<repositories>
-        <repository>
+        <!--<repository>
             <id>central</id>
             <url>http://maven.oschina.net/content/groups/public/</url>
         </repository>
         <repository>
             <id>nexus-osc-thirdparty</id>
             <url>http://maven.oschina.net/content/repositories/thirdparty/</url>
-        </repository>
+        </repository>-->
 
         <!-- Activiti的仓库 -->
-		<repository>
+		<!--<repository>
 			<id>Activiti</id>
 			<url>https://maven.alfresco.com/nexus/content/repositories/activiti</url>
 		</repository>
@@ -46,19 +46,22 @@
 		<repository>
 			<id>Alfresco</id>
 			<url>https://maven.alfresco.com/nexus/content/repositories/public</url>
-		</repository>
+		</repository>-->
 
 		<!-- Mulesoft的仓库 -->
-		<repository>
+		<!--<repository>
 			<id>Mulesoft</id>
 			<url>https://repository-master.mulesoft.org/nexus/content/groups/public/</url>
-		</repository>
+		</repository>-->
 	</repositories>
 
 	<modules>
 		<module>bpmn20-example</module>
 		<module>chapter5-oa-manager</module>
 		<module>chapter6-oa-forms</module>
+		<!--
+
+
 		<module>chapter7-spring</module>
 		<module>chapter7-spring-boot</module>
 		<module>chapter7-cdi</module>
@@ -69,10 +72,21 @@
 		<module>chapter13-query</module>
 		<module>chapter14-management</module>
 		<module>chapter17-jpa</module>
-		<!-- 第18章依赖太多，请去掉注释编译 -->
-        <!--module>chapter18-esb</module-->
+
+		<module>chapter18-esb</module>
 		<module>chapter19-identity</module>
 		<module>chapter20-rest</module>
 		<module>chapter21-invade</module>
+		-->
     </modules>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+		</dependency>
+	</dependencies>
+
 </project>
