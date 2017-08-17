@@ -4,6 +4,7 @@
 				http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<bean id="processEngineConfiguration" class="org.activiti.engine.impl.cfg.StandaloneProcessEngineConfiguration">
+		<!-- 这里~表示home目录 -->
 		<property name="jdbcUrl" value="jdbc:h2:file:~/activiti-in-action-chapter6;AUTO_SERVER=TRUE" />
 		<property name="jdbcDriver" value="org.h2.Driver" />
 		<property name="jdbcUsername" value="sa" />
