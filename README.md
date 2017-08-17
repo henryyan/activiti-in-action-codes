@@ -10,3 +10,8 @@
     ```xml
     <property name="jdbcUrl" value="jdbc:h2:file:~/activiti-in-action-chapter6;AUTO_SERVER=TRUE" />
     ```
+- 测试步骤
+    ```text
+    mvn antrun:run -Pinit-db
+    mvn jetty:run
+    ```
