@@ -15,3 +15,9 @@
     mvn antrun:run -Pinit-db
     mvn jetty:run
     ```
+    
+## chapter7
+- spring自动部署.bpmn
+    ```text
+    me.kafeitu.activiti.chapter7.engine.AutoDeploymentUseSpring
+    ```
