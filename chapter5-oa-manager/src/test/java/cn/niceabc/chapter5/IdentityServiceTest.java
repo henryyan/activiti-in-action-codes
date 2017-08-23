@@ -10,9 +10,11 @@ import org.junit.Test;
 
 public class IdentityServiceTest {
 
+    String configurationResource = "activiti.cfg.xml";
+
     @Rule
     // 默认加载activiti.cfg.xml
-    public ActivitiRule activitiRule = new ActivitiRule();
+    public ActivitiRule activitiRule = new ActivitiRule(configurationResource);
 
     @Test
     public void testUser() {
