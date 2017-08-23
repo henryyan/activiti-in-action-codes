@@ -9,8 +9,15 @@
         <activiti:taskListener event="create" expression="${myBean.invokeTask(task)}"></activiti:taskListener>
       </extensionElements>
     </userTask>
-    <serviceTask id="getAuthenticatedUserId" name="获取流程启动人" activiti:expression="${authenticatedUserId}" activiti:resultVariableName="authenticatedUserIdForTest"></serviceTask>
-    <serviceTask id="executionExample" name="Execution变量" activiti:expression="${myBean.printBkey(execution)}" activiti:resultVariableName="businessKey"></serviceTask>
+
+    <serviceTask id="getAuthenticatedUserId" name="获取流程启动人"
+                 activiti:expression="${authenticatedUserId}"
+                 activiti:resultVariableName="authenticatedUserIdForTest"></serviceTask>
+
+    <serviceTask id="executionExample" name="Execution变量"
+                 activiti:expression="${myBean.printBkey(execution)}"
+                 activiti:resultVariableName="businessKey"></serviceTask>
+
     <sequenceFlow id="flow1" name="" sourceRef="startevent1" targetRef="getAuthenticatedUserId"></sequenceFlow>
     <sequenceFlow id="flow2" name="" sourceRef="usertask1" targetRef="endevent1"></sequenceFlow>
     <sequenceFlow id="flow3" name="" sourceRef="executionExample" targetRef="usertask1"></sequenceFlow>
