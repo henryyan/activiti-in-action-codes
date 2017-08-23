@@ -55,16 +55,23 @@
 		</repository>-->
 	</repositories>
 
+	<dependencies>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+		</dependency>
+	</dependencies>
+
 	<modules>
 		<module>bpmn20-example</module>
 		<module>chapter5-oa-manager</module>
 		<module>chapter6-oa-forms</module>
-		<!--
-
-
 		<module>chapter7-spring</module>
 		<module>chapter7-spring-boot</module>
 		<module>chapter7-cdi</module>
+		<!--
 		<module>chapter8-mail</module>
 		<module>chapter9-multi-instance</module>
 		<module>chapter10-subprocess-callactivity</module>
@@ -77,16 +84,8 @@
 		<module>chapter19-identity</module>
 		<module>chapter20-rest</module>
 		<module>chapter21-invade</module>
+
 		-->
-    </modules>
-
-	<dependencies>
-
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.12</version>
-		</dependency>
-	</dependencies>
+	</modules>
 
 </project>
