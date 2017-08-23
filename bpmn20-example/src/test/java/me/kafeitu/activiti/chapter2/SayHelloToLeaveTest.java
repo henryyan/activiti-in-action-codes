@@ -15,10 +15,13 @@ public class SayHelloToLeaveTest {
 
     @Test
     public void testStartProcess() throws Exception {
+
+        // ProcessEngine
         ProcessEngine processEngine = ProcessEngineConfiguration
                 .createStandaloneInMemProcessEngineConfiguration()
                 .buildProcessEngine();
 
+        // deployment
         RepositoryService repositoryService = processEngine.getRepositoryService();
         String bpmnFileName = "me/kafeitu/activiti/helloworld/SayHelloToLeave.bpmn";
         repositoryService
@@ -28,28 +31,35 @@ public class SayHelloToLeaveTest {
                         this.getClass().getClassLoader()
                                 .getResourceAsStream(bpmnFileName)).deploy();
 
+        // definition
         ProcessDefinition processDefinition = repositoryService
                 .createProcessDefinitionQuery().singleResult();
         assertEquals("SayHelloToLeave", processDefinition.getKey());
 
+        // runtimeService
         RuntimeService runtimeService = processEngine.getRuntimeService();
 
         Map<String, Object> variables = new HashMap<String, Object>();
         variables.put("applyUser", "employee1");
         variables.put("days", 3);
 
+        // process instance
         ProcessInstance processInstance = runtimeService.startProcessInstanceByKey(
                 "SayHelloToLeave", variables);
         assertNotNull(processInstance);
         System.out.println("pid=" + processInstance.getId() + ", pdid="
                 + processInstance.getProcessDefinitionId());
 
+        // task service
         TaskService taskService = processEngine.getTaskService();
+
+        // task
         Task taskOfDeptLeader = taskService.createTaskQuery()
                 .taskCandidateGroup("deptLeader").singleResult();
         assertNotNull(taskOfDeptLeader);
         assertEquals("领导审批", taskOfDeptLeader.getName());
 
+        // task
         taskService.claim(taskOfDeptLeader.getId(), "leaderUser");
         variables = new HashMap<String, Object>();
         variables.put("approved", true);
@@ -59,6 +69,7 @@ public class SayHelloToLeaveTest {
                 .taskCandidateGroup("deptLeader").singleResult();
         assertNull(taskOfDeptLeader);
 
+        // history service
         HistoryService historyService = processEngine.getHistoryService();
         long count = historyService.createHistoricProcessInstanceQuery().finished()
                 .count();
