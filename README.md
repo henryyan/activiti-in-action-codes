@@ -25,3 +25,4 @@
     ```text
     me.kafeitu.activiti.chapter7.listener.ListenerTest
     ```
+- spring事务管理 `业务数据`和`流程数据`
