@@ -62,7 +62,7 @@ public class ProcessEngineAutoConfigurationTest {
 
         List<ProcessDefinition> processDefinitionList =
                 this.repositoryService.createProcessDefinitionQuery()
-                        .processDefinitionKey("waiter")
+                        .processDefinitionKey("simpleProcess")
                         .list();
 
         Assert.assertNotNull(processDefinitionList);
@@ -70,7 +70,7 @@ public class ProcessEngineAutoConfigurationTest {
 
         ProcessDefinition processDefinition =
                 processDefinitionList.iterator().next();
-        Assert.assertEquals(processDefinition.getKey(), "waiter");
+        Assert.assertEquals(processDefinition.getKey(), "simpleProcess");
 
     }
 
