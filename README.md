@@ -26,3 +26,14 @@
     me.kafeitu.activiti.chapter7.listener.ListenerTest
     ```
 - spring事务管理 `业务数据`和`流程数据`
+    ```text
+    me.kafeitu.activiti.chapter7.service.LeaveWorkflowService
+    ``` 
+- spring-boot + activiti
+    ```text
+    org.activiti.spring.boot.ProcessEngineAutoConfiguration
+    activiti-spring-boot模块在初始化时会扫描classpath:/processes/**.bpmn20.xml，并部署到引擎中
+    ```
+- activiti-cdi ??? 为什么要用这个？
+
+
