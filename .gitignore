@@ -5,3 +5,5 @@ target
 .bpmn
 .idea
 *.iml
+parent.ipr
+parent.iws
