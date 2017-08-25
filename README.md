@@ -36,4 +36,8 @@
     ```
 - activiti-cdi ??? 为什么要用这个？
 
+## chapter8
+- mail task
+- 自行搭建邮件服务未成功
+- boundaryEvent的使用
 

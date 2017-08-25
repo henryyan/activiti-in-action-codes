@@ -8,7 +8,7 @@
 		<version>1.0</version>
 	</parent>
 	<artifactId>chapter8-mail</artifactId>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>Activiti实战 第8章《邮件服务》</name>
 
 	<!-- 依赖定义 -->
