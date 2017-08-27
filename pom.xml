@@ -73,10 +73,11 @@
 		<module>chapter7-cdi</module>
 		<module>chapter8-mail</module>
 		<module>chapter9-multi-instance</module>
+		<module>chapter10-subprocess-callactivity</module>
 		<!--
 
 
-		<module>chapter10-subprocess-callactivity</module>
+
 		<module>chapter12-task-attachment</module>
 		<module>chapter13-query</module>
 		<module>chapter14-management</module>

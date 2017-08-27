@@ -58,9 +58,14 @@ public class PurchaseCallActivityTest extends SpringActivitiTestCase {
         formService.submitTaskFormData(task.getId(), properties);
 
         // 验证是否启动子流程
-        Execution subExecution = runtimeService.createExecutionQuery().processDefinitionKey("payment").singleResult();
+        Execution subExecution = runtimeService
+                .createExecutionQuery()
+                .processDefinitionKey("payment")
+                .singleResult();
         assertNotNull(subExecution);
-        assertEquals(listing, runtimeService.getVariable(subExecution.getId(), "usage"));
+
+        assertEquals(listing, runtimeService
+                .getVariable(subExecution.getId(), "usage"));
         HistoricProcessInstance historicProcessInstance = historyService.createHistoricProcessInstanceQuery()
                 .processInstanceId(subExecution.getProcessInstanceId()).singleResult();
         assertEquals("kermit", historicProcessInstance.getStartUserId());
