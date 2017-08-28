@@ -3,6 +3,7 @@
   <process id="testMultiInstanceForUserTask" name="testMultiInstanceForUserTask" isExecutable="true">
     <startEvent id="startevent1" name="Start"></startEvent>
     <userTask id="usertask1" name="User Task">
+      <!-- isSequential=true表示这是一个串行任务 -->
       <multiInstanceLoopCharacteristics isSequential="true">
         <loopCardinality>3</loopCardinality>
       </multiInstanceLoopCharacteristics>

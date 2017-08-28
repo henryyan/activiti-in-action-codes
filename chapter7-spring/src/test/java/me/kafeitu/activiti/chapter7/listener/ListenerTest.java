@@ -30,15 +30,25 @@ public class ListenerTest extends AbstractTest {
         variables.put("name", "Henry Yan");
 
         identityService.setAuthenticatedUserId("henryyan");
-        ProcessInstance processInstance = runtimeService.startProcessInstanceByKey("listener", variables);
+
+        // listener is process's id
+        ProcessInstance processInstance =
+                runtimeService.startProcessInstanceByKey("listener", variables);
 
         // 校验是否执行了启动监听
         String processInstanceId = processInstance.getId();
+
         assertTrue((Boolean) runtimeService.getVariable(processInstanceId, "setInStartListener"));
 
-        Task task = taskService.createTaskQuery().processInstanceId(processInstanceId).taskAssignee("jenny").singleResult();
-        String setInTaskCreate = (String) taskService.getVariable(task.getId(), "setInTaskCreate");
+        Task task = taskService
+                .createTaskQuery()
+                .processInstanceId(processInstanceId)
+                .taskAssignee("jenny").singleResult();
+
+        String setInTaskCreate = (String) taskService
+                .getVariable(task.getId(), "setInTaskCreate");
         assertEquals("create, Hello, Henry Yan", setInTaskCreate);
+
         taskService.complete(task.getId());
 
         // 流程结束后查询变量

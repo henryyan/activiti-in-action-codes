@@ -34,8 +34,13 @@ public class PurchaseSubProcessTest extends SpringActivitiTestCase {
         properties.put("amountMoney", "22000");
 
         identityService.setAuthenticatedUserId("henryyan");
-        ProcessDefinition processDefinition = repositoryService.createProcessDefinitionQuery().processDefinitionKey("purchase-subprocess").singleResult();
-        ProcessInstance processInstance = formService.submitStartFormData(processDefinition.getId(), properties);
+        ProcessDefinition processDefinition = repositoryService
+                .createProcessDefinitionQuery()
+                .processDefinitionKey("purchase-subprocess").singleResult();
+
+        ProcessInstance processInstance = formService
+                .submitStartFormData(processDefinition.getId(), properties);
+
         assertNotNull(processInstance);
 
         // 部门领导
@@ -56,9 +61,17 @@ public class PurchaseSubProcessTest extends SpringActivitiTestCase {
         formService.submitTaskFormData(task.getId(), properties);
 
         // 验证是否启动子流程
-        Execution subExecution = runtimeService.createExecutionQuery().processInstanceId(processInstance.getId()).activityId("treasurerAudit").singleResult();
+        // 这里只是验证是否已经进入了子流程，进入子流程并不需要startProcess
+        Execution subExecution = runtimeService
+                .createExecutionQuery()
+                .processInstanceId(processInstance.getId())
+                .activityId("treasurerAudit")
+                .singleResult();
+
         assertNotNull(subExecution);
-        assertEquals(listing, runtimeService.getVariable(processInstance.getId(), "usage"));
+        assertEquals(listing, runtimeService
+                .getVariable(processInstance.getId(), "usage"));
+
 
         // 子流程--财务审批
         task = taskService.createTaskQuery().taskCandidateGroup("treasurer").singleResult();

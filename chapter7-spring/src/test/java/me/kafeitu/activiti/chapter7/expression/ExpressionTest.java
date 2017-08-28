@@ -33,10 +33,25 @@ public class ExpressionTest extends AbstractTest {
         // 运行期表达式
         identityService.setAuthenticatedUserId("henryyan");
         String businessKey = "9999"; // 业务ID
-        ProcessInstance processInstance = runtimeService.startProcessInstanceByKey("expression", businessKey, variables);
-        assertEquals("henryyan", runtimeService.getVariable(processInstance.getId(), "authenticatedUserIdForTest"));
-        assertEquals("Henry Yan, added by print(String name)", runtimeService.getVariable(processInstance.getId(), "returnValue"));
-        assertEquals(businessKey, runtimeService.getVariable(processInstance.getId(), "businessKey"));
+
+        ProcessInstance processInstance =
+                runtimeService.startProcessInstanceByKey("expression",
+                        businessKey, variables);
+
+        //1, print content by print(String name), value is : Henry Yan
+        //2, return value = , Henry Yan added by print(String name)
+
+        assertEquals("henryyan",
+                runtimeService.getVariable(processInstance.getId(),
+                        "authenticatedUserIdForTest"));
+
+        assertEquals("Henry Yan, added by print(String name)",
+                runtimeService.getVariable(processInstance.getId(),
+                        "returnValue"));
+
+        assertEquals(businessKey,
+                runtimeService.getVariable(processInstance.getId(),
+                        "businessKey"));
 
         // 显示数据库状态
         List<Map<String, Object>> rows = managementService.createTablePageQuery().tableName("ACT_HI_DETAIL").listPage(0, 100).getRows();
