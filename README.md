@@ -42,6 +42,9 @@
 - boundaryEvent的使用
 
 ## chapter9
+- 多实例，某一个task由多个实例组成，如果是usertask，则需要多人次操作
+
+## chapter10
 - 子流程
 - 调用活动
 
