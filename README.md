@@ -77,3 +77,13 @@
         - cancel event
         - compensation event，补偿
 
+## chapter12
+- 附件
+- 委派
+    ```java
+    taskService.delegateTask(task.getId(), delegatedUserId);
+    ```
+
+## chapter13
+
+
