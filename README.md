@@ -50,5 +50,30 @@
 
 ## chapter11
 - 事件，这章还需要再研究
-
+    - 开始
+        - start event
+        - start timer event
+        - start signal event
+        - start message event
+        - start error event
+    - 结束
+        - end event
+        - end error event
+        - end cancel event
+        - end terminate event
+    - 中间
+        - throwing
+            - none throwing event
+            - signal throwing event
+        - catching
+            - timer catching event
+            - signal catching event
+            - message catching event
+    - 边界
+        - error event
+        - timer event
+        - signal event
+        - message event
+        - cancel event
+        - compensation event，补偿
 
