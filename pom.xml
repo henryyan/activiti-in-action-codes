@@ -62,6 +62,29 @@
 			<artifactId>junit</artifactId>
 			<version>4.12</version>
 		</dependency>
+
+		<!-- LOGGING begin -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>${log4j.version}</version>
+		</dependency>
+		<!-- LOGGING end -->
 	</dependencies>
 
 	<modules>
@@ -75,12 +98,14 @@
 		<module>chapter9-multi-instance</module>
 		<module>chapter10-subprocess-callactivity</module>
 		<module>chapter12-task-attachment</module>
+		<module>chapter13-query</module>
+		<module>chapter11-event</module>
 		<!--
 
 
 
 
-		<module>chapter13-query</module>
+
 		<module>chapter14-management</module>
 		<module>chapter17-jpa</module>
 

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/processdef">
+  <process id="start-event" name="start-event" isExecutable="true">
+
+    <extensionElements>
+      <activiti:executionListener event="start" class="cn.niceabc.activiti.chapter11.StartListener">
+      </activiti:executionListener>
+
+      <activiti:executionListener event="start" expression="#{printer.timerStart()}">
+      </activiti:executionListener>
+
+      <activiti:executionListener event="end" class="cn.niceabc.activiti.chapter11.EndListener">
+      </activiti:executionListener>
+    </extensionElements>
+
+    <startEvent id="startEvent1">
+      <timerEventDefinition>
+        <timeDuration>PT20S</timeDuration>
+      </timerEventDefinition>
+    </startEvent>
+    <endEvent id="sid-2D429CF3-F98B-40B2-A3D2-EAF81B20A70B"></endEvent>
+    <sequenceFlow id="sid-E44B62F7-0891-4C88-A288-DFE2720CF402" sourceRef="startEvent1" targetRef="sid-2D429CF3-F98B-40B2-A3D2-EAF81B20A70B"></sequenceFlow>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_start-event">
+    <bpmndi:BPMNPlane bpmnElement="start-event" id="BPMNPlane_start-event">
+      <bpmndi:BPMNShape bpmnElement="startEvent1" id="BPMNShape_startEvent1">
+        <omgdc:Bounds height="30.0" width="30.0" x="100.0" y="163.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-2D429CF3-F98B-40B2-A3D2-EAF81B20A70B" id="BPMNShape_sid-2D429CF3-F98B-40B2-A3D2-EAF81B20A70B">
+        <omgdc:Bounds height="28.0" width="28.0" x="175.0" y="164.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="sid-E44B62F7-0891-4C88-A288-DFE2720CF402" id="BPMNEdge_sid-E44B62F7-0891-4C88-A288-DFE2720CF402">
+        <omgdi:waypoint x="130.0" y="178.0"></omgdi:waypoint>
+        <omgdi:waypoint x="175.0" y="178.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>
