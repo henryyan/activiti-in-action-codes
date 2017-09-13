@@ -7,7 +7,8 @@
 	<bean id="processEngineConfiguration" class="org.activiti.engine.impl.cfg.StandaloneInMemProcessEngineConfiguration">
 		<property name="databaseSchemaUpdate" value="true"/>
 		<property name="history" value="full"/>
-		
+		<property name="jdbcUrl" value="jdbc:h2:file:~/activiti-in-action-chapter13;DB_CLOSE_DELAY=1000" />
+
 		<!-- 自定义表单字段类型 -->
 		<property name="customFormTypes">
 			<list>

@@ -192,8 +192,8 @@
 				<version>3.0</version>
 				<configuration>
 					<!-- Activiti最低要求JDK1.5 -->
-					<source>1.6</source>
-					<target>1.6</target>
+					<source>1.8</source>
+					<target>1.8</target>
 					<showWarnings>true</showWarnings>
 				</configuration>
 			</plugin>
@@ -239,7 +239,9 @@
 								<property name="dbunit.datatype" value="org.dbunit.ext.h2.H2DataTypeFactory" />
 
 								<taskdef name="dbunit" classname="org.dbunit.ant.DbUnitTask" classpathref="maven.runtime.classpath" />
-								
+
+								<java classname="me.kafeitu.activiti.chapter6.util.InitEngineeDatabase" classpathref="maven.runtime.classpath" />
+
 								<!-- add init datas -->
 								<dbunit driver="${jdbc.driver}" url="${jdbc.url}" userid="${jdbc.username}" password="${jdbc.password}">
 									<dbconfig>

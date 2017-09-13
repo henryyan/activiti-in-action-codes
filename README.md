@@ -4,6 +4,13 @@
 - 添加了src/test/java
     - cn.niceabc.chapter5.IdentityServerTest.java
     - cn.niceabc.chapter5.UserAndGroupInUserTaskTest.java
+- databaseSchemaUpdate可以配置的值有：
+	- drop-create
+	- create-drop
+	- create
+	- false, schema check version
+	- true, schema update
+	- 详见org.activiti.engine.impl.db.DbSqlSession.dbSchemaUpdate    
 
 ## chapter6
 - 连接字符串里的~表示home
