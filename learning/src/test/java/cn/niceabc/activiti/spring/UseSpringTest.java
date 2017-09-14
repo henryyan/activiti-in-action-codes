@@ -1,4 +1,4 @@
-package cn.niceabc.no_spring;
+package cn.niceabc.activiti.spring;
 
 import org.activiti.engine.*;
 import org.activiti.engine.identity.Group;
@@ -10,24 +10,26 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-public class NoSpringTest {
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration("classpath:applicationContext.xml")
+public class UseSpringTest {
 
-    private ProcessEngine processEngine;
+    @Autowired
     private IdentityService identityService;
+    @Autowired
     private RepositoryService repositoryService;
+    @Autowired
     private RuntimeService runtimeService;
+    @Autowired
     private TaskService taskService;
 
     @Test
     public void test() {
-
-        //deploy
-        repositoryService.createDeployment()
-                .addClasspathResource("leave.bpmn20.xml")
-                .deploy();
-
-
 
         //create process definition
         ProcessDefinition processDefinition = repositoryService
@@ -81,13 +83,6 @@ public class NoSpringTest {
 
     @Before
     public void before() {
-        processEngine = ProcessEngineConfiguration
-                .createStandaloneInMemProcessEngineConfiguration()
-                .buildProcessEngine();
-        identityService = processEngine.getIdentityService();
-        repositoryService = processEngine.getRepositoryService();
-        runtimeService = processEngine.getRuntimeService();
-        taskService = processEngine.getTaskService();
 
         //group
 

@@ -1,4 +1,4 @@
-package cn.niceabc.no_spring;
+package cn.niceabc.activiti.no_spring;
 
 import org.activiti.engine.*;
 import org.activiti.engine.identity.Group;
