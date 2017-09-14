@@ -85,6 +85,12 @@
 			<version>${log4j.version}</version>
 		</dependency>
 		<!-- LOGGING end -->
+
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>1.3.172</version>
+		</dependency>
 	</dependencies>
 
 	<modules>
@@ -98,23 +104,19 @@
 		<module>chapter9-multi-instance</module>
 		<module>chapter10-subprocess-callactivity</module>
 		<module>chapter12-task-attachment</module>
-		<module>chapter13-query</module>
 		<module>chapter11-event</module>
-		<!--
-
-
-
-
-
+		<module>chapter13-query</module>
 		<module>chapter14-management</module>
-		<module>chapter17-jpa</module>
+        <module>learning</module>
+        <!--
+        <module>chapter17-jpa</module>
 
-		<module>chapter18-esb</module>
-		<module>chapter19-identity</module>
-		<module>chapter20-rest</module>
-		<module>chapter21-invade</module>
+        <module>chapter18-esb</module>
+        <module>chapter19-identity</module>
+        <module>chapter20-rest</module>
+        <module>chapter21-invade</module>
 
-		-->
+        -->
 	</modules>
 
 </project>
