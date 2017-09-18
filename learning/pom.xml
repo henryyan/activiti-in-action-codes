@@ -41,7 +41,15 @@
             <groupId>org.activiti</groupId>
             <artifactId>activiti-spring-boot</artifactId>
             <version>5.16.3</version>
+
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>log4j-over-slf4j</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
+
 
     </dependencies>
 
