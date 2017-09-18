@@ -37,7 +37,11 @@
             <version>${activiti.version}</version>
         </dependency>
 
-
+        <dependency>
+            <groupId>org.activiti</groupId>
+            <artifactId>activiti-spring-boot</artifactId>
+            <version>5.16.3</version>
+        </dependency>
 
     </dependencies>
 

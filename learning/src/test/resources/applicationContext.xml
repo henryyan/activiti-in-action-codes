@@ -23,7 +23,7 @@
 		<property name="jobExecutorActivate" value="false" />
 		
 		<!-- 自动部署资源 -->
-		<property name="deploymentResources" value="classpath*:/leave.bpmn20.xml"></property>
+		<property name="deploymentResources" value="classpath*:/processes/leave.bpmn20.xml"></property>
 
 
 	</bean>

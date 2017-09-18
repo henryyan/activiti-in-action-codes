@@ -24,7 +24,7 @@ public class ActivitiCfgTest {
 
         //deploy
         repositoryService.createDeployment()
-                .addClasspathResource("leave.bpmn20.xml")
+                .addClasspathResource("processes/leave.bpmn20.xml")
                 .deploy();
 
 

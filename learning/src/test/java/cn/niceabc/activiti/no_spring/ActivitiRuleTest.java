@@ -22,7 +22,7 @@ public class ActivitiRuleTest {
     private TaskService taskService;
 
     @Test
-    @Deployment(resources = "leave.bpmn20.xml")
+    @Deployment(resources = "processes/leave.bpmn20.xml")
     public void test() {
 
         //create process definition
