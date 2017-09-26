@@ -1,5 +1,6 @@
 package cn.niceabc.activiti.spring.servicetask;
 
+import cn.niceabc.activiti.spring.MyApp;
 import org.activiti.engine.IdentityService;
 import org.activiti.engine.RepositoryService;
 import org.activiti.engine.RuntimeService;
@@ -14,14 +15,11 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.test.SpringApplicationConfiguration;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = ServicetaskTest.MyApp.class)
+@SpringApplicationConfiguration(classes = MyApp.class)
 public class ServicetaskTest {
 
     @Autowired
@@ -116,10 +114,4 @@ public class ServicetaskTest {
 
     }
 
-    @Configuration
-    @ComponentScan
-    @EnableAutoConfiguration
-    public static class MyApp {
-
-    }
 }

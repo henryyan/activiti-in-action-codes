@@ -2,29 +2,40 @@
 <definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/processdef">
   <process id="servicetask" name="servicetask" isExecutable="true">
     <startEvent id="startEvent1"></startEvent>
-    <sequenceFlow id="sid-673C3934-FC89-4E19-953D-B6D284F0AC06" sourceRef="startEvent1" targetRef="sid-DA214407-6C45-4645-94D7-48F48583AE68"></sequenceFlow>
-    <endEvent id="sid-7FE5C56D-3A93-444F-A6EF-4E1AD4B49528"></endEvent>
-    <sequenceFlow id="sid-7183EFEC-05EB-4967-B3D0-6939B6F90FAC" sourceRef="sid-DA214407-6C45-4645-94D7-48F48583AE68" targetRef="sid-7FE5C56D-3A93-444F-A6EF-4E1AD4B49528"></sequenceFlow>
-    <serviceTask id="sid-DA214407-6C45-4645-94D7-48F48583AE68" name="servicetask" activiti:class="cn.niceabc.activiti.spring.servicetask.MyDelegate"></serviceTask>
+    <sequenceFlow id="sid-99A45829-3F43-4C25-A6AF-0C1D62DDB92C" sourceRef="startEvent1" targetRef="sid-EC905428-F13B-4596-9223-DDBBEFF61665"></sequenceFlow>
+    <sequenceFlow id="sid-4E33E50A-63B8-4ED2-9AEE-BFF9DA05499B" sourceRef="sid-EC905428-F13B-4596-9223-DDBBEFF61665" targetRef="sid-69C77B5D-9F26-4A2F-BAAD-D1243781DF0D"></sequenceFlow>
+    <endEvent id="sid-B4B24413-73BA-48D4-8AC5-582E2EAF2828"></endEvent>
+    <sequenceFlow id="sid-D506D367-AD9D-412B-A22E-84B10150B8A3" sourceRef="sid-69C77B5D-9F26-4A2F-BAAD-D1243781DF0D" targetRef="sid-B4B24413-73BA-48D4-8AC5-582E2EAF2828"></sequenceFlow>
+    <serviceTask id="sid-EC905428-F13B-4596-9223-DDBBEFF61665" name="servicetask1" activiti:class="cn.niceabc.activiti.spring.servicetask.MyDelegate"></serviceTask>
+    <serviceTask id="sid-69C77B5D-9F26-4A2F-BAAD-D1243781DF0D" name="servicetask2" activiti:class="cn.niceabc.activiti.spring.servicetask.MyActivityBehavior"></serviceTask>
   </process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_servicetask">
     <bpmndi:BPMNPlane bpmnElement="servicetask" id="BPMNPlane_servicetask">
       <bpmndi:BPMNShape bpmnElement="startEvent1" id="BPMNShape_startEvent1">
         <omgdc:Bounds height="30.0" width="30.0" x="100.0" y="163.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="sid-7FE5C56D-3A93-444F-A6EF-4E1AD4B49528" id="BPMNShape_sid-7FE5C56D-3A93-444F-A6EF-4E1AD4B49528">
-        <omgdc:Bounds height="28.0" width="28.0" x="320.0" y="164.0"></omgdc:Bounds>
+      <bpmndi:BPMNShape bpmnElement="sid-B4B24413-73BA-48D4-8AC5-582E2EAF2828" id="BPMNShape_sid-B4B24413-73BA-48D4-8AC5-582E2EAF2828">
+        <omgdc:Bounds height="28.0" width="28.0" x="465.0" y="164.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="sid-DA214407-6C45-4645-94D7-48F48583AE68" id="BPMNShape_sid-DA214407-6C45-4645-94D7-48F48583AE68">
-        <omgdc:Bounds height="80.0" width="100.0" x="175.0" y="138.0"></omgdc:Bounds>
+      <bpmndi:BPMNShape bpmnElement="sid-EC905428-F13B-4596-9223-DDBBEFF61665" id="BPMNShape_sid-EC905428-F13B-4596-9223-DDBBEFF61665">
+        <omgdc:Bounds height="80.0" width="100.0" x="165.0" y="135.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNEdge bpmnElement="sid-673C3934-FC89-4E19-953D-B6D284F0AC06" id="BPMNEdge_sid-673C3934-FC89-4E19-953D-B6D284F0AC06">
-        <omgdi:waypoint x="130.0" y="178.0"></omgdi:waypoint>
-        <omgdi:waypoint x="175.0" y="178.0"></omgdi:waypoint>
+      <bpmndi:BPMNShape bpmnElement="sid-69C77B5D-9F26-4A2F-BAAD-D1243781DF0D" id="BPMNShape_sid-69C77B5D-9F26-4A2F-BAAD-D1243781DF0D">
+        <omgdc:Bounds height="80.0" width="100.0" x="320.0" y="138.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="sid-D506D367-AD9D-412B-A22E-84B10150B8A3" id="BPMNEdge_sid-D506D367-AD9D-412B-A22E-84B10150B8A3">
+        <omgdi:waypoint x="420.0" y="178.0"></omgdi:waypoint>
+        <omgdi:waypoint x="465.0" y="178.0"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge bpmnElement="sid-7183EFEC-05EB-4967-B3D0-6939B6F90FAC" id="BPMNEdge_sid-7183EFEC-05EB-4967-B3D0-6939B6F90FAC">
-        <omgdi:waypoint x="275.0" y="178.0"></omgdi:waypoint>
+      <bpmndi:BPMNEdge bpmnElement="sid-4E33E50A-63B8-4ED2-9AEE-BFF9DA05499B" id="BPMNEdge_sid-4E33E50A-63B8-4ED2-9AEE-BFF9DA05499B">
+        <omgdi:waypoint x="265.0" y="175.0"></omgdi:waypoint>
+        <omgdi:waypoint x="292.5" y="175.0"></omgdi:waypoint>
+        <omgdi:waypoint x="292.5" y="178.0"></omgdi:waypoint>
         <omgdi:waypoint x="320.0" y="178.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-99A45829-3F43-4C25-A6AF-0C1D62DDB92C" id="BPMNEdge_sid-99A45829-3F43-4C25-A6AF-0C1D62DDB92C">
+        <omgdi:waypoint x="129.9932545528355" y="177.5502023634149"></omgdi:waypoint>
+        <omgdi:waypoint x="165.0" y="176.5"></omgdi:waypoint>
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
