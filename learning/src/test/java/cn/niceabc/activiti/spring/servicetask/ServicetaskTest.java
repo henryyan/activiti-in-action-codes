@@ -60,6 +60,8 @@ public class ServicetaskTest {
                 .singleResult();
         // if the processInstance is null then the instance was completed.
         Assert.assertNull(processInstance1_completed);
+        //这里为什么没有结束呢
+        //cn.niceabc.activiti.spring.ScriptTest.test()却结束了
 
     }
 

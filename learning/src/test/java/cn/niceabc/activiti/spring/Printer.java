@@ -12,8 +12,8 @@ public class Printer {
     public void print() {
         log.debug("print.");
     }
-    public void end(String scriptVar) {
-        log.debug("end." + scriptVar);
+    public void end() {
+        log.debug("end.");
     }
 
     public void timerStart() {

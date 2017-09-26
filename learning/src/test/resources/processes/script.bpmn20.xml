@@ -3,7 +3,7 @@
   <process id="script" name="script" isExecutable="true">
 
     <extensionElements>
-      <activiti:executionListener event="end" expression="#{printer.end(execution.scriptVar)}">
+      <activiti:executionListener event="end" expression="#{printer.end()}">
       </activiti:executionListener>
     </extensionElements>
 
