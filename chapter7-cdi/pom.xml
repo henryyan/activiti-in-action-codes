@@ -41,6 +41,12 @@
             <version>3.8.1</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>javax.inject</groupId>
+            <artifactId>javax.inject</artifactId>
+            <version>1</version>
+        </dependency>
+
     </dependencies>
     <build>
         <finalName>${project.artifactId}</finalName>

@@ -10,7 +10,7 @@
 	<!-- 属性配置以及各个依赖的版本 -->
 	<properties>
 		<!-- 各个依赖的版本号 -->
-		<activiti.version>5.16.4</activiti.version>
+		<activiti.version>5.22.0</activiti.version>
 		<spring.version>4.0.6.RELEASE</spring.version>
 		<jetty.version>8.1.11.v20130520</jetty.version>
 		<commons-lang3.version>3.1</commons-lang3.version>
@@ -30,13 +30,8 @@
 	<repositories>
         <repository>
             <id>central</id>
-            <url>http://maven.oschina.net/content/groups/public/</url>
+			<url>https://maven.aliyun.com/repository/central</url>
         </repository>
-        <repository>
-            <id>nexus-osc-thirdparty</id>
-            <url>http://maven.oschina.net/content/repositories/thirdparty/</url>
-        </repository>
-
         <!-- Activiti的仓库 -->
 		<repository>
 			<id>Activiti</id>

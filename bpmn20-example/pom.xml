@@ -77,8 +77,8 @@
 		<!-- 依赖Groovy，Activiti的Script Task为groovy时需要第三方的支持 -->
 		<dependency>
 			<groupId>org.codehaus.groovy</groupId>
-			<artifactId>groovy</artifactId>
-			<version>1.8.6</version>
+			<artifactId>groovy-all</artifactId>
+			<version>2.4.7</version>
 		</dependency>
 
 		<!-- LOGGING begin -->
@@ -109,21 +109,33 @@
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-transports-http-jetty</artifactId>
 			<version>${cxf.version}</version>
-			<scope>test</scope>
+			<!--<scope>test</scope>-->
 		</dependency>
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-api</artifactId>
+			<version>2.6.14</version>
+		</dependency>
+
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-transports-http</artifactId>
 			<version>${cxf.version}</version>
-			<scope>compile</scope>
+			<!--<scope>compile</scope>-->
 		</dependency>
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-frontend-jaxws</artifactId>
+			<version>2.6.14</version>
+		</dependency>
+
 
 		<!-- 测试依赖-h2内置数据库 -->
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 			<version>1.3.172</version>
-			<scope>test</scope>
+			<!--<scope>test</scope>-->
 		</dependency>
 
 		<!-- 单元测试-Junit -->
@@ -131,14 +143,25 @@
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.10</version>
-			<scope>test</scope>
+			<!--<scope>test</scope>-->
 		</dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
             <version>${spring.version}</version>
-            <scope>test</scope>
+            <!--<scope>test</scope>-->
         </dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.8.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+			<version>3.4.6</version>
+		</dependency>
+
 		<!-- test end -->
 	</dependencies>
 
