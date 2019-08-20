@@ -51,11 +51,10 @@ It’s great to see his Activiti book as it brings a lot of value for Activiti u
 
 # 立即购买
 
-* 华章自营China-pub（便宜）：http://product.china-pub.com/3770832
-* 京东（给奶茶妹妹多一点分手费）：http://item.jd.com/11599588.html
-* 当当（有点贵）：http://product.dangdang.com/23622065.html
-* 亚马逊（还未上架）。。。
-* X宝：自己搜索吧，但请支持正版
+* 华章自营China-pub：http://product.china-pub.com/3770832
+* 京东：http://item.jd.com/11599588.html
+* 当当：http://product.dangdang.com/23622065.html
+* 淘宝：自己搜索吧，但请支持正版
 
 # 下载依赖失败解决办法
 
