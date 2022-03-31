@@ -14,7 +14,7 @@
     <url>http://maven.apache.org</url>
 
     <properties>
-        <spring.boot.version>1.1.4.RELEASE</spring.boot.version>
+        <spring.boot.version>2.5.12</spring.boot.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
